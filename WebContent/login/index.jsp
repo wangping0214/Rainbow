@@ -153,30 +153,25 @@ $(function()
                                 <p><img src="images/m_03.jpg" /></p>
                                 <p class="margin10">最新最全的安卓游戏下载排行榜尽在柴米游戏，永久免费，超爽体验，,每日为您推荐海量最好玩最热门的轻度、中度、重度安卓游戏，每个
 游戏都经过真机适配测试，让用户玩得放心开心。</p>
-                                <p><a href="today_recommend.html"><img src="images/m_07.jpg" /></a></p>
+                                <p><a href="todayRecommend.action"><img src="images/m_07.jpg" /></a></p>
                             </div>	
 							<div  class="theme_tit">
-								<strong  class="tit"><img  src="images/theme_tit7.gif"></strong>
+								<strong  class="tit"><img  src="images/theme_tit1.gif"></strong>
 							</div>	
 						</div>
 						<!--theme_title_box-->
 						<div  class="phone_box">			
 							<ul  class="phone_theme">
-							<li><img  src="images/theme_1.jpg"></li>
-							<li><img  src="images/theme_2.jpg"></li>
-							<li><img  src="images/theme_3.jpg"></li>
-							<li><img  src="images/theme_4.jpg"></li>
-							<li><img  src="images/theme_5.jpg"></li>
-							<li><img  src="images/theme_6.jpg"></li>
-							<li><img  src="images/theme_7.jpg"></li>
-							<li><img  src="images/theme_8.jpg"></li>
-							<li><img  src="images/theme_9.jpg"></li>
-							<li><img  src="images/theme_10.jpg"></li>
-							<li><img  src="images/theme_11.jpg"></li>
-							<li><img  src="images/theme_12.jpg"></li>
-							<li><img  src="images/theme_13.jpg"></li>
-							<li><img  src="images/theme_14.jpg"></li>
-							<li><img  src="images/theme_15.jpg"></li>
+							<li><img  src="images/theme_1.jpg"/></li>
+							<li><img  src="images/theme_2.jpg"/></li>
+							<li><img  src="images/theme_3.jpg"/></li>
+							<li><img  src="images/theme_4.jpg"/></li>
+							<li><img  src="images/theme_5.jpg"/></li>
+							<li><img  src="images/theme_6.jpg"/></li>
+							<li><img  src="images/theme_7.jpg"/></li>
+							<li><img  src="images/theme_8.jpg"/></li>
+							<li><img  src="images/theme_9.jpg"/></li>
+							<li><img  src="images/theme_10.jpg"/></li>
 							</ul>
 							<span  class="bg_reflect"></span>
 						</div>
@@ -193,11 +188,6 @@ $(function()
 							<li><a href="javascript:changeTheme(7);"><img  src="images/theme_thumb8.jpg"></a></li>
 							<li><a href="javascript:changeTheme(8);"><img  src="images/theme_thumb9.jpg"></a></li>
 							<li><a href="javascript:changeTheme(9);"><img  src="images/theme_thumb10.jpg" ></a></li>
-							<li><a  href="javascript:changeTheme(10);"><img  src="images/theme_thumb11.jpg"></a></li>
-							<li><a href="javascript:changeTheme(11);"><img  src="images/theme_thumb12.jpg"></a></li>
-							<li><a  href="javascript:changeTheme(12);"  style="border: none; outline: none;"><img  src="images/theme_thumb13.jpg"></a></li>
-							<li><a href="javascript:changeTheme(13);"  style="border: none; outline: none;"><img  src="images/theme_thumb14.jpg"></a></li>
-							<li><a href="javascript:changeTheme(14);"  style="border: none; outline: none;"><img  src="images/theme_thumb15.jpg"></a></li>
 							
                             
                             </ul>
@@ -208,6 +198,7 @@ $(function()
 				</div>
                 <!--theme_bg-->
        </div>
+       <!--im4-->
        <!--im4-->
    </div>
    <!--mm4-->
