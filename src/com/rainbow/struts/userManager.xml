@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+ <struts>
+<!--******************************** 用户管理******************************************* -->
+   <package name="userManager" extends="struts-default">
+          <action name="login_form" class="userAction" method="login_form">
+          		<result name="success">success.jsp</result>
+          		<result name="error">error.jsp</result>    		
+    	</action>
+    	<action name="webLoginExit"  class="userAction" method="webLoginExit">
+    	</action>
+        <action name="email_register" class="userAction" method="email_register">
+    		<result name="success">login.jsp</result>
+    		<result name="error">register.jsp</result>
+    	</action>
+    	 <action name="tel_register" class="userAction" method="tel_register">
+    		<result name="success">login/login.jsp</result>
+    		<result name="error">login/register.jsp</result>
+    	</action>
+    	<action name="checkusername" class="userAction" method="checkusername">
+    		<result name="UsernameSuccess">login/reg_success.jsp</result>
+    		<result name="UsernameError">login/reg_error.jsp</result>
+    	</action>
+    	<action name="checkemail" class="userAction" method="checkemail">
+    		<result name="EmailSuccess">login/reg_success.jsp</result>
+    		<result name="EmailError">login/reg_error.jsp</result>
+    	</action>
+    	<action name="checktelephone" class="userAction" method="checktelephone">
+    		<result name="TelephoneSuccess">login/reg_success.jsp</result>
+    		<result name="TelephoneError">login/reg_error.jsp</result>
+    	</action>
+    </package>
+    </struts>

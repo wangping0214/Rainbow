@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+ <struts>
+<!--******************************** 超级管理员后台******************************************* -->
+   <package name="appManager" extends="struts-default">
+   		<action name="uploadAppOfMenu" class="appAction" method="uploadAppOfMenu">
+   			<result>sdkfabu.jsp</result>
+   		</action>
+   		
+   		<action name="adminJointSub" class="appAction" method="adminJointSub">
+   			<result >yxshangchuan.jsp</result>
+   		</action>
+   		
+   		<action name="appUpLoad" class="appAction" method="appUpLoad">
+   			<result name="upload_sec" type="redirect">SuperAdmin/isThrough.action?appTmp.isThrough=0</result>
+   			<result name="edit_sec" type="redirect">SuperAdmin/isThrough.action?appTmp.isThrough=0</result>
+   		</action>
+   		
+   		<action name="adminIsShelf" class="appAction" method="adminIsShelf">
+   			<result name="isShelf">yyindex3.jsp</result>
+   			<result name="wait_publish">wait_publish2.jsp</result>
+   			<result name="drop">drops2.jsp</result>
+   			<result name="drop_force">drops_force.jsp</result>
+   		</action>
+   		
+   		<action name="isShelf" class="appAction" method="isShelf">
+   			<result name="isShelf">yyindex2.jsp</result>
+   			<result name="wait_publish">wait_publish.jsp</result>
+   			<result name="drop">drops.jsp</result>
+   		</action>
+   		
+   		<action name="editApp" class="appAction" method="editApp">
+   			<result>sdkfabu.jsp</result>
+   		</action>
+   		
+   		<action name="userAuditManagement" class="appAction" method="userAuditManagement">
+   			<result>guanlishenhe2.jsp</result>
+   		</action>
+   		
+   		<action name="setWithdrawn" class="appAction" method="setWithdrawn">
+   			<result>setWhithdrawn_sec.jsp</result>
+   		</action>
+   		
+   		<action name="setWithdrawnForce" class="appAction" method="setWithdrawnForce">
+   			<result>setWithdrawnForce_sec.jsp</result>
+   		</action>
+   		
+   		<action name="setIsShelf" class="appAction" method="setIsShelf">
+   			<result>setIsShelf_sec.jsp</result>
+   		</action>
+   		
+   		<action name="deleteApp" class="appAction" method="deleteApp">
+   			<result>drops2.jsp</result>
+   		</action>
+   		
+   		<action name="userSetWithdrawn" class="appAction" method="userSetWithdrawn">
+   			<result>userSetWithdrawn_sec.jsp</result>
+   		</action>
+   		
+   		<action name="userSetIsShelf" class="appAction" method="userSetIsShelf">
+   			<result>userSetIsShelf_sec.jsp</result>
+   		</action>
+   		
+   		<action name="userDeleteApp" class="appAction" method="userDeleteApp">
+   			<result>drops.jsp</result>
+   		</action>
+   		
+   		<action name="isThrough" class="appAction" method="isThrough">
+   			<result name="waitThrough">waitshenhe2.jsp</result>
+   			<result name="notThrough">weitongguosh2.jsp</result>
+   		</action>
+   		
+   		<action name="adminIsThrough" class="appAction" method="adminIsThrough">
+   			<result name="waitThrough">waitshenhe.jsp</result>
+   			<result name="notThrough">weitongguosh.jsp</result>
+   		</action>
+   		
+   		<action name="auditManagement" class="appAction" method="auditManagement">
+   			<result>sdkshenhe.jsp</result>
+   		</action>
+   		
+   		<action name="auditSubmit" class="appAction" method="auditSubmit">
+   			<result name="success">auditSubmit_sec.jsp</result>
+   			<result name="error">auditSubmit_error.jsp</result>
+   		</action>
+   		
+   		<action name="auditInfo" class="appAction" method="auditInfo">
+   			<result name="success">glshsucai.jsp</result>
+   		</action>
+   		
+   		<action name="auditSou" class="appAction" method="auditSou">
+   			<result name="success">glshsucai.jsp</result>
+   		</action>
+   		
+   		<action name="userAuditSou" class="appAction" method="userAuditSou">
+   			<result>glshsucai2.jsp</result>
+   		</action>
+   		<action name="menuAdminAppAndGame" class="appAction" method="menuAdminAppAndGame">
+   			<result>menu.jsp</result>
+   		</action>
+   		
+   		<action name="menuAdminSelfAppAndGame" class="appAction" method="menuAdminSelfAppAndGame">
+   			<result>menu.jsp</result>
+   		</action>
+   		
+   		<action name="rank" class="appAction" method="rank">
+   			<result>yxpaiming.jsp</result>
+   		</action>
+   		
+   		<action name="rankSubmit" class="appAction" method="rankSubmit">
+   		</action>
+   		
+   		<action name="showInfo" class="appAction" method="showInfo">
+   			<result>jibenxinxi.jsp</result>
+   		</action>
+   		<action name="adminShowJoint" class="appAction" method="adminShowJoint">
+   			<result name="drop">sdkdrops.jsp</result>
+   			<result name="waitPublish">sdkwait_publish.jsp</result>
+   			<result name="shelf">Joint operation.jsp</result>
+   		</action>
+   		
+   		<action name="adminShowAllJoint" class="appAction" method="adminShowAllJoint">
+   			<result name="drop">sdkdrops2.jsp</result>
+   			<result name="waitPublish">sdkwait_publish2.jsp</result>
+   			<result name="shelf">Joint operation2.jsp</result>
+   			<result name="dropForce">sdkdrops_force.jsp</result>
+   		</action>
+   </package>
+   </struts>

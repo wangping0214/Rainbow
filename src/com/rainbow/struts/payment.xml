@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="payment" extends="struts-default">
+		<action name="payFormSub" class="paymentAction" method="payFormSub"></action>
+		<action name="showAppProduct" class="paymentAction" method="showAppProduct">
+			<result>virtual good.jsp</result>
+		</action>
+		<action name="editPay" class="paymentAction" method="editPay"></action>
+		<action name="deletePay" class="paymentAction" method="deletePay"></action>
+		<action name="checkProductId" class="paymentAction" method="checkProductId">
+			<result name="success">success.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		<action name="editPaySub" class="paymentAction" method="editPaySub"></action>
+	</package>
+</struts>

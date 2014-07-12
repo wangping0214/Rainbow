@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+ <struts>
+<!--******************************** 手机前台******************************************* -->
+   <package name="mob" extends="struts-default">
+   		<action name="showByType" class="mobAction" method="showByType">
+   			<result name="game">youxi.jsp</result>
+   			<result name="application">yingyong.jsp</result>
+   		</action>
+   		<action name="showByClassification" class="mobAction" method="showByClassification">
+   			<result>classification.jsp</result>
+   		</action>
+   		<action name="showByRecomLevel" class="mobAction" method="showByRecomLevel">
+   			<result>tuijian.jsp</result>
+   		</action>
+   		<action name="showByCategory" class="mobAction" method="showByCategory">
+   			<result>category.jsp</result>
+   		</action>
+   		<action name="downLoad" class="mobAction" method="downLoad"></action>
+   		<action name="specificInformation" class="mobAction" method="specificInformation">
+   			<result>apk.jsp</result>
+   		</action>
+   		<action name="showByScoreAndDown" class="mobAction" method="showByScoreAndDown">
+   			<result>paihang.jsp</result>
+   		</action>
+   </package>
+   </struts>

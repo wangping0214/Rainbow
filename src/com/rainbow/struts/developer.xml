@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+ <struts>
+<!--******************************** 开发者信息管理******************************************* -->
+   <package name="developer" extends="struts-default">
+          <action name="changeemail" class="developerAction" method="changeemail">
+    		<result name="EmailSuccess">developer/change_success.jsp</result>
+    		<result name="EmailError">developer/change_error.jsp</result>
+    	</action>
+    	<action name="changetelephone" class="developerAction" method="changetelephone">
+    		<result name="TelephoneSuccess">developer/change_success.jsp</result>
+    		<result name="TelephoneError">developer/change_error.jsp</result>
+    	</action>
+          <action name="login_developer" class="developerAction" method="login_developer">
+    		<result name="usersuccess0">developer/admin_common.jsp</result>
+    		<result name="usersuccess1">developer/admin_inuser.jsp</result>
+    		<result name="usersuccess2">developer/admin_ingroup.jsp</result>
+    		<result name="usererror">developer/admin_stop.jsp</result>
+    		<result name="error">developer/loginerror.jsp</result>
+    	</action>
+          <action name="modify" class="developerAction" method="modify">
+    		<result name="common_success">developer/tianxinxi.jsp</result>
+    		<result name="users_success">developer/kaifaxinxi_inuser.jsp</result>
+    		<result name="groups_success">developer/kaifaxinxi_ingroup.jsp</result>
+    		<result name="wait_success">developer/wait_check.jsp</result>
+    	</action>
+    	 <action name="upDate_user" class="developerAction" method="upDate_user">
+    		<result name="success">developer/main.jsp</result>
+    		<result name="error">developer/error.jsp</result>
+    	</action>
+    	<action name="upDate_group" class="developerAction" method="upDate_group">
+    		<result name="success">developer/main.jsp</result>
+    		<result name="error">developer/error.jsp</result>
+    	</action>
+    	<action name="modify_password" class="developerAction" method="modify_password">
+    		<result name="success">developer/main.jsp</result>
+    		<result name="error">developer/error.jsp</result>
+    	</action>
+    	<action name="modify_ad" class="developerAction" method="modify_ad">
+    		<result name="success">developer/guanggaogl.jsp</result>
+    		<result name="error">developer/error.jsp</result>
+    	</action>	
+    	<action name="new_ad" class="developerAction" method="new_ad">
+    		<result name="success">developer/main.jsp</result>
+    		<result name="error">developer/error.jsp</result>
+    	</action>	
+    	<action name="developer_logout" class="developerAction" method="developer_logout">
+    		<result name="success">developer/login.jsp</result>
+    	</action>
+      </package>
+      </struts>

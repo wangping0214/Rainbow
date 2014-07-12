@@ -1,0 +1,29 @@
+html{margin:0 auto; padding:0; }
+body{margin:auto; padding:0;} 
+.app{
+	weidh:100px;
+	height:250px;
+	border-top:20px;
+	border-bottom:20px;
+	border-right:20px;
+	border-left:20px;
+}
+
+.app.logo{
+	width:100px;
+	height:150px;
+}
+.app.name{
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 1.5;
+	color: #000000;
+	text-decoration: none;
+	background-color: #ffffff;
+	margin:0 auto;
+}
+.app.edit{
+	width:100px;
+	height:60px;
+	background-color: #ffffff;
+}

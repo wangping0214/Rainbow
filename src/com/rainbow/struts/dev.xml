@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+ <struts>
+<!--********************************开发者后台******************************************* -->
+   <package name="dev" extends="struts-default">
+   		<action name="devUploadAppOfMenu" class="devAction" method="devUploadAppOfMenu">
+   			<result>sdkfabu.jsp</result>
+   		</action>
+   		<action name="devJointSub" class="devAction" method="devJointSub" >
+   			<result>yxshangchuan2.jsp</result>
+   		</action>
+   		<action name="devAppUpLoad" class="devAction" method="devAppUpLoad">
+   			<result name="upload_sec" type="redirect">developer/devIsThrough.action?appTmp.isThrough=0</result>
+   			<result name="edit_sec" type="redirect">developer/devIsThrough.action?appTmp.isThrough=0</result>
+   		</action>
+   		<action name="devIsShelf" class="devAction" method="devIsShelf">
+   			<result name="isShelf">yyindex2.jsp</result>
+   			<result name="wait_publish">wait_publish.jsp</result>
+   			<result name="drop">drops.jsp</result>
+   		</action>
+   		<action name="devEditApp" class="devAction" method="devEditApp">
+   			<result>sdkfabu.jsp</result>
+   		</action>
+   		<action name="devAuditManagement" class="devAction" method="devAuditManagement">
+   			<result>guanlishenhe2.jsp</result>
+   		</action>
+   		<action name="devSetWithdrawn" class="devAction" method="devSetWithdrawn">
+   			<result>userSetWithdrawn_sec.jsp</result>
+   		</action>
+   		<action name="devSetIsShelf" class="devAction" method="devSetIsShelf">
+   			<result>userSetIsShelf_sec.jsp</result>
+   		</action>
+   		<action name="devDeleteApp" class="devAction" method="devDeleteApp">
+   			<result>drops.jsp</result>
+   		</action>
+   		<action name="devIsThrough" class="devAction" method="devIsThrough">
+   			<result name="waitThrough">waitshenhe2.jsp</result>
+   			<result name="notThrough">weitongguosh2.jsp</result>
+   		</action>
+   		
+   		<action name="menuDevAppAndGame" class="devAction" method="menuDevAppAndGame">
+   			<result name="inuser">menu_inuser.jsp</result>
+   			<result name="ingroup">menu_ingroup.jsp</result>
+   			<result name="common">menu_common.jsp</result>
+   		</action>
+   		<action name="devShowJoint" class="devAction" method="devShowJoint">
+   			<result name="drop">sdkdrops.jsp</result>
+   			<result name="waitPublish">sdkwait_publish.jsp</result>
+   			<result name="shelf">Joint operation.jsp</result>
+   		</action>
+   </package>
+   </struts>

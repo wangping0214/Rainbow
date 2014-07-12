@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link href="css/color.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="c">
+
+<div id="fc1"> <font color="#000"> 【手机娱乐中心】</font>
+</div>
+<div class="fc3">
+ <font color="#000"> <a href="http://www.chaimiyouxi.com">更多></a></font>
+</div>
+<div> <a href="http://www.chaimiyouxi.com"><img src="pic/sf.jpg" width="100%"/></a></div>
+ 
+  <div class="fc211">
+  <td class="leW" valign="top" width="100%">
+   <!-- d -->   <!-- d -->
+   <!-- 舌签排行 begin -->
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+var cur_index=1
+var num=3//该值记录标签的个数
+var settime
+function GetObj(objName){
+ if(document.getElementById){
+  return eval('document.getElementById("' + objName + '")');
+ }else if(document.layers){
+  return eval("document.layers['" + objName +"']");
+ }else{
+  return eval('document.all.' + objName);
+ }
+}
+function change_Menu(index){
+ for(var i=1;i<=num;i++){/* 最多支持8个标签 */
+  if(GetObj("con"+i)&&GetObj("m"+i)){
+   GetObj("con"+i).style.display = 'none';
+   GetObj("m"+i).className = "menu"+i+"Off";
+  }
+ }
+ if(GetObj("con"+index)&&GetObj("m"+index)){
+  GetObj("con"+index).style.display = 'block';
+  GetObj("m"+index).className = "menu"+index+"On";
+ }
+ cur_index=index
+ if(cur_index<num){
+    cur_index++
+   }
+ else{
+     cur_index=1
+   }
+ settime=setTimeout("change_Menu(cur_index)",20000)//设置延迟时间
+}
+function Menu(c_index){
+  clearTimeout(settime)
+  change_Menu(c_index)
+ }    
+//]]>
+</script>
+<table cellspacing="0" style="background:#000; width:100%;" class="clearit">
+  <tr>
+    <td height="3"></td>
+  </tr>
+  <tr>
+    <td id="m1" onClick="Menu(1)" class="menu1On" title="本周精彩">本周精彩</td>
+    <td width="1"></td>
+    <td id="m2" onClick="Menu(2)" class="menu1Off" title="优游新得">优游新得</td>
+    <td width="1"></td>
+    <td id="m3" onClick="Menu(3)" class="menu3Off" title="经典排行">身经百战</td>
+    <td width="1"></td>
+
+  </tr>
+</table>
+<div id="con1" class="cont_le picfff">
+<p style="margin-left:1px;"><br><table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+  <tr>
+    <td width="140" height="205" valign="top"> <a href="http://www.chaimiyouxi.com"><img name="" src="../image/z.jpg" width="112" height="168" alt="" /></a></td>
+    <td width="241" valign="top">
+ 
+       <a href="http://www.chaimiyouxi.com/news.asp?id=11">韩国手游大作《你好英雄》，极品画质令人称赞！</a><p><p><br/>
+	    <a href="http://www.chaimiyouxi.com/news.asp?id=17">漂移无极限《极速飞车》，3D卡通画面更有亲和力。</a><p><p><br/>
+       <a href="http://www.chaimiyouxi.com/news.asp?id=3">WCG黯然落幕！游戏业翻过了哪一页？</a><p><p><br/>
+       <a href="http://www.chaimiyouxi.com/news.asp?id=8">手游《进击的巨人》日本上市</a><p><p><br/>
+       <a href="http://www.chaimiyouxi.com/news.asp?id=21">女厕惊现‘手纸男’</a><p><p><br/>
+	  </p>
+     <img src="pic/t.png" width="201" height="39" /></p></td>
+    </tr>
+  <tr>
+    <td height="34">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</p>
+<div class="clearit"></div>
+</div>
+<div id="con2" style="display:none;"  class="cont_le picfff">
+<p style="margin-left:1px;"><br>
+<td width="241" valign="top"><p>    <a href="http://www.chaimiyouxi.com/news.asp?id=14"><font color="#000000">[优游心得]欢乐麻将</font></a><br>
+<br />
+      <a href="http://www.chaimiyouxi.com/news.asp?id=13"><font color="#000000">[优游心得]找你妹3</font></a><br>
+      <br />
+      <a href="http://www.chaimiyouxi.com/news.asp?id=12"><font color="#000000">[优游心得]全民飞机大战</font></a><br>
+      <br />
+      <a href="http://www.chaimiyouxi.com/news.asp?id=11"><font color="#000000">[优游心得]你好英雄</font></a><br>
+      <br />
+      <a href="http://www.chaimiyouxi.com/news.asp?id=10"><font color="#000000">[优游心得]保卫萝卜2</font></a><br>
+      <br/>
+<p><br /> 
+  </p>
+  </td>
+<img src="pic/t.png" width="201" height="39" />
+</p>
+</p>
+</div>
+<div id="con3" style="display:none;"  class="cont_le picfff">
+<p><br>
+   <a href="http://www.chaimiyouxi.com/news.asp?id=19"><font color="#000000">[身经百战]爆射僵尸鸟</font></a><br><br>
+   <a href="http://www.chaimiyouxi.com/news.asp?id=18"><font color="#000000">[身经百战]疯狂喷气机</font></a><br><br>
+   <a href="http://www.chaimiyouxi.com/news.asp?id=17"><font color="#000000">[身经百战]极速飞车</font></a><br><br>
+   <a href="http://www.chaimiyouxi.com/news.asp?id=16"><font color="#000000">[身经百战]老爸曾是小偷</font></a><br><br>
+   <a href="http://www.chaimiyouxi.com/news.asp?id=15"><font color="#000000">[身经百战]鳄鱼小顽皮爱洗澡</font></a><br><br>
+<img src="pic/t.png" width="201" height="39" />
+</div>
+</div>
+</div>
+<div class="fc214"> <a href="http://www.chaimiyouxi.com"><img src="pic/xf.jpg" width="100%"/></a></div>
+<div>
+
+</div>
+</body>
+</html>

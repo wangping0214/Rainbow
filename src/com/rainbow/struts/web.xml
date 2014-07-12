@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+ <struts>
+<!--******************************** 电脑前台******************************************* -->
+    <package name="web" extends="struts-default">
+    	<action name="webShowByCategory" class="webAction" method="webShowByCategory" >
+    		<result>categoryList.jsp</result>
+    	</action>
+    	<action name="webShowByClassification" class="webAction" method="webShowByClassification">
+    		<result>classificationList.jsp</result>
+    	</action>
+    	<action name="todayRecommend" class="webAction" method="todayRecommend">
+    		<result>today_recommend.jsp</result>
+    	</action>
+    	<action name="webRanklist" class="webAction" method="webRanklist">
+    		<result>ranklist.jsp</result>
+    	</action>
+    	<action name="details" class="webAction" method="details">
+    		<result>details.jsp</result>
+    	</action>
+    	<action name="rankMore" class="webAction" method="rankMore">
+    		<result name="rankMoreApp">rank_moreApp.jsp</result>
+    		<result name="rankMoreGame">rank_moreGame.jsp</result>
+    	</action>
+    	<action name="rankByKeyword" class="webAction" method="rankByKeyword">
+    		<result name="rank_moreApp">rank_moreApp.jsp</result>
+    		<result name="rank_moreGame">rank_moreGame.jsp</result>
+    	</action>
+    </package>
+    </struts>

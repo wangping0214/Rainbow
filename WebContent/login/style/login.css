@@ -1,0 +1,72 @@
+@charset "utf-8";
+/* CSS Document */
+body{ font-size:12px; color:#4f5152; font-family:"微软雅黑"; line-height:150%; }
+body,div,p,form,table,td,ul,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,ol{ margin:0; padding:0;}
+
+#wrap{position:relative;width:980px; overflow:hidden; zoom:1; margin:0 auto; padding-top:50px;}
+#header{z-index:10;position:fixed;top:0;left:0;width:100%;height:55px;background:url(../images/bg_gnb.png) repeat-x 0 0}
+.fl{float:left;}
+.fr{float:right;}
+.clear{clear:both;}
+a{ text-decoration:none; color:#4f5152;}
+input{ outline:none;}
+
+.type{  background:none; border:none;width:135px; height:25px; vertical-align:top; margin-top:2px; line-height:25px; font-family:微软雅黑; color:#666;}
+.sou{ width:30px; height:30px; background:none; border:none; cursor:pointer;}
+.im1{background:url(../images/im_09.jpg) no-repeat; width:980px; height:420px;}
+.im1 p{ width:325px; font-size:16px; padding:200px 0 0 120px; text-indent:2em;}
+
+.im2{ position:relative;  width:980px; height:440px; background-color:#30b5b2;}
+.im2text{ position:absolute; left:410px; top:50px; width:400px; color:#FFF; font-size:15px;}
+.tit1{ font-size:44px;font-weight:normal; font-family:微软雅黑;}
+.tit2{ font-size:18px;font-weight:normal; font-family:微软雅黑; margin:20px 0;}
+.cont{position:relative;height:535px;margin:0 auto}
+.jian1{ position:absolute; bottom:0; display:block; width:179px; margin:0 auto; left:45%; }
+
+.zccont{ width:450px; margin:20px auto 0 auto;overflow:hidden; zoom:1;}
+.zcnav{ width:380px; margin:0 auto;  overflow:hidden; zoom:1;}
+.zcnav li{ width:125px; float:left; cursor:pointer; margin-right:5px; overflow:hidden; zoom:1; width:77px; height:35px; line-height:35px; font-size:12px; font-weight:bold; padding-left:48px; }
+.li1{ background:url(../images/bg3s.png) no-repeat;color:#a6a6a6;}
+.li1.bg{ background:url(../images/bg3.png) no-repeat; color:#FFF;}
+.li2{ background:url(../images/qy2.png) no-repeat;color:#a6a6a6;}
+.li2.bg{ background:url(../images/qy2s.png) no-repeat; color:#FFF;}
+.zhuce{ clear:both; overflow:hidden; zoom:1;}
+.zhuceform{ clear:both; overflow:hidden; zoom:1; margin:10px 0 20px 0;}
+.zhuceform div{ clear:both; overflow:hidden; zoom:1; margin:10px 0 0 0;}
+.zhuceform .border0{ border:0;}
+.zhuceform label{ color:#000; float:left; width:70px; text-align:right;}
+.zhuceform input{ float:left; width:215px; height:22px; line-height:22px;outline:none;}
+.ma{ clear:both; overflow:hidden; zoom:1; margin-bottom:10px;}
+.ma img{ vertical-align:middle; padding-top: 15px;}
+.ma div,.ma p{ float:left; margin-right:5px;}
+.ma div{ width:145px; padding:10px 0 10px 20px;}
+.ma label{ color:#000;}
+.ma div input{ width:90px;height:20px; line-height:20px; outline:none;}
+.ma p input{ border:0; margin-top:6px; background:url(../images/qy8.png) no-repeat; width:99px; height:30px; text-align:center; line-height:30px; color:#FFF; cursor:pointer}
+.gree a{ text-decoration:underline}
+.gree a:hover{ color:#09F}
+.zcbut{ margin-top:20px; width:320px; margin:20px auto 0 auto}
+.zcbut input{ border:none; background:none; background:url(../images/qybg.png) no-repeat; width:206px; text-align:center; line-height:35px; color:#FFF; font-weight:bold; height:35px; display:block; cursor:pointer}
+.zidong{ width:220px;padding-left:70px; margin-bottom:20px; clear:both; overflow:hidden; zoom:1;}
+.zidong input{ width:auto; height:auto; vertical-align:middle;}
+.zidong a{ color:#60CD26}
+.zidong a:hover{ text-decoration:underline;}
+
+.password{ width:380px; margin:80px auto 0 auto;overflow:hidden; zoom:1; }
+.password dl{ width:74px; float:left; margin-right:30px; text-align:center;}
+.password dd{ margin-top:5px; color:#2b99f8;}
+.passcont,.passcont2{ width:260px; float:left;}
+.passcont p{ margin-top:20px; color:#000;}
+.passcont2 p{ margin:0; margin-bottom:8px;}
+.passcont2 p b{ color:#000; font-size:14px;}
+.shouji{ width:220px; height:25px; border:#2b99f8 solid 1px; line-height:25px; color:#666}
+.passcont a{ float:left; margin-right:18px; height:30px; line-height:30px; font-size:14px; font-family:"宋体"}
+.passcont .next2{ background:#2b99f8; padding:0 15px; color:#FFF;}
+.passcont .jhm{ background:#e5e5e5; padding:0 5px; font-size:12px;}
+.passcont2 .pbaocun{ background:none; border:none; background:#2b99f8; width:80px; height:30px; line-height:30px; text-align:center; font-size:14px; color:#FFF; cursor:pointer}
+.passcont2 .tishi{ color:#666;}
+.relogin a{ clear:both; float:none; color:#2b99f8; text-decoration:underline; font-size:12px;}
+.wide450{ width:500px;}
+.wide450 .passcont2{ width:360px;}
+
+#zphone,#resend{border:0; background:none; background:#e5e5e5; padding:0 5px; height:30px; line-height:30px; font-size:12px; font-family:"宋体"; text-align:center;}

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+ <struts>
+<!-- ****************************admin************************************* -->
+      <package name="adminManager" extends="struts-default">
+          <action name="login_admin" class="adminAction" method="login_admin">
+    		<result name="success">SuperAdmin/admin.jsp</result>
+    		<result name="error">SuperAdmin/loginerror.jsp</result>
+    	</action>
+          <action name="mem_manager" class="adminAction" method="mem_manager">
+    		<result name="common">SuperAdmin/huiyuan.jsp</result>
+    		<result name="users">SuperAdmin/huiyuan_inusers.jsp</result>
+    		<result name="groups">SuperAdmin/huiyuan_ingroups.jsp</result>
+    		<result name="wait">huiyuan_zcsp.jsp</result>
+    	</action>
+    	<action name="stop_individual" class="adminAction" method="stop_individual">
+    	</action>
+    	<action name="start_individual" class="adminAction" method="start_individual">
+    	</action>
+    	<action name="information" class="adminAction" method="information">
+    	    <result name="group_info">SuperAdmin/qiyexinxi.jsp</result>
+    	    <result name="user_info">SuperAdmin/gerenxinxi.jsp</result>
+    	    <result name="common_info">SuperAdmin/yonghuxinxi.jsp</result>
+    	    <result name="error">#</result>
+    	</action>
+    	<action name="reg_information" class="adminAction" method="reg_information">
+    	    <result name="group_info">SuperAdmin/chulishenpi.jsp</result>
+    	    <result name="user_info">SuperAdmin/shenpigeren.jsp</result>
+    	    <result name="error">#</result>
+    	</action>
+    	<action name="reg_approved" class="adminAction" method="reg_approved">
+    	    <result name="success">huiyuan_con.jsp</result>
+    	    <result name="error">huiyuan_error.jsp</result>
+    	</action>
+      </package>
+</struts>

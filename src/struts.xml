@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <constant name="struts.objectFactory" value="spring" />
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <constant name="struts.ui.theme" value="simple"/> 
+    <constant name="struts.multipart.maxSize" value="1070109600"/>
+    
+    
+    
+    <include file="com/rainbow/struts/userManager.xml"></include><!-- 普通用户管理 -->
+    <include file="com/rainbow/struts/developer.xml"></include><!-- 开发者用户管理 -->
+    <include file="com/rainbow/struts/adminManager.xml"></include><!-- 超级管理员管理用户 -->
+	<include file="com/rainbow/struts/appManager.xml"></include><!-- 超级管理员管理应用 -->
+    <include file="com/rainbow/struts/dev.xml"></include><!-- 开发者管理应用 -->
+    <include file="com/rainbow/struts/mob.xml"></include><!-- 手机前台 -->
+   	<include file="com/rainbow/struts/magazine.xml"></include><!-- 杂志后台 -->   
+    <include file="com/rainbow/struts/web.xml"></include><!-- 电脑前台 -->
+    <include file="com/rainbow/struts/apkDownLoad.xml"></include><!-- 应用下载 -->
+    <include file="com/rainbow/struts/verfication.xml"></include><!-- 验证码 -->
+    <include file="com/rainbow/struts/imgSizeAction.xml"></include><!-- 图片大小验证 -->
+    <include file="com/rainbow/struts/review.xml"></include><!-- 评论 -->
+    <include file="com/rainbow/struts/shelfManage.xml"></include><!-- 联运上下架管理 -->
+    <include file="com/rainbow/struts/payment.xml"></include><!-- 支付系统 -->
+    <include file="com/rainbow/struts/idMessageAction.xml"></include><!-- id信息管理 -->
+    <include file="com/rainbow/struts/prizeAction.xml"></include><!-- 抽奖系统 -->
+    <include file="com/rainbow/struts/FindPasswordAction.xml"></include><!-- 找回密码 -->
+    
+</struts>

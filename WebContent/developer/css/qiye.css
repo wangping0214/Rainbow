@@ -1,0 +1,78 @@
+@charset "utf-8";
+/* CSS Document */
+a img{ border:none;}
+.zccont{ width:320px; margin:20px auto;overflow:hidden; zoom:1;}
+.zcnav{ width:260px; margin:0 auto; overflow:hidden; zoom:1;}
+.zcnav li{ width:125px; float:left; margin-right:5px; overflow:hidden; zoom:1; width:77px; height:35px; line-height:35px; font-size:12px; font-weight:bold; padding-left:48px; }
+.li1{ background:url(../images/bg3s.png) no-repeat;color:#a6a6a6;}
+.li1.bg{ background:url(../images/bg3.png) no-repeat; color:#FFF;}
+.li2{ background:url(../images/qy2.png) no-repeat;color:#a6a6a6;}
+.li2.bg{ background:url(../images/qy2s.png) no-repeat; color:#FFF;}
+.zhuce{ clear:both; overflow:hidden; zoom:1;}
+.zhuceform{ border:#CCC solid 1px; clear:both; overflow:hidden; zoom:1; margin:10px 0 30px 0;}
+.zhuceform div{ padding:10px 0 10px 20px; border-bottom:#CCC solid 1px;}
+.zhuceform .border0{ border:0;}
+.zhuceform label{ color:#000;}
+.zhuceform input{ width:235px; height:22px; line-height:22px; border:none; outline:none;}
+.ma{ clear:both; overflow:hidden; zoom:1; margin-bottom:10px;}
+.ma img{ vertical-align:middle; padding-left:5px;}
+.ma div,.ma p{ float:left; margin-right:5px;}
+.ma div{ width:165px; border:#CCC solid 1px; padding:10px 0 10px 20px;}
+.ma label{ color:#000;}
+.ma div input{ width:110px; border:0; height:20px; line-height:20px; outline:none;}
+.ma p input{ border:0; margin-top:6px; background:url(../images/qy8.png) no-repeat; width:99px; height:30px; text-align:center; line-height:30px; color:#FFF; cursor:pointer}
+.gree a{ text-decoration:underline}
+.gree a:hover{ color:#09F}
+.zcbut{ margin-top:20px;}
+.zcbut input{ border:none; background:none; background:url(../images/qybg.png) no-repeat; width:206px; text-align:center; line-height:35px; color:#FFF; font-weight:bold; height:35px; margin:0 auto; display:block; cursor:pointer}
+
+.hy{ font-size:24px; color:#70AD47;	font-weight: bold; margin:70px 0 30px 0;}
+.yf{ font-size:30px;font-weight: bold;}
+
+.tit9{ font-size:22px; border-bottom:solid 1px #999; padding:10px; font-family:微软雅黑; float:left; margin-bottom:20px;}
+.yidao{ clear:both;}
+.leixing{ clear:both; overflow:hidden; zoom:1; margin-top:20px;}
+.leixing p,.leixing ul{ float:left;}
+.leixing .tits2{ font-size:14px; font-weight:bold; color:#06C; margin:10px  10px 10px 20px; display:inline;}
+.leixing li{ float:left; cursor:pointer; font-family:微软雅黑}
+.lei1{ background:url(../images/q1s.png) no-repeat; width:66px; height:35px; line-height:35px; text-align:left; padding-left:30px;}
+.lei1.over{ background:url(../images/q1.png) no-repeat; color:#FFF}
+.lei2{ background:url(../images/q2.png) no-repeat; width:67px; height:35px; line-height:35px; text-align:left; padding-left:23px;}
+.lei2.over{ background:url(../images/q2s.png) no-repeat;color:#FFF}
+
+.leixing2{ clear:both; overflow:hidden; zoom:1; margin-top:20px;}
+.leixing2 p,.leixing2 ul{ float:left;}
+.leixing2 .tits2{ font-size:14px; font-weight:bold; color:#06C; margin:10px  10px 10px 20px; display:inline;}
+.leixing2 li{ float:left; cursor:pointer; font-family:微软雅黑}
+.leixingnav2 a{ display:block; width:66px; height:35px;}
+.leixing2 .lei1{ background:url(../images/q1s.png) no-repeat; width:66px; height:35px; line-height:35px; text-align:left; padding-left:30px;}
+.leixing2 .lei1.over{ background:url(../images/q1.png) no-repeat; color:#FFF}
+.leixing2 .lei2{ background:url(../images/q2.png) no-repeat; width:67px; height:35px; line-height:35px; text-align:left; padding-left:23px;}
+.leixing2 .lei2.over{ background:url(../images/q2s.png) no-repeat;color:#FFF}
+.leixing2 li.over a{ color:#FFF;}
+
+.zhushi4{ font-style:italic; color:#C00000; font-family:微软雅黑; padding:5px 0 0 105px; clear:both; }
+.zhushi4s{font-style:italic;font-family:微软雅黑; padding:5px 0 0 105px; clear:both; }
+.zz{ color:#C00000; font-family:微软雅黑; width:210px; float:left; margin-top:5px;}
+.zz b{ font-style:normal; color:#666;}
+.agree{ padding-left:80px; font-size:14px;}
+.agree input{ width:auto; background:none; border:none;}
+.agree a{ text-decoration:underline;}
+.xxtijiao input{ border:0; background:url(../images/img14.png) no-repeat; width:150px; height:46px; line-height:44px;font-family:微软雅黑; color:#FFF; font-size:24px; display:block; margin:0 auto 20px auto }
+.yx{ margin-left:40px;}
+.size24{ font-size:24px; color:#70AD47; font-weight:bold; margin:40px 0;}
+.size18{ font-size:18px; line-height:150%;}
+.go{ margin:30px 0;}
+.go a{ display:block; background:url(../images/bg5.png) no-repeat; width:174px; height:50px; text-align:center; line-height:50px; color:#FFF; font-size:24px;}
+.chongfa a{ float:left; background:url(../images/bg6.png) no-repeat; width:209px; height:35px; text-align:center; line-height:35px; font-size:14px;}
+.chongfa p{ float:left; line-height:35px; padding-right:5px;}
+.yx2{ text-align:center;width:500px;}
+.yx2 p{ margin-left:0;}
+.size26{ font-size:28px;color:#70AD47; font-weight:bold; margin:60px 0 20px 0}
+.xiugaimm{ width:380px; clear:both; overflow:hidden; zoom:1;margin:0 auto}
+.xiugaimm div{ clear:both; overflow:hidden; zoom:1; border:#CCC solid 1px; padding:10px 3px;width:360px; margin-bottom:15px;}
+.xiugaimm label{ width:80px; text-align:right; float:left; color:#333; font-size:16px; font-family:"微软雅黑"}
+.xiugaimm input{ width:220px; float:left; height:20px; border:0;}
+.xiugaimm .baocun{ border:0; width:150px; margin:0 auto}
+.baocun input{ background:url(../images/bao.png) no-repeat;width:150px;  height:46px; text-align:center; line-height:46px; font-weight:bold; font-size:20px; color:#FFF;font-family:"微软雅黑";}
+.tit9s{ font-size:22px; border-bottom:solid 1px #999; padding:10px; font-family:微软雅黑; float:left; margin-bottom:80px;}

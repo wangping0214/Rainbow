@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor">
+	</bean>
+
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="mysqlDataSource"></property>
+		<property name="jpaVendorAdapter"
+			ref="hibernateJpaVendorAdaptor">
+		</property>
+	</bean>
+	
+	<bean id="mysqlDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver">
+		</property>
+		<property name="url" value="jdbc:mysql://localhost:3306/rainbow"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="root"></property>
+	</bean>
+	
+	<bean id="hibernateJpaVendorAdaptor"
+		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+		<property name="database" value="MYSQL"></property>
+		<property name="showSql" value="true"></property>
+	</bean>
+	<bean id="transactionManager"
+		class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory"
+			ref="entityManagerFactory">
+		</property>
+	</bean>
+	
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	
+	<!-- DAO start here -->
+	
+
+	
+	<bean id="magDAO" class="com.rainbow.dao.impl.MagDAOImpl"></bean>
+	<bean id="magConDAO" class="com.rainbow.dao.impl.MagConDAOImpl"></bean>
+	<bean id="AppAutDAO" class="com.rainbow.dao.impl.AppAutDAOImpl"></bean>
+	<bean id="AppInfoDAO" class="com.rainbow.dao.impl.AppInfoDAOImpl"></bean>
+	<bean id="AppSouDAO" class="com.rainbow.dao.impl.AppSouDAOImpl"></bean>
+	<bean id="userDAO" class="com.rainbow.dao.impl.UserDAOImpl"></bean>
+	<bean id="adminDAO" class="com.rainbow.dao.impl.AdminDAOImpl"></bean>
+	<bean id="ReviewDAO" class="com.rainbow.dao.impl.ReviewDAOImpl"></bean>
+	<bean id="CpIdSeedDAO" class="com.rainbow.dao.impl.CpIdSeedDAOImpl"></bean>
+	<bean id="AppIdSeedDAO" class="com.rainbow.dao.impl.AppIdSeedDAOImpl"></bean>
+	<bean id="MessageDAO" class="com.rainbow.dao.impl.MessageDAOImpl"></bean>
+	<bean id="OtherPaymentDAO" class="com.rainbow.dao.impl.OtherPaymentDAOImpl"></bean>
+	<bean id="PrizeDAO" class="com.rainbow.dao.impl.PrizeDAOImpl"></bean>
+	
+	
+
+	<!-- DAO end here -->
+	
+	<!-- Action start here -->
+	<bean id="userAction" class="com.rainbow.action.UserAction" scope="prototype">
+		<constructor-arg ref="userDAO"></constructor-arg>
+	</bean>
+	<bean id="developerAction" class="com.rainbow.action.DeveloperAction" scope="prototype">
+		<constructor-arg ref="userDAO"></constructor-arg>
+	</bean>
+	<bean id="adminAction" class="com.rainbow.action.AdminAction" scope="prototype">
+		<constructor-arg ref="adminDAO"></constructor-arg>
+		<constructor-arg ref="userDAO"></constructor-arg>
+	</bean>
+	<bean id="appAction" class="com.rainbow.action.AppAction" scope="prototype">
+		<constructor-arg ref="AppAutDAO"></constructor-arg>
+		<constructor-arg ref="AppInfoDAO"></constructor-arg>
+		<constructor-arg ref="AppSouDAO"></constructor-arg>
+		<constructor-arg ref="adminDAO"></constructor-arg>
+		<constructor-arg ref="userDAO"></constructor-arg>
+		<constructor-arg ref="ReviewDAO"></constructor-arg>
+		<constructor-arg ref="MessageDAO"></constructor-arg>
+		<constructor-arg ref="OtherPaymentDAO"></constructor-arg>
+	</bean>
+	<bean id="devAction" class="com.rainbow.action.DevAction" scope="prototype">
+		<constructor-arg ref="AppAutDAO"></constructor-arg>
+		<constructor-arg ref="AppInfoDAO"></constructor-arg>
+		<constructor-arg ref="AppSouDAO"></constructor-arg>
+		<constructor-arg ref="userDAO"></constructor-arg>
+		<constructor-arg ref="ReviewDAO"></constructor-arg>
+		<constructor-arg ref="MessageDAO"></constructor-arg>
+		<constructor-arg ref="OtherPaymentDAO"></constructor-arg>
+	</bean>
+	<bean id="mobAction" class="com.rainbow.action.MobAction" scope="prototype">
+		<constructor-arg ref="AppAutDAO"></constructor-arg>
+		<constructor-arg ref="AppInfoDAO"></constructor-arg>
+		<constructor-arg ref="AppSouDAO"></constructor-arg>
+	</bean>
+	<bean id="webAction" class="com.rainbow.action.WebAction" scope="prototype">
+		<constructor-arg ref="AppAutDAO"></constructor-arg>
+		<constructor-arg ref="AppInfoDAO"></constructor-arg>
+		<constructor-arg ref="AppSouDAO"></constructor-arg>
+		<constructor-arg ref="ReviewDAO"></constructor-arg>
+	</bean>
+	<bean id="attachmentDownAction" class="com.rainbow.action.AttachmentDownAction" scope="prototype">
+		<constructor-arg ref="AppAutDAO"></constructor-arg>
+		<constructor-arg ref="AppInfoDAO"></constructor-arg>
+		<constructor-arg ref="AppSouDAO"></constructor-arg>
+	</bean>
+	<bean id="magazineAction" class="com.rainbow.action.MagAction" scope="prototype">
+		<constructor-arg ref="magDAO"></constructor-arg>
+		<constructor-arg ref="magConDAO"></constructor-arg>
+	</bean>
+	<bean id="verificationAction" class="com.rainbow.action.VerificationAction" scope="prototype">
+		<constructor-arg ref="userDAO"></constructor-arg>
+	</bean>
+	<bean id="imgSizeAction" class="com.rainbow.action.ImgSizeAction" scope="prototype"></bean>
+	<bean id="reviewAction" class="com.rainbow.action.ReviewAction" scope="prototype">
+		<constructor-arg ref="AppAutDAO"></constructor-arg>
+		<constructor-arg ref="AppInfoDAO"></constructor-arg>
+		<constructor-arg ref="AppSouDAO"></constructor-arg>
+		<constructor-arg ref="ReviewDAO"></constructor-arg>
+	</bean>
+	<bean id="shelfManageAction" class="com.rainbow.action.ShelfManageAction" scope="prototype">
+		<constructor-arg ref="AppAutDAO"></constructor-arg>
+		<constructor-arg ref="AppInfoDAO"></constructor-arg>
+		<constructor-arg ref="AppSouDAO"></constructor-arg>
+		<constructor-arg ref="MessageDAO"></constructor-arg>
+		<constructor-arg ref="OtherPaymentDAO"></constructor-arg>
+		<constructor-arg ref="ReviewDAO"></constructor-arg>
+	</bean>
+	<bean id="paymentAction" class="com.rainbow.action.PaymentAction" scope="prototype">
+		<constructor-arg ref="AppAutDAO"></constructor-arg>
+		<constructor-arg ref="AppInfoDAO"></constructor-arg>
+		<constructor-arg ref="AppSouDAO"></constructor-arg>
+		<constructor-arg ref="MessageDAO"></constructor-arg>
+		<constructor-arg ref="OtherPaymentDAO"></constructor-arg>
+	</bean>
+	
+	<bean id="idMessageAction" class="com.rainbow.action.IdMessageAction" scope="prototype">
+		<constructor-arg ref="AppAutDAO"></constructor-arg>
+		<constructor-arg ref="AppInfoDAO"></constructor-arg>
+		<constructor-arg ref="AppSouDAO"></constructor-arg>
+		<constructor-arg ref="adminDAO"></constructor-arg>
+		<constructor-arg ref="userDAO"></constructor-arg>
+	</bean>
+	
+	<bean id="prizeAction" class="com.rainbow.action.PrizeAction" scope="prototype">
+		<constructor-arg ref="PrizeDAO"></constructor-arg>
+	</bean>
+	
+	<bean id="findPasswordAction" class="com.rainbow.action.FindPasswordAction" scope="prototype">
+		<constructor-arg ref="userDAO"></constructor-arg>
+	</bean>
+	
+	
+	
+	
+
+	
+	
+</beans>

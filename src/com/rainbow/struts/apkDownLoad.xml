@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+ <struts>
+<!--******************************** 文件下载******************************************* -->
+    <package name="apkDownLoad" extends="struts-default">
+    	<action name="downApk" class="attachmentDownAction" method="downApk">
+    		
+    	</action>
+    	<action name="downPhoto" class="attachmentDownAction" method="downPhoto">
+    	</action>
+    </package>
+</struts>

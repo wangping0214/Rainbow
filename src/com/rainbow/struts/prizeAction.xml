@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="prize" extends="struts-default">
+		<action name="prizeInfoSub" class="prizeAction" method="prizeInfoSub">
+			<result>index.jsp</result>
+		</action>
+		<action name="showIssuePrize" class="prizeAction" method="showIssuePrize"></action>
+		
+		<action name="prizeCheckPhone" class="prizeAction" method="prizeCheckPhone">
+			<result name="success">success.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		
+		<action name="prizeCheckIdCard" class="prizeAction" method="prizeCheckIdCard">
+			<result name="success">success.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		<action name="showIssuePrize" class="prizeAction" method="showIssuePrize">
+			<result>list.jsp</result>
+		</action>
+	</package>
+</struts>
