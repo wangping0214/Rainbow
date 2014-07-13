@@ -32,7 +32,7 @@ $(document).ready(function(){
 
 function nextStep(){
 	if(mobile_code == $("#code").val())
-		location.href = "password_find4.jsp";
+		location.href = "password_find4_phone.jsp";
 	else
 		alert("验证码错误！");
 }

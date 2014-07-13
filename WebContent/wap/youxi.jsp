@@ -259,10 +259,10 @@ border-radius: 15px;
 <s:iterator value="#request['app']" id="app">
 <div  class="fc2-11">
 <div class="fc211"><a href="specificInformation.action?apkId=<s:property value="#app.appInfo.id"/>"><img src="<%=request.getContextPath() %><s:property value="#app.appSou.logo1"/>"  width="50px" height="50px" /></a></div>
-<div class="fc212"><a href="specificInformation.action?apkId=<s:property value="#app.appInfo.id"/>"><s:property value="#app.appInfo.appName" /></a><br />
+<div class="fc212"><a href="specificInformation.action?apkId=<s:property value="#app.appInfo.id"/>"><s:property value="#app.appInfo.appName" /></a><img src="image/mll.gif" /><br />
   <p class="xinxi"><span>下载：<s:property value="#app.appAut.amountOfDown" />次</span><span>大小:<s:property value="#app.appSou.packgeSize" />MB</span></p> 
 </div>
-<div class="fc213"><a href="downApk.action?appSouId=<s:property value="#app.appSou.id" />&downPath=<s:property value="#app.appSou.packge" escape='false'/>"><img src="pic/an.gif"  width="55" height="23" /></a></div>
+<div class="fc213"><a href="downApk.action?appSouId=<s:property value="#app.appSou.id" />&downPath=<s:property value="#app.appSou.packge" escape='false'/>"><img src="pic/as_06.jpg"  width="55" height="23" /></a></div>
 <div class="fc214"><hr /><a href="specificInformation.action?apkId=<s:property value="#app.appInfo.id"/>">游戏简介：<s:property value="#app.appInfo.appIntrodution" /></a></div>
 </div>
 </s:iterator>

@@ -11,58 +11,44 @@
 <link href="style/login.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="js/jq.js"></script>
-
 <script type="text/javascript" language="javascript">
 var reg=/^(?!_)(?!.*?_$)[a-zA-Z0-9_]+$/;
-var newPassword = <%=request.getParameter("newPassword") %>;
 $(document).ready(function(){
-	RemainTime();
-	$("#resend").click(function(){
-		
-		
+	$("#newPassword").focus(function(){
+		if($("#newPassword").val()=="新密码应为6~20个字符，区分大小写"){
+			$("#newPassword").attr("value","");
+		}
+	});
+	
+	$("#newPassword").blur(function(){
+		if($("#newPassword").val()==""){
+			$("#newPassword").attr("value","新密码应为6~20个字符，区分大小写");
+		}
+	});
+	
+	$("#save").click(function(){
+		var newPassword = $("#newPassword").val();
+		if(!reg.test(newPassword)){
+			alert("密码只能输入英文数字下划线,区分大小写");
+			return false;
+		}
+		if(newPassword.length<6||newPassword.length>20){
+			alert("密码应为6~20个字符，区分大小写");
+			return false;
+		}
 		jQuery.ajax({
 			type:"post",
-			url:"sendPasswordToEmail.action",
+			url:"changeUserPassword.action",
+			data:{"newPassword":newPassword,
+				"userId":<%=user.getId()%>},
 			success:function(){
-				RemainTime();
+				location.href="password_find5.jsp";
 			}
 		});
 	});
 });
 
-var iTime = 120;
-var Account;
-function RemainTime(){
-	document.getElementById('resend').disabled = true;
-	var iSecond,sSecond="",sTime="";
-	if (iTime >= 0){
-		iSecond = parseInt(iTime%60);
-		iMinute = parseInt(iTime/60);
-		if (iSecond >= 0){
-			if(iMinute>0){
-				sSecond = iMinute + "分" + iSecond + "秒";
-			}else{
-				sSecond = iSecond + "秒";
-			}
-		}
-		sTime=sSecond;
-		if(iTime==0){
-			clearTimeout(Account);
-			sTime='重新发送';
-			iTime = 59;
-			document.getElementById('resend').disabled = false;
-		}else{
-			Account = setTimeout("RemainTime()",1000);
-			iTime=iTime-1;
-		}
-	}else{
-		sTime='没有倒计时';
-	}
-	document.getElementById('resend').value = sTime;
-}
-
 </script>
-
 </head>
 
 <body>
@@ -83,21 +69,15 @@ function RemainTime(){
             <!--nav-->
         </div>
         <!--header-->
-        <div class="password wide450">
+        <div class="password">
            <dl>
-              <dt><img src="images/m1_03.jpg" width="64" height="63" /></dt>
-              <dd><b>找回密码</b></dd>
+              <dt><img src="images/m2_03.jpg" width="64" height="69" /></dt>
+              <dd><b>设置新密码</b></dd>
            </dl>
            <div class="passcont passcont2">
-              <p>我们已将重设密码的链接发送到你的邮箱，请登录邮箱完成修改。</p>
-              <p>email：<%=user.getEmail() %></p>
-              <%
-              
-              String str = user.getEmail();
-              String email = str.split("@")[1];
-              email = "http://www.mail."+email;
-              %>
-              <p><a href="<%=email %>" class="next2">前往邮箱</a><input type="button" id="resend" value="重新发送"/></p>
+              <p>手机：<%=user.getTelephone() %></p>
+              <p><input type="text" id="newPassword" value="新密码应为6~20个字符，区分大小写" class="shouji" /></p>
+              <p><input type="button" id="save" value="保存" class="pbaocun" /></p>
            </div>
            <!--passcont-->
         </div>

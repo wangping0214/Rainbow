@@ -176,7 +176,7 @@
         <li><a href="login.jsp" target="_top">退出登录</a></li>
  </ul>
  <div class="message">
-     <a href="message2.jsp" target="main"><img src="images/email.png" />(10)</a>
+     <a href="message2.jsp" target="main"><img src="images/email.png" />(1)</a>
  </div>
  <!--message-->
 </div>

@@ -158,7 +158,7 @@ function addReview(appInfoId){
                   <dt><img src="images/rank_12.jpg" />描述：</dt>
                   <dd>
                      <div class="content" style="height:88px;">
-                        <p><%=app.getAppInfo().getAppIntrodution() %></p> 
+                        <p><%=app.getAppInfo().getElaborate() %></p> 
                       </div>
                       <span id="select-hold" class="close">展开<b></b></span>
                   </dd>

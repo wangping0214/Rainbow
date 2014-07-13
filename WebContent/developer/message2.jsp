@@ -28,65 +28,17 @@
                          <li><a href="javascript:void(0)" class="mtit2">欢迎加入柴米游戏！</a><span class="date">2014-04-14 09:01:02<a href="#"><img src="images/guan.png" /></a></span>
                              <div class="messcont">
                                  <p class="mtit2s">欢迎加入柴米游戏</p>  
-                                 <p>欢迎加入柴米游戏！
+                                 <p>
                                      亲爱的开发者：
-                                    全新版柴米游戏上阵啦!诚邀您的体验！
-全新的第七传媒平台增加了更多的服务功能，精准的数据统计，丰富的广告类型，第三方安卓市场独家合作的优质推广位，帮助您轻松获得更多收益。
-新版刚上线，欢迎各位合作伙伴多提宝贵意见，柴米游戏与您共同成长！
-柴米游戏
+                                    欢迎加入柴米游戏！ 亲爱的开发者： 全新版柴米游戏上阵啦!诚邀您的体验！ 新版刚上线，欢迎各位合作伙伴多提宝贵意见，柴米游戏与您共同成长！ 柴米游戏 
                                  </p>
                              </div>
                              <!--messcont-->
                           </li>
-                          <li><a href="javascript:void(0)" class="mtit2">欢迎加入柴米游戏！</a><span class="date">2014-04-14 09:01:02<a href="#"><img src="images/guan.png" /></a></span>
-                             <div class="messcont">
-                                 <p class="mtit2s">欢迎加入柴米游戏</p>  
-                                 <p>欢迎加入柴米游戏！
-                                     亲爱的开发者：
-                                    全新版柴米游戏上阵啦!诚邀您的体验！
-全新的第七传媒平台增加了更多的服务功能，精准的数据统计，丰富的广告类型，第三方安卓市场独家合作的优质推广位，帮助您轻松获得更多收益。
-新版刚上线，欢迎各位合作伙伴多提宝贵意见，柴米游戏与您共同成长！
-柴米游戏
-                                 </p>
-                             </div>
-                             <!--messcont-->
-                          </li>
-                          <li><a href="javascript:void(0)" class="mtit2">欢迎加入柴米游戏！</a><span class="date">2014-04-14 09:01:02<a href="#"><img src="images/guan.png" /></a></span>
-                             <div class="messcont">
-                                 <p class="mtit2s">欢迎加入柴米游戏</p>  
-                                 <p>欢迎加入柴米游戏！
-                                     亲爱的开发者：
-                                    全新版柴米游戏上阵啦!诚邀您的体验！
-全新的第七传媒平台增加了更多的服务功能，精准的数据统计，丰富的广告类型，第三方安卓市场独家合作的优质推广位，帮助您轻松获得更多收益。
-新版刚上线，欢迎各位合作伙伴多提宝贵意见，柴米游戏与您共同成长！
-柴米游戏
-                                 </p>
-                             </div>
-                             <!--messcont-->
-                          </li>
-                          <li><a href="javascript:void(0)" class="mtit2">欢迎加入柴米游戏！</a><span class="date">2014-04-14 09:01:02<a href="#"><img src="images/guan.png" /></a></span>
-                             <div class="messcont">
-                                 <p class="mtit2s">欢迎加入柴米游戏</p>  
-                                 <p>欢迎加入柴米游戏！
-                                     亲爱的开发者：
-                                    全新版柴米游戏上阵啦!诚邀您的体验！
-全新的第七传媒平台增加了更多的服务功能，精准的数据统计，丰富的广告类型，第三方安卓市场独家合作的优质推广位，帮助您轻松获得更多收益。
-新版刚上线，欢迎各位合作伙伴多提宝贵意见，柴米游戏与您共同成长！
-柴米游戏
-                                 </p>
-                             </div>
-                             <!--messcont-->
-                          </li>
+                         
                      </ul>
                     <ul class="page">
-                       <li><a href="#">首页</a></li>
-                       <li><a href="#">上一页</a></li>
-                       <li><a href="#">1</a></li>
-                       <li><a href="#">2</a></li>
-                       <li><a href="#">3</a></li>
-                       <li><a href="#">4</a></li>
-                       <li><a href="#">5</a></li>
-                       <li><a href="#">下一页</a></li>
+                      
                   </ul>          
                 </div>
                 <!--newscont2-->

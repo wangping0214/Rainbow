@@ -1,5 +1,8 @@
 package com.rainbow.action;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
@@ -21,6 +24,7 @@ public class FindPasswordAction {
 	
 	private String phoneOrEmail;
 	private String newPassword;
+	private int userId;
 	/**
 	 * 根据用户输入的手机或邮箱找到用户并且放入session
 	 */
@@ -30,11 +34,11 @@ public class FindPasswordAction {
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		if(userPhone != null){
 			session.setAttribute("user", userPhone);
-			return Action.SUCCESS;
+			return "phone";
 		}
 		else if(userEmail != null){
 			session.setAttribute("user", userEmail);
-			return Action.SUCCESS;
+			return "email";
 		}
 		else
 			return Action.ERROR;
@@ -45,8 +49,8 @@ public class FindPasswordAction {
 	 * @return
 	 */
 	public String changeUserPassword(){
-		HttpSession session = ServletActionContext.getRequest().getSession();
-		User user = (User) session.getAttribute("user");
+
+		User user = userDAO.find(userId);
 		if(user != null){
 			user.setPassword(newPassword);
 			userDAO.update(user);
@@ -61,7 +65,7 @@ public class FindPasswordAction {
 	 * 将新密码发送给用户
 	 */
 	@SuppressWarnings("static-access")
-	public void sendPasswordToEmail(){
+	public String sendPasswordToEmail(){
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		User user = (User) session.getAttribute("user");
 		MailSenderInfo mailInfo = new MailSenderInfo();    
@@ -72,12 +76,25 @@ public class FindPasswordAction {
 	      mailInfo.setPassword("nandayong11");//邮箱密码    
 	      mailInfo.setFromAddress("system@chaimiyouxi.com");    
 	      mailInfo.setToAddress(user.getEmail());    
-	      mailInfo.setSubject("柴米游戏");    
-	      mailInfo.setContent("尊敬的柴米游戏用户，您设置的密码为："+newPassword+",请妥善保管好您的新密码。<br>点击www.chaimiyouxi.com 完成密码找回！");    
+	      mailInfo.setSubject("柴米游戏"); 
+	      SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	      String nowTime = df.format(new Date());
+	      mailInfo.setContent("尊敬的柴米游戏用户:<br><br>"
+	      		+ "您好！您使用了柴米游戏账号的修改密码功能，请点击“找回密码”完成操作。<br><br>"
+	      		+ "<a href=\"http://182.92.65.140/Rainbow/login/password_find4.jsp?email="
+	      		+user.getEmail()+"&userId="+user.getId()
+	      		+ "\" >"
+	      		+ "<lable style=\"font-size:14px;color:blue\">找回密码</lable></a>"
+	      		+ "<br><br><br> 感谢您使用柴米游戏的服务。如果您没有提出过密码修改申请，请忽略此邮件。 "
+	      		+"<br><br><br>柴米游戏<br>"
+	      		+nowTime
+	      		+"<br><br><br>此邮件为系统自动发出的邮件，请勿直接回复。");    
 	         //这个类主要来发送邮件   
 	      SimpleMailSender sms = new SimpleMailSender();   
 	        //  sms.sendTextMail(mailInfo);//发送文体格式    
 	          sms.sendHtmlMail(mailInfo);//发送html格式   
+	          
+	      return Action.SUCCESS;
 	}
 
 	public String getPhoneOrEmail() {
@@ -94,6 +111,15 @@ public class FindPasswordAction {
 
 	public void setNewPassword(String newPassword) {
 		this.newPassword = newPassword;
+	}
+	
+	
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public FindPasswordAction(UserDAO userDAO) {

@@ -33,6 +33,8 @@ function nextStep(){
 		success:function(data){
 			if(data == "1")
 				location.href="password_find2.jsp";
+			else if(data == "2")
+				location.href="sendPasswordToEmail.action";
 			else
 				alert("对不起不存在此用户！");
 		}

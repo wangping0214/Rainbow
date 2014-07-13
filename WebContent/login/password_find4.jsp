@@ -1,7 +1,5 @@
 <%@ page language="java" import="com.rainbow.entity.User" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
-	<%User user = (User)session.getAttribute("user"); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
 <head>
@@ -38,10 +36,11 @@ $(document).ready(function(){
 		}
 		jQuery.ajax({
 			type:"post",
-			url:"sendPasswordToEmail.action",
-			data:{"newPassword":newPassword},
+			url:"changeUserPassword.action",
+			data:{"newPassword":newPassword,
+				"userId":<%=request.getParameter("userId")%>},
 			success:function(){
-				location.href="password_find3.jsp?newPassword="+newPassword;
+				location.href="password_find5.jsp";
 			}
 		});
 	});
@@ -74,7 +73,7 @@ $(document).ready(function(){
               <dd><b>设置新密码</b></dd>
            </dl>
            <div class="passcont passcont2">
-              <p>Email：<%=user.getEmail() %></p>
+              <p>Email：<%=request.getParameter("email") %></p>
               <p><input type="text" id="newPassword" value="新密码应为6~20个字符，区分大小写" class="shouji" /></p>
               <p><input type="button" id="save" value="保存" class="pbaocun" /></p>
            </div>

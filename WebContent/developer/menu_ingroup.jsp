@@ -160,7 +160,7 @@
         <li><a href="<%=request.getContextPath()%>/developer_logout.action" target="_parent">退出登录</a></li>
  </ul>
  <div class="message">
-     <a href="message2.jsp" target="main"><img src="images/email.png" />(10)</a>
+     <a href="message2.jsp" target="main"><img src="images/email.png" />(1)</a>
  </div>
  <!--message-->
 </div>
