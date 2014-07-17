@@ -1,13 +1,11 @@
 package com.rainbow.util;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
+import java.util.Map.Entry;
 import java.util.concurrent.atomic.AtomicLong;
 
-import org.springframework.context.annotation.Scope;
 
 import com.rainbow.dao.AppIdSeedDAO;
 import com.rainbow.dao.CpIdSeedDAO;
@@ -144,29 +142,27 @@ public class IdGenerator {
 	/**
 	 * 跟新数据库中的种子
 	 */
-	@SuppressWarnings("rawtypes")
 	public void destroy()
 	{
 		
 		//persist
-		Set set = _appIdSeedMap.entrySet();
-		Iterator iterator = set.iterator();
-		while(iterator.hasNext()){
-			Map.Entry entry = (Map.Entry) iterator.next();
-			AppIdSeed appIdSeed = appIdSeedDAO.findByName(String.valueOf(entry.getKey()));
-			if(appIdSeed!=null){
+		for (Entry<String, AtomicLong> entry : _appIdSeedMap.entrySet())//跟新app_id种子
+		{
+			AppIdSeed appIdSeed = appIdSeedDAO.findByName(entry.getKey());
+			if(appIdSeed != null){
 				AtomicLong atomicLong = (AtomicLong)entry.getValue(); 														//数据库中有，则为跟新  否则存入新的app_id的种子
 				appIdSeed.setAppIdSeed(atomicLong.get());
 				appIdSeedDAO.update(appIdSeed);
 			}
 			else{
 				appIdSeed = new AppIdSeed();
-				appIdSeed.setName(String.valueOf(entry.getKey()));
+				appIdSeed.setName(entry.getKey());
 				AtomicLong atomicLong = (AtomicLong)entry.getValue(); 														//数据库中有，则为跟新  否则存入新的app_id的种子
 				appIdSeed.setAppIdSeed(atomicLong.get());
 				appIdSeedDAO.sava(appIdSeed);
 			}
 		}
+		
 		CpIdSeed  cpIdSeed = cpIdSeedDAO.findById(1);
 		if(cpIdSeed!=null){												//跟新cp_id种子
 			cpIdSeed.setCpIdSeed((int)_cpIdSeed.get());
