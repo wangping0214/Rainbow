@@ -77,7 +77,102 @@ $(document).ready(function(){
 	}
 	
 	
-	$("#form1").submit(function(){
+	$("#id_appIntrodution").focus(function(){
+		if($("#id_appIntrodution").val()=="应用简介"){
+			$("#id_appIntrodution").attr("value","");
+		}
+	});
+	$("#id_appIntrodution").blur(function(){
+		if($("#id_appIntrodution").val()==""){
+			$("#id_appIntrodution").attr("value","应用简介");
+		}
+	});
+	
+	$("#id_elaborate").focus(function(){
+		if($("#id_elaborate").val()=="详细描述"){
+			$("#id_elaborate").attr("value","");
+		}
+	});
+	$("#id_elaborate").blur(function(){
+		if($("#id_elaborate").val()==""){
+			$("#id_elaborate").attr("value","详细描述");
+		}
+	});
+	
+	$("#id_versionIntroduction").focus(function(){
+		if($("#id_versionIntroduction").val()=="版本简介"){
+			$("#id_versionIntroduction").attr("value","");
+		}
+	});
+	$("#id_versionIntroduction").blur(function(){
+		if($("#id_versionIntroduction").val()==""){
+			$("#id_versionIntroduction").attr("value","版本简介");
+		}
+	});
+	
+	$("#form1").submit(function(event){
+		
+		/*
+		表单提交前校验
+		*/
+		if($("#id_appName").val()==""){
+			alert("请输入您上传的应用的名称！");
+			$("#id_appName").focus();
+			 event.preventDefault();
+			 return false;
+		}
+		
+		if($("#id_type").val()=="请选择类型"){
+			alert("请选择类型");
+			event.preventDefault();
+			return false;
+		}
+		
+		if($("#id_category").val()==""){
+			alert("请选择类别");
+			event.preventDefault();
+			return false;
+		}
+		if($("#id_appIntrodution").val()=="应用简介"||$("#id_appIntrodution").val()==""){
+			alert("请输入应用简介");
+			$("#id_appIntrodution").focus();
+			event.preventDefault();
+			return false;
+		}
+		
+		if($("#id_elaborate").val()=="详细描述"||$("#id_appIntrodution").val()==""){
+			alert("请输入详细描述");
+			$("#id_elaborate").focus();
+			event.preventDefault();
+			return false;
+		}
+		
+		if($("#id_versionIntroduction").val()=="版本简介"||$("#id_appIntrodution").val()==""){
+			alert("请输入版本简介");
+			$("#id_versionIntroduction").focus();
+			event.preventDefault();
+			return false;
+		}
+		
+		if($("#id_tx_packge").val()==""){
+			alert("请上传应用包");
+			event.preventDefault();
+			return false;
+		}
+		if($("#id_tx_logo1").val()==""){
+			alert("请上传48*48的图标");
+			event.preventDefault();
+			return false;
+		}
+		
+		if($("#id_tx_logo2").val()==""){
+			alert("请上传94*94的图标");
+			event.preventDefault();
+			return false;
+		}
+		
+		/***********************************/
+		
 		var img = $("#progressImgage"); 
 		var mask = $("#maskOfProgressImage");
 		

@@ -102,8 +102,8 @@ $(".wyimg a:first").addClass("margin0")
 	  });
 
 $(function(){
-/*	$(".classnav li:first").addClass("classbg").siblings("li").removeClass("classbg");
-*/	$(".classlist:first").show().siblings(".classlist").hide();
+
+	$(".classlist:first").show().siblings(".classlist").hide();
 	$(".classnav li").click(function(){
 		$(this).addClass("classbg").siblings("li").removeClass("classbg");
 		var classnum=$(this).index()
@@ -147,23 +147,54 @@ $(".subnavcont li").click(function(){
 $(".emodel4 dl").eq(1).css({"margin-right": "0px"})
 
 /*E-zinecont*/
-$(".ago dl:first dd:gt(4):not(':last')").hide();
-$(".ago dl:first dd:gt(4):not(':last')").hide().parent("dl").siblings("dl").find("dd").hide();
 
-$(".ago dt").each(function(){
+
+$(".ago").find("dl").each(function(){
+	$(".ago dl:first dd:gt(1):not(':last')").hide().parent("dl").siblings("dl").find("dd").hide();
+	var ddnums=$(this).find("dd").length;
+	if(ddnums>2){
+		$(this).append("<dd class='emore'><a href='#'><img src='../../images/ec_14.jpg' /></a></dd>")
+		}
+	$(this).find("dt").each(function(){
 	$(this).click(function(){
 		$enum=$(this).siblings("dd")
-	if($enum.is(':visible')){
+	   if($enum.is(':visible')){
 		$enum.hide()
 		}
      else{
-	$(this).siblings("dd:lt(4)").show().siblings(".emore").show()}
+	$(this).siblings("dd:lt(2)").show().siblings(".emore").show()}
 	return false;
 	})
 	$(this).siblings(".emore").click(function(){
 		$(this).hide().siblings("dd").show();
 		})
 	})
+	
+	})
+
+
+$(".ago2").find("dl").each(function(){
+	$(".ago2 dl:first dd:gt(1):not(':last')").hide().parent("dl").siblings("dl").find("dd").hide();
+	var ddnums=$(this).find("dd").length;
+	if(ddnums>2){
+		$(this).append("<dd class='emore2'><a href='#'><img src='../images/ec_14.jpg' /></a></dd>")
+		}
+	$(this).find("dt").each(function(){
+	$(this).click(function(){
+		$enum=$(this).siblings("dd")
+	   if($enum.is(':visible')){
+		$enum.hide()
+		}
+     else{
+	$(this).siblings("dd:lt(2)").show().siblings(".emore2").show()}
+	return false;
+	})
+$(this).siblings(".emore2").click(function(){
+		$(this).hide().siblings("dd").show();
+		})
+	})
+	})
+	
 	
 /*个人中心*/
 var $tlis=$(".toplist li");
@@ -190,7 +221,12 @@ $(".toplist li").mouseover(function(){
 $(".changenav li").click(function(){
 	$(this).addClass("xiubg").siblings("li").removeClass("xiubg")
 	})
-
+/*zazhimulu*/
+$(".zamulu li").each(function(){
+	var zlinum=$(this).index()+1;
+	$(this).prepend("<span>"+zlinum+"</span>")
+	$(this).find("span").append("<span>、</span>")
+	})
 
 	})
 	

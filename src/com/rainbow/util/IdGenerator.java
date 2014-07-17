@@ -100,6 +100,7 @@ public class IdGenerator {
 	public String getNextCpId()
 	{
 		long cpIdSeed = _cpIdSeed.incrementAndGet();
+		
 		AppIdSeed appIdSeed = new AppIdSeed();
 		appIdSeed.setName(String.format("%08d", cpIdSeed));
 		appIdSeed.setAppIdSeed(0);
@@ -108,6 +109,11 @@ public class IdGenerator {
 		if(cpId!=null){												//跟新cp_id种子
 			cpId.setCpIdSeed((int)cpIdSeed);
 			cpIdSeedDAO.update(cpId);
+		}
+		else{
+			cpId = new CpIdSeed();
+			cpId.setCpIdSeed(0);
+			this.cpIdSeedDAO.save(cpId);
 		}
 		return String.format("%08d", cpIdSeed);
 	}
@@ -148,14 +154,16 @@ public class IdGenerator {
 		while(iterator.hasNext()){
 			Map.Entry entry = (Map.Entry) iterator.next();
 			AppIdSeed appIdSeed = appIdSeedDAO.findByName(String.valueOf(entry.getKey()));
-			if(appIdSeed!=null){										//数据库中有，则为跟新  否则存入新的app_id的种子
-				appIdSeed.setAppIdSeed((long) entry.getValue());
+			if(appIdSeed!=null){
+				AtomicLong atomicLong = (AtomicLong)entry.getValue(); 														//数据库中有，则为跟新  否则存入新的app_id的种子
+				appIdSeed.setAppIdSeed(atomicLong.get());
 				appIdSeedDAO.update(appIdSeed);
 			}
 			else{
 				appIdSeed = new AppIdSeed();
 				appIdSeed.setName(String.valueOf(entry.getKey()));
-				appIdSeed.setAppIdSeed((long) entry.getValue());
+				AtomicLong atomicLong = (AtomicLong)entry.getValue(); 														//数据库中有，则为跟新  否则存入新的app_id的种子
+				appIdSeed.setAppIdSeed(atomicLong.get());
 				appIdSeedDAO.sava(appIdSeed);
 			}
 		}

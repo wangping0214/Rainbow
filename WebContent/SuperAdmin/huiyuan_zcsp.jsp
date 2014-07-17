@@ -52,7 +52,7 @@ function developer(){
                              <option value="users_developer">个人用户</option>
                              </select>
                              </div>
-                             <div id="all_developer" style="display:block">
+                             <div id="all_developer">
                              <div class="qi">
                              <table border="0" cellpadding="0" cellspacing="0" width="98%" class="table1">
                                    <tr>
@@ -78,7 +78,7 @@ function developer(){
                              
                              </div>
                              </div>
-                             <div id="groups_developer" style="display:none">
+                             <div id="groups_developer">
                              <div class="qi">
                              <table border="0" cellpadding="0" cellspacing="0" width="98%" class="table1">
                                    <tr>
@@ -98,7 +98,7 @@ function developer(){
                               </table>
                              </div>
                              </div>
-                             <div id="users_developer" style="display:none">
+                             <div id="users_developer">
                              <div class="qi">
                              <table border="0" cellpadding="0" cellspacing="0" width="98%" class="table1">
                                    <tr>

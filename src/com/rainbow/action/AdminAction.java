@@ -115,7 +115,7 @@ public class AdminAction {
 	@SuppressWarnings("unchecked")
 	public String mem_manager(){
 
-			int total=adminDAO.getNum(getIsuserType());
+			int total=adminDAO.getNum(isuserType);
 			int groupstotal=adminDAO.getNum("individualGroups");
 			int userstotal=adminDAO.getNum("individualUsers");
 			int commontotal=adminDAO.getNum("individualCommon");
@@ -124,7 +124,7 @@ public class AdminAction {
 			httpSession.setAttribute("userstotal", userstotal);
 			httpSession.setAttribute("ctotal", commontotal);
 			PageUtil page=new PageUtil(isCurrentPage,total);
-			List<Admin> member=adminDAO.getThrough(getIsuserType(),isCurrentPage, page.getPageSize());
+			List<Admin> member=adminDAO.getThrough(isuserType,isCurrentPage, page.getPageSize());
 			
 			int regtotal=adminDAO.getRegNum("individualCommon",0);
 			httpSession.setAttribute("regtotal", regtotal);

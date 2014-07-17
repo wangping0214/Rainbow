@@ -48,5 +48,14 @@
     	<action name="developer_logout" class="developerAction" method="developer_logout">
     		<result name="success">developer/login.jsp</result>
     	</action>
+    	
+    	<action name="userAutoLogin" class="developerAction" method="userAutoLogin">
+    		<result name="usersuccess0">developer/admin_common.jsp</result>
+    		<result name="usersuccess1">developer/admin_inuser.jsp</result>
+    		<result name="usersuccess2">developer/admin_ingroup.jsp</result>
+    		<result name="usererror">developer/admin_stop.jsp</result>
+    		<result name="error">developer/loginerror.jsp</result>
+    		<result name="login">developer/login.jsp</result>
+    	</action>
       </package>
       </struts>

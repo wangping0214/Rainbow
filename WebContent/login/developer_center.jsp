@@ -43,8 +43,10 @@ DD_belatedPNG.fix('.pngf');
        	<%} %>
        |<a href="#">帮助</a>|<a href="index.jsp">返回首页 <img src="images/ic.jpg" /></a></div>       
    </div>
+
    <!--kfhelpcont-->
 </div>
+<br></br>
 <!--kfhelp-->
 <div class="kftop">
    <div class="kftopcont">
@@ -53,12 +55,7 @@ DD_belatedPNG.fix('.pngf');
         <area shape="rect" coords="78,4,236,32" href="index.jsp" />
         <area shape="poly" coords="67,68" href="#" />
       </map>
-      <ul class="kfnav">
-         <li class="kfcurrent"><a href="#">首页</a></li>
-         <li><a href="#">APP</a></li>
-         <li><a href="#">推广</a></li>
-         <li><a href="#">用户帮助中心</a></li>
-      </ul>
+      
       
    </div>
    <!--kftopcont-->
@@ -69,8 +66,8 @@ DD_belatedPNG.fix('.pngf');
    <div class="kfliucheng">
       <dl class="kfdl">
          <dt><a href="#"><img src="images/dl.png" class="pngf" /></a></dt>
-         <dd><a href="<%=request.getContextPath()%>/developer/login.jsp">登录注册</a></dd>
-         <dd>注册柴米游戏账户<br />并升级为开发者</dd>
+         <dd><a href="<%=request.getContextPath()%>/userAutoLogin.action">登录</a></dd>
+         <dd>柴米游戏开发者后台</dd>
       </dl>
       <p class="jian"><img src="images/next.png" class="pngf" /></p>
       <dl class="kfsc">

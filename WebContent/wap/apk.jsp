@@ -237,9 +237,9 @@ body {
 <div  class="fc2-11">
 <div class="fc211"><img src="<%=request.getContextPath()+app.getAppSou().getLogo1() %>"  width="50px" height="50px" /></div>
 <div class="fc212">
-<p><span class="fl mingcheng"><%=app.getAppInfo().getAppName() %></span>
+<p><span class="fl mingcheng"><%=app.getAppInfo().getAppName() %></span><img src="image/mll.gif" />
 <a href="downApk.action?appSouId=<%=app.getAppSou().getId() %>&downPath=<%=app.getAppSou().getPackge() %>"
-id="id_downLoad" onclick="downLoad(<%=app.getAppAut().getId()%>)" class="fr"><img src="pic/an.gif"  width="55" height="22" />
+id="id_downLoad" onclick="downApk.action?appSouId=<%=app.getAppAut().getId()%>" class="fr"><img src="pic/as_06.jpg"  width="55" height="22" />
 </a></p>
 <p class="xinxi clear"><span>下载：<%=app.getAppAut().getAmountOfDown() %>次</span><span>大小:<%=app.getAppSou().getPackgeSize() %>MB</span></p> 
 </div>
@@ -305,61 +305,7 @@ if(app.getAppInfo().getSecurity().charAt(4)=='0'){%><img src="image/ys.jpg"/>
   </form>
 </div>
 <hr />
-<div class="other">
-   <p><b>其他用户评论：</b></p>
-   <div class="discuss">
-       <div  class="discont">
-          <div class="fc211"><a href="#"><img src="up/updown/pic/2014030282042985.png"  width="50px" height="50px" /></a></div>
-          <div class="fc212"><p><span class="fl mingcheng">史上最坑爹的游戏</span><span class="time fr">2012-10-08</span></p>
-          <p class="xinxi clear"><span>评论：</span><span> 还   是QQ登陆的好。这个是垃圾，在QQ游戏里面下载的最好，我张建刚。QQ996057784加我可以给你送哦那个宝石</span></p> 
-          </div>
-      </div>
-       <!--discont-->
-   </div>
-   <!--discuss-->
-      <div class="discuss">
-       <div  class="discont">
-          <div class="fc211"><a href="#"><img src="up/updown/pic/2014030282042985.png"  width="50px" height="50px" /></a></div>
-          <div class="fc212"><p><span class="fl mingcheng">史上最坑爹的游戏</span><span class="time fr">2012-10-08</span></p>
-          <p class="xinxi clear"><span>评论：</span><span> 还   是QQ登陆的好。这个是垃圾，在QQ游戏里面下载的最好，我张建刚。QQ996057784加我可以给你送哦那个宝石</span></p> 
-          </div>
-      </div>
-       <!--discont-->
-   </div>
-   <!--discuss-->
-      <div class="discuss">
-       <div  class="discont">
-          <div class="fc211"><a href="#"><img src="up/updown/pic/2014030282042985.png"  width="50px" height="50px" /></a></div>
-          <div class="fc212"><p><span class="fl mingcheng">史上最坑爹的游戏</span><span class="time fr">2012-10-08</span></p>
-          <p class="xinxi clear"><span>评论：</span><span> 还   是QQ登陆的好。这个是垃圾，在QQ游戏里面下载的最好，我张建刚。QQ996057784加我可以给你送哦那个宝石</span></p> 
-          </div>
-      </div>
-       <!--discont-->
-   </div>
-   <!--discuss-->
-</div>
-<!--other-->
-<div class="otherapply">
-<p><b>其他应用推荐：</b></p>
-   <dl>
-       <dt><a href="#"><img src="up/updown/pic/2014030334818569.png" width="68" height="68" /></a></dt>
-       <dd class="appname"><a href="#">滑雪大冒险</a></dd>
-       <dd>146 万人安装</dd>
-       <dd class="down"><a href="#">下载</a></dd>
-   </dl>
-   <dl>
-       <dt><a href="#"><img src="up/updown/pic/2014030334818569.png" width="68" height="68" /></a></dt>
-       <dd class="appname"><a href="#">滑雪大冒险</a></dd>
-       <dd>146 万人安装</dd>
-       <dd class="down"><a href="#">下载</a></dd>
-   </dl>
-   <dl>
-       <dt><a href="#"><img src="up/updown/pic/2014030334818569.png" width="68" height="68" /></a></dt>
-       <dd class="appname"><a href="#">滑雪大冒险</a></dd>
-       <dd>146 万人安装</dd>
-       <dd class="down"><a href="#">下载</a></dd>
-   </dl>
-</div>
+
 <!--otherapply-->
 <map name="Map" id="Map">
   <area shape="rect" coords="290,1181,497,1271" href="#" target="index.jsp" alt="" />

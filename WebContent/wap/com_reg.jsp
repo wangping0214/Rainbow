@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/scripts/jquery-1.10.2.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -347,7 +347,7 @@ cityareacode[5]=new Array('0601','0602','0603','0604','0605','0606','0607','0608
 cityareaname[5]=new Array('广州','珠海','中山','佛山','东莞','清远','肇庆','阳江','湛江','韶关','惠州','河源','汕尾','汕头','梅州');
 if (selectP=='07')
   { a=7;tempoption=new Option('河北','07',false,true); }
-else//欢迎来到站长特效网，我们的网址是www.zzjs.net，很好记，zz站长，js就是js特效，本站收集大量高质量js代码，还有许多广告代码下载。
+else
   { tempoption=new Option('河北','07'); }
 eval('document.'+formname+'.'+preP+'.options[7]=tempoption;');
 cityareacode[6]=new Array('0701','0702','0703','0704','0705','0706','0707','0708','0709','0710','0711');
@@ -445,7 +445,7 @@ cityareacode[19]=new Array('2001','2002','2003','2004','2005','2006','2007','200
 cityareaname[19]=new Array('武汉','黄石','十堰','荆州','宜昌','襄樊','鄂州','荆门','孝感','黄冈','咸宁','恩施','随州','仙桃','天门','潜江','神农架');
 if (selectP=='21')
   { a=21;tempoption=new Option('湖南','21',false,true); }
-else//欢迎来到站长特效网，我们的网址是www.zzjs.net，很好记，zz站长，js就是js特效，本站收集大量高质量js代码，还有许多广告代码下载。
+else
   { tempoption=new Option('湖南','21'); }
 eval('document.'+formname+'.'+preP+'.options[21]=tempoption;');
 cityareacode[20]=new Array('2101','2102','2103','2104','2105','2106','2107','2108','2109','2110','2111','2112','2113');

@@ -78,6 +78,10 @@ public class DeveloperAction {
 	{
 		this.userDAO = userDAO;
 	}
+	/**
+	 * 修改邮箱
+	 * @return
+	 */
 	public String changeemail()
 	{
 		User email=userDAO.find("email",getInemail());
@@ -87,6 +91,9 @@ public class DeveloperAction {
 		else return "EmailError";
 		//return Action.
 	}
+	/**修改电话
+	 * @return
+	 */
 	public String changetelephone()
 	{
 		User telephone=userDAO.find("telephone",getIntelephone());
@@ -95,6 +102,9 @@ public class DeveloperAction {
 		else return "TelephoneError";
 		//return Action.
 	}
+	/**开发者登陆
+	 * @return
+	 */
 	public String login_developer()
 	{
 		User findUser = userDAO.find("email",getInput(), "password",user.getPassword());
@@ -292,5 +302,35 @@ public class DeveloperAction {
 		HttpSession httpSession = ServletActionContext.getRequest().getSession();
 		httpSession.removeAttribute("username");
 		return Action.SUCCESS;
+	}
+	
+	/**
+	 * 用户自动登陆
+	 * 判断用户类型
+	 * @return
+	 */
+	public String userAutoLogin(){
+		HttpSession httpSession = ServletActionContext.getRequest().getSession();
+		user = (User) httpSession.getAttribute("user");
+		if(user!=null){
+			
+			httpSession.setAttribute("username", user.getUsername());
+			httpSession.setAttribute("password", user.getPassword());
+			if((user.getUserType().equals("individualCommon"))||(user.getUserType().equals("individualUsers")&&user.getApproved()==0)||(user.getUserType().equals("individualGroups")&&user.getApproved()==0)){
+				return "usersuccess0";
+			}
+			else if(user.getUserType().equals("individualUsers")){
+				if(user.getApproved()==1)return "usersuccess1";
+				else if(user.getApproved()==-1)return "usererror";
+				else return Action.ERROR;
+			}
+			else if(user.getUserType().equals("individualGroups")){
+				if(user.getApproved()==1)return "usersuccess2";
+				else if(user.getApproved()==-1)return "usererror";
+				else return Action.ERROR;
+			}
+			else return Action.ERROR;
+		}
+		else return "login";
 	}
 }

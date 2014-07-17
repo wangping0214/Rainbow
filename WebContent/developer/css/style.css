@@ -197,6 +197,7 @@ a.blue2{ color:#06C; text-decoration:underline}
 .gerenxinxi{ width:auto; border:none;}
 .tits{ font-size:12px; font-weight:bold; color:#06C; margin:20px  0 10px 20px}
 .form2 div{ clear:both; overflow:hidden; zoom:1; margin-bottom:15px; margin-left:20px;}
+.form2 .shenfen .zz{ clear:both; margin-left:100px;}
 .form2 label{ width:100px; float:left; text-align:right; margin-right:5px;}
 .form2 input{ float:left; width:260px; height:20px; list-style:20px; border:#CCC solid 1px;}
 .form2 p img{ padding-right:5px;}

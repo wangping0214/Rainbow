@@ -4,7 +4,7 @@ $(function(){
 	{
 		$(".PopupLayer").css("position","absolute");
 	}
-	$(".PopupLayer").css({"top":$(".PopupLayer").outerHeight()*-1+"px","opacity":0});//载入页面时将元素置于页面可见区域的顶部达到自上而下显示效果（PS：还有隐藏效果）
+	$(".PopupLayer").css({"top":$(".PopupLayer").outerHeight()*-1+"px","opacity":1});//载入页面时将元素置于页面可见区域的顶部达到自上而下显示效果（PS：还有隐藏效果）
 	function notice_show()//显示
 	{
 		var browser_visible_region_height=document.documentElement.clientHeight;//获取浏览器可见区域高度

@@ -56,8 +56,9 @@ a:active {text-decoration:none ; color:#fff ;}
 .STYLE1 {color: #FFFFFF; padding-bottom:10px;}
 img{ vertical-align:middle;}
 
-.PopupLayer{width:100%;position:absolute;left:0; margin-top:10%;background-clip:padding-box;border-radius:10px;border-top:10px solid #666;border-bottom:10px solid #666;border-top:20px solid rgba(0, 0, 0, 0.2);border-bottom:20px solid rgba(0, 0, 0, 0.2);}
-.PopupLayer a.close{display:block;width:30px;height:25px;float:right;overflow:hidden; color:#000; font-size:28px; position:absolute; right:0px; top:-25px;}
+.PopupLayer{width:100%;position:absolute;left:0; top:60px; margin-top:60px;background-clip:padding-box;border-radius:10px;border-top:10px solid #666;border-bottom:10px solid #666;border-top:20px solid rgba(65, 65, 65, 0.8);border-bottom:20px solid rgba(65, 65, 65, 0.8);}
+.PopupLayer a.close{display:block;width:30px;height:30px;float:right;overflow:hidden; color:#000; font-size:28px; position:absolute; right:0px; top:-25px;}
+.PopupLayer a.close{display:block;width:30px;height:28px;float:right;overflow:hidden; color:#000; font-size:28px; position:absolute; right:0px; top:-25px;}
 .PopupLayer a.close:hover{background-position:-30px;}
 .PopupLayer p{font:13px "宋体";line-height:30px;letter-spacing:0.1em;margin-top:35px;}
 .PopupLayer p span{color:#7d7d7d;}

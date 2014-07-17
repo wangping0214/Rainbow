@@ -45,8 +45,8 @@ ul{ list-style:none;}
 .im3{ background:url(../images/im_11.jpg) no-repeat; width:980px; margin:0 auto;height:422px; padding:70px 0; }
 .theme{position:relative;height:562px;margin:0 auto}
 .bg_arr2{ position:absolute;display:block; width:106px; margin:0 auto; left:45%; top:-115px;}
-.join{ position:absolute; left:220px; top:195px;}
-.im3text{ position:absolute; left:160px; top:250px; width:310px; line-height:150%; font-size:15px;}
+.join{ position:absolute; left:220px; top:135px;}
+.im3text{ position:absolute; left:160px; top:200px; width:310px; line-height:150%; font-size:15px;}
 
 .mm4{ background:#222; }
 .im4{ background:#222; width:980px;height:442px;margin:0 auto; padding:55px 0; }

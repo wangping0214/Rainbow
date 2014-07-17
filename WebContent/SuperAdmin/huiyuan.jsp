@@ -138,13 +138,13 @@ $(document).ready
                       <div class="guanggaocont">
                          <div class="qyzcshenpi">
                              <div class="daishenpi">待审批数量<span class="red"><%=session.getAttribute("regtotal") %></span></div>
-                             <div class="all"><select id="reg_select" onchange="developer()">
+                             <div class="all"><select id="reg_select" >
                              <option value="all_developer">&nbsp;&nbsp;全&nbsp;部&nbsp;&nbsp;</option>
                              <option value="groups_developer">企业用户</option>
                              <option value="users_developer">个人用户</option>
                              </select>
                              </div>
-                             <div id="all_developer" style="display:block">
+                             <div id="all_developer">
                              <div class="qi">
                              <table border="0" cellpadding="0" cellspacing="0" width="98%" class="table1">
                                    <tr>
@@ -170,7 +170,7 @@ $(document).ready
                              
                              </div>
                              </div>
-                             <div id="groups_developer" style="display:none">
+                             <div id="groups_developer">
                              <div class="qi">
                              <table border="0" cellpadding="0" cellspacing="0" width="98%" class="table1">
                                    <tr>
@@ -190,7 +190,7 @@ $(document).ready
                               </table>
                              </div>
                              </div>
-                             <div id="users_developer" style="display:none">
+                             <div id="users_developer">
                              <div class="qi">
                              <table border="0" cellpadding="0" cellspacing="0" width="98%" class="table1">
                                    <tr>

@@ -367,7 +367,7 @@ function js_group_telephone()
                                   <div class="form2" >
                                       <div><label>姓名：</label><input type="text" id="user_realname"name="user.realname"value="<s:property value="#user.realname"/>" /></div>
                                       <div><label>职务：</label><input type="text" id="user_duty"name="user.duty"value="<s:property value="#user.duty"/>" /></div>
-                                      <div><label>身份证：</label><p class="fl"><input type="file" id="user_photo1" name="user.cardphoto1" style="display:none;"  /><a href="javascript:fn_browse1();"> 
+                                      <div class="shenfen"><label>身份证：</label><p class="fl"><input type="file" id="user_photo1" name="user.cardphoto1" style="display:none;"  /><a href="javascript:fn_browse1();"> 
                                        <%if(session.getAttribute("photo1")==null||session.getAttribute("photo1")==""){ %>
                                       <img id="photo1"name="btn" src="<%=request.getContextPath()%>/developer/images/img26.png" width="81" height="71" border="0" />
                                       <%} else{%>
