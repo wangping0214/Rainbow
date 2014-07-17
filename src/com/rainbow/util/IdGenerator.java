@@ -135,7 +135,7 @@ public class IdGenerator {
 		{
 			AppIdSeed appIdSeed = appIdSeedDAO.findByName(entry.getKey());
 			if(appIdSeed != null){
-				AtomicLong atomicLong = (AtomicLong)entry.getValue(); 														//数据库中有，则为跟新  否则存入新的app_id的种子
+				AtomicLong atomicLong = entry.getValue(); 														//数据库中有，则为跟新  否则存入新的app_id的种子
 				appIdSeed.setAppIdSeed(atomicLong.get());
 				appIdSeedDAO.update(appIdSeed);
 			}
