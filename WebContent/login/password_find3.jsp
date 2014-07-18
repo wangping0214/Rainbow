@@ -95,7 +95,7 @@ function RemainTime(){
               
               String str = user.getEmail();
               String email = str.split("@")[1];
-              email = "http://www.mail."+email;
+              email = "http://mail."+email;
               %>
               <p><a href="<%=email %>" class="next2">前往邮箱</a><input type="button" id="resend" value="重新发送"/></p>
            </div>

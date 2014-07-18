@@ -9,6 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.rainbow.util.IdGenerator;
+import com.rainbow.util.ServerConfig;
 
 /**
  * Application Lifecycle Listener implementation class InitListener
@@ -31,9 +32,11 @@ public class InitListener implements ServletContextListener {
      * @see ServletContextListener#contextInitialized(ServletContextEvent)
      */
     public void contextInitialized(ServletContextEvent event) {
-    	System.out.println(event.getServletContext().getRealPath("/"));
     	ApplicationContext ac =  WebApplicationContextUtils.getRequiredWebApplicationContext(event.getServletContext());
     	IdGenerator.getInstance().initialize(ac.getBean("CpIdSeedDAO"), ac.getBean("AppIdSeedDAO"));
+    	
+    	ServerConfig.getServerConfig().initialize(event);
+    	System.out.println(ServerConfig.getServerConfig().getRealPath()+"\n"+ServerConfig.getServerConfig().getContextpath());
 
 
     }

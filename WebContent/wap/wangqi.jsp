@@ -10,23 +10,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript">
+
 $(function(){
-	//菜单隐藏展开
-	var tabs_i=0;
-	$('.vtitle').click(function(){
-		var _self = $(this);
-		var j = $('.vtitle').index(_self);
-		if( tabs_i == j ) return false; tabs_i = j;
-		$('.vtitle em').each(function(e){
-			if(e==tabs_i){
-				$('em',_self).removeClass('v01').addClass('v02');
-			}else{
-				$(this).removeClass('v02').addClass('v01');
-			}
-		});
-		$('.vcon').slideUp().eq(tabs_i).slideDown();
+  $(".qimu:not(':first') .vcon").hide();
+  $(".vtitle").click(function(){
+	  $content=$(this).siblings(".vcon");
+	  if($content.is(":visible")){
+		 $content.slideUp("slow").parent(".qimu").siblings(".qimu").find(".vcon").slideDown("slow");
+	     $(this).find("img").attr({src:"image/down.jpg"}) /*将一个"名/值"形式的对象设置为所有匹配元素的属性。*/
+
+		  } 
+		else{
+		 $content.slideDown("slow").parent(".qimu").siblings(".qimu").find(".vcon").hide();
+	     $(this).find("img").attr("src","image/up.jpg")/*为所有元素设置一个属性值*/
+			} 
+	  })	
 	});
-})
+
 </script>
 <script type="text/javascript">
 function disp_alert()
@@ -61,7 +61,7 @@ a,a:hover{text-decoration: none;}
 .vconlist li.select a,.vconlist li a:hover{color:#ed4948;text-decoration:none;}
 #c{
 	background-color:#FFFFFF;
-	width: 100%;	height:800px;
+	width: 100%;	height:750px;
 	
 }
 
@@ -84,8 +84,8 @@ a,a:hover{text-decoration: none;}
 .fcr{
 	color: #000;
 	font-family: "微软雅黑";
-	float:right;
-	width: 100%;	
+	width: 100%;
+	padding-top:10px;	
 }
 .cr{
 	color: #000;
@@ -194,8 +194,8 @@ a,a:hover{text-decoration: none;}
   </tr>
 </table></div>
 <div class="fcr">
-<div style="width:100%;margin:10px auto 10px auto;">
-
+<div style="width:100%;margin:0 auto 10px auto;" id="wlist">
+   <div class="qimu">
 	<div class="vtitle"><em class="v v02"></em>�CHAIMIZINE2014</div>
 		<div class="vcon">
 		<ul class="vconlist clearfix">
@@ -275,6 +275,8 @@ a,a:hover{text-decoration: none;}
 </table>
 		</ul>
 	</div>
+</div>
+   <div class="qimu">
 	<div class="vtitle">�<em class="v"></em>CHAIMIZINE2013</div>
 		<div class="vcon" style="display: none;">
 		<ul class="vconlist clearfix">
@@ -321,7 +323,7 @@ a,a:hover{text-decoration: none;}
 
 </div>
 
- 
+ </div>
  
 	 
  

@@ -81,7 +81,7 @@ public class FindPasswordAction {
 	      String nowTime = df.format(new Date());
 	      mailInfo.setContent("尊敬的柴米游戏用户:<br><br>"
 	      		+ "您好！您使用了柴米游戏账号的修改密码功能，请点击“找回密码”完成操作。<br><br>"
-	      		+ "<a href=\"http://182.92.65.140/Rainbow/login/password_find4.jsp?email="
+	      		+ "<a href=\"http://182.92.65.140/login/password_find4.jsp?email="
 	      		+user.getEmail()+"&userId="+user.getId()
 	      		+ "\" >"
 	      		+ "<lable style=\"font-size:14px;color:blue\">找回密码</lable></a>"
