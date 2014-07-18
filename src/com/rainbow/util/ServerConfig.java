@@ -37,8 +37,17 @@ public class ServerConfig {
 		String[] strPath = realpath.split("\\\\");
 		this.realPath = "";
 		for(int i = 0; i<strPath.length-1 ; i++)
-			this.realPath += strPath[i]+"/";
-		this.contextpath = event.getServletContext().getContextPath();
+			this.realPath += strPath[i]+"\\";
+		String contextpath = event.getServletContext().getContextPath();
+		if(contextpath == "")
+			this.contextpath = "";
+		else{
+			
+			strPath = contextpath.split("/");
+			this.contextpath = strPath[0];
+			for(int i = 1; i<strPath.length-1 ; i++)
+				this.contextpath += "/"+strPath[i];
+		}
 	}
 
 	public String getRealPath() {

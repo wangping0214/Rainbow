@@ -32,12 +32,14 @@ public class InitListener implements ServletContextListener {
      * @see ServletContextListener#contextInitialized(ServletContextEvent)
      */
     public void contextInitialized(ServletContextEvent event) {
+    	ServerConfig.getServerConfig().initialize(event);
+    	System.out.println(ServerConfig.getServerConfig().getRealPath()+"\n"+ServerConfig.getServerConfig().getContextpath());
+    	System.out.println("RealPath:"+event.getServletContext().getRealPath("/"));
+    	System.out.println("Contextpath:"+event.getServletContext().getContextPath());
     	ApplicationContext ac =  WebApplicationContextUtils.getRequiredWebApplicationContext(event.getServletContext());
     	IdGenerator.getInstance().initialize(ac.getBean("CpIdSeedDAO"), ac.getBean("AppIdSeedDAO"));
     	
-    	ServerConfig.getServerConfig().initialize(event);
-    	System.out.println(ServerConfig.getServerConfig().getRealPath()+"\n"+ServerConfig.getServerConfig().getContextpath());
-
+    	
 
     }
 
