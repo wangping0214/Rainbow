@@ -153,7 +153,7 @@ $(function()
                                 <p><img src="images/m_03.jpg" /></p>
                                 <p class="margin10">最新最全的安卓游戏下载排行榜尽在柴米游戏，永久免费，超爽体验，,每日为您推荐海量最好玩最热门的轻度、中度、重度安卓游戏，每个
 游戏都经过真机适配测试，让用户玩得放心开心。</p>
-                                <p><a href="todayRecommend.action"><img src="images/m_07.jpg" /></a></p>
+                                <p><a href="E-zine.jsp"><img src="images/m_07.jpg" /></a></p>
                             </div>	
 							<div  class="theme_tit">
 								<strong  class="tit"><img  src="images/theme_tit1.gif"></strong>

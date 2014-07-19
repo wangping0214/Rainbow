@@ -31,7 +31,7 @@ $(document).ready(function(){
 			type : "post",
 			url : "<%=request.getContextPath()%>/webLoginExit.action",
 			success : function(){
-				location.href="<%=request.getContextPath()%>/todayRecommend.action";
+				location.href="todayRecommend.action";
 			}
 		});
 	});

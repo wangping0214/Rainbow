@@ -107,6 +107,7 @@ function refreshVerificationCode(){
  </div>
     <!--wrap-->
 </div>
+<div class="fixed">
 <!--mainCon-->
    <div class="icon2"><img src="<%=request.getContextPath()%>/login/images/ic_03.jpg" /></div>
      <div class="fotter fotter2"> 
@@ -138,6 +139,6 @@ function refreshVerificationCode(){
            <!--footcont-->
        </div>
        <!--fotter-->
-
+</div>
 </body>
 </html>

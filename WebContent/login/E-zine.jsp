@@ -141,134 +141,107 @@ $(document).ready(function(){
        
        <div class="tuijian">
           <dl>
-             <dt><a href="#"><img src="images/em_03.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
+             <dt><a href="Econt/1408/Econt14-08-05.jsp"><img src="images/zazhi/bhxy2.jpg" /></a></dt>
+             <dd><a href="Econt/1408/Econt14-08-05.jsp">崩坏学园2</a></dd>
           </dl>
           <dl>
-             <dt><a href="#"><img src="images/em_03.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
+             <dt><a href="Econt/1408/Econt14-08-06.jsp"><img src="images/zazhi/js2014.jpg" /></a></dt>
+             <dd><a href="Econt/1408/Econt14-08-06.jsp">绝杀2014</a></dd>
           </dl>
           <dl>
-             <dt><a href="#"><img src="images/em_05.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
+             <dt><a href="Econt/1408/Econt14-08-07.jsp"><img src="images/zazhi/GoL.png" /></a></dt>
+             <dd><a href="Econt/1408/Econt14-08-07.jsp">God of Light</a></dd>
           </dl>
           <dl>
-             <dt><a href="#"><img src="images/em_03.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
+             <dt><a href="Econt/1408/Econt14-08-08.jsp"><img src="images/zazhi/gdtg.png" /></a></dt>
+             <dd><a href="Econt/1408/Econt14-08-08.jsp">干掉糖果</a></dd>
           </dl>
           <dl>
-             <dt><a href="#"><img src="images/em_07.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
+             <dt><a href="Econt/1408/Econt14-08-09.jsp"><img src="images/zazhi/btjnlxj.png" /></a></dt>
+             <dd><a href="Econt/1408/Econt14-08-09.jsp">变态贱男历险记</a></dd>
           </dl>
           <dl>
-             <dt><a href="#"><img src="images/em_03.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
+             <dt><a href="Econt/1408/Econt14-08-10.jsp"><img src="images/zazhi/xdzz.png" /></a></dt>
+             <dd><a href="Econt/1408/Econt14-08-10.jsp">现代战争3</a></dd>
           </dl>
           <dl>
-             <dt><a href="#"><img src="images/em_07.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
+             <dt><a href="Econt/1408/Econt14-08-11.jsp"><img src="images/zazhi/bzwx.png" /></a></dt>
+             <dd><a href="Econt/1408/Econt14-08-11.jsp">暴走武侠</a></dd>
           </dl>
           <dl>
-             <dt><a href="#"><img src="images/em_03.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
+             <dt><a href="Econt/1408/Econt14-08-12.jsp"><img src="images/zazhi/kd2.png" /></a></dt>
+             <dd><a href="Econt/1408/Econt14-08-12.jsp">史上最坑爹游戏2</a></dd>
           </dl>
           <dl>
-             <dt><a href="#"><img src="images/em_05.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
+             <dt><a href="Econt/1408/Econt14-08-13.jsp"><img src="images/zazhi/gshct.png" /></a></dt>
+             <dd><a href="Econt/1408/Econt14-08-13.jsp">怪兽合唱团</a></dd>
           </dl>
           <dl>
-             <dt><a href="#"><img src="images/em_03.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
-          </dl>
-          <dl>
-             <dt><a href="#"><img src="images/em_09.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
+             <dt><a href="Econt/1408/Econt14-08-14.jsp"><img src="images/zazhi/jxmt.png" /></a></dt>
+             <dd><a href="Econt/1408/Econt14-08-14.jsp">极限摩托2</a></dd>
           </dl>
        </div>
        <!--tuijian-->
        <div class="tuijian">
           <dl>
-             <dt><a href="#"><img src="images/em_09.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
+             <dt><a href="Econt/1408/Econt14-08-15.jsp"><img src="images/zazhi/kxsp.png" /></a></dt>
+             <dd><a href="Econt/1408/Econt14-08-15.jsp">开迅视频</a></dd>
           </dl>
           <dl>
-             <dt><a href="#"><img src="images/em_03.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
+             <dt><a href="Econt/1408/Econt14-08-11.jsp"><img src="images/zazhi/bzwx.png" /></a></dt>
+             <dd><a href="Econt/1408/Econt14-08-11.jsp">暴走武侠</a></dd>
           </dl>
           <dl>
-             <dt><a href="#"><img src="images/em_03.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
+             <dt><a href="Econt/1408/Econt14-08-05.jsp"><img src="images/zazhi/bhxy2.jpg" /></a></dt>
+             <dd><a href="Econt/1408/Econt14-08-05.jsp">崩坏学园2</a></dd>
           </dl>
           <dl>
-             <dt><a href="#"><img src="images/em_05.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
+             <dt><a href="Econt/1408/Econt14-08-08.jsp"><img src="images/zazhi/gdtg.png" /></a></dt>
+             <dd><a href="Econt/1408/Econt14-08-08.jsp">干掉糖果</a></dd>
           </dl>
           <dl>
-             <dt><a href="#"><img src="images/em_03.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
+             <dt><a href="Econt/1408/Econt14-08-12.jsp"><img src="images/zazhi/kd2.png" /></a></dt>
+             <dd><a href="Econt/1408/Econt14-08-12.jsp">史上最坑爹游戏2</a></dd>
           </dl>
           <dl>
-             <dt><a href="#"><img src="images/em_07.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
+             <dt><a href="Econt/1408/Econt14-08-13.jsp"><img src="images/zazhi/gshct.png" /></a></dt>
+             <dd><a href="Econt/1408/Econt14-08-13.jsp">怪兽合唱团</a></dd>
           </dl>
           <dl>
-             <dt><a href="#"><img src="images/em_03.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
-          </dl>
-          <dl>
-             <dt><a href="#"><img src="images/em_09.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
-          </dl>
-          <dl>
-             <dt><a href="#"><img src="images/em_03.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
-          </dl>
-          <dl>
-             <dt><a href="#"><img src="images/em_03.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
-          </dl>
-          <dl>
-             <dt><a href="#"><img src="images/em_03.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
+             <dt><a href="Econt/1408/Econt14-08-14.jsp"><img src="images/zazhi/jxmt.png" /></a></dt>
+             <dd><a href="Econt/1408/Econt14-08-14.jsp">极限摩托2</a></dd>
           </dl>
        </div>
        <!--tuijian-->
        <div class="tuijian">
           <dl>
-             <dt><a href="#"><img src="images/em_09.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
+             <dt><a href="Econt/1408/Econt14-08-06.jsp"><img src="images/zazhi/js2014.jpg" /></a></dt>
+             <dd><a href="Econt/1408/Econt14-08-06.jsp">绝杀2014</a></dd>
           </dl>
           <dl>
-             <dt><a href="#"><img src="images/em_03.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
+             <dt><a href="Econt/1408/Econt14-08-07.jsp"><img src="images/zazhi/GoL.png" /></a></dt>
+             <dd><a href="Econt/1408/Econt14-08-07.jsp">God of Light</a></dd>
           </dl>
           <dl>
-             <dt><a href="#"><img src="images/em_03.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
+             <dt><a href="Econt/1408/Econt14-08-12.jsp"><img src="images/zazhi/kd2.png" /></a></dt>
+             <dd><a href="Econt/1408/Econt14-08-12.jsp">史上最坑爹游戏2</a></dd>
           </dl>
           <dl>
-             <dt><a href="#"><img src="images/em_05.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
+             <dt><a href="Econt/1408/Econt14-08-13.jsp"><img src="images/zazhi/gshct.png" /></a></dt>
+             <dd><a href="Econt/1408/Econt14-08-13.jsp">怪兽合唱团</a></dd>
           </dl>
           <dl>
-             <dt><a href="#"><img src="images/em_03.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
+             <dt><a href="Econt/1408/Econt14-08-09.jsp"><img src="images/zazhi/btjnlxj.png" /></a></dt>
+             <dd><a href="Econt/1408/Econt14-08-09.jsp">变态贱男历险记</a></dd>
           </dl>
           <dl>
-             <dt><a href="#"><img src="images/em_07.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
-          </dl>
-          <dl>
-             <dt><a href="#"><img src="images/em_03.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
-          </dl>
-          <dl>
-             <dt><a href="#"><img src="images/em_09.jpg" /></a></dt>
-             <dd><a href="#">地牢猎人</a></dd>
+             <dt><a href="Econt/1408/Econt14-08-08.jsp"><img src="images/zazhi/gdtg.png" /></a></dt>
+             <dd><a href="Econt/1408/Econt14-08-08.jsp">干掉糖果</a></dd>
           </dl>
        </div>
        <!--tuijian-->
     </div>
+    <!--emodel2-->
     <!--emodel2-->
     
     <p><a href="#"><img src="images/e_35.jpg" /></a></p>

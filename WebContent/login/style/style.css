@@ -269,12 +269,12 @@ height:21px; }
 .xcontleft{ width:718px; float:left; overflow:hidden; zoom:1; border:solid 1px #ccc; border-top:solid 2px #42bec2; border-bottom:0; }
 .xcontright{ width:228px; float:right; overflow:hidden; zoom:1; border:solid 1px #ccc; border-top:solid 2px #42bec2; padding-bottom:10px;} 
 .gamecont dl{ clear:both; overflow:hidden; zoom:1; margin:20px 0 20px 40px;}
-.gamecont dt{ width:94px; float:left; margin-right:20px;}
-.gamecont dd{ width:330px; float:left; overflow:hidden; zoom:1; margin-bottom:4px;} 
+.gamecont dt{ width:94px; height:200px; float:left; margin-right:20px;}
+.gamecont dd{ width:530px; float:left; overflow:hidden; zoom:1; margin-bottom:4px;}
 .suolve{ margin-bottom:15px;}
 .suolve img{ width:94px; height:94px;}
 .gametit p{ float:left}
-.gametit p img{ margin-right:5px; margin-top:5px;}
+.gamecont dd p img{ margin-right:5px;}
 .gamecont span{ width:165px; float:left;}
 .gamecont .gametit span{ width:auto; float:left; font-size:18px; color:#000; margin-right:30px;}
 .jtutit{ margin:0 0 20px 20px; font-size:14px; color:#000;}
@@ -356,7 +356,7 @@ height:21px; }
 .subnav li{ padding:0 10px; height:28px; cursor:pointer; }
 .subnav .licurrent{ border-bottom:#42bec2 solid 2px; background:url(../images/o.jpg) no-repeat center bottom; color:#000; font-weight:bold;}
 .tuijian{ clear:both; overflow:hidden; zoom:1; margin:15px 0 20px 0;}
-.tuijian dl{ width:50px; float:left; padding:0 13px; text-align:center;}
+.tuijian dl{ width:86px; float:left;margin-right:5px; text-align:center;}
 .tuijian dd{ margin-top:5px;}
 .tuijian dd a{ color:#000;}
 .texttit a{ font-size:24px; color:#111;}
@@ -368,8 +368,8 @@ a:hover.tuimore{ text-decoration:underline; color:#42bec2}
 
 .emodel3 .carousel {width:950px; overflow:hidden; zoom:1; margin:20px auto 18px auto; margin-left:10px;}
 .emodel3 .carousel .prev ,.emodel3 .carousel .next {height:42px;width:42px;overflow:hidden;display:block;margin-top:100px;text-decoration:none;cursor:pointer;}
-.emodel3 .carousel .prev {float:left;background:url(../images/de_13s.jpg) no-repeat;}
-.emodel3 .carousel .next {float:left;background:url(../images/de_16.jpg) no-repeat;}
+.emodel3 .carousel .prev {float:left;background:url(../images/de_13s2.jpg) no-repeat;}
+.emodel3 .carousel .next {float:left;background:url(../images/de_16s2.jpg) no-repeat;}
 .emodel3 .carousel #prev-03.disabled{background:url(../images/de_13.jpg) no-repeat;cursor:default;}
 .emodel3 .carousel #next-03.disabled{background:url(../images/de_16s.jpg) no-repeat;cursor:default;}
 

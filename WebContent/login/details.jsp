@@ -107,8 +107,8 @@ function addReview(appInfoId){
                      <p class="suolve"><a href=""><img src="<%=request.getContextPath()+app.getAppSou().getLogo2() %>" /></a></p>
                      <p class="xia3"><a href="downApk.action?bowser=<%=bowser %>&appSouId=<%=app.getAppSou().getId() %>&downPath=<%=app.getAppSou().getPackge() %>">下载</a></p>
                  </dt>
-                 <dd class="gametit"><span><%=app.getAppInfo().getAppName() %></span>
-                 <p>
+                 <dd class="gametit"><span><%=app.getAppInfo().getAppName() %></span></dd>
+                 <dd><p>
                  <%if(app.getAppInfo().getSecurity().charAt(2)=='0'){ %><img src="images/wd.jpg"/>
 				<%}
 					if(app.getAppInfo().getSecurity().charAt(0)=='0'){%><img src="images/wgg.jpg"/>
@@ -117,7 +117,8 @@ function addReview(appInfoId){
 				<%}
  					if(app.getAppInfo().getSecurity().charAt(6)=='0'){%><img src="images/gf.jpg"/>
  				<%} %>
-                 </p></dd>
+                 </p>
+                 </dd>
                  <dd><span>下　载：<%=app.getAppAut().getAmountOfDown() %>次</span><span>大　小：<%=app.getAppSou().getPackgeSize() %>M</span></dd>
                  <%String fee="";
                  switch(Integer.parseInt(app.getAppInfo().getFee())){

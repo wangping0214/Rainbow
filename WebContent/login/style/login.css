@@ -51,7 +51,9 @@ input{ outline:none;}
 .zidong input{ width:auto; height:auto; vertical-align:middle;}
 .zidong a{ color:#60CD26}
 .zidong a:hover{ text-decoration:underline;}
-
+.fixed{position: fixed;
+_position: absolute;
+bottom: 0; width:100%;}
 .password{ width:380px; margin:80px auto 0 auto;overflow:hidden; zoom:1; }
 .password dl{ width:74px; float:left; margin-right:30px; text-align:center;}
 .password dd{ margin-top:5px; color:#2b99f8;}

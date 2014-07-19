@@ -22,7 +22,7 @@
                <form action="<%=request.getContextPath()%>/login_developer.action" method="post">
                     <div class="user"><input type="text" value="手机号/email" class="type"name="input" /></div>
                     <div class="mima"><input type="password" value="请输入密码" class="password"name="user.password" /></div>
-                    <div class="xieyi">登录柴米游戏账号表示您同意<a href="#" class="blue"> 最终用户协议</a></div>
+                    <div class="xieyi">登录柴米游戏账号表示您同意<a href="<%=request.getContextPath()%>/login/use_item.jsp" class="blue"> 最终用户协议</a></div>
                     <div class="but1"><input type="submit" value="登录" /></div>
                     <div class="meiyou">没有柴米游戏账户？<a href="<%=request.getContextPath()%>/login/register.jsp">立即注册</a></div>
                </form>

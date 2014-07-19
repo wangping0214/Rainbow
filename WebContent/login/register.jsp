@@ -490,7 +490,7 @@ function ispass1(inpassword,inrepassword){
         <!--zhuceform-->
         <div class="yanzheng">
             <div class="ma"><div><label>验证码：</label><input type="text" id="email_cade_id" /></div><p><img src="getVerificationCode()" /><a href="javascript:location.reload();"><img src="<%=request.getContextPath()%>/login/images/sx.png" /></a></p></div>
-            <div class="gree"><input type="checkbox" checked="checked" />我已经阅读并同意<span class="red">《柴米用户服务条数》</span><a href="#">详情阅读</a></div>
+            <div class="gree"><input type="checkbox" checked="checked" />我已经阅读并同意<span class="red">《柴米用户服务条数》</span><a href="use_item.jsp">详情阅读</a></div>
         </div>
         <div class="zcbut"><input type="button"id="email_submit"  value="马上注册"/></div>
         <!--yanzheng-->
@@ -530,7 +530,7 @@ function ispass1(inpassword,inrepassword){
         <!--zhuceform-->
         <div class="yanzheng">
             <div class="ma"><div><label>验证码：</label><input type="text" id="mobile_code" /></div><p><input id="zphone" type="button" value="发送手机验证码 " onclick="get_mobile_code();"/></p></div>
-            <div class="gree"><input type="checkbox" checked="checked" />我已经阅读并同意<span class="red">《柴米用户服务条数》</span><a href="#">详情阅读</a></div>
+            <div class="gree"><input type="checkbox" checked="checked" />我已经阅读并同意<span class="red">《柴米用户服务条数》</span><a href="use_item.jsp">详情阅读</a></div>
         </div>
         <div class="zcbut"><input type="button"id="tel_submit" value="马上注册"/></div>
         <!--yanzheng-->

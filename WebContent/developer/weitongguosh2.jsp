@@ -137,8 +137,8 @@ a{ text-decoration:none; color:#666;}
    <div class="b2">
   <s:iterator value="#request['app']" id="app">
 	<div class="b3">
-	     <p><a href="theReasonsNotThrough.action?appTmp.editId=<s:property value="#app.appInfo.id"/>" target="main"><img src="<%=request.getContextPath() %><s:property value="#app.appSou.logo1"/>" width="80" height="80" /></a></p>
-		 <p><a href="theReasonsNotThrough.action?appTmp.editId=<s:property value="#app.appInfo.id"/>" target="main"><s:property value="#app.appInfo.appName"/></a></p>
+	     <p><a href="weitgliyou2.jsp?name=<s:property value="#app.appInfo.appName"/>&logo1=<s:property value="#app.appSou.logo1"/>&reasonsNotThrough=<s:property value="#app.appAut.reasonsNotThrough"/>&id=<s:property value="#app.appInfo.id"/>" target="main"><img src="<%=request.getContextPath() %><s:property value="#app.appSou.logo1"/>" width="80" height="80" /></a></p>
+		 <p><a href="weitgliyou2.jsp?name=<s:property value="#app.appInfo.appName"/>&logo1=<s:property value="#app.appSou.logo1"/>&reasonsNotThrough=<s:property value="#app.appAut.reasonsNotThrough"/>&id=<s:property value="#app.appInfo.id"/>" target="main"><s:property value="#app.appInfo.appName"/></a></p>
 	</div>
 	</s:iterator>
 	</div>

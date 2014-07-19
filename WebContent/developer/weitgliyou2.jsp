@@ -1,10 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" import="java.util.*" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib prefix="s" uri="/struts-tags" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>未通过理由</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <style>
@@ -14,7 +13,21 @@
 .shenhenav li{ float:left; margin-left:10px; display:inline; }
 .shenhenav li.red a{ color:#F00}
 </style>
-
+<script type="text/javascript" language="javascript">
+function deleteJointApp(apkId,apkName){
+	if(window.confirm("确认删除"+apkName+"?")){
+		jQuery.ajax({
+			type:"post",
+			url:"deleteJointApp.action",
+			data:{"apkId":apkId},
+			success: function(){
+				alert(apkName+"已删除");
+				location.reload();
+			}
+		});
+	}
+}
+</script>
 
 </head>
 
@@ -28,24 +41,27 @@
                <!--searchcont-->
       </div>
      <div class="midcont">
+     <%String reasonsNotThrough = request.getParameter("reasonsNotThrough");
+     String logo1 = request.getParameter("logo1");
+     String name = request.getParameter("name");
+     int id = Integer.valueOf(request.getParameter("id"));
+     %>
                   <div class="list">
                  <ul class="shenhenav">
-                    <li><a href="devIsThrough.action?appTmp.isThrough=0" target="main">等待审核</a></li>
-         			<li class="red"><a href="devIsThrough.action?appTmp.isThrough=-1" target="main">未通过审核</a></li>
-                 </ul>      
-                 <s:set name="app" value="#request.app"/>            
+                    <li><a href="waitshenhe2.jsp" target="main">等待审核</a></li>
+                    <li class="red"><a href="weitongguosh2.jsp" target="main">未通过审核</a></li>
+                 </ul>                  
                      <h3 class="tit2">未通过</h3>
                       <div class="xinxicont">
                           <div class="weilist">
                               <dl>
-                                 <dt><img src="<%=request.getContextPath() %><s:property value="#app.appSou.logo1"/>" width="80" height="80"></dt>
-                                 <dd><s:property value="#app.appInfo.appName"/></dd>
+                                 <dt><img src="<%=request.getContextPath()+logo1 %>" width="72" height="72"/></dt>
+                                 <dd><%=name %></dd>
                               </dl>
-                              <textarea class="weiliyou"><s:property value="#app.appAut.reasonsNotThrough"/></textarea>
+                              <textarea class="weiliyou"><%=reasonsNotThrough %></textarea>
                           </div>
                           
-                          <div class="uppage"><a href="javascript:if(confirm('确认删除<s:property value="#app.appInfo.appName" />'))window.location='devDeleteApp.action?appTmp.deleteAppId=<s:property value="#app.appInfo.id"/>'">删除</a>
-                          <a href="devEditApp.action?appTmp.editId=<s:property value="#app.appInfo.id"/>" target="main">重新提交</a></div>
+                          <div class="uppage"><a href="javascript:deleteJointApp('<%=id%>','<%=name%>')">删除</a><a href="devEditApp.action?appTmp.editId=<%=id %>" target="main">重新提交</a></div>
                       </div>
                       <!--dailist-->
 
