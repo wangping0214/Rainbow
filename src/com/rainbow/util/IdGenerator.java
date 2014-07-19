@@ -7,6 +7,11 @@ import java.util.Map.Entry;
 import java.util.concurrent.atomic.AtomicLong;
 
 
+
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import com.rainbow.dao.AppIdSeedDAO;
 import com.rainbow.dao.CpIdSeedDAO;
 import com.rainbow.entity.AppIdSeed;
@@ -20,10 +25,20 @@ import com.rainbow.entity.CpIdSeed;
  *
  */
 
-public class IdGenerator {
+public class IdGenerator 
+{
+	/**
+	 * The priority of log level increases from top to bottom,
+	 * a log priority is set to filter the logs with less priority
+	 * than the setting one.
+	 * logger.debug("");
+	 * logger.info("");
+	 * logger.warn("");
+	 * logger.error("");
+	 * logger.fatal("");
+	 */
+	private static final Log logger = LogFactory.getLog(IdGenerator.class);
 	private static final IdGenerator _instance;
-	
-	
 	
 	static
 	{
@@ -42,8 +57,8 @@ public class IdGenerator {
 	private CpIdSeedDAO cpIdSeedDAO;	//cp_id
 	private AppIdSeedDAO appIdSeedDAO;	//app_id
 	
-	private CpIdSeed cpIdSeed = new CpIdSeed();
-	private AppIdSeed appIdSeed = new AppIdSeed();
+	private CpIdSeed _cpIdSeedEntity = new CpIdSeed();
+	//private AppIdSeed appIdSeed = new AppIdSeed();
 	
 	/**
 	 * 构造函数
@@ -65,12 +80,15 @@ public class IdGenerator {
 		//fetch
 		List<CpIdSeed> cpId = this.cpIdSeedDAO.findAll();//从数据库中取出种子
 		if(cpId.size()==0){							//若cp_id的种子为空，则新加一个种子
-			cpIdSeed.setCpIdSeed(0);
-			this.cpIdSeedDAO.save(cpIdSeed);
+			_cpIdSeedEntity.setCpIdSeed(0);
+			this.cpIdSeedDAO.save(_cpIdSeedEntity);
 		}
 		else
-			cpIdSeed = cpId.get(0);
-		_cpIdSeed = new AtomicLong(cpIdSeed.getCpIdSeed());
+		{
+			_cpIdSeedEntity = cpId.get(0);
+		}
+		_cpIdSeed = new AtomicLong(_cpIdSeedEntity.getCpIdSeed());
+		logger.info(String.format("Initialize cpIdSeed to %d", _cpIdSeed.get()));
 		
 		_appIdSeedMap = new HashMap<String, AtomicLong>();//_appIdSeedMap初始化
 		AppIdSeed admin = this.appIdSeedDAO.findByName("00000000");
@@ -148,11 +166,8 @@ public class IdGenerator {
 			}
 		}
 		
-		CpIdSeed  cpIdSeed = cpIdSeedDAO.findById(1);
-		if(cpIdSeed!=null){												//跟新cp_id种子
-			cpIdSeed.setCpIdSeed((int)_cpIdSeed.get());
-			cpIdSeedDAO.update(cpIdSeed);
-		}
-		
+		_cpIdSeedEntity.setCpIdSeed((int)_cpIdSeed.get());
+		cpIdSeedDAO.update(_cpIdSeedEntity);
+		logger.info(String.format("Persist cpIdSeed with %d", _cpIdSeed.get()));
 	}
 }
