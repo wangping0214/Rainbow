@@ -190,6 +190,7 @@ $(document).ready(function(){
 		var filename=$("#id_packge").val();
 		if(!/\.(apk)$/i.test(filename)){
 			alert("请上传apk文件！");
+			$("#id_tx_packge").val("");
 			return false;
 		}
 		else{
@@ -1067,5 +1068,6 @@ function selectCategory(){
  </div>
  </div>
  
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1252900022'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1252900022%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 </body>
 </html>

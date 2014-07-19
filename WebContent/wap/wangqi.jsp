@@ -212,11 +212,15 @@ a,a:hover{text-decoration: none;}
     <td width="108">&nbsp;</td>
     </tr>
     <tr>
-    <td height="135" valign="top"><div align="center"><a href="zazhi/1410/mulu.html"><img src="image/z-12.jpg" width="99" height="130" border="0" /></a></div></td>
+    
+    <td height="135" valign="top"><div align="center"><a href="zazhi/1411/mulu.html"><img src="image/z-13.jpg" width="99" height="130" border="0" /></a></div></td>
   		<td>&nbsp;</td>
+  	<td valign="top"><div align="center"><a href="zazhi/1410/mulu.html"><img src="image/z-12.jpg" width="99" height="130" border="0" /></a></div></td>
     </tr>
     <tr>
-    <td height="37" valign="top"><div align="center">第十二期</div></td>
+    <td height="37" valign="top"><div align="center">第十三期</div></td>
+    <td></td>
+    <td valign="top"><div align="center">第十二期</div></td>
     <td></td>
     </tr>
   <tr>
@@ -339,5 +343,6 @@ a,a:hover{text-decoration: none;}
 <img src="newpic/seach.gif" width="117" height="24" /></div>
 <div align="center">
   <span class="STYLE1 STYLE2">&copy;2010-2014中国联通 版权所有</span></div>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1252900022'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1252900022%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 </body>
 </html>

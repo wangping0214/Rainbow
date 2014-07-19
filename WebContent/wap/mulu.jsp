@@ -152,25 +152,32 @@ a:active {text-decoration:none ; color:#339900 ;}
   </tr>
 </table></div>
 <div class="fc"><br>
-
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="biao">
+  <tr>
+    <td width="126" bgcolor="#FFFFFF" valign="top"><div class="zuobian">本期推荐</div><br /><img src="newpic/benqi.jpg" width="81" /></td>
+    <td width="1002" bgcolor="#FFFFFF" valign="top">●本期热门推荐：卖萌小清新的愤怒，你招架不住！《怪兽吃了我的生日蛋糕》！蛋糕去哪儿了！；《人神大战》拆迁户大战钉子户！拆屋何须上帝，你也可以！；《爱养成2》千年的等待为了谁？27种结局萌娃养成记！；集百家之所长，倾力打造最强血腥塔防游戏《最强塔防》！；让印象成为一种回忆 《印象笔记》，随时同步，轻松阅读！</td>
+  </tr>
+ </table>
  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="biao">
   <tr>
     <td width="126" bgcolor="#F4F2F3" valign="top"><div class="zuobian">骇人听闻</div><br /><img src="newpic/hairen.jpg" width="80" /></td>
-    <td width="1002" bgcolor="#F4F2F3" valign="top">●      <a href="zazhi/1410/1.html"><font color="#339900">传Line计划IPO 估值将达200亿美元</font></a><br>
-  ●  <a href="zazhi/1410/2.html"><font color="#339900">韩国政府下令苹果更改App Store退款政策</font></a><br>
-  ●  <a href="zazhi/1410/3.html"><font color="#339900">-2K手游《文明:变革2》15美元比前作贵5倍</font></a><br>
-   ● <a href="zazhi/1410/4.html"><font color="#339900">LOLOGN夏季赛看点回顾 王者被吊打?</font></a><br>
-   ● <a href="zazhi/1410/5.html"><font color="#339900">机皇品质重在细节 三星GALAXY S5评测</font></a></td>
+    <td width="1002" bgcolor="#F4F2F3" valign="top">
+    ●      <a href="zazhi/1411/1.html"><font color="#339900">Gameloft北美副总:未来专注少量精品</font></a><br>
+  ●  <a href="zazhi/1411/2.html"><font color="#339900">日本：中小学生智能机持有率不足15%</font></a><br>
+  ●  <a href="zazhi/1411/3.html"><font color="#339900">数据图:从Facebook看移动广告市场潜力</font></a><br>
+   ● <a href="zazhi/1411/4.html"><font color="#339900">完胜!LGD带走Liquid挺进冒泡赛第二轮</font></a><br>
+   ● <a href="zazhi/1411/5.html"><font color="#339900">感受科技中的自然之美――MOTO X 胡桃木版</font></a></td>
   </tr>
   </table>
   <table width="100%" border="0" cellpadding="0" cellspacing="0" class="biao">
   <tr>
     <td width="126" bgcolor="#FFFFFF" valign="top"><div class="zuobian">优游新得</div><br /><img src="newpic/youyou.jpg" width="81"/></td>
-    <td width="1002" bgcolor="#FFFFFF" valign="top">●<a href="6.html"><font color="#339900">愤怒小鸟史诗大战</font></a><br>
-   ●<a href="zazhi/1410/7.html"><font color="#339900">火柴人足球2014</font></a><br>
-   ●<a href="zazhi/1410/8.html"><font color="#339900">新三国小镇</font></a><br>
-   ●<a href="zazhi/1410/9.html"><font color="#339900">宇宙战争联盟</font></a><br>
-   ●<a href="zazhi/1410/10.html"><font color="#339900">天天世界杯</font></a></td>
+    <td width="1002" bgcolor="#FFFFFF" valign="top">
+    ●<a href="zazhi/1411/6.html"><font color="#339900">怪兽吃了我的生日蛋糕</font></a><br>
+   ●<a href="zazhi/1411/7.html"><font color="#339900">影之刃</font></a><br>
+   ●<a href="zazhi/1411/8.html"><font color="#339900">爱养成2</font></a><br>
+   ●<a href="zazhi/1411/9.html"><font color="#339900">爸爸去哪儿2</font></a><br>
+   ●<a href="zazhi/1411/10.html"><font color="#339900">人神大战</font></a></td>
   </tr>
   </table>
   <table width="100%" border="0" cellpadding="0" cellspacing="0" class="biao">
@@ -178,43 +185,43 @@ a:active {text-decoration:none ; color:#339900 ;}
     <td width="126" bgcolor="#F4F2F3"><div class="zuobian">炙手可热</div><br /><img src="newpic/zhizhou.jpg" width="81"/>
       </td>
     <td width="1002"bgcolor="#F4F2F3">
-    ●<a href="zazhi/1410/11.html"><font color="#339900">小怪兽求包养2</font></a><br>
-   ●<a href="zazhi/1410/12.html"><font color="#339900">放开那三国</font></a><br>
-  ● <a href="zazhi/1410/13.html"><font color="#339900">泽诺尼亚传奇3</font></a><br>
-  ● <a href="zazhi/1410/14.html"><font color="#339900">迷你冲撞</font></a><br>
-   ●<a href="zazhi/1410/15.html"><font color="#339900">武士大战僵尸2</font></a></td>
+    ●<a href="zazhi/1411/11.html"><font color="#339900">尖峰滑雪</font></a><br>
+   ●<a href="zazhi/1411/12.html"><font color="#339900">小鸟爆破</font></a><br>
+  ● <a href="zazhi/1411/13.html"><font color="#339900">拳击英雄</font></a><br>
+  ● <a href="zazhi/1411/14.html"><font color="#339900">疯狂外星人</font></a><br>
+   ●<a href="zazhi/1411/15.html"><font color="#339900">小三传奇</font></a></td>
   </tr>
   </table>
   <table width="100%" border="0" cellpadding="0" cellspacing="0" class="biao">
   <tr>
     <td width="126" bgcolor="#FFFFFF" valign="top"><div class="zuobian">大开眼界</div><br /><img src="newpic/benqi.jpg" width="81" /></td>
-    <td width="1002" bgcolor="#FFFFFF" valign="top">●<a href="zazhi/1410/16.html"><font color="#339900">战锤40K</font></a><br>
-   ●<a href="zazhi/1410/17.html"><font color="#339900">邪恶捍卫者</font></a><br>
+    <td width="1002" bgcolor="#FFFFFF" valign="top">●<a href="zazhi/1411/16.html"><font color="#339900">暴力反击</font></a><br>
+   ●<a href="zazhi/1411/17.html"><font color="#339900">最强塔防</font></a><br>
    </td>
   </tr>
  </table>
  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="biao">
   <tr>
     <td width="126" bgcolor="#F4F2F3" valign="top"><div class="zuobian">先声夺人</div><br /><img src="newpic/hairen.jpg" width="80" /></td>
-    <td width="1002" bgcolor="#F4F2F3" valign="top">●      <a href="zazhi/1410/18.html"><font color="#339900">《一个都不能死》虐心手游为什么能火？</font></a><br>
-  ●  <a href="zazhi/1410/19.html"><font color="#339900">3D横版格斗《街机群英传》封测:三段连招</font></a><br>
-  ●  <a href="zazhi/1410/20.html"><font color="#339900">网易自研策略手游《主公莫慌》即将公测</font></a><br>
-   ● <a href="zazhi/1410/21.html"><font color="#339900">[剑魂之刃]首日流水破百万:360占收入45%</font></a><br>
-   ● <a href="zazhi/1410/22.html"><font color="#339900">昆仑游戏获SuperCell[海岛奇兵]安卓代理</font></a></td>
+    <td width="1002" bgcolor="#F4F2F3" valign="top">●      <a href="zazhi/1411/18.html"><font color="#339900">秦时左右互博？畅游《秦时明月2》将发布</font></a><br>
+  ●  <a href="zazhi/1411/19.html"><font color="#339900">猎龙了！Glu发布FPS手游《夺命侏罗纪》</font></a><br>
+  ●  <a href="zazhi/1411/20.html"><font color="#339900">暑假大激斗！《天天猎人》开测</font></a><br>
+   ● <a href="zazhi/1411/21.html"><font color="#339900">《神域之光》带回家 没日没夜啪啪啪</font></a><br>
+   ● <a href="zazhi/1411/22.html"><font color="#339900">冒险时光不等人！《暴走草帽团》快来感受风浪的洗礼</font></a></td>
   </tr>
   </table>
   <table width="100%" border="0" cellpadding="0" cellspacing="0" class="biao">
   <tr>
     <td width="126" bgcolor="#FFFFFF" valign="top"><div class="zuobian">别有用心</div><br /><img src="newpic/beiyou.jpg" width="81"/></td>
-    <td width="1002"bgcolor="#FFFFFF" valign="top">●<a href="zazhi/1410/23.html"><font color="#339900">脸萌</font></a><br />
+    <td width="1002"bgcolor="#FFFFFF" valign="top">●<a href="zazhi/1411/23.html"><font color="#339900">印象笔记</font></a><br />
        <br /></td>
   </tr>
   </table>
   <table width="100%" border="0" cellpadding="0" cellspacing="0" class="biao">
   <tr>
     <td width="126" height="94" bgcolor="#F4F2F3" valign="top"><div class="zuobian">谈笑风声</div><br /><img src="newpic/tanxiao.jpg" width="81"/></td>
-    <td width="1002" bgcolor="#F4F2F3" valign="top">●<a href="zazhi/1410/24.html"><font color="#339900">最炫世界杯！</font></a><br>
-   ●<a href="zazhi/1410/25.html"><font color="#339900">完美瞬间抓拍带你体验鬼斧神工! </font></a></td>
+    <td width="1002" bgcolor="#F4F2F3" valign="top">●<a href="zazhi/1411/24.html"><font color="#339900">狗狗告诉你我们最搞笑！</font></a><br>
+   ●<a href="zazhi/1411/25.html"><font color="#339900">动物也疯狂! </font></a></td>
   </tr>
   </table>
 </table>
@@ -230,5 +237,6 @@ a:active {text-decoration:none ; color:#339900 ;}
   <div align="center" class="STYLE1">&copy;2010-2014中国联通 版权所有
   </div>
   </div>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1252900022'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1252900022%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 </body>
 </html>

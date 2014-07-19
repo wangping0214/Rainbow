@@ -17,7 +17,7 @@ $(document).ready(function(){
 function check(){
 
 var recomLevel = parseInt($("#id_recomLevel").val());
-var score = parseInt($("#score").val());
+var score = parseInt($("#id_score").val());
 if(recomLevel>100||recomLevel<0){
 	alert("推荐级别取值为取值0-100 ！");
 	$("#id_recomLevel").focus();
@@ -25,7 +25,7 @@ if(recomLevel>100||recomLevel<0){
 };
 if(score>100||score<0){
 	alert("评分取值为取值0-100 ！");
-	$("#score").focus();
+	$("#id_score").focus();
 	return false;
 };
 return true;
@@ -81,5 +81,6 @@ return true;
  </div>
  </div>
  
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1252900022'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1252900022%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 </body>
 </html>

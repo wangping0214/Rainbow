@@ -4,7 +4,8 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
-import org.apache.struts2.ServletActionContext;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
@@ -13,42 +14,43 @@ import com.rainbow.util.ServerConfig;
 
 /**
  * Application Lifecycle Listener implementation class InitListener
- *
+ * 
  */
 @WebListener
-public class InitListener implements ServletContextListener {
+public class InitListener implements ServletContextListener
+{
 
-    /**
-     * Default constructor. 
-     */
-    public InitListener() {
-        // TODO Auto-generated constructor stub
-    	
-
-
-    }
+	private static final Log logger = LogFactory.getLog(InitListener.class);
 
 	/**
-     * @see ServletContextListener#contextInitialized(ServletContextEvent)
-     */
-    public void contextInitialized(ServletContextEvent event) {
-    	ServerConfig.getServerConfig().initialize(event);
-    	System.out.println(ServerConfig.getServerConfig().getRealPath()+"\n"+ServerConfig.getServerConfig().getContextpath());
-    	System.out.println("RealPath:"+event.getServletContext().getRealPath("/"));
-    	System.out.println("Contextpath:"+event.getServletContext().getContextPath());
-    	ApplicationContext ac =  WebApplicationContextUtils.getRequiredWebApplicationContext(event.getServletContext());
-    	IdGenerator.getInstance().initialize(ac.getBean("CpIdSeedDAO"), ac.getBean("AppIdSeedDAO"));
-    	
-    	
-
-    }
+	 * Default constructor.
+	 */
+	public InitListener()
+	{
+	}
 
 	/**
-     * @see ServletContextListener#contextDestroyed(ServletContextEvent)
-     */
-    public void contextDestroyed(ServletContextEvent arg0) {
-        // TODO Auto-generated method stub
-    	IdGenerator.getInstance().destroy();
-    }
-	
+	 * @see ServletContextListener#contextInitialized(ServletContextEvent)
+	 */
+	public void contextInitialized(ServletContextEvent event)
+	{
+		ServerConfig.getServerConfig().initialize(event);
+		logger.debug(ServerConfig.getServerConfig().getRealPath() + "\n"
+				+ ServerConfig.getServerConfig().getContextpath());
+		logger.debug("RealPath:" + event.getServletContext().getRealPath("/"));
+		logger.debug("Contextpath:"
+				+ event.getServletContext().getContextPath());
+		ApplicationContext ac = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(event.getServletContext());
+		IdGenerator.getInstance().initialize(ac.getBean("uniqueIdDAO"));
+	}
+
+	/**
+	 * @see ServletContextListener#contextDestroyed(ServletContextEvent)
+	 */
+	public void contextDestroyed(ServletContextEvent arg0)
+	{
+		IdGenerator.getInstance().destroy();
+	}
+
 }

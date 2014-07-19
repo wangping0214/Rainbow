@@ -11,5 +11,6 @@
 out.print("<script>alert('对不起,开发者身份审核中,请耐心等待！');</script>");
 response.setHeader("Refresh","0.1;URl=developer/main2.jsp");
 %>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1252900022'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1252900022%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 </body>
 </html>

@@ -12,10 +12,10 @@ import org.apache.struts2.ServletActionContext;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
 import com.rainbow.dao.AdminDAO;
-import com.rainbow.dao.CpIdSeedDAO;
+import com.rainbow.dao.UniqueIdDAO;
 import com.rainbow.dao.UserDAO;
 import com.rainbow.entity.Admin;
-import com.rainbow.entity.CpIdSeed;
+import com.rainbow.entity.UniqueId;
 import com.rainbow.entity.User;
 import com.rainbow.util.IdGenerator;
 import com.rainbow.util.PageUtil;
@@ -35,7 +35,7 @@ public class AdminAction {
 	private String memusername;
 	private String memusertype;
 	private String radioselect;
-	private CpIdSeedDAO cpIdSeedDAO;
+	private UniqueIdDAO cpIdSeedDAO;
 	public Admin getAdmin()
 	{
 		return admin;

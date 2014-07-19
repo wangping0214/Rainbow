@@ -21,11 +21,11 @@
 		<property name="driverClassName"
 			value="com.mysql.jdbc.Driver">
 		</property>
-		 
+		  
 		<property name="url" value="jdbc:mysql://localhost:3306/rainbow"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value="root"></property>
-		 <!-- 
+		 <!--
 		<property name="url" value="jdbc:mysql://rdsjfiaiajfiaia.mysql.rds.aliyuncs.com:3306/rainbow"></property>
 		<property name="username" value="wcsk_admin"></property>
 		<property name="password" value="wcsk_wcsk_123456"></property>
@@ -59,8 +59,7 @@
 	<bean id="userDAO" class="com.rainbow.dao.impl.UserDAOImpl"></bean>
 	<bean id="adminDAO" class="com.rainbow.dao.impl.AdminDAOImpl"></bean>
 	<bean id="ReviewDAO" class="com.rainbow.dao.impl.ReviewDAOImpl"></bean>
-	<bean id="CpIdSeedDAO" class="com.rainbow.dao.impl.CpIdSeedDAOImpl"></bean>
-	<bean id="AppIdSeedDAO" class="com.rainbow.dao.impl.AppIdSeedDAOImpl"></bean>
+	<bean id="uniqueIdDAO" class="com.rainbow.dao.impl.UniqueIdDAOImpl"></bean>
 	<bean id="MessageDAO" class="com.rainbow.dao.impl.MessageDAOImpl"></bean>
 	<bean id="OtherPaymentDAO" class="com.rainbow.dao.impl.OtherPaymentDAOImpl"></bean>
 	<bean id="PrizeDAO" class="com.rainbow.dao.impl.PrizeDAOImpl"></bean>
