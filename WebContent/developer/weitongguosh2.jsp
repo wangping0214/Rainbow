@@ -111,7 +111,7 @@ a{ text-decoration:none; color:#666;}
 .page{ clear:both; overflow:hidden; zoom:1; padding-top:30px; width:260px; font-size:14px; margin:0 auto;}
 .page li{ float:left; padding:0 5px;}
 .page a:hover{ text-decoration:underline}
-.shenhenav{ margin-top:20px; border-bottom:#999 solid 1px; overflow:hidden; zoom:1; width:180px; padding-bottom:5px; cursor:pointer; color:#666; font-size:16px;}
+.shenhenav{ margin-top:20px; border-bottom:#999 solid 1px; overflow:hidden; zoom:1;  padding-bottom:5px; cursor:pointer; color:#666; font-size:16px;}
 .shenhenav li{ float:left; margin-left:10px; display:inline; }
 .shenhenav li.red a{ color:#F00}
 </style>
@@ -130,8 +130,10 @@ a{ text-decoration:none; color:#666;}
     </div>
    <div class="midcont">
       <ul class="shenhenav">
-         <li><a href="devIsThrough.action?appTmp.isThrough=0" target="main">等待审核</a></li>
-         <li class="red"><a href="devIsThrough.action?appTmp.isThrough=-1" target="main">未通过审核</a></li>
+         <li><a href="devIsThrough.action?appTmp.isThrough=0&appTmp.isThroughCurrentPage=1" target="main">等待审核</a></li>
+         <li class="red"><a href="devIsThrough.action?appTmp.isThrough=-1&appTmp.isThroughCurrentPage=1" target="main">未通过审核</a></li>
+         <li><a href="devIsThrough.action?appTmp.isThrough=-2&appTmp.isThroughCurrentPage=1" target="main">等待提交</a></li>
+         <li><a href="devIsThrough.action?appTmp.isThrough=-3&appTmp.isThroughCurrentPage=1" target="main">待完善</a></li>
       </ul>
 
    <div class="b2">
@@ -145,33 +147,33 @@ a{ text-decoration:none; color:#666;}
     <ul class="page">
        <s:set name="page" value="#request.page"/>
        <s:if test="#page.hasFirst">
-       <li><a href="devIsThrough.action?appTmp.isThroughCurrentPage=1">首页</a>
+       <li><a href="devIsThrough.action?appTmp.isThrough=-1&appTmp.isThroughCurrentPage=1">首页</a>
 		</li>
 		</s:if>
        <s:if test="#page.hasPrevious">
-       <li><a href="devIsThrough.action?appTmp.isThroughCurrentPage=<s:property value="#page.currentPage-1"/>">上一页</a>
+       <li><a href="devIsThrough.action?appTmp.isThrough=-1&appTmp.isThroughCurrentPage=<s:property value="#page.currentPage-1"/>">上一页</a>
 		</li>
 		</s:if>
 		<s:if test="#page.totalPage>1">
-       <li><a href="devIsThrough.action?appTmp.isThroughCurrentPage=1">1</a></li>
+       <li><a href="devIsThrough.action?appTmp.isThrough=-1&appTmp.isThroughCurrentPage=1">1</a></li>
        </s:if>
        <s:if test="#page.totalPage>2">
-       <li><a href="devIsThrough.action?appTmp.isThroughCurrentPage=2">2</a></li>
+       <li><a href="devIsThrough.action?appTmp.isThrough=-1&appTmp.isThroughCurrentPage=2">2</a></li>
         </s:if>
         <s:if test="#page.totalPage>3">
-       <li><a href="devIsThrough.action?appTmp.isThroughCurrentPage=3">3</a></li>
+       <li><a href="devIsThrough.action?appTmp.isThrough=-1&appTmp.isThroughCurrentPage=3">3</a></li>
         </s:if>
         <s:if test="#page.totalPage>4">
-       <li><a href="devIsThrough.action?appTmp.isThroughCurrentPage=4">4</a></li>
+       <li><a href="devIsThrough.action?appTmp.isThrough=-1&appTmp.isThroughCurrentPage=4">4</a></li>
        </s:if>
        <s:if test="#page.totalPage>5">
-       <li><a href="devIsThrough.action?appTmp.isThroughCurrentPage=5">5</a></li>
+       <li><a href="devIsThrough.action?appTmp.isThrough=-1&appTmp.isThroughCurrentPage=5">5</a></li>
        </s:if>
        <s:if test="#page.hasNext">
-       <li><a href="devIsThrough.action?appTmp.isThroughCurrentPage=<s:property value="#page.currentPage+1"/>">下一页</a></li>
+       <li><a href="devIsThrough.action?appTmp.isThrough=-1&appTmp.isThroughCurrentPage=<s:property value="#page.currentPage+1"/>">下一页</a></li>
        </s:if>
        <s:if test="#page.hasLast">
-		<li><a href="devIsThrough.action?appTmp.isThroughCurrentPage=<s:property value="#page.totalPage"/>">尾页</a></li>
+		<li><a href="devIsThrough.action?appTmp.isThrough=-1&appTmp.isThroughCurrentPage=<s:property value="#page.totalPage"/>">尾页</a></li>
 		</s:if>
 		<li>当前第<s:property value="#page.currentPage"/>页，总共<s:property value="#page.totalPage"/>页
 		</li>
@@ -182,6 +184,5 @@ a{ text-decoration:none; color:#666;}
                    </div>
      </div>
  </div>
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1252900022'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1252900022%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 </body>
 </html>

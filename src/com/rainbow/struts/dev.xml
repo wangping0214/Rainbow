@@ -8,7 +8,8 @@
    			<result>sdkfabu.jsp</result>
    		</action>
    		<action name="devJointSub" class="devAction" method="devJointSub" >
-   			<result>yxshangchuan2.jsp</result>
+   			<result name="extension">yxshangchuan2.jsp</result>
+   			<result name="joint">zhuce_App.jsp</result>
    		</action>
    		<action name="devAppUpLoad" class="devAction" method="devAppUpLoad">
    			<result name="upload_sec" type="redirect">developer/devIsThrough.action?appTmp.isThrough=0</result>
@@ -34,9 +35,12 @@
    		<action name="devDeleteApp" class="devAction" method="devDeleteApp">
    			<result>drops.jsp</result>
    		</action>
+   		
    		<action name="devIsThrough" class="devAction" method="devIsThrough">
    			<result name="waitThrough">waitshenhe2.jsp</result>
    			<result name="notThrough">weitongguosh2.jsp</result>
+   			<result name="to_perfect">To_perfect.jsp</result>
+   			<result name="wait_submit">wait_submit.jsp</result>
    		</action>
    		
    		<action name="menuDevAppAndGame" class="devAction" method="menuDevAppAndGame">
@@ -48,6 +52,21 @@
    			<result name="drop">sdkdrops.jsp</result>
    			<result name="waitPublish">sdkwait_publish.jsp</result>
    			<result name="shelf">Joint operation.jsp</result>
+   		</action>
+   		<action name="dev_zhuce_App" class="devAction" method="dev_zhuce_App">
+   			<result type="redirect">developer/devIsThrough.action?appTmp.isThrough=-3</result>
+   		</action>
+   		<action name="dev_refer_shenhe" class="devAction" method="dev_refer_shenhe">
+   			<result>refer_shenhe.jsp</result>
+   		</action>
+   		<action name="dev_consummate_click"  class="devAction" method="dev_consummate_click">
+   			<result>consummate.jsp</result>
+   		</action>
+   		<action name="dev_consummate_sub" class="devAction" method="dev_consummate_sub">
+   			<result type="redirect">developer/devIsThrough.action?appTmp.isThrough=-2</result>
+   		</action>
+   		<action name="dev_audit_submit"  class="devAction" method="dev_audit_submit">
+   			<result type="redirect">developer/devIsThrough.action?appTmp.isThrough=0</result>
    		</action>
    </package>
    </struts>

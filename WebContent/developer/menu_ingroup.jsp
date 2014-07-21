@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" import="com.rainbow.entity.*" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@ taglib prefix="s" uri="/struts-tags" %>
+	<% User user = (User)session.getAttribute("user"); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -60,6 +61,7 @@
  </style>
  <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/nav.js"></script>
+<script type="text/javascript"src="js/jquery.min.js"></script>
  <script language="javascript" type="text/javascript">
  // --- 获取ClassName
  document.getElementsByClassName = function(cl) {
@@ -124,7 +126,7 @@
   }
  } 
  </script>
- 
+
 </head>
 <body>
 <div style="float:left; background:#F00;">
@@ -141,7 +143,7 @@
     <li><a href="devIsShelf.action?appTmp.isShelfCurrentPage=1" target="main"><img src="images/img16.gif" />管理游戏&amp;应用</a></li>
     <li><a href="devUploadAppOfMenu.action" target="main"><img src="images/img17.gif"/>添加新应用</a></li>
     <li class="gl"><a href="devIsThrough.action?appTmp.isThrough=0" target="main"><img src="images/img18.gif"/>审核管理</a><p class="dainum"><%=session.getAttribute("userTotal") %></p></li>
-    <li><a href="tongjiliebiao.jsp" target="main"><img src="images/img29.gif" />统计列表</a></li>
+    <li><a href="showUserStatistics.action?currentPage=1" target="main"><img src="images/img29.gif" />统计列表</a></li>
 
    </ul>
  </li>
@@ -165,6 +167,5 @@
  <!--message-->
 </div>
    
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1252900022'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1252900022%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 </body>
 </html>

@@ -40,6 +40,8 @@ import com.rainbow.util.PageUtil;
  */
 public class AppAction {
 	//初始化，防止注入空实体
+	private static final String ADMIN_CP_ID ="00000000";
+	
 	private AppAuthority appAut = new AppAuthority();
 	private AppInfo appInfo = new AppInfo();
 	private AppSource appSou = new AppSource();
@@ -102,7 +104,7 @@ public class AppAction {
 		HttpSession httpSession = ServletActionContext.getRequest()
 				.getSession();
 		userName=(String) httpSession.getAttribute("username");
-		appInfo.setCp_id("00000000");//管理员上传的应用
+		appInfo.setCp_id(ADMIN_CP_ID);//管理员上传的应用
 		appInfo.setUserName(userName);
 		appInfo.setIsThrough(0);
 
@@ -127,58 +129,59 @@ public class AppAction {
 		if (appTmp.getPackgeContent() != null){
 			
 			appSou.setPackgeSize(opeFun.fileSize(appTmp.getPackgeContent()));
-			appSou.setPackge(URLEncoder.encode(opeFun.fileToServer("/file/"+userName+"/packge",
+			appSou.setPackge(URLEncoder.encode(opeFun.fileToServer("/file/"+ADMIN_CP_ID+"/packge",
 					appTmp.getPackgeContent(),
 					appTmp.getPackgeContentFileName(),
 					appTmp.getPackgeContentContentType(),
 					false),"utf-8"));
 		}
 		if (appTmp.getLogo1Content() != null)
-			appSou.setLogo1(opeFun.fileToServer("/file/"+userName+"/logo1",
+			appSou.setLogo1(opeFun.fileToServer("/file/"+ADMIN_CP_ID+"/logo1",
 					appTmp.getLogo1Content(), 
 					appTmp.getLogo1ContentFileName(),
 					appTmp.getLogo1ContentContentType(),
 					true));
 		if (appTmp.getLogo2Content() != null)
-			appSou.setLogo2(opeFun.fileToServer("/file/"+userName+"/logo2",
+			appSou.setLogo2(opeFun.fileToServer("/file/"+ADMIN_CP_ID+"/logo2",
 					appTmp.getLogo2Content(), 
 					appTmp.getLogo2ContentFileName(),
 					appTmp.getLogo2ContentContentType(),
 					true));
 		if (appTmp.getGamePhotoContent1() != null)
-			appSou.setGamePhoto1(opeFun.fileToServer("/file/"+userName+"/gamePhoto",
+			appSou.setGamePhoto1(opeFun.fileToServer("/file/"+ADMIN_CP_ID+"/gamePhoto",
 					appTmp.getGamePhotoContent1(),
 					appTmp.getGamePhotoContent1FileName(),
 					appTmp.getGamePhotoContent1ContentType(),
 					true));
 		if (appTmp.getGamePhotoContent2() != null)
-			appSou.setGamePhoto2(opeFun.fileToServer("/file/"+userName+"/gamePhoto",
+			appSou.setGamePhoto2(opeFun.fileToServer("/file/"+ADMIN_CP_ID+"/gamePhoto",
 					appTmp.getGamePhotoContent2(),
 					appTmp.getGamePhotoContent2FileName(),
 					appTmp.getGamePhotoContent2ContentType(),
 					true));
 		if (appTmp.getGamePhotoContent3() != null)
-			appSou.setGamePhoto3(opeFun.fileToServer("/file/"+userName+"/gamePhoto",
+			appSou.setGamePhoto3(opeFun.fileToServer("/file/"+ADMIN_CP_ID+"/gamePhoto",
 					appTmp.getGamePhotoContent3(),
 					appTmp.getGamePhotoContent3FileName(),
 					appTmp.getGamePhotoContent3ContentType(),
 					true));
 		if (appTmp.getGamePhotoContent4() != null)
-			appSou.setGamePhoto4(opeFun.fileToServer("/file/"+userName+"/gamePhoto",
+			appSou.setGamePhoto4(opeFun.fileToServer("/file/"+ADMIN_CP_ID+"/gamePhoto",
 					appTmp.getGamePhotoContent4(),
 					appTmp.getGamePhotoContent4FileName(),
 					appTmp.getGamePhotoContent4ContentType(),
 					true));
 		if (appTmp.getGamePhotoContent5() != null)
-			appSou.setGamePhoto5(opeFun.fileToServer("/file/"+userName+"/gamePhoto",
+			appSou.setGamePhoto5(opeFun.fileToServer("/file/"+ADMIN_CP_ID+"/gamePhoto",
 					appTmp.getGamePhotoContent5(),
 					appTmp.getGamePhotoContent5FileName(),
 					appTmp.getGamePhotoContent5ContentType(),
 					true));
 		appInfo.setUpTime(opeFun.getNowTime());
-		appInfo.setJoint((int) httpSession.getAttribute("joint"));//设置是否联合运营
+		appInfo.setJoint((int) httpSession.getAttribute("joint"));//设置是否联合运营		
 		httpSession.removeAttribute("app");
 		if (appTmp.getChangeId() == 0) {
+			appInfo.setApp_id(IdGenerator.getInstance().getNextAppId(ADMIN_CP_ID));//生成app_id
 			httpSession.setAttribute("appName", appInfo.getAppName());
 			appInfoDAO.save(appInfo);
 			appSouDAO.save(appSou);
@@ -519,19 +522,6 @@ public class AppAction {
 		AppAuthority appAut = subApp.getAppAut();
 		
 		if(info.getIsThrough()==1){										//审核通过
-
-			String cpId="";
-			User user = userDAO.findByUser(info.getUserName());
-			if(user == null){//user 为空   看是否为管理员上传的应用;
-				Admin admin = adminDAO.findByName(info.getUserName());
-				if(admin == null)//若cp
-					return Action.ERROR;
-				else
-					cpId = admin.getCp_id();
-			}
-			else
-				cpId = user.getCp_id();
-			info.setApp_id(IdGenerator.getInstance().getNextAppId(cpId));
 			if("0".equals(info.getReleaseTime())){					//上传时勾选立即发布
 				info.setShelf(1);
 			}

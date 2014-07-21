@@ -270,8 +270,9 @@ a.blue2{ color:#06C; text-decoration:underline}
 
 .adimg input{ display:block; margin:10px auto 0 auto; border:0; font-weight:bold; color:#FFF; background:url(../images/cc.png) no-repeat; width:98px; height:23px; text-align:center; line-height:23px;}
 .zhu a{ color:#0563C1; text-decoration:underline;}
-.shenhenav{ margin-top:20px; border-bottom:#999 solid 1px; overflow:hidden; zoom:1; width:180px; padding-bottom:5px; cursor:pointer; color:#666; font-size:16px;}
-.shenhenav li{ float:left; margin-left:10px; display:inline; }
+.b2{ clear:both; overflow:hidden; zoom:1;}
+.shenhenav{ margin-top:20px; border-bottom:#999 solid 1px; overflow:hidden; zoom:1; float:left; padding-bottom:5px; padding-right:10px; cursor:pointer; color:#666; font-size:16px;}
+.shenhenav li{ float:left; margin-left:5px; display:inline; }
 .shenhenav li.red a{ color:#F00}
 .shang{ display:block; background:url(../images/cc.png) no-repeat; width:98px; height:23px; text-align:center; line-height:23px; color:#FFF; margin:20px auto 0 auto; font-weight:bold;}
 .shang2{ float:left;margin:5px 0 0 10px; display:inline;}
@@ -371,6 +372,26 @@ a.blue2{ color:#06C; text-decoration:underline}
 .odaochu{ background:none; border:none; background:url(../images/bgg.png) no-repeat; width:47px; height:24px; text-align:center; line-height:24px; color:#FFF; cursor:pointer;}
 .progress{z-index: 2000} 
 .mask{position: fixed;top: 0;right: 0;bottom: 0;left: 0; z-index: 1000; background-color: #2F2F2F} 
+
+.apptijiao{ width:150px; margin:60px 0 0 150px;}
+.apptijiao input{ border:none; background:none; background:url(../images/tijiao.png) no-repeat; width:150px; height:46px; cursor:pointer; }
+
+
+/*refershenhe*/
+.tubiao{ width:650px; overflow:hidden; zoom:1; margin-bottom:50px;}
+.tubiao dt{ width:48px; float:left; margin-right:20px;}
+.tubiao dt img{ width:48px; height:48px;}
+.tubiao dd{ float:left; width:580px; margin-top:3px; color:#666; font-weight:normal;}
+.tubiao dd span{ color:#70AD47; padding-right:10px; font-weight:bold;}
+.appshuoming{ clear:both; overflow:hidden; zoom:1; padding-bottom:30px;}
+.appshuoming span{ color:#70AD47;font-size:24px; float:left; margin-right:15px; font-weight:bold;}
+.appshuoming input{ float:left;border:0; font-size:14px;width:117px; height:31px; line-height:30px; text-align:center; color:#FFF; font-weight:bold;}
+.appshuoming p{ clear:both; overflow:hidden; zoom:1; margin-bottom:7px; color:#666; font-weight:normal;}
+.tian{ background:url(../images/img8.gif) no-repeat;  }
+.wan{ background:url(../images/ws.gif) no-repeat;}
+.ml70{ margin-left:45px;}
+.tjsh input{ border:0;background:url(../images/bao.png) no-repeat; width:150px; height:46px; text-align:center; line-height:46px; font-size:18px; color:#FFF; margin:30px 0 0 200px;font-family:微软雅黑;}
+
 
 
 

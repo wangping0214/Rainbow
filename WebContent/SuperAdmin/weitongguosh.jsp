@@ -146,33 +146,33 @@ a{ text-decoration:none; color:#666;}
     <ul class="page">
        <s:set name="page" value="#request.page"/>
        <s:if test="#page.hasFirst">
-       <li><a href="adminIsThrough.action?appTmp.isThroughCurrentPage=1">首页</a>
+       <li><a href="adminIsThrough.action?appTmp.isThrough=-1&appTmp.isThroughCurrentPage=1">首页</a>
 		</li>
 		</s:if>
        <s:if test="#page.hasPrevious">
-       <li><a href="adminIsThrough.action?appTmp.isThroughCurrentPage=<s:property value="#page.currentPage-1"/>">上一页</a>
+       <li><a href="adminIsThrough.action?appTmp.isThrough=-1&appTmp.isThroughCurrentPage=<s:property value="#page.currentPage-1"/>">上一页</a>
 		</li>
 		</s:if>
 		<s:if test="#page.totalPage>1">
-       <li><a href="adminIsThrough.action?appTmp.isThroughCurrentPage=1">1</a></li>
+       <li><a href="adminIsThrough.action?appTmp.isThrough=-1&appTmp.isThroughCurrentPage=1">1</a></li>
        </s:if>
        <s:if test="#page.totalPage>2">
-       <li><a href="adminIsThrough.action?appTmp.isThroughCurrentPage=2">2</a></li>
+       <li><a href="adminIsThrough.action?appTmp.isThrough=-1&appTmp.isThroughCurrentPage=2">2</a></li>
         </s:if>
         <s:if test="#page.totalPage>3">
-       <li><a href="adminIsThrough.action?appTmp.isThroughCurrentPage=3">3</a></li>
+       <li><a href="adminIsThrough.action?appTmp.isThrough=-1&appTmp.isThroughCurrentPage=3">3</a></li>
         </s:if>
         <s:if test="#page.totalPage>4">
-       <li><a href="adminIsThrough.action?appTmp.isThroughCurrentPage=4">4</a></li>
+       <li><a href="adminIsThrough.action?appTmp.isThrough=-1&appTmp.isThroughCurrentPage=4">4</a></li>
        </s:if>
        <s:if test="#page.totalPage>5">
-       <li><a href="adminIsThrough.action?appTmp.isThroughCurrentPage=5">5</a></li>
+       <li><a href="adminIsThrough.action?appTmp.isThrough=-1&appTmp.isThroughCurrentPage=5">5</a></li>
        </s:if>
        <s:if test="#page.hasNext">
-       <li><a href="adminIsThrough.action?appTmp.isThroughCurrentPage=<s:property value="#page.currentPage+1"/>">下一页</a></li>
+       <li><a href="adminIsThrough.action?appTmp.isThrough=-1&appTmp.isThroughCurrentPage=<s:property value="#page.currentPage+1"/>">下一页</a></li>
        </s:if>
        <s:if test="#page.hasLast">
-		<li><a href="adminIsThrough.action?appTmp.isThroughCurrentPage=<s:property value="#page.totalPage"/>">尾页</a></li>
+		<li><a href="adminIsThrough.action?appTmp.isThrough=-1&appTmp.isThroughCurrentPage=<s:property value="#page.totalPage"/>">尾页</a></li>
 		</s:if>
 		<li>当前第<s:property value="#page.currentPage"/>页，总共<s:property value="#page.totalPage"/>页
 		</li>
@@ -183,6 +183,5 @@ a{ text-decoration:none; color:#666;}
                    </div>
      </div>
  </div>
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1252900022'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1252900022%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 </body>
 </html>

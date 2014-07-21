@@ -28,5 +28,6 @@
     <include file="com/rainbow/struts/idMessageAction.xml"></include><!-- id信息管理 -->
     <include file="com/rainbow/struts/prizeAction.xml"></include><!-- 抽奖系统 -->
     <include file="com/rainbow/struts/FindPasswordAction.xml"></include><!-- 找回密码 -->
+    <include file="com/rainbow/struts/StatisticsAction.xml"></include><!-- 统计列表 -->
     
 </struts>

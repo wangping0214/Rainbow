@@ -37,6 +37,11 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 		
 	}
 
+	/* 
+	 * 跟新时app_id cp_id不能跟新
+	 * (non-Javadoc)
+	 * @see com.rainbow.dao.AppInfoDAO#update(int, com.rainbow.entity.AppInfo)
+	 */
 	@Override
 	public void update(int id, AppInfo appInfo) {
 		// TODO Auto-generated method stub
@@ -61,10 +66,10 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 			tmp.setClassification(appInfo.getClassification());
 		if(appInfo.getElaborate()!=null)
 			tmp.setElaborate(appInfo.getElaborate());
-		if(appInfo.getApp_id()!=null)
-			tmp.setApp_id(appInfo.getApp_id());
 		if(appInfo.getUpTime()!=null)
 			tmp.setUpTime(appInfo.getUpTime());
+		if(appInfo.getReleaseTime()!=null)
+			tmp.setReleaseTime(appInfo.getReleaseTime());
 		tmp.setIsThrough(appInfo.getIsThrough());
 		tmp.setShelf(appInfo.getShelf());
 		tmp.setUpTime(appInfo.getUpTime());
@@ -164,7 +169,6 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 	@Override
 	public List<AppInfo> adminFindByShelf(int isThrough, int shelf,
 			int currentPage, int pageSize) {
-		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("select u from AppInfo u where u.isThrough=:isThrough and u.shelf=:shelf");
 		query.setParameter("isThrough", isThrough);
 		query.setParameter("shelf", shelf);
@@ -177,7 +181,6 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 
 	@Override
 	public int adminFindByShelfNum(int isThrough, int shelf) {
-		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("select u from AppInfo u where u.isThrough=:isThrough and u.shelf=:shelf");
 		query.setParameter("isThrough", isThrough);
 		query.setParameter("shelf", shelf);
@@ -327,6 +330,29 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 		Query query = entityManager.createQuery("select u from AppInfo u where u.isThrough=1 and u.shelf=:shelf and u.joint=:joint ");
 		query.setParameter("shelf", shelf);
 		query.setParameter("joint", joint);
+		return query.getResultList().size();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<AppInfo> findByUserIdAndThrough(String cp_id, int isThrough,
+			int currentPage, int pageSize)
+	{
+		Query query = entityManager.createQuery("select u from AppInfo u where u.cp_id = :cp_id and u.isThrough = :isThrough");
+		query.setParameter("cp_id", cp_id);
+		query.setParameter("isThrough", isThrough);
+		int startRow = (currentPage-1)*pageSize;
+		query.setFirstResult(startRow);
+		query.setMaxResults(pageSize);
+		return query.getResultList();
+	}
+
+	@Override
+	public int findByUserIdAndThroughNum(String cp_id, int isThrough)
+	{
+		Query query = entityManager.createQuery("select u from AppInfo u where u.cp_id = :cp_id and u.isThrough = :isThrough");
+		query.setParameter("cp_id", cp_id);
+		query.setParameter("isThrough", isThrough);
 		return query.getResultList().size();
 	}
 

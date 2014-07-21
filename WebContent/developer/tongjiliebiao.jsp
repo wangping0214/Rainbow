@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,6 +14,21 @@
 .sobut2{ width:35px; height:25px; background:none; border:none; cursor:pointer}
 .guanggaonav .blue a{ color:#06F}
 </style>
+<script type="text/javascript" language="javascript">
+ function showUserStatistics(cp_id,currentPage){
+	 jQuery.ajax({
+		 type:"post",
+		 url:"showUserStatistics.action",
+		 data:{
+			 "cp_id":cp_id,
+			 "currentPage":currentPage
+		 },
+	 success:function(){
+		 	location.href="tongjiliebiao.jsp";
+	 	}
+	 });
+ }
+ </script>
 </head>
 
 <body>
@@ -37,36 +53,58 @@
                             <caption>&nbsp;</caption>
                             <tr>
                                 <th>应用名称</th>
-                                <th>点击次数</th>
                                 <th>下载次数</th>
+                                <th>评论次数</th>
                             </tr>
+                            <s:iterator value="#request['app']" id="app">
                             <tr class="allyingyong">
-                               <td>所有应用</td>
-                               <td>200</td>
-                               <td>300</td>
+                               <td><s:property value="#app.appInfo.appName" /></td>
+                               <td><s:property value="#app.appAut.amountOfDown" /></td>
+                               <td>
+                               		<s:property value="#app.review.size()" />
+                               </td>
                             </tr>
-                            <tr>
-                               <td>愤怒的小鸟</td>
-                               <td>200</td>
-                               <td>300</td>
-                            </tr>
+                            </s:iterator>
                          </table>
                         <ul class="page">
-                           <li><a href="#">首页</a></li>
-                           <li><a href="#">上一页</a></li>
-                           <li><a href="#">1</a></li>
-                           <li><a href="#">2</a></li>
-                           <li><a href="#">3</a></li>
-                           <li><a href="#">4</a></li>
-                           <li><a href="#">5</a></li>
-                           <li><a href="#">下一页</a></li>
-                      </ul>                            
+    <s:set name="page" value="#request.page"/>
+       <s:if test="#page.hasFirst">
+       <li><a href="showUserStatistics.action?currentPage=1">首页</a>
+		</li>
+		</s:if>
+       <s:if test="#page.hasPrevious">
+       <li><a href="showUserStatistics.action?currentPage=<s:property value="#page.currentPage-1"/>">上一页</a>
+		</li>
+		</s:if>
+		<s:if test="#page.totalPage>1">
+       <li><a href="showUserStatistics.action?currentPage=1">1</a></li>
+       </s:if>
+       <s:if test="#page.totalPage>2">
+       <li><a href="showUserStatistics.action?currentPage=2">2</a></li>
+        </s:if>
+        <s:if test="#page.totalPage>3">
+       <li><a href="showUserStatistics.action?currentPage=3">3</a></li>
+        </s:if>
+        <s:if test="#page.totalPage>4">
+       <li><a href="showUserStatistics.action?currentPage=4">4</a></li>
+       </s:if>
+       <s:if test="#page.totalPage>5">
+       <li><a href="showUserStatistics.action?currentPage=5">5</a></li>
+       </s:if>
+       <s:if test="#page.hasNext">
+       <li><a href="showUserStatistics.action?currentPage=<s:property value="#page.currentPage+1"/>">下一页</a></li>
+       </s:if>
+       <s:if test="#page.hasLast">
+		<li><a href="showUserStatistics.action?currentPage=<s:property value="#page.totalPage"/>">尾页</a></li>
+		</s:if>
+		<li>当前第<s:property value="#page.currentPage"/>页，总共<s:property value="#page.totalPage"/>页
+		</li>
+     </ul>                          
 
                </div>
      </div>
  </div>
  </div>
 </div> 
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1252900022'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1252900022%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 </body>
 </html>

@@ -21,15 +21,15 @@
 		<property name="driverClassName"
 			value="com.mysql.jdbc.Driver">
 		</property>
-		  
+		   <!--
 		<property name="url" value="jdbc:mysql://localhost:3306/rainbow"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value="root"></property>
-		 <!--
+		 -->
 		<property name="url" value="jdbc:mysql://rdsjfiaiajfiaia.mysql.rds.aliyuncs.com:3306/rainbow"></property>
 		<property name="username" value="wcsk_admin"></property>
 		<property name="password" value="wcsk_wcsk_123456"></property>
-		-->
+		 
 	</bean>
 	
 	<bean id="hibernateJpaVendorAdaptor"
@@ -160,7 +160,12 @@
 		<constructor-arg ref="userDAO"></constructor-arg>
 	</bean>
 	
-	
+	<bean id="statisticsAction" class="com.rainbow.action.StatisticsAction" scope="prototype">
+		<constructor-arg ref="AppAutDAO"></constructor-arg>
+		<constructor-arg ref="AppInfoDAO"></constructor-arg>
+		<constructor-arg ref="AppSouDAO"></constructor-arg>
+		<constructor-arg ref="ReviewDAO"></constructor-arg>
+	</bean>
 	
 	
 

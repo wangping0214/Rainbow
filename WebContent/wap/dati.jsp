@@ -7,7 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>柴米游戏-中国第一手游杂志</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<title>无标题文档</title>
 <link href="css/huodong.css" rel="stylesheet" type="text/css" />
 
 <script src="js/jquery.min.js" type="text/javascript"></script>
@@ -51,14 +50,14 @@ $(document).ready(function(){
        <dd><input type="radio" name="firstQuestion" value="4" />按下载时常计费</dd>
    </dl>
    <dl>
-       <dt>2、 "柴米游戏"中的《柴米游言》杂志第十二期中有几款游戏提供下载？</dt>
+       <dt>2、 "柴米游戏"中的《柴米游言》杂志第十三期中有几款游戏提供下载？</dt>
        <dd><input type="radio" name="secondQuestion" value="1" />10款</dd>
        <dd><input type="radio" name="secondQuestion" value="2" />11款</dd>
        <dd><input type="radio" name="secondQuestion" value="3" />12款</dd>
        <dd><input type="radio" name="secondQuestion" value="4" />13款</dd>
    </dl>
    <dl>
-       <dt>3、 "柴米游戏"中的《柴米游言》杂志第十二期中游戏下载位置？</dt>
+       <dt>3、 "柴米游戏"中的《柴米游言》杂志第十三期中游戏下载位置？</dt>
        <dd><input type="radio" name="thridQuestion" value="1" />左上角</dd>
        <dd><input type="radio" name="thridQuestion" value="2" />右上角</dd>
        <dd><input type="radio" name="thridQuestion" value="3" />左下角</dd>
@@ -68,6 +67,9 @@ $(document).ready(function(){
 </div>
 
 </div>
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1252900022'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1252900022%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+<%@ include file="cs.jsp" %>
+<%CS cs = new CS(1252900022);cs.setHttpServlet(request,response);
+String imgurl = cs.trackPageView();%> 
+<img src="<%= imgurl %>" width="0" height="0"  />
 </body>
 </html>

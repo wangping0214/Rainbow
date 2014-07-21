@@ -149,7 +149,7 @@
     <li><a href="adminShowJoint.action?currentPage=1&shelf=1&joint=1" target="main"><img src="images/lianyun.gif" />联运应用管理</a></li>
     <li><a href="uploadAppOfMenu.action" target="main"><img src="images/img17.gif"/>添加新应用</a></li>
     <li class="gl"><a href="isThrough.action?appTmp.isThrough=0" target="main"><img src="images/img18.gif"/>审核管理</a><p class="dainum"><%=session.getAttribute("userTotal") %></p></li>
-    <li><a href="tongjiliebiao.jsp" target="main"><img src="images/img29.gif" />统计列表</a></li>
+    <li><a href="" ><img src="images/img29.gif" />统计列表</a></li>
 
    </ul>
  </li>
@@ -180,6 +180,5 @@
  </div>
  <!--message-->
 </div>
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1252900022'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1252900022%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 </body>
 </html>

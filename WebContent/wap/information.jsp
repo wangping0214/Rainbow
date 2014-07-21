@@ -405,6 +405,9 @@ first("selectp","selectc","form",0,0);
 </div>
 
 </div>
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1252900022'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1252900022%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+<%@ include file="cs.jsp" %>
+<%CS cs = new CS(1252900022);cs.setHttpServlet(request,response);
+String imgurl = cs.trackPageView();%> 
+<img src="<%= imgurl %>" width="0" height="0"  />
 </body>
 </html>

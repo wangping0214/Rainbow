@@ -113,6 +113,7 @@ public class DeveloperAction {
 			HttpSession httpSession = ServletActionContext.getRequest().getSession();
 			httpSession.setAttribute("username", findUser.getUsername());
 			httpSession.setAttribute("password", findUser.getPassword());
+			httpSession.setAttribute("user", findUser);
 			if((findUser.getUserType().equals("individualCommon"))||(findUser.getUserType().equals("individualUsers")&&findUser.getApproved()==0)||(findUser.getUserType().equals("individualGroups")&&findUser.getApproved()==0)){
 				return "usersuccess0";
 			}
@@ -131,6 +132,7 @@ public class DeveloperAction {
 			HttpSession httpSession = ServletActionContext.getRequest().getSession();
 			httpSession.setAttribute("username", findUser1.getUsername());
 			httpSession.setAttribute("password", findUser1.getPassword());
+			httpSession.setAttribute("user", findUser1);
 			if((findUser1.getUserType().equals("individualCommon")&&findUser1.getApproved()==0)||(findUser1.getUserType().equals("individualUsers")&&findUser1.getApproved()==0)||(findUser1.getUserType().equals("individualGroups")&&findUser1.getApproved()==0)){
 				return "usersuccess0";
 			}
@@ -301,6 +303,7 @@ public class DeveloperAction {
 	{
 		HttpSession httpSession = ServletActionContext.getRequest().getSession();
 		httpSession.removeAttribute("username");
+		httpSession.removeAttribute("user");
 		return Action.SUCCESS;
 	}
 	

@@ -61,7 +61,7 @@ a,a:hover{text-decoration: none;}
 .vconlist li.select a,.vconlist li a:hover{color:#ed4948;text-decoration:none;}
 #c{
 	background-color:#FFFFFF;
-	width: 100%;	height:750px;
+	width: 100%;	height:900px;
 	
 }
 
@@ -185,7 +185,7 @@ a,a:hover{text-decoration: none;}
     <td width="1">│</td>
     <td style=" background:url(newpic/ssbg.png) no-repeat center bottom;" ><div align="center"><a href="wangqi.jsp"><font color="#FFFFFF">往期</font> </a></div></td>
     <td width="1">│</td>
-	<td><div style="background:url(newpic/ssbg00.gif) repeat-x bottom; height:43px; line-height:43px; color:#FFF; margin:0 10%;" align="center">
+	<td><div style="background:url(newpic/ssbg00.gif) repeat-x bottom; height:43px; line-height:43px; color:#FFF; margin:0 5%;" align="center">
 	<a href="showByRecomLevel.action?appTmp.showByRecomLevelCurrentPage=1"><font color="#FFFFFF">游戏&amp;应用</font></a></div>
       </td>
     <td width="1" >│</td>
@@ -340,9 +340,12 @@ a,a:hover{text-decoration: none;}
 <a href="showByType.action?appTmp.showByTypeCurrentPage=1&type=2">应用</a>｜
 <a href="showByScoreAndDown.action?appTmp.showByScoreAndDownCurrentPage=1">排行</a>｜
 <a href="guanyu.jsp">关于</a>
-<img src="newpic/seach.gif" width="117" height="24" /></div>
+</div>
 <div align="center">
   <span class="STYLE1 STYLE2">&copy;2010-2014中国联通 版权所有</span></div>
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1252900022'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1252900022%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+<%@ include file="cs.jsp" %>
+<%CS cs = new CS(1252900022);cs.setHttpServlet(request,response);
+String imgurl = cs.trackPageView();%> 
+<img src="<%= imgurl %>" width="0" height="0"  />
 </body>
 </html>

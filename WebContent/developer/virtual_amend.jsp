@@ -189,7 +189,7 @@ function editPay(payId){
                             <div><label><span>价格：</span><p><input id="price" type="text"<%if(pay.getOtherPay()!=null){ %>value="<%=pay.getOtherPay().getPrice() %>"<%} %> /></p></label></div>
                             <div><label><span>物品描述：</span><p><textarea id="other_description"><%if(pay.getOtherPay().getDescription()!=null){ %><%=pay.getOtherPay().getDescription() %><%} %></textarea></p></label></div>
                            <div class="sdksure"><a href="javascript:editPaySub('<%=pay.getMesPay().getId() %>','<%=app.getAppInfo().getId() %>');" >确认</a></div>
-                           <p class="sdkcolse"><a href="javascript:void(0)"><img src="images/g.jpg" /></a></p>
+                           <p class="sdkcolse"><a href="javascript:history.back(-1);"><img src="images/g.jpg" /></a></p>
                      </div>
                     <!--xinzeng-->
                  
@@ -203,6 +203,5 @@ function editPay(payId){
  </div>
  </div>
 </div> 
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1252900022'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1252900022%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 </body>
 </html>

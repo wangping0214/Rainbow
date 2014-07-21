@@ -105,6 +105,10 @@ public class UserDAOImpl implements UserDAO
 	@Override
 	public void update(User user)
 	{
+		User oldUser = find(user.getId());
+		if(oldUser.getCp_id()!=null||oldUser.getCp_id()!=""){
+			user.setCp_id(oldUser.getCp_id());
+		}
 		entityManager.merge(user);
 	}
 

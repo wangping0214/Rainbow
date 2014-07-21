@@ -160,7 +160,7 @@ a{ text-decoration:none; color:#666;}
 		 <div class="twobut">
              <a href="editApp.action?appTmp.editId=<s:property value="#app.appInfo.id"/>" target="main"></a>
              <a href="javascript:shelfManage('<s:property value="#app.appInfo.appName" />','<s:property value="#app.appInfo.id" />','-1')"></a><a href="tongjiliebiao2.jsp"></a>
-             <a href="showAppProduct.action?apkId=<s:property value="#app.appInfo.id"/>" title="虚拟物品"></a>
+             <a href="showAppProduct.action?apkId=<s:property value="#app.appInfo.id"/>" title="添加商品"></a>
 		  </div>
 	</div>
 	</s:iterator>
@@ -206,6 +206,5 @@ a{ text-decoration:none; color:#666;}
                    </div>
      </div>
  </div>
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1252900022'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1252900022%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 </body>
 </html>

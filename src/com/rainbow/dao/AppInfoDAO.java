@@ -100,6 +100,9 @@ public interface AppInfoDAO {
 	
 	public List<AppInfo> findUserTypeMessage(String userName,int isThrough,String type,int currentPage,int pageSize);
 	public int findUserTypeMessageNum(String userName,int isThrough,String type);
+	
+	public List<AppInfo> findByUserIdAndThrough(String cp_id,int isThrough,int currentPage,int pageSize);
+	public int findByUserIdAndThroughNum(String cp_id,int isThrough);
 	/**
 	 * @param appInfo
 	 */
