@@ -132,7 +132,7 @@
 <body>
 <div style="float:left; background:#F00">
 <div class="touxiang">
-    <p><img src="images/img4.gif" class="pngf" /><%=session.getAttribute("username")%></p>
+    <p id="touxiang"><img src="images/img4.gif" class="pngf" /><%=session.getAttribute("username")%></p>
 </div>
 <ul id="menu">
  <li class="item"><a href="javascript:void(0)" class="title nav1" name="1">杂志</a>
@@ -172,7 +172,7 @@
    </ul>
  </li>
 </ul>
-<ul class="yonghu">
+<ul class="yonghu" id="tuichu">
         <li><a href="login.jsp" target="_top">退出登录</a></li>
  </ul>
  <div class="message">

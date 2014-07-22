@@ -140,11 +140,21 @@ function addReview(appInfoId){
 		        <a href="javascript:void(0);" class="prev disabled" id="prev-03">&nbsp; </a>
 		        <div class="jCarouselLite" id="demo-03">
 			        <ul>
+			        <%if(app.getAppSou().getGamePhoto1()!=null){ %>
 				       <li><img src="<%=request.getContextPath()+app.getAppSou().getGamePhoto1() %>" width="246" height="409"/></li>
+				       <%}
+			        if(app.getAppSou().getGamePhoto2()!=null){%>
 				       <li><img src="<%=request.getContextPath()+app.getAppSou().getGamePhoto2() %>" width="246" height="409"/></li>
+				       <%}
+			        if(app.getAppSou().getGamePhoto3()!=null){%>
                        <li><img src="<%=request.getContextPath()+app.getAppSou().getGamePhoto3() %>" width="246" height="409"/></li>
+                       <%}
+			        if(app.getAppSou().getGamePhoto4()!=null){%>
                        <li><img src="<%=request.getContextPath()+app.getAppSou().getGamePhoto4() %>" width="246" height="409"/></li>
+                       <%}
+			        if(app.getAppSou().getGamePhoto5()!=null){%>
                        <li><img src="<%=request.getContextPath()+app.getAppSou().getGamePhoto5() %>" width="246" height="409"/></li>
+                       <%} %>
 			        </ul>
 		      </div>
 		      <a href="javascript:void(0);" class="next" id="next-03">&nbsp; </a>

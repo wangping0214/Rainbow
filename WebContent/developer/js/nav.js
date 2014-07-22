@@ -53,17 +53,7 @@ $(".guanggaonav li").click(function(){
 	   $(this).addClass("over").siblings("li").removeClass("over");
 	   }) 
 	   
-$(".touxiang").mouseover(function(){
-	$(this).siblings(".yonghu").show();
-	}).mouseout(function(){
-		$(this).siblings(".yonghu").hide();
-		})
-$(".yonghu").mousemove(function(){
-	$(this).show();
-	}).mouseout(function(){
-		$(this).hide();
-		
-		})
+
 		
 /*消息通知*/
 $(".messcont").hide();
@@ -92,5 +82,29 @@ $(".newadd").click(function(){
 	  $(this).parent(".xinzeng").hide()	
 	})
 	})	
-
+	/*退出登录*/
+	   window.onload=function(){
+	    var tou=document.getElementById("touxiang");
+		var tuichu=	document.getElementById("tuichu");
+		var timer=null;
+		 tou.onmouseover=function(){
+			 clearInterval(timer);
+		   	tuichu.style.display="block"; 
+		 }
+		 tou.onmouseout=function(){
+			 timer=setTimeout(function(){
+				tuichu.style.display="none"; 
+				 
+			},1000) 
+		 }
+		 tuichu.onmouseover=function(){
+		   clearTimeout(timer);	 
+	     }
+		 tuichu.onmouseout=function(){
+		   	timer=setTimeout(function(){
+			tuichu.style.display="none";  	
+		 },500)
+		}
+	}
+	/*退出end*/
 	})

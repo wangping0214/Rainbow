@@ -262,11 +262,22 @@ if(app.getAppInfo().getSecurity().charAt(4)=='0'){%><img src="image/ys.jpg"/>
 
 <div class="gamepic"  style="overflow:scroll; height: 220px; overflow-x:hidden">
 <span class="gamepic" style="overflow:scroll; height: 220px;">
+<%if(app.getAppSou().getGamePhoto1()!=null){ %>
 <img name="" src="<%=request.getContextPath()+app.getAppSou().getGamePhoto1() %>"  width="" height="200" alt="" />
+<%}
+if(app.getAppSou().getGamePhoto2()!=null){%>
 <img name="" src="<%=request.getContextPath()+app.getAppSou().getGamePhoto2() %>"  width="" height="200" alt="" />
+<%}
+if(app.getAppSou().getGamePhoto3()!=null){%>
 <img name="" src="<%=request.getContextPath()+app.getAppSou().getGamePhoto3() %>"  width="" height="200" alt="" />
+<%}
+if(app.getAppSou().getGamePhoto4()!=null){%>
 <img name="" src="<%=request.getContextPath()+app.getAppSou().getGamePhoto4() %>"  width="" height="200" alt="" />
-<img name="" src="<%=request.getContextPath()+app.getAppSou().getGamePhoto5() %>"  width="" height="200" alt="" /></span></div>
+<%}
+if(app.getAppSou().getGamePhoto5()!=null){%>
+<img name="" src="<%=request.getContextPath()+app.getAppSou().getGamePhoto5() %>"  width="" height="200" alt="" />
+<%} %>
+</span></div>
 
 
 <div id="select" class="m" clstag="thirdtype|keycount|thirdtype|select">

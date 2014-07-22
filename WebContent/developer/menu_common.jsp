@@ -129,7 +129,7 @@
 <body>
 <div style="float:left; background:#F00;">
 <div class="touxiang">
-    <p><img src="images/img4.gif" class="pngf" /><span><%=session.getAttribute("username")%></span></p>
+    <p id="touxiang"><img src="images/img4.gif" class="pngf" /><span><%=session.getAttribute("username")%></span></p>
     
 </div>
 
@@ -154,7 +154,7 @@
    </ul>
  </li>
 </ul> 
-<ul class="yonghu">
+<ul class="yonghu" id="tuichu">
         <li><a  target="main">修改注册信息</a></li>
         <li><a  target="main">修改密码</a></li>
         <li><a href="<%=request.getContextPath()%>/developer_logout.action" target="_parent">退出登录</a></li>

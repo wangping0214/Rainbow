@@ -38,9 +38,7 @@ public class PageUtil {
 	}
 	
 	public int getTotalPage() {
-		totalPage=totalSize/pageSize;
-		if(totalSize%pageSize!=0)
-			totalPage++;
+		totalPage=totalSize/pageSize+1;
 		return totalPage;
 	}
 	public void setTotalPage(int totalPage) {

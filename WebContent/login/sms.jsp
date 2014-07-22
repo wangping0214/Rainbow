@@ -6,7 +6,7 @@ String mobile_code = request.getParameter("mobile_code");
 String account = "cf_wcskdxyz";
 String password = "wcsk1212";
 String mobile = request.getParameter("mobile");
-String content = new String("您的验证码是：" + mobile_code + "。请不要把验证码泄露给其他人。");
+String content = new String("您的验证码是：" + mobile_code + "。请不要把验证码泄露给其他人。如非本人操作，可不用理会！");
 
 
 try {
