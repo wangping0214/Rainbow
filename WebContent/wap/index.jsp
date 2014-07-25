@@ -86,7 +86,7 @@ img{ vertical-align:middle;}
     <td width="1"></td>
   </tr>
 </table></div>
-<div class="fc"><a href="mulu.jsp"><img src="image/z-13.jpg" alt="" width="100%" usemap="#Map" border="0"/></a>
+<div class="fc"><a href="mulu.jsp"><img src="image/z-14.jpg" alt="" width="100%" usemap="#Map" border="0"/></a>
  
 </div>
 </div>
