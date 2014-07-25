@@ -23,21 +23,31 @@ $(document).ready(function(){
 	$("#mes_product_id").change(function(){
 		$("#other_product_id").attr("value",$("#mes_product_id").val());
 	});
-	
+	$("#other_product_id").change(function(){
+		$("#mes_product_id").attr("value",$("#other_product_id").val());
+	});
+	$("#mes_name").change(function(){
+		$("#other_name").attr("value",$("#mes_name").val());
+	});
+	$("#other_name").change(function(){
+		$("#mes_name").attr("value",$("#other_name").val());
+	});
 });
 
 
 function editPaySub(payId,apkId,e){		//编辑物品
-	if($("#mes_product_id").val()==""){
-		alert("短代支付的物品ID不能为空");
+	var prise = parseFloat($("#price").val());
+	if($("#mes_product_id").val()==""&&prise<=30){
+		alert("商品价格不超过30元，请在短代支付中填写物品ID");
 		e.preventDefault();
 	}
-	if($("#mes_name").val()==""){
-		alert("短代支付的物品名称不能为空");
+	if($("#mes_name").val()==""&&prise<=30){
+		alert("商品价格不超过30元，请在短代支付中填写物品名称");
 		e.preventDefault();
 	}
-	if($("#mes_description").val()==""){
-		alert("短代支付的物品描述不能为空");
+	
+	if($("#mes_description").val()==""&&prise<=30){
+		alert("商品价格不超过30元，请在短代支付中填写物品描述");
 		e.preventDefault();
 	}
 	if($("#other_product_id").val()==""){
@@ -56,7 +66,7 @@ function editPaySub(payId,apkId,e){		//编辑物品
 		alert("支付宝&银联支付的物品描述不能为空");
 		e.preventDefault();
 	}
-	if($("#mes_product_id").val()!=$("#other_product_id").val()){
+	if($("#mes_product_id").val()!=$("#other_product_id").val()&&prise<=30){
 		alert("请确认短代支付和支付宝&银联支付的物品ID一致！");
 		e.preventDefault();
 	}
@@ -143,6 +153,9 @@ function editPay(payId){
              <div class="lianyun">
                  <div class="zeng">
                         <div class="xinzeng xinzeng2">
+                        	<p ><font color="#F00">注：
+若您的商品价格超过30元，只需填写其他支付（支付宝&银联支付）。
+即使填写了短代支付，也无法生效。</font></p>
                             <p class="xintit">短代支付</p>
                             <div><label><span>物品ID：</span><p><input id="mes_product_id" type="text"<%if(pay.getMesPay().getProduct_id()!=null){ %>value="<%=pay.getMesPay().getProduct_id() %>" <%}else{ %>value=""<%} %> /></p></label></div>
                             <div><label><span>物品名称：</span><p><input id="mes_name" type="text"<%if(pay.getMesPay().getName()!=null){ %>value="<%=pay.getMesPay().getName() %>"<%}else{ %>value=""<%} %> /></p></label></div>
@@ -188,7 +201,7 @@ function editPay(payId){
                             <div><label><span>物品名称：</span><p><input id="other_name" type="text"<%if(pay.getOtherPay().getName()!=null){ %>value="<%=pay.getOtherPay().getName() %>"<%} %> /></p></label></div>
                             <div><label><span>价格：</span><p><input id="price" type="text"<%if(pay.getOtherPay()!=null){ %>value="<%=pay.getOtherPay().getPrice() %>"<%} %> /></p></label></div>
                             <div><label><span>物品描述：</span><p><textarea id="other_description"><%if(pay.getOtherPay().getDescription()!=null){ %><%=pay.getOtherPay().getDescription() %><%} %></textarea></p></label></div>
-                           <div class="sdksure"><a href="javascript:editPaySub('<%=pay.getMesPay().getId() %>','<%=app.getAppInfo().getId() %>');" >确认</a></div>
+                           <div class="sdksure"><a href="javascript:editPaySub('<%=pay.getOtherPay().getId() %>','<%=app.getAppInfo().getId() %>');" >确认</a></div>
                            <p class="sdkcolse"><a href="javascript:history.back(-1);"><img src="images/g.jpg" /></a></p>
                      </div>
                     <!--xinzeng-->

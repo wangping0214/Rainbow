@@ -103,15 +103,24 @@ public interface AppInfoDAO {
 	
 	public List<AppInfo> findByUserIdAndThrough(String cp_id,int isThrough,int currentPage,int pageSize);
 	public int findByUserIdAndThroughNum(String cp_id,int isThrough);
+	
+	public List<AppInfo> findUserIsJointApp(String cp_id,int joint, int isThrough, int shelf,int currentPage,int pageSize);
+	public int findUserIsJointAppNum(String cp_id,int joint, int isThrough, int shelf);
 	/**
 	 * @param appInfo
 	 */
 	public void save(AppInfo appInfo);
 	/**
+	 * 全部跟新
 	 * @param id
 	 * @param appInfo
 	 */
 	public void update(int id,AppInfo appInfo);
+	
+	/**部分跟新
+	 * @param appInfo
+	 */
+	public void updataPart(AppInfo appInfo);
 	/**
 	 * @param id
 	 */

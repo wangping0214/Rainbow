@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>新刊编辑</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript"src="js/jquery.min.js"></script>
 <style type="text/css">
 *{padding:0; margin:0;}
 .body{
@@ -99,6 +100,10 @@
 	width: 500px;
 	margin-right: 100px;
 }
+.tjsh input{ border:0;background:url(images/bao.png) no-repeat; width:150px; height:46px;float:left; text-align:center; line-height:46px; font-size:18px; color:#FFF; margin:30px 0 0 50px;display:inline;font-family:微软雅黑;}
+.tokenurl{ clear:both; overflow:hidden; zoom:1; padding-bottom:20px;}
+.tokenurl .xiu{ border:0; background:url(images/bgg.png) no-repeat; width:47px; height:24px; text-align:center; color:#FFF;}
+.tokenurl label input{ width:260px; height:20px;}
 </style>
 <script type="text/JavaScript">
 <!--
@@ -114,6 +119,38 @@ function fn_browse()
 document.form1.browse.click(); 
 document.form1.file.value = document.all.form1.browse.value; 
 } 
+function deleteJointApp(apkId,apkName,isThrough){
+	if(window.confirm("确认删除"+apkName+"及所有相关数据吗?")){
+		jQuery.ajax({
+			type:"post",
+			url:"deleteJointApp.action",
+			data:{"apkId":apkId},
+			success: function(){
+				alert(apkName+"已删除");
+				location.href="devIsThrough.action?appTmp.isThrough="+isThrough+"&appTmp.isThroughCurrentPage=1";
+			}
+		});
+	}
+}
+function change_notify_url(apkId,old_notify_url){
+	if(window.confirm("是否修改回调地址")){
+		jQuery.ajax({
+			type:"post",
+			url:"change_notify_url.action",
+			data:{
+				"apkId":apkId,
+				"notify_url":$("#notify_url").val()
+			},
+			success:function(){
+				alert("回调地址修改成功！");
+			}
+			
+		});
+	}
+	else{
+		$("#notify_url").attr("value",old_notify_url);
+	}
+}
 </script> 
 </head>
 
@@ -136,6 +173,9 @@ document.form1.file.value = document.all.form1.browse.value;
                              <dd><span>APP　ID:</span><s:property value="#app.appInfo.app_id"/></dd>
                              <dd><span>APP 名称:</span><s:property value="#app.appInfo.appName"/></dd>
                           </dl>
+                          <div class="tokenurl">
+                          <label>回调地址：<input type="text" name="notify_url" id="notify_url" value="<s:property value="#app.appInfo.notify_url"/>" /></label>
+                          <input type="button" id="change_notify_url" onclick="change_notify_url('<s:property value="#app.appInfo.id"/>','<s:property value="#app.appInfo.notify_url"/>')" value="修改" class="xiu"/></div>
                           <div class="appshuoming">
                               <p><span class="xuhao">①</span><input type="button" value="添加商品" class="tian" onclick="location.href='showAppProduct.action?apkId=<s:property value="#app.appInfo.id"/>';" /></p>
                               <p class="ml70">添加商品后，您可以进行SDK测试。</p>
@@ -146,9 +186,11 @@ document.form1.file.value = document.all.form1.browse.value;
                               <p class="ml70">完善信息后，您可以提交您的应用。</p>
                           </div>
                           <!--appshuoming-->
+                          <div class="tjsh"><input type="button" onclick="deleteJointApp('<s:property value="#app.appInfo.id"/>','<s:property value="#app.appInfo.appName"/>','<s:property value="#app.appInfo.isThrough"/>')" value="删除APP" />
                           <s:if test="#app.appInfo.isThrough==-2">
-                          <div class="tjsh"><input type="button" onclick="location.href='dev_audit_submit.action?appId=<s:property value="#app.appInfo.id"/>';" value="提交审核" /></div>
+                          <input type="button" onclick="location.href='dev_audit_submit.action?appId=<s:property value="#app.appInfo.id"/>';" value="提交审核" />
                           </s:if>
+                          </div>
                       </div>
                       <!--form-->
  

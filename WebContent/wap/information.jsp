@@ -366,7 +366,7 @@ $(document).ready(function(){
 					});
 				}
 				else{
-					alert("对不起改号码已经被使用！");
+					alert("对不起该号码已经被使用！");
 					return false;
 				}
 			}

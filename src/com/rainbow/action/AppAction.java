@@ -361,17 +361,19 @@ public class AppAction {
 	 */
 	public String deleteApp(){
 		AppInfo appInfo = appInfoDAO.findById(appTmp.getDeleteAppId());
-		
-		List<MessagePayment> mesPay =  messageDAO.findByAppIdCpId(appInfo.getApp_id(), appInfo.getCp_id());
-		for(int i = 0;i<mesPay.size(); i++){
-			MessagePayment mes = mesPay.get(i);
-			OtherPayment other = otherPaymentDAO.findById(mes.getId());
-			messageDAO.delete(mes);
-			otherPaymentDAO.delete(other);
+		//找到所有的支付方式并且删除
+		List<OtherPayment> otherPayList = otherPaymentDAO.findByAppIdAndCpId(appInfo.getApp_id(), appInfo.getCp_id());
+		for(OtherPayment otherPay:otherPayList)
+		{
+			MessagePayment mesPay = messageDAO.findByProductId(otherPay.getProduct_id());
+			messageDAO.delete(mesPay);
+			otherPaymentDAO.delete(otherPay);
 		}
+		//找到所有的评论并且删除
 		List<Review> review = reviewDAO.findByAppId(appTmp.getDeleteAppId());
 		for(int i=0;i<review.size();i++)
 			reviewDAO.delete(review.get(i));
+		//删除应用的所有信息
 		appInfoDAO.delete(appTmp.getDeleteAppId());
 		appSouDAO.delete(appTmp.getDeleteAppId());
 		appAutDAO.delete(appTmp.getDeleteAppId());
@@ -382,17 +384,19 @@ public class AppAction {
 	 */
 	public String userDeleteApp(){
 		AppInfo appInfo = appInfoDAO.findById(appTmp.getDeleteAppId());
-		
-		List<MessagePayment> mesPay =  messageDAO.findByAppIdCpId(appInfo.getApp_id(), appInfo.getCp_id());
-		for(int i = 0;i<mesPay.size(); i++){
-			MessagePayment mes = mesPay.get(i);
-			OtherPayment other = otherPaymentDAO.findById(mes.getId());
-			messageDAO.delete(mes);
-			otherPaymentDAO.delete(other);
+		//找到所有的支付方式并且删除
+		List<OtherPayment> otherPayList = otherPaymentDAO.findByAppIdAndCpId(appInfo.getApp_id(), appInfo.getCp_id());
+		for(OtherPayment otherPay:otherPayList)
+		{
+			MessagePayment mesPay = messageDAO.findByProductId(otherPay.getProduct_id());
+			messageDAO.delete(mesPay);
+			otherPaymentDAO.delete(otherPay);
 		}
+		//找到所有的评论并且删除
 		List<Review> review = reviewDAO.findByAppId(appTmp.getDeleteAppId());
 		for(int i=0;i<review.size();i++)
 			reviewDAO.delete(review.get(i));
+		//删除应用的所有信息
 		appInfoDAO.delete(appTmp.getDeleteAppId());
 		appSouDAO.delete(appTmp.getDeleteAppId());
 		appAutDAO.delete(appTmp.getDeleteAppId());

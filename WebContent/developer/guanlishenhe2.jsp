@@ -354,7 +354,6 @@
                                    <%} %>
                                  <%} %>
                                  </div>
-                              </div>
                               <div><label>APP语言:</label>
                                  <p class="pp">
                                  <select style="width:120px" name="subApp.appInfo.language">

@@ -158,7 +158,7 @@ a{ text-decoration:none; color:#666;}
 	     <p><img src="<%=request.getContextPath() %><s:property value="#app.appSou.logo1"/>" width="80" height="80" /></p>
 		 <p><s:property value="#app.appInfo.appName" /></p>
 		 <div class="twobut">
-             <a href="editApp.action?appTmp.editId=<s:property value="#app.appInfo.id"/>" target="main"></a>
+             <a href="devEditApp.action?appTmp.editId=<s:property value="#app.appInfo.id"/>" target="main"></a>
              <a href="javascript:shelfManage('<s:property value="#app.appInfo.appName" />','<s:property value="#app.appInfo.id" />','-1')"></a><a href="tongjiliebiao2.jsp"></a>
              <a href="showAppProduct.action?apkId=<s:property value="#app.appInfo.id"/>" title="添加商品"></a>
 		  </div>

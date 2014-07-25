@@ -140,7 +140,7 @@
    <ul id="opt_1" class="optiton">
    <li><a href="showAllIdMessage.action?currentPage=1" target="main"><img src="images/ID.gif" />ID 信息</a></li>
     <li><a href="devShowJoint.action?currentPage=1&shelf=1&joint=1" target="main"><img src="images/lianyun.gif" />联运应用管理</a></li>
-    <li><a href="devIsShelf.action?appTmp.isShelfCurrentPage=1" target="main"><img src="images/img16.gif" />管理游戏&amp;应用</a></li>
+    <li><a href="devIsShelf.action?appTmp.isShelfCurrentPage=1" target="main"><img src="images/img16.gif" />推广应用管理</a></li>
     <li><a href="devUploadAppOfMenu.action" target="main"><img src="images/img17.gif"/>添加新应用</a></li>
     <li class="gl"><a href="devIsThrough.action?appTmp.isThrough=0"><img src="images/img18.gif"/>审核管理</a><p class="dainum"><%=session.getAttribute("userTotal") %></p></li>
     <li><a href="showUserStatistics.action?currentPage=1" target="main"><img src="images/img29.gif" />统计列表</a></li>

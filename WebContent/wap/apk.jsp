@@ -1,9 +1,6 @@
 <%@ page import="com.rainbow.server.App" language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@ taglib prefix="s" uri="/struts-tags" %>
-
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -18,6 +15,7 @@
 
 
 <style type="text/css">
+*{ margin:0; padding:0;}
 body, html {
 scrollbar-face-color: #353535;
 scrollbar-shadow-color: #565656;
@@ -40,13 +38,7 @@ scrollbar-arrow-color: #DADADA;  }
  
 	line-height:1.5;
 }
-.fc2{
-	color: #009;
-	font-family: "微软雅黑";
-	font-size: large;
-	margin-left: 0px;
-	margin-top: 30px;
-	line-height:1.5;
+.fc2s{ margin-left:5px;
 
 }
 .fc3{
@@ -55,6 +47,7 @@ scrollbar-arrow-color: #DADADA;  }
 	margin-top: 2px;
 	font-size: 16px;
 	font-weight: bold;
+	margin-left:5px;
 }
 .fcz{
 	color: #C00;
@@ -83,18 +76,7 @@ scrollbar-arrow-color: #DADADA;  }
 	margin-left: 0px;
 	background-color: #CC0000;
 }
-.fc2{
-	color: #fff;
-	    background-color:#FFFFFF;
-	font-family: "微软雅黑";
-	font-size:18px;
- 
-	margin-top: 5px;
-	line-height:1.5;
-	font-weight:bold;
-	 margin-left:2%;
 
-}
 .fc2-0{
 	color: #fff;
 	font-family: "微软雅黑";
@@ -105,27 +87,40 @@ scrollbar-arrow-color: #DADADA;  }
 	font-weight: bold;
 	background-image: url("image/w1.png")/*tpa=http://www.chaimiyouxi.com/image/w1.png*/; 
 }
-.fc3q{
-	color: #FFFFFF;
+.fc2{
+	color: #fff;
 	font-family: "微软雅黑";
-	margin-top: 1px;
-	background-color: #1F1F1F;
-	text-align: center;
-	background-image: url("image/w1.png")/*tpa=http://www.chaimiyouxi.com/image/w1.png*/;
-	height: 30px;
-	border-width: bold;
-	font-size: 16px;
+	font-size: 14px;
+	margin-left: 0px;
+	margin-top: 0px;
+	line-height: 1.5;
+	font-weight: bold;
+	height:43px; overflow:hidden; zoom:1;  
 }
 .fc2-1{
 	color: #000;
 	font-family: "微软雅黑";
 	font-size:14px;
- 
+	height:30px; background:#ececec;
 	margin-top: 1px;
 	line-height:1.5;
-	font-weight:bold;
 
 }
+.fc3q{
+	color: #FFFFFF;
+	font-family: "微软雅黑";
+	margin-top: 1px;
+	background-color: #70c570;
+	text-align: center;
+	height: 30px;
+	border-width: bold;
+	font-size: 12px;
+	background-image: url(newpic/ssbg000.gif);
+	line-height:30px;
+	margin-top:10px;
+	margin-bottom:5px;
+}
+
 .fc2-11{
 	color: #666;
 	font-family: "微软雅黑";
@@ -188,24 +183,34 @@ scrollbar-arrow-color: #DADADA;  }
 		background-color:fff;
 }
 #form1 textarea{margin-bottom: 5px;}
-</style>
-<style type="text/css">
+
 a {text-decoration: none}
 body {
 	background-color: #000000;
 }
 .STYLE1 {color: #FFFFFF}
-</style>
-<link href="css.css" rel="stylesheet" type="text/css" />
-<script src="<%=request.getContextPath()%>/scripts/jquery.min.js" type="text/javascript"></script>
-<script language="javascript" type="text/javascript"> 
+.fc2177{
+		background-color:#F9F9F9;
+}
+.circle {
+height: 16px;
+width: 40px;
+text-align: center;
+background-color:#FFa202;
+border-radius: 15px;
+	line-height:1;
+	margin-top: 0px;
+}
+.STYLE1 {color: #FFFFFF; padding-bottom:10px;}
 
-</script>
+</style>
+<script src="<%=request.getContextPath()%>/scripts/jquery.min.js" type="text/javascript"></script>
+<link href="css.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
 <div id="c">
-<div class="fc2177"> 
-<font color="#000"><a href="javascript:if(confirm('http://iread.wo.com.cn/zz/3g/index.aspx  \n\n该文件无法用 Teleport Ultra 下载, 因为 它是一个域或路径外部被设置为它的启始地址的地址。  \n\n你想在服务器上打开它?'))window.location='http://iread.wo.com.cn/zz/3g/index.aspx'"><img src="image/wo-logo.png"  width="110" height="30" border="0" /></a></font> 柴米游戏－中国第一手游杂志</div>
+<div class="fc2177"> <font color="#000"><a href="http://iread.wo.com.cn/zz/3g/index.aspx"><img src="newpic/top.jpg" border="0"  width="100%" /></a></font></div>
 
 <div class="fc2"><table height="46" align="center" cellspacing="0" background="newpic/ssbg0.gif" class="clearit" style="width:100%; background-color: #70c570;">
   <tr>
@@ -223,28 +228,29 @@ body {
     <td width="1"></td>
   </tr>
 </table></div>
-<!--nav-->
 <div class="fc2-1">
-<a href="showByRecomLevel.action?appTmp.showByRecomLevelCurrentPage=1">　推荐</a>
-<a href="showByType.action?appTmp.showByTypeCurrentPage=1&type=1"><font color="#000"> <font color="#CC0000"  style="TEXT-DECORATION: underline">游戏</font></font></a>　
-<a href="showByType.action?appTmp.showByTypeCurrentPage=1&type=2"><font color="#000">应用</font></a>　<a href="fenlei.jsp" TEXT-DECORATION:"underline"; >分类 </a>　
-<a href="showByScoreAndDown.action?appTmp.showByScoreAndDownCurrentPage=1"><font color="#000">排行榜</font></a>　
-<a href="guanyu.jsp"><font color="#000">关于</font></a></div>
+<table width="320" height="29" border="0">
+  <tr>
+    <td width="45" height="25"><a href="showByRecomLevel.action?appTmp.showByRecomLevelCurrentPage=1"><font color="#000">推荐</font></a></td>
+    <td width="45"><div class="circle"><a href="showByType.action?appTmp.showByTypeCurrentPage=1&type=1"><font color="#fff">游戏</font></a></div></td>
+    <td width="45"><a href="showByType.action?appTmp.showByTypeCurrentPage=1&type=2"><font color="#000">应用</font></a></td>
+    <td width="45"><a href="fenlei.jsp"><font color="#000">分类</font> </a></td>
+    <td width="45"><a href="showByScoreAndDown.action?appTmp.showByScoreAndDownCurrentPage=1"><font color="#000">排行榜</font></a></td>
+	<td width="45"><a href="guanyu.jsp"><font color="#000">关于</font></a></td>
+  </tr>
+</table>
+</div>
 <div class="fcc">
   <hr />
 </div>
 <%App app = (App)session.getAttribute("app"); %>
 <div  class="fc2-11">
 <div class="fc211"><img src="<%=request.getContextPath()+app.getAppSou().getLogo1() %>"  width="50px" height="50px" /></div>
-<div class="fc212">
-<p><span class="fl mingcheng"><%=app.getAppInfo().getAppName() %></span><img src="image/mll.gif" />
-<a href="downApk.action?appSouId=<%=app.getAppSou().getId() %>&downPath=<%=app.getAppSou().getPackge() %>"
-id="id_downLoad" onclick="downApk.action?appSouId=<%=app.getAppAut().getId()%>" class="fr"><img src="pic/as_06.jpg"  width="55" height="22" />
-</a></p>
-<p class="xinxi clear"><span>下载：<%=app.getAppAut().getAmountOfDown() %>次</span><span>大小:<%=app.getAppSou().getPackgeSize() %>MB</span></p> 
+<div class="fc212"><p><span class="fl mingcheng"><%=app.getAppInfo().getAppName() %></span>
+<a href="downApk.action?appSouId=<%=app.getAppSou().getId() %>&downPath=<%=app.getAppSou().getPackge() %>" class="fr"><img src="pic/an.gif"  width="55" height="22" /></a></p>
+  <p class="xinxi clear"><span>下载：<%=app.getAppAut().getAmountOfDown() %>次</span><span>大小:<%=app.getAppSou().getPackgeSize() %>MB</span></p> 
 </div>
-<div class="illustrate">
-<p class="cut">游戏类型</p>
+<div class="illustrate"><p class="cut">游戏类型</p>
 <p class="grade">
 <%if(app.getAppInfo().getSecurity().charAt(2)=='0'){ %><img src="image/wd.jpg"/>
 <%}
@@ -255,12 +261,12 @@ if(app.getAppInfo().getSecurity().charAt(4)=='0'){%><img src="image/ys.jpg"/>
  if(app.getAppInfo().getSecurity().charAt(6)=='0'){%><img src="image/gf.jpg"/>
  <%} %>
  </p>
-</div>
+ </div>
 
 
 </div>
 
-<div class="gamepic"  style="overflow:scroll; height: 220px; overflow-x:hidden">
+<div class="gamepic"  style="overflow:scroll; height: 220px; ">
 <span class="gamepic" style="overflow:scroll; height: 220px;">
 <%if(app.getAppSou().getGamePhoto1()!=null){ %>
 <img name="" src="<%=request.getContextPath()+app.getAppSou().getGamePhoto1() %>"  width="" height="200" alt="" />
@@ -307,7 +313,7 @@ if(app.getAppSou().getGamePhoto5()!=null){%>
  <hr />
   <p>评论</p>
 </div>
-<div class="fc2">
+<div class="fc2s">
   <form id="form1" name="form1" method="post" action="">
     <label>
       <textarea name="textarea" cols="35" rows="8">欢迎光临柴米游戏，暂不接受评论！</textarea>
@@ -317,6 +323,8 @@ if(app.getAppSou().getGamePhoto5()!=null){%>
 </div>
 <hr />
 
+<!--other-->
+
 <!--otherapply-->
 <map name="Map" id="Map">
   <area shape="rect" coords="290,1181,497,1271" href="#" target="index.jsp" alt="" />
@@ -324,13 +332,14 @@ if(app.getAppSou().getGamePhoto5()!=null){%>
 </map>
 </div></div>
 <div class="fc3q">
-<a href="index.jsp"><font color="#fff">首页</font></a>｜
-<a href="fenlei.jsp"><font color="#fff">分类</font></a>｜
-<a href="showByType.action?appTmp.showByTypeCurrentPage=1&type=1"><font color="#fff">游戏</font></a>｜
-<a href="showByType.action?appTmp.showByTypeCurrentPage=1&type=2"><font color="#fff">应用</font></a>｜
-<a href="showByScoreAndDown.action?appTmp.showByScoreAndDownCurrentPage=1"><font color="#fff">排行</font></a>｜
-<a href="guanyu.jsp"><font color="#fff">关于</font></a></div>
-<div align="center"><br />
+<a href="index.jsp"><font color="#FFFFFF">首页</font></a>｜
+<a href="fenlei.jsp"><font color="#FFFFFF">分类</font></a>｜
+<a href="showByType.action?appTmp.showByTypeCurrentPage=1&type=1"><font color="#FFFFFF">游戏</font></a>｜
+<a href="showByType.action?appTmp.showByTypeCurrentPage=1&type=2"><font color="#FFFFFF">应用</font></a>｜
+<a href="showByScoreAndDown.action?appTmp.showByScoreAndDownCurrentPage=1"><font color="#FFFFFF">排行</font></a>｜
+<a href="guanyu.jsp"><font color="#FFFFFF">关于</font></a>
+</div>
+<div align="center">
   <span class="STYLE2 STYLE1">&copy;2010-2014中国联通 版权所有</span></div>
   
 <script type="text/javascript">
@@ -345,4 +354,3 @@ String imgurl = cs.trackPageView();%>
 <img src="<%= imgurl %>" width="0" height="0"  />
 </body>
 </html>
-

@@ -356,4 +356,37 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 		return query.getResultList().size();
 	}
 
+	@Override
+	public void updataPart(AppInfo appInfo)
+	{
+		entityManager.merge(appInfo);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<AppInfo> findUserIsJointApp(String cp_id, int joint,
+			int isThrough, int shelf, int currentPage, int pageSize)
+	{
+		Query query = entityManager.createQuery("select u from AppInfo u where u.cp_id = :cp_id and u.joint = :joint and u.isThrough = :isThrough and u.shelf=:shelf");
+		query.setParameter("cp_id", cp_id);
+		query.setParameter("joint", joint);
+		query.setParameter("isThrough", isThrough);
+		query.setParameter("shelf", shelf);
+		int startRow = (currentPage-1)*pageSize;
+		query.setFirstResult(startRow);
+		query.setMaxResults(pageSize);
+		return query.getResultList();
+	}
+
+	@Override
+	public int findUserIsJointAppNum(String cp_id, int joint, int isThrough, int shelf)
+	{
+		Query query = entityManager.createQuery("select u from AppInfo u where u.cp_id = :cp_id and u.joint = :joint and u.isThrough = :isThrough and u.shelf=:shelf");
+		query.setParameter("cp_id", cp_id);
+		query.setParameter("joint", joint);
+		query.setParameter("isThrough", isThrough);
+		query.setParameter("shelf", shelf);
+		return query.getResultList().size();
+	}
+
 }

@@ -176,11 +176,12 @@ public class DevAction
 					appTmp.getGamePhotoContent5ContentType(), true));
 		System.out.println(opeFun.getNowTime());
 		appInfo.setUpTime(opeFun.getNowTime());
-		appInfo.setJoint((int) httpSession.getAttribute("joint"));// 设置是否联合运营
+		
 		httpSession.removeAttribute("app");
 		if (appTmp.getChangeId() == 0)
 		{
 			httpSession.setAttribute("appName", appInfo.getAppName());
+			appInfo.setJoint((int) httpSession.getAttribute("joint"));// 设置是否联合运营
 			appInfoDAO.save(appInfo);
 			appSouDAO.save(appSou);
 			appAutDAO.save(appAut);
@@ -189,6 +190,8 @@ public class DevAction
 		else
 		{
 			httpSession.setAttribute("appName", appInfo.getAppName());
+			AppInfo info = appInfoDAO.findById(appTmp.getChangeId());//联运信息保持不变
+			appInfo.setJoint(info.getJoint());
 			appInfoDAO.update(appTmp.getChangeId(), appInfo);
 			appSouDAO.update(appTmp.getChangeId(), appSou);
 			appAutDAO.update(appTmp.getChangeId(), appAut);
@@ -333,7 +336,37 @@ public class DevAction
 		return Action.SUCCESS;
 
 	}
-
+	
+	/**
+	 * 编辑注册提交时 app_id cp_id不能更改
+	 * APP名字以及回调地址可以更改
+	 * @return
+	 * @throws IOException 
+	 */
+	@SuppressWarnings("static-access")
+	public String dev_edit_zhuce_App() throws IOException
+	{
+		HttpSession httpSession = ServletActionContext.getRequest()
+				.getSession();
+		User user = (User) httpSession.getAttribute("user");
+		AppInfo info = appInfoDAO.findById(appId);
+		info.setIsThrough(-3);//屏蔽管理员
+		info.setShelf(-1);//屏蔽前台
+		info.setAppName(appInfo.getAppName());
+		info.setNotify_url(appInfo.getNotify_url());
+		
+		AppSource sou = appSouDAO.findById(appId);
+		if (null != appTmp&&null!=appTmp.getLogo1Content())// 上传logo
+			sou.setLogo1(opeFun.fileToServer("/file/" + user.getCp_id()
+					+ "/logo1", appTmp.getLogo1Content(),
+					appTmp.getLogo1ContentFileName(),
+					appTmp.getLogo1ContentContentType(), true));
+		//跟新数据库
+		appInfoDAO.updataPart(info);
+		appSouDAO.update(appId, sou);
+		return Action.SUCCESS;
+	}
+	
 	/**
 	 * 根据id找到编辑的应用
 	 * 
@@ -348,12 +381,17 @@ public class DevAction
 		HttpSession httpSession = ServletActionContext.getRequest()
 				.getSession();
 		httpSession.setAttribute("app", app);
-
-		return Action.SUCCESS;
+		switch(app.getAppInfo().getJoint())
+		{
+		case 1:
+			return "joint";
+		default:
+			return "extension";
+		}
 	}
 
 	/**
-	 * 用户管理是否上架
+	 * 用户推广应用管理
 	 * 
 	 * @return -2强制下架，-1已下架，0待发布，1已上架
 	 */
@@ -362,14 +400,12 @@ public class DevAction
 	{
 		HttpSession httpSession = ServletActionContext.getRequest()
 				.getSession();
-		userName = (String) httpSession.getAttribute("username");
-		int total = appInfoDAO.findByShelfAndIsThroughNum(userName, 1,
-				appTmp.getIsShelf());
+		User user = (User) httpSession.getAttribute("user");
+		int total = appInfoDAO.findUserIsJointAppNum(user.getCp_id(), 0, 1,appTmp.getIsShelf());
 		PageUtil page = new PageUtil(appTmp.getIsShelfCurrentPage(), total);
 		page.setPageSize(10);
-		List<AppInfo> appIsShelf = appInfoDAO.findByShelfAndIsThrough(userName,
-				1, appTmp.getIsShelf(), appTmp.getIsShelfCurrentPage(),
-				page.getPageSize());
+		List<AppInfo> appIsShelf = appInfoDAO.findUserIsJointApp(user.getCp_id(), 0, 
+				1,appTmp.getIsShelf(), appTmp.getIsShelfCurrentPage(), page.getPageSize());
 		List<App> app = new ArrayList<App>();
 		for (int i = 0; i < appIsShelf.size(); i++)
 		{
@@ -437,19 +473,19 @@ public class DevAction
 	public String devDeleteApp()
 	{
 		AppInfo appInfo = appInfoDAO.findById(appTmp.getDeleteAppId());
-
-		List<MessagePayment> mesPay = messageDAO.findByAppIdCpId(
-				appInfo.getApp_id(), appInfo.getCp_id());
-		for (int i = 0; i < mesPay.size(); i++)
+		//找到所有的支付方式并且删除
+		List<OtherPayment> otherPayList = otherPaymentDAO.findByAppIdAndCpId(appInfo.getApp_id(), appInfo.getCp_id());
+		for(OtherPayment otherPay:otherPayList)
 		{
-			MessagePayment mes = mesPay.get(i);
-			OtherPayment other = otherPaymentDAO.findById(mes.getId());
-			messageDAO.delete(mes);
-			otherPaymentDAO.delete(other);
+			MessagePayment mesPay = messageDAO.findByProductId(otherPay.getProduct_id());
+			messageDAO.delete(mesPay);
+			otherPaymentDAO.delete(otherPay);
 		}
+		//找到所有的评论并且删除
 		List<Review> review = reviewDAO.findByAppId(appTmp.getDeleteAppId());
 		for (int i = 0; i < review.size(); i++)
 			reviewDAO.delete(review.get(i));
+		//删除应用的所有信息
 		appInfoDAO.delete(appTmp.getDeleteAppId());
 		appSouDAO.delete(appTmp.getDeleteAppId());
 		appAutDAO.delete(appTmp.getDeleteAppId());

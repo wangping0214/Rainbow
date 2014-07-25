@@ -21,7 +21,8 @@
    			<result name="drop">drops.jsp</result>
    		</action>
    		<action name="devEditApp" class="devAction" method="devEditApp">
-   			<result>sdkfabu.jsp</result>
+   			<result name="joint">edit_zhuce_App.jsp</result>
+   			<result name="extension">yxshangchuan2.jsp</result>
    		</action>
    		<action name="devAuditManagement" class="devAction" method="devAuditManagement">
    			<result>guanlishenhe2.jsp</result>
@@ -54,6 +55,9 @@
    			<result name="shelf">Joint operation.jsp</result>
    		</action>
    		<action name="dev_zhuce_App" class="devAction" method="dev_zhuce_App">
+   			<result type="redirect">developer/devIsThrough.action?appTmp.isThrough=-3</result>
+   		</action>
+   		<action name="dev_edit_zhuce_App" class="devAction" method="dev_edit_zhuce_App">
    			<result type="redirect">developer/devIsThrough.action?appTmp.isThrough=-3</result>
    		</action>
    		<action name="dev_refer_shenhe" class="devAction" method="dev_refer_shenhe">

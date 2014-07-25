@@ -36,7 +36,7 @@ public class AppInfo {
 	private String elaborate;
 	@Column(name = "versionIntrodution")
 	private String versionIntrodution;
-	@Column(name = "isThrough")
+	@Column(name = "isThrough")//-3待完善，-2待提交，-1未通过，0待审核，1通过审核
 	private int isThrough;
 	@Column(name = "shelf")
 	private int shelf;						//是否上架，-2强制下架，-1已下架，0等待发布，1已上架
@@ -50,7 +50,8 @@ public class AppInfo {
 	private int joint;//是否联合运营1：联合运营；0：应用推广
 	@Column(name="cp_id")
 	private String cp_id;
-	
+	@Column(name="notify_url")
+	private String notify_url;
 	
 	
 	
@@ -202,6 +203,16 @@ public class AppInfo {
 
 	public void setApp_id(String app_id) {
 		this.app_id = app_id;
+	}
+
+	public String getNotify_url()
+	{
+		return notify_url;
+	}
+
+	public void setNotify_url(String notify_url)
+	{
+		this.notify_url = notify_url;
 	}
 	
 	

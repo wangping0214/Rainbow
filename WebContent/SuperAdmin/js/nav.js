@@ -65,7 +65,7 @@ $(".newadd").click(function(){
 	})
 	})	
 	/*ÍË³öµÇÂ¼*/
-	   window.onload=function(){
+	   
 	    var tou=document.getElementById("touxiang");
 		var tuichu=	document.getElementById("tuichu");
 		var timer=null;
@@ -87,6 +87,6 @@ $(".newadd").click(function(){
 			tuichu.style.display="none";  	
 		 },500)
 		}
-	}
+	
 	/*ÍË³öend*/
 	})

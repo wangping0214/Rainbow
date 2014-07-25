@@ -130,10 +130,7 @@ $(document).ready(function(){
 			$("#id_appName").focus();
 			 return false;
 		}
-		if($("#id_logo1").val()==""){
-			alert("请上传48*48的APP图标！");
-			 return false;
-		}
+		
 		$("#form1").submit();
 	});
 	
@@ -190,14 +187,17 @@ $(document).ready(function(){
                    <div class="list">
                       <h3 class="tit2">注册APP</h3>
                       <div class="form">
-                           <form id="form1" name="form1" method="post" action="dev_zhuce_App.action"  enctype="multipart/form-data" >
-                           		<div><font color="#f00">若此应用还在测试阶段，为区分正式提交的应用请在名称处加以标记，待测试结束后在完善信息处修改为正式名称</font></div>
-                               <div><label>APP名称：</label><input type="text" name="appInfo.appName" id="id_appName" class="shuru"/></div>
-                               <div><label>回调地址：</label><input type="text" name="appInfo.notify_url" id="id_notify_url" class="shuru"/></div>
+                           <form id="form1" name="form1" method="post" action="dev_edit_zhuce_App.action"  enctype="multipart/form-data" >
+                           <input name="appId" type="hidden" value="<%=app.getAppInfo().getId() %>" />
+                               <div><label>APP名称：</label><input type="text" name="appInfo.appName" <%if(app.getAppInfo().getAppName()!=null){ %> value="<%=app.getAppInfo().getAppName() %>"<%} %> id="id_appName" class="shuru"/></div>
+                               <div><label>回调地址：</label><input type="text" name="appInfo.notify_url"<%if(app.getAppInfo().getNotify_url()!=null){ %> value="<%=app.getAppInfo().getNotify_url() %>"<%} %> id="id_notify_url" class="shuru"/></div>
                                <div class="shangchuan"><label>应用图标 ：</label><div class="suolv">
                                <input type="file"  name="appTmp.logo1Content" id="id_logo1" style="display:none;"  />
                                <a href="javascript:fn_browse();"> 
-                               <img name="btn" src="images/img26.png" id="id_logo1_photo" width="90" height="80" border="0" /></a>
+                               <img name="btn"<%if(app.getAppSou().getLogo1()==null){ %>
+                                src="images/img26.png" 
+                                <%}else{ %>src="<%=request.getContextPath()+app.getAppSou().getLogo1() %>" <%} %>
+                                id="id_logo1_photo" width="90" height="80" border="0" /></a>
                                </div>
                                <p class="clear shuoming">尺寸48x48px，jpg或png，<a href="#"><i>示例照片</i></a></p>
                                </div>

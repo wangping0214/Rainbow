@@ -13,8 +13,8 @@ import com.rainbow.entity.MessagePayment;
 import com.rainbow.entity.OtherPayment;
 import com.rainbow.entity.Review;
 
-public class ShelfManageAction {
-	
+public class ShelfManageAction
+{
 
 	private MessageDAO messageDAO;
 	private OtherPaymentDAO otherPaymentDAO;
@@ -23,71 +23,102 @@ public class ShelfManageAction {
 	private AppSouDAO appSouDAO;
 	private ReviewDAO reviewDAO;
 
-	
 	private int shelf;
 	private int apkId;
 	private int payId;
-	
-	
-	public void shelfManage(){
+	private String notify_url;
+
+	public void shelfManage()
+	{
 		AppInfo appInfo = appInfoDAO.findById(apkId);
 		appInfo.setShelf(shelf);
-		System.out.println("appInfo.getShelf()"+appInfo.getShelf());
+		System.out.println("appInfo.getShelf()" + appInfo.getShelf());
 		appInfoDAO.update(apkId, appInfo);
-		//return Action.SUCCESS;
+		// return Action.SUCCESS;
 	}
-	
+
 	/**
-	 * 删除联运的应用
-	 * 并且删除对应应用的物品
+	 * 删除联运的应用 并且删除对应应用的物品
 	 */
-	public void deleteJointApp(){
+	public void deleteJointApp()
+	{
 		AppInfo appInfo = appInfoDAO.findById(apkId);
-		
-		List<MessagePayment> mesPay =  messageDAO.findByAppIdCpId(appInfo.getApp_id(), appInfo.getCp_id());
-		for(int i = 0;i<mesPay.size(); i++){
-			MessagePayment mes = mesPay.get(i);
-			OtherPayment other = otherPaymentDAO.findById(mes.getId());
-			messageDAO.delete(mes);
-			otherPaymentDAO.delete(other);
+
+		// 找到所有的支付方式并且删除
+		List<OtherPayment> otherPayList = otherPaymentDAO.findByAppIdAndCpId(
+				appInfo.getApp_id(), appInfo.getCp_id());
+		for (OtherPayment otherPay : otherPayList)
+		{
+			MessagePayment mesPay = messageDAO.findByProductId(otherPay
+					.getProduct_id());
+			messageDAO.delete(mesPay);
+			otherPaymentDAO.delete(otherPay);
 		}
 		List<Review> review = reviewDAO.findByAppId(apkId);
-		for(int i = 0;i<review.size() ; i++)
+		for (int i = 0; i < review.size(); i++)
 			reviewDAO.delete(review.get(i));
-		
+
 		appInfoDAO.delete(apkId);
 		appAutDAO.delete(apkId);
 		appSouDAO.delete(apkId);
 	}
 	
+	/**
+	 * 修改回调地址
+	 */
+	public void change_notify_url()
+	{
+		AppInfo appInfo = appInfoDAO.findById(apkId);
+		appInfo.setNotify_url(notify_url);
+		System.out.println(notify_url);
+		appInfoDAO.updataPart(appInfo);
+	}
 	
-	public int getPayId() {
+	
+	public String getNotify_url()
+	{
+		return notify_url;
+	}
+
+	public void setNotify_url(String notify_url)
+	{
+		this.notify_url = notify_url;
+	}
+
+	public int getPayId()
+	{
 		return payId;
 	}
 
-	public void setPayId(int payId) {
+	public void setPayId(int payId)
+	{
 		this.payId = payId;
 	}
 
-	public int getShelf() {
+	public int getShelf()
+	{
 		return shelf;
 	}
 
-	public void setShelf(int shelf) {
+	public void setShelf(int shelf)
+	{
 		this.shelf = shelf;
 	}
 
-	public int getApkId() {
+	public int getApkId()
+	{
 		return apkId;
 	}
 
-	public void setApkId(int apkId) {
+	public void setApkId(int apkId)
+	{
 		this.apkId = apkId;
 	}
 
 	public ShelfManageAction(MessageDAO messageDAO,
 			OtherPaymentDAO otherPaymentDAO, AppAutDAO appAutDAO,
-			AppInfoDAO appInfoDAO, AppSouDAO appSouDAO, ReviewDAO reviewDAO) {
+			AppInfoDAO appInfoDAO, AppSouDAO appSouDAO, ReviewDAO reviewDAO)
+	{
 		super();
 		this.messageDAO = messageDAO;
 		this.otherPaymentDAO = otherPaymentDAO;
@@ -97,8 +128,4 @@ public class ShelfManageAction {
 		this.reviewDAO = reviewDAO;
 	}
 
-	
-
-	
-	
 }

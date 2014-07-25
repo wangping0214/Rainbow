@@ -17,6 +17,12 @@ public interface UserDAO
 	public User findByPhone(String phone);
 	public User findByEmail(String email);
 	
+	/*
+	 * Edit by STerOTto
+	 */
+//	public List<User> findByUserType(String userType,int currentPage,int pageSize);
+//	public int findByUserTypeNum(String userType);
+	
 	public void save(User user);
 	public void update(User user);
 	public void remove(Integer id);

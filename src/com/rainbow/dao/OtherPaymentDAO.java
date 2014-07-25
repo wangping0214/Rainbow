@@ -7,6 +7,7 @@ import com.rainbow.entity.OtherPayment;
 public interface OtherPaymentDAO {
 	public OtherPayment findById(int id);
 	public List<OtherPayment> findByAppId(String app_id);
+	public List<OtherPayment> findByAppIdAndCpId(String app_id,String cp_id);
 	public OtherPayment findByProductId(String product_id);
 	public void save(OtherPayment otherPayment);
 	public void update(OtherPayment otherPayment);

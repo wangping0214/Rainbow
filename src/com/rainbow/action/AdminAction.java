@@ -17,6 +17,7 @@ import com.rainbow.dao.UserDAO;
 import com.rainbow.entity.Admin;
 import com.rainbow.entity.UniqueId;
 import com.rainbow.entity.User;
+import com.rainbow.server.UserServer;
 import com.rainbow.util.IdGenerator;
 import com.rainbow.util.PageUtil;
 
@@ -31,7 +32,10 @@ public class AdminAction
 {
 	private AdminDAO adminDAO;
 	private Admin admin;
+	private UserServer userServer;
+	
 	private UserDAO userDAO;
+	
 	private int isCurrentPage = 1;
 	private String isuserType;
 	private String memusername;
@@ -39,72 +43,8 @@ public class AdminAction
 	private String radioselect;
 	private UniqueIdDAO cpIdSeedDAO;
 
-	public Admin getAdmin()
-	{
-		return admin;
-	}
-
-	public void setAdmin(Admin admin)
-	{
-		this.admin = admin;
-	}
-
-	public int getIsCurrentPage()
-	{
-		return isCurrentPage;
-	}
-
-	public void setIsCurrentPage(int isCurrentPage)
-	{
-		this.isCurrentPage = isCurrentPage;
-	}
-
-	public String getIsuserType()
-	{
-		return isuserType;
-	}
-
-	public void setIsuserType(String isuserType)
-	{
-		this.isuserType = isuserType;
-	}
-
-	public String getMemusername()
-	{
-		return memusername;
-	}
-
-	public void setMemusername(String memusername)
-	{
-		this.memusername = memusername;
-	}
-
-	public String getMemusertype()
-	{
-		return memusertype;
-	}
-
-	public void setMemusertype(String memusertype)
-	{
-		this.memusertype = memusertype;
-	}
-
-	public String getRadioselect()
-	{
-		return radioselect;
-	}
-
-	public void setRadioselect(String radioselect)
-	{
-		this.radioselect = radioselect;
-	}
-
-	public AdminAction(AdminDAO adminDAO, UserDAO userDAO)
-	{
-		super();
-		this.adminDAO = adminDAO;
-		this.userDAO = userDAO;
-	}
+	private int crrentPage = 1;
+	private String userType;
 
 	/**
 	 * 管理员登陆
@@ -128,52 +68,61 @@ public class AdminAction
 		else
 			return Action.ERROR;
 	}
-
+	public void mem_manager()
+	{
+		int total = adminDAO.getNum(userType);
+		int groupstotal = adminDAO.getNum("individualGroups");
+		int userstotal = adminDAO.getNum("individualUsers");
+		int commontotal = adminDAO.getNum("individualCommon");
+		PageUtil page = new PageUtil(crrentPage, total);
+		page.setPageSize(10);
+		
+	}
 	/**
 	 * 分类别显示会员管理
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
-	public String mem_manager()
-	{
-
-		int total = adminDAO.getNum(isuserType);
-		int groupstotal = adminDAO.getNum("individualGroups");
-		int userstotal = adminDAO.getNum("individualUsers");
-		int commontotal = adminDAO.getNum("individualCommon");
-		HttpSession httpSession = ServletActionContext.getRequest()
-				.getSession();
-		httpSession.setAttribute("groupstotal", groupstotal);
-		httpSession.setAttribute("userstotal", userstotal);
-		httpSession.setAttribute("ctotal", commontotal);
-		PageUtil page = new PageUtil(isCurrentPage, total);
-		List<Admin> member = adminDAO.getThrough(isuserType, isCurrentPage,
-				page.getPageSize());
-
-		int regtotal = adminDAO.getRegNum("individualCommon", 0);
-		httpSession.setAttribute("regtotal", regtotal);
-		PageUtil regpage = new PageUtil(isCurrentPage, regtotal);
-		List<Admin> regmember = adminDAO.getRegThrough("individualCommon", 0,
-				1, regpage.getPageSize());
-
-		@SuppressWarnings("rawtypes")
-		Map request = (Map) ActionContext.getContext().get("request");
-		request.put("member", member);
-		request.put("page", page);
-		request.put("regmember", regmember);
-		request.put("regpage", regpage);
-		String str = "";
-		if (getIsuserType().equals("individualGroups"))
-			str = "groups";
-		else if (getIsuserType().equals("individualUsers"))
-			str = "users";
-		else if (getIsuserType().equals("individualCommon"))
-			str = "common";
-		else if (getIsuserType().equals("individualwait"))
-			str = "wait";
-		return str;
-	}
+//	@SuppressWarnings("unchecked")
+//	public String mem_manager()
+//	{
+//
+//		int total = adminDAO.getNum(isuserType);
+//		int groupstotal = adminDAO.getNum("individualGroups");
+//		int userstotal = adminDAO.getNum("individualUsers");
+//		int commontotal = adminDAO.getNum("individualCommon");
+//		HttpSession httpSession = ServletActionContext.getRequest()
+//				.getSession();
+//		httpSession.setAttribute("groupstotal", groupstotal);
+//		httpSession.setAttribute("userstotal", userstotal);
+//		httpSession.setAttribute("ctotal", commontotal);
+//		PageUtil page = new PageUtil(isCurrentPage, total);
+//		List<Admin> member = adminDAO.getThrough(isuserType, isCurrentPage,
+//				page.getPageSize());
+//
+//		int regtotal = adminDAO.getRegNum("individualCommon", 0);
+//		httpSession.setAttribute("regtotal", regtotal);
+//		PageUtil regpage = new PageUtil(isCurrentPage, regtotal);
+//		List<Admin> regmember = adminDAO.getRegThrough("individualCommon", 0,
+//				1, regpage.getPageSize());
+//
+//		@SuppressWarnings("rawtypes")
+//		Map request = (Map) ActionContext.getContext().get("request");
+//		request.put("member", member);
+//		request.put("page", page);
+//		request.put("regmember", regmember);
+//		request.put("regpage", regpage);
+//		String str = "";
+//		if (getIsuserType().equals("individualGroups"))
+//			str = "groups";
+//		else if (getIsuserType().equals("individualUsers"))
+//			str = "users";
+//		else if (getIsuserType().equals("individualCommon"))
+//			str = "common";
+//		else if (getIsuserType().equals("individualwait"))
+//			str = "wait";
+//		return str;
+//	}
 
 	/**
 	 * 禁用用户权限
@@ -350,5 +299,100 @@ public class AdminAction
 		else
 			return Action.ERROR;
 	}
+	public Admin getAdmin()
+	{
+		return admin;
+	}
 
+	public void setAdmin(Admin admin)
+	{
+		this.admin = admin;
+	}
+
+	public int getIsCurrentPage()
+	{
+		return isCurrentPage;
+	}
+
+	public void setIsCurrentPage(int isCurrentPage)
+	{
+		this.isCurrentPage = isCurrentPage;
+	}
+
+	public String getIsuserType()
+	{
+		return isuserType;
+	}
+
+	public void setIsuserType(String isuserType)
+	{
+		this.isuserType = isuserType;
+	}
+
+	public String getMemusername()
+	{
+		return memusername;
+	}
+	
+	public String getUserType()
+	{
+		return userType;
+	}
+
+	public void setUserType(String userType)
+	{
+		this.userType = userType;
+	}
+
+	public void setMemusername(String memusername)
+	{
+		this.memusername = memusername;
+	}
+
+	public String getMemusertype()
+	{
+		return memusertype;
+	}
+
+	public void setMemusertype(String memusertype)
+	{
+		this.memusertype = memusertype;
+	}
+
+	public String getRadioselect()
+	{
+		return radioselect;
+	}
+	
+	public int getCrrentPage()
+	{
+		return crrentPage;
+	}
+
+	public void setCrrentPage(int crrentPage)
+	{
+		this.crrentPage = crrentPage;
+	}
+
+	public UserServer getUserServer()
+	{
+		return userServer;
+	}
+
+	public void setUserServer(UserServer userServer)
+	{
+		this.userServer = userServer;
+	}
+
+	public void setRadioselect(String radioselect)
+	{
+		this.radioselect = radioselect;
+	}
+
+	public AdminAction(AdminDAO adminDAO, UserDAO userDAO)
+	{
+		super();
+		this.adminDAO = adminDAO;
+		this.userDAO = userDAO;
+	}
 }

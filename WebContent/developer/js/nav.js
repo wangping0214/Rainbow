@@ -83,7 +83,7 @@ $(".newadd").click(function(){
 	})
 	})	
 	/*退出登录*/
-	   window.onload=function(){
+	
 	    var tou=document.getElementById("touxiang");
 		var tuichu=	document.getElementById("tuichu");
 		var timer=null;
@@ -105,6 +105,6 @@ $(".newadd").click(function(){
 			tuichu.style.display="none";  	
 		 },500)
 		}
-	}
+	
 	/*退出end*/
 	})

@@ -36,17 +36,18 @@ $(document).ready(function(){
 
 
 function payFormSub(apkId,e){		//新增物品
-	if($("#mes_product_id").val()==""){
-		alert("短代支付的物品ID不能为空");
+	var prise = parseFloat($("#price").val());
+	if($("#mes_product_id").val()==""&&prise<=30){
+		alert("商品价格不超过30元，请在短代支付中填写物品ID");
 		e.preventDefault();
 	}
-	if($("#mes_name").val()==""){
-		alert("短代支付的物品名称不能为空");
+	if($("#mes_name").val()==""&&prise<=30){
+		alert("商品价格不超过30元，请在短代支付中填写物品名称");
 		e.preventDefault();
 	}
 	
-	if($("#mes_description").val()==""){
-		alert("短代支付的物品描述不能为空");
+	if($("#mes_description").val()==""&&prise<=30){
+		alert("商品价格不超过30元，请在短代支付中填写物品描述");
 		e.preventDefault();
 	}
 	if($("#other_product_id").val()==""){
@@ -65,7 +66,7 @@ function payFormSub(apkId,e){		//新增物品
 		alert("支付宝&银联支付的物品描述不能为空");
 		e.preventDefault();
 	}
-	if($("#mes_product_id").val()!=$("#other_product_id").val()){
+	if($("#mes_product_id").val()!=$("#other_product_id").val()&&prise<=30){
 		alert("请确认短代支付和支付宝&银联支付的物品ID一致！");
 		e.preventDefault();
 	}
@@ -75,7 +76,7 @@ function payFormSub(apkId,e){		//新增物品
 		data:{"product_id":$("#mes_product_id").val()},
 		success:function(response){
 			if(response=="0"){
-				alert("次物品ID已被使用！");
+				alert("此物品ID已被使用！");
 				e.preventDefault();
 			}
 			else {
@@ -163,9 +164,9 @@ function editPay(payId){
                  <ul class="lianlist">
                  	<s:iterator value="#request['pay']" id="pay">
                     <s:property value="#st.count" />
-                    <li><span><s:property value="#pay.mesPay.name" /></span><p>
-                    <a href="javascript:editPay('<s:property value="#pay.mesPay.id" />')">修改<img src="images/xiu.jpg" /></a>
-                    <a href="javascript:deletePay('<s:property value="#pay.mesPay.name" />','<s:property value="#pay.mesPay.id" />','<%=app.getAppInfo().getId()%>')">删除<img src="images/del.jpg"/></a></p>
+                    <li><span><s:property value="#pay.otherPay.name" /></span><p>
+                    <a href="javascript:editPay('<s:property value="#pay.otherPay.id" />')">修改<img src="images/xiu.jpg" /></a>
+                    <a href="javascript:deletePay('<s:property value="#pay.otherPay.name" />','<s:property value="#pay.otherPay.id" />','<%=app.getAppInfo().getId()%>')">删除<img src="images/del.jpg"/></a></p>
                     </li>
                     </s:iterator>
                  </ul>
@@ -173,6 +174,9 @@ function editPay(payId){
                  <div class="zeng">
                      <p class="newadd"><a href="javascript:void(0)"><img src="images/z.jpg" />新增</a></p>
                         <div class="xinzeng">
+                        <p ><font color="#F00">注：
+若您的商品价格超过30元，只需填写其他支付（支付宝&银联支付）。
+即使填写了短代支付，也无法生效。</font></p>
                             <p class="xintit">短代支付</p>
                             <div><label><span>物品ID：</span><p><input id="mes_product_id" type="text" /></p></label></div>
                             <div><label><span>物品名称：</span><p><input id="mes_name" type="text" /></p></label></div>
