@@ -249,7 +249,17 @@ border-radius: 15px;
 <div class="fc211"><img src="<%=request.getContextPath()+app.getAppSou().getLogo2() %>"  width="50px" height="50px" /></div>
 <div class="fc212"><p><span class="fl mingcheng"><%=app.getAppInfo().getAppName() %></span>
 <a href="downApk.action?appSouId=<%=app.getAppSou().getId() %>&downPath=<%=app.getAppSou().getPackge() %>" class="fr"><img src="pic/an.gif"  width="55" height="22" /></a></p>
-  <p class="xinxi clear"><span>下载：<%=app.getAppAut().getAmountOfDown() %>次</span><span>大小:<%=app.getAppSou().getPackgeSize() %>MB</span></p> 
+  <p class="xinxi clear"><span>下载：
+  <%long down = app.getAppAut().getAmountOfDown();
+  String downStr = "";
+  if(down>10000){
+	  long high = down/10000;
+	  long low = (down-high*10000)/1000;
+	  downStr+=high+"."+low+"万";
+  }
+  else
+  	downStr+=down;%>
+  <%=downStr %>次</span><span>大小:<%=app.getAppSou().getPackgeSize() %>MB</span></p> 
 </div>
 <div class="illustrate"><p class="cut">游戏类型</p>
 <p class="grade">
@@ -289,10 +299,10 @@ if(app.getAppSou().getGamePhoto5()!=null){%>
 
 <div id="select" class="m" clstag="thirdtype|keycount|thirdtype|select">
 <dl id="select-brand">
-<dt>应用简介：</dt>
+<dt>描述：</dt>
 <dd>
 <div class="content" style="height:130px;">
-<p><%=app.getAppInfo().getAppIntrodution() %></p>
+<p><%=app.getAppInfo().getElaborate() %></p>
 </div>
 <span id="select-hold" class="close"><b></b>展开</span>
 

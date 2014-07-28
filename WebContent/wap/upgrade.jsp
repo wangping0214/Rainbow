@@ -229,16 +229,16 @@ border-radius: 15px;
 <s:iterator value="#request['app']" id="app">
 <div  class="fc2-11">
 <div class="fc211"><a href="downApk.action?appSouId=<s:property value="#app.appSou.id" />&downPath=<s:property value="#app.appSou.packge" escape='false'/>"><img src="<%=request.getContextPath() %><s:property value="#app.appSou.logo1"/>" width="50px" height="50px" /></a></div>
-<div class="fc212"><a href="downApk.action?appSouId=<s:property value="#app.appSou.id" />&downPath=<s:property value="#app.appSou.packge" escape='false'/>"><b><s:property value="#app.appInfo.appName" /></b>　<img src="newpic/up.gif" width="19" height="21" /></a><br />
+<div class="fc212"><a href="downApk.action?appSouId=<s:property value="#app.appSou.id" />&downPath=<s:property value="#app.appSou.packge" escape='false'/>"><b><s:property value="#app.appInfo.appName" /></b><img src="newpic/up.gif" width="19" height="21" /></a><br />
    <p class="xinxi"><b>中奖几率</b> <i>+50%</i></p>  
 </div>
-<div class="fc213"><a href="downApk.action?appSouId=<s:property value="#app.appSou.id" />&downPath=<s:property value="#app.appSou.packge" escape='false'/>"><img src="image/ts_05.jpg"  width="50" height="27" /></a></div>
+<div class="fc213"><a href="downApk.action?appSouId=<s:property value="#app.appSou.id" />&downPath=<s:property value="#app.appSou.packge" escape='false'/>"><img src="image/ts_05.jpg"  width="50" height="27"/></a></div>
 </div>
 </s:iterator>
 
 
 <div><img src="image/ts_08.jpg" width="100%" /></div>
-<div><a href="index.jsp"><img src="image/ts_09.jpg" width="50%"></a><a href="index.jsp"><img src="image/ts_10.jpg" width="50%"></a></div> 
+<div><a href="showByRecomLevel?appTmp.showByRecomLevelCurrentPage=1"><img src="image/ts_09.jpg" width="50%"></a><a href="showByRecomLevel?appTmp.showByRecomLevelCurrentPage=1"><img src="image/ts_10.jpg" width="50%"></a></div> 
 </div>
 
 

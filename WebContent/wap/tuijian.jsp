@@ -290,9 +290,9 @@ border-radius: 15px;
 <s:iterator value="#request['app']" id="app">
 <div  class="fc2-11">
 <div class="fc211"><a href="specificInformation.action?apkId=<s:property value="#app.appInfo.id"/>"><img src="<%=request.getContextPath() %><s:property value="#app.appSou.logo1"/>"  width="50px" height="50px" /></a></div>
-<div class="fc212"><a href="specificInformation.action?apkId=<s:property value="#app.appInfo.id"/>"><s:property value="#app.appInfo.appName" /></a><img src="image/mll.gif" /><br />
+<div class="fc212"><a href="specificInformation.action?apkId=<s:property value="#app.appInfo.id"/>"><s:property value="#app.appInfo.appName" /></a><img src="pic/j.gif"  width="18" height="18" /> <img src="image/mll.gif" width="40" height="18" class="jian" /><br />
   <p class="xinxi"><span>
-  下载：<s:if test="#app.appAut.amountOfDown>10000">
+  下载:<s:if test="#app.appAut.amountOfDown>10000">
   <s:property value="#app.appAut.amountOfDown/10000+'.'+(#app.appAut.amountOfDown-(#app.appAut.amountOfDown/10000)*10000)/1000" />
 万次
   </s:if>
