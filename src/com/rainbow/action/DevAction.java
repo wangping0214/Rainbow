@@ -132,7 +132,6 @@ public class DevAction
 		if (appTmp.getPackgeContent() != null)
 		{
 			appSou.setPackgeSize(opeFun.fileSize(appTmp.getPackgeContent()));
-			appSou.setPackgeSize(opeFun.fileSize(appTmp.getPackgeContent()));
 			appSou.setPackge(opeFun.fileToServer("/file/" + user.getCp_id()
 					+ "/packge", appTmp.getPackgeContent(),
 					appTmp.getPackgeContentFileName(),
@@ -194,7 +193,7 @@ public class DevAction
 			appInfo.setJoint(info.getJoint());
 			appInfoDAO.update(appTmp.getChangeId(), appInfo);
 			appSouDAO.update(appTmp.getChangeId(), appSou);
-			appAutDAO.update(appTmp.getChangeId(), appAut);
+			//appAutDAO.update(appTmp.getChangeId(), appAut);
 			return "edit_sec";
 		}
 
@@ -221,8 +220,7 @@ public class DevAction
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-access")
-	public String dev_consummate_sub() throws IOException
-	{
+	public String dev_consummate_sub() throws IOException {
 		HttpSession httpSession = ServletActionContext.getRequest()
 				.getSession();
 		User user = (User) httpSession.getAttribute("user");
@@ -250,9 +248,7 @@ public class DevAction
 		else
 			str += "|1";
 		appInfo.setSecurity(str);
-		if (appTmp.getPackgeContent() != null)
-		{
-			appSou.setPackgeSize(opeFun.fileSize(appTmp.getPackgeContent()));
+		if (appTmp.getPackgeContent() != null) {
 			appSou.setPackgeSize(opeFun.fileSize(appTmp.getPackgeContent()));
 			appSou.setPackge(opeFun.fileToServer("/file/" + user.getCp_id()
 					+ "/packge", appTmp.getPackgeContent(),
@@ -296,13 +292,13 @@ public class DevAction
 					appTmp.getGamePhotoContent5FileName(),
 					appTmp.getGamePhotoContent5ContentType(), true));
 		appInfo.setUpTime(opeFun.getNowTime());
-		AppInfo info = appInfoDAO.findById(appTmp.getChangeId());//联运信息保持不变
+		AppInfo info = appInfoDAO.findById(appTmp.getChangeId());// 联运信息保持不变
 		appInfo.setJoint(info.getJoint());
 		httpSession.removeAttribute("app");
 		httpSession.setAttribute("appName", appInfo.getAppName());
 		appInfoDAO.update(appTmp.getChangeId(), appInfo);
 		appSouDAO.update(appTmp.getChangeId(), appSou);
-		appAutDAO.update(appTmp.getChangeId(), appAut);
+		//appAutDAO.update(appTmp.getChangeId(), appAut);
 		return Action.SUCCESS;
 
 	}

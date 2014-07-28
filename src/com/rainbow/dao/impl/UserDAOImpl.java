@@ -142,6 +142,17 @@ public class UserDAOImpl implements UserDAO
 		else return null;
 	}
 
+	@Override
+	public List<User> findByUserType(String userType, int currentPage,
+			int pageSize) {
+		return null;
+	}
+
+	@Override
+	public int findByUserTypeNum(String userType) {
+		return 0;
+	}
+
 	
 
 }

@@ -68,61 +68,62 @@ public class AdminAction
 		else
 			return Action.ERROR;
 	}
-	public void mem_manager()
-	{
-		int total = adminDAO.getNum(userType);
-		int groupstotal = adminDAO.getNum("individualGroups");
-		int userstotal = adminDAO.getNum("individualUsers");
-		int commontotal = adminDAO.getNum("individualCommon");
-		PageUtil page = new PageUtil(crrentPage, total);
-		page.setPageSize(10);
-		
-	}
+//	public void mem_manager()
+//	{
+//		int total = userDAO.f
+//		int groupstotal = adminDAO.getNum("individualGroups");
+//		int userstotal = adminDAO.getNum("individualUsers");
+//		int commontotal = adminDAO.getNum("individualCommon");
+//		PageUtil page = new PageUtil(crrentPage, total);
+//		page.setPageSize(10);
+//		
+//		
+//	}
 	/**
 	 * 分类别显示会员管理
 	 * 
 	 * @return
 	 */
-//	@SuppressWarnings("unchecked")
-//	public String mem_manager()
-//	{
-//
-//		int total = adminDAO.getNum(isuserType);
-//		int groupstotal = adminDAO.getNum("individualGroups");
-//		int userstotal = adminDAO.getNum("individualUsers");
-//		int commontotal = adminDAO.getNum("individualCommon");
-//		HttpSession httpSession = ServletActionContext.getRequest()
-//				.getSession();
-//		httpSession.setAttribute("groupstotal", groupstotal);
-//		httpSession.setAttribute("userstotal", userstotal);
-//		httpSession.setAttribute("ctotal", commontotal);
-//		PageUtil page = new PageUtil(isCurrentPage, total);
-//		List<Admin> member = adminDAO.getThrough(isuserType, isCurrentPage,
-//				page.getPageSize());
-//
-//		int regtotal = adminDAO.getRegNum("individualCommon", 0);
-//		httpSession.setAttribute("regtotal", regtotal);
-//		PageUtil regpage = new PageUtil(isCurrentPage, regtotal);
-//		List<Admin> regmember = adminDAO.getRegThrough("individualCommon", 0,
-//				1, regpage.getPageSize());
-//
-//		@SuppressWarnings("rawtypes")
-//		Map request = (Map) ActionContext.getContext().get("request");
-//		request.put("member", member);
-//		request.put("page", page);
-//		request.put("regmember", regmember);
-//		request.put("regpage", regpage);
-//		String str = "";
-//		if (getIsuserType().equals("individualGroups"))
-//			str = "groups";
-//		else if (getIsuserType().equals("individualUsers"))
-//			str = "users";
-//		else if (getIsuserType().equals("individualCommon"))
-//			str = "common";
-//		else if (getIsuserType().equals("individualwait"))
-//			str = "wait";
-//		return str;
-//	}
+	@SuppressWarnings("unchecked")
+	public String mem_manager()
+	{
+
+		int total = adminDAO.getNum(isuserType);
+		int groupstotal = adminDAO.getNum("individualGroups");
+		int userstotal = adminDAO.getNum("individualUsers");
+		int commontotal = adminDAO.getNum("individualCommon");
+		HttpSession httpSession = ServletActionContext.getRequest()
+				.getSession();
+		httpSession.setAttribute("groupstotal", groupstotal);
+		httpSession.setAttribute("userstotal", userstotal);
+		httpSession.setAttribute("ctotal", commontotal);
+		PageUtil page = new PageUtil(isCurrentPage, total);
+		List<Admin> member = adminDAO.getThrough(isuserType, isCurrentPage,
+				page.getPageSize());
+
+		int regtotal = adminDAO.getRegNum("individualCommon", 0);
+		httpSession.setAttribute("regtotal", regtotal);
+		PageUtil regpage = new PageUtil(isCurrentPage, regtotal);
+		List<Admin> regmember = adminDAO.getRegThrough("individualCommon", 0,
+				1, regpage.getPageSize());
+
+		@SuppressWarnings("rawtypes")
+		Map request = (Map) ActionContext.getContext().get("request");
+		request.put("member", member);
+		request.put("page", page);
+		request.put("regmember", regmember);
+		request.put("regpage", regpage);
+		String str = "";
+		if (getIsuserType().equals("individualGroups"))
+			str = "groups";
+		else if (getIsuserType().equals("individualUsers"))
+			str = "users";
+		else if (getIsuserType().equals("individualCommon"))
+			str = "common";
+		else if (getIsuserType().equals("individualwait"))
+			str = "wait";
+		return str;
+	}
 
 	/**
 	 * 禁用用户权限

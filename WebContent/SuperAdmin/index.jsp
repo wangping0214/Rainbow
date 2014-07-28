@@ -1,13 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>超级管理员</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>登录</title>
+<link href="css/style.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jq.js"></script>
+
 </head>
 
-<body style="margin: 0px auto;height:630px;width:990px;">
- <iframe src="login.jsp" style="height:100%;width:100%;border-width: 0px;"></iframe>
+<body>
+<div class="wrapper">
+   <div class="logincont">
+       <div class="logleft fl"><img src="images/img1.jpg" width="488" height="327" /></div>
+       <!--logleft-->
+       <div class="logform fl">
+           <h3 class="tit1"><img src="images/img2.png" width="77" height="73" />后台管理系统</h3>
+           <div class="form1">
+               <form action="<%=request.getContextPath()%>/login_admin" method="post">
+                    <div class="user"><input type="text" value="用户名" class="type"name="admin.username" /></div>
+                    <div class="mima"><input type="password" value="请输入密码" class="password"name="admin.password" /></div>
+                    <div class="xieyi">登录柴米游戏账号表示您同意<a href="#" class="blue"> 最终用户协议</a></div>
+                    <div class="but1"><input type="submit" value="登录" /></div>
+                    <div class="meiyou">没有柴米游戏账户？<a href="<%=request.getContextPath()%>/login/register.jsp">立即注册</a></div>
+               </form>
+           </div>
+           <!--from1-->
+       </div>
+       <!--logform-->
+   </div>
+   <!--logincont-->
+</div>
+<!--wrapper-->
 </body>
 </html>

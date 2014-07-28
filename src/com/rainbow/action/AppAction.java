@@ -495,11 +495,12 @@ public class AppAction {
 	public String auditManagement(){
 		AppInfo info = appInfoDAO.findById(appTmp.getAuditManagementId());
 		AppSource appSou = appSouDAO.findById(appTmp.getAuditManagementId());
+		AppAuthority appAut = appAutDAO.findById(appTmp.getAuditManagementId());
 		HttpSession httpSession = ServletActionContext.getRequest()
 				.getSession();
 		httpSession.setAttribute("info", info);
 		httpSession.setAttribute("appSou", appSou);
-		
+		httpSession.setAttribute("appAut", appAut);
 		return Action.SUCCESS;
 	}
 	/**π‹¿Ì‘±…Û∫ÀÀÿ≤ƒ

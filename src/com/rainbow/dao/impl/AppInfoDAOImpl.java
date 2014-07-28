@@ -19,20 +19,17 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<AppInfo> findAll() {
-		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("select u from AppInfo u");
 		return query.getResultList();
 	}
 
 	@Override
 	public AppInfo findById(int id) {
-		// TODO Auto-generated method stub
 		return entityManager.find(AppInfo.class, id);
 	}
 
 	@Override
 	public void save(AppInfo appInfo) {
-		// TODO Auto-generated method stub
 		entityManager.persist(appInfo);
 		
 	}
@@ -44,7 +41,6 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 	 */
 	@Override
 	public void update(int id, AppInfo appInfo) {
-		// TODO Auto-generated method stub
 		AppInfo tmp = findById(id);
 		if(appInfo.getAppIntrodution()!=null)
 			tmp.setAppIntrodution(appInfo.getAppIntrodution());
@@ -82,7 +78,6 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
 		AppInfo tmp = findById(id);
 		entityManager.remove(tmp);
 		
@@ -92,7 +87,6 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 	@Override
 	public List<AppInfo> findByIsThrough(String userName, int isThrough,
 			int currentPage, int pageSize) {
-		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("select u from AppInfo u where u.userName=:userName and u.isThrough=:isThrough");
 		query.setParameter("userName", userName);
 		query.setParameter("isThrough", isThrough);
@@ -105,7 +99,6 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 
 	@Override
 	public int findByIsThroughNum(String userName, int isThrough) {
-		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("select u from AppInfo u where u.userName=:userName and u.isThrough=:isThrough");
 		query.setParameter("userName", userName);
 		query.setParameter("isThrough", isThrough);
@@ -120,7 +113,6 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 	@Override
 	public List<AppInfo> findByShelfAndIsThrough(String userName,
 			int isThrough, int shelf, int currentPage, int pageSize) {
-		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("select u from AppInfo u where u.userName=:userName and u.isThrough=:isThrough and u.shelf=:shelf");
 		query.setParameter("userName", userName);
 		query.setParameter("isThrough", isThrough);
@@ -135,7 +127,6 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 	@Override
 	public int findByShelfAndIsThroughNum(String userName, int isThrough,
 			int shelf) {
-		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("select u from AppInfo u where u.userName=:userName and u.isThrough=:isThrough and u.shelf=:shelf");
 		query.setParameter("userName", userName);
 		query.setParameter("isThrough", isThrough);
@@ -147,7 +138,6 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 	@Override
 	public List<AppInfo> adminIsThrough(int isThrough, int currentPage,
 			int pageSize) {
-		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("select u from AppInfo u where u.isThrough=:isThrough");
 		query.setParameter("isThrough", isThrough);
 		int startRow = (currentPage-1)*pageSize;
@@ -159,7 +149,6 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 
 	@Override
 	public int adminIsThrough(int isThrough) {
-		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("select u from AppInfo u where u.isThrough=:isThrough");
 		query.setParameter("isThrough", isThrough);
 		return query.getResultList().size();
@@ -191,7 +180,6 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 	@Override
 	public List<AppInfo> findByTypeAndShelf(int shelf, String type,
 			int currentPage, int pageSize) {
-		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("select u from AppInfo u where u.shelf=:shelf and u.type=:type");
 		query.setParameter("shelf", shelf);
 		query.setParameter("type", type);
@@ -204,7 +192,6 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 
 	@Override
 	public int findByTypeAndShelfNum(int shelf, String type) {
-		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("select u from AppInfo u where u.shelf=:shelf and u.type=:type");
 		query.setParameter("shelf", shelf);
 		query.setParameter("type", type);
@@ -215,7 +202,6 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 	@Override
 	public List<AppInfo> findByClassification(int shelf, String classification,
 			int currentPage, int pageSize) {
-		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("select u from AppInfo u , AppAuthority s where s.id=u.id and u.shelf=:shelf and u.classification=:classification order by s.recomLevel desc, s.score desc,s.amountOfDown desc,u.upTime desc");
 		query.setParameter("shelf", shelf);
 		query.setParameter("classification", classification);
@@ -228,7 +214,6 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 
 	@Override
 	public int findByClassificationNum(int shelf, String classification) {
-		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("select u from AppInfo u, AppAuthority s where s.id=u.id and u.shelf=:shelf and u.classification=:classification");
 		query.setParameter("shelf", shelf);
 		query.setParameter("classification", classification);
@@ -239,7 +224,6 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 	@Override
 	public List<AppInfo> findByCategory(int shelf, String category,
 			int currentPage, int pageSize) {
-		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("select u from AppInfo u , AppAuthority s where s.id=u.id and u.shelf=:shelf and u.category=:category order by s.recomLevel desc, s.score desc,s.amountOfDown desc,u.upTime desc");
 		query.setParameter("shelf", shelf);
 		query.setParameter("category", category);
@@ -252,7 +236,6 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 
 	@Override
 	public int findByCategoryNum(int shelf, String category) {
-		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("select u from AppInfo u where u.shelf=:shelf and u.category=:category");
 		query.setParameter("shelf", shelf);
 		query.setParameter("category", category);
@@ -263,7 +246,6 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 	@Override
 	public List<AppInfo> findByJoint(String userName,int shelf, int joint, int currentPage,
 			int pageSize) {
-		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("select u from AppInfo u where u.userName=:userName and u.isThrough=1 and u.shelf=:shelf and u.joint=:joint ");
 		query.setParameter("shelf", shelf);
 		query.setParameter("joint", joint);
@@ -276,7 +258,6 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 
 	@Override
 	public int findJointNum(String userName,int shelf, int joint) {
-		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("select u from AppInfo u where u.userName=:userName and u.isThrough=1 and u.shelf=:shelf and u.joint=:joint ");
 		query.setParameter("shelf", shelf);
 		query.setParameter("joint", joint);
@@ -288,7 +269,6 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 	@Override
 	public List<AppInfo> findUserTypeMessage(String userName, int isThrough,
 			String type, int currentPage, int pageSize) {
-		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("select u from AppInfo u where u.userName = :userName and u.isThrough = :isThrough and u.type = :type");
 		query.setParameter("userName", userName);
 		query.setParameter("isThrough", isThrough);
@@ -302,7 +282,6 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 	@Override
 	public int findUserTypeMessageNum(String userName, int isThrough,
 			String type) {
-		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("select u from AppInfo u where u.userName = :userName and u.isThrough = :isThrough and u.type = :type");
 		query.setParameter("userName", userName);
 		query.setParameter("isThrough", isThrough);
@@ -314,7 +293,6 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 	@Override
 	public List<AppInfo> findAllJoint(int shelf, int joint, int currentPage,
 			int pageSize) {
-		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("select u from AppInfo u where u.isThrough=1 and u.shelf=:shelf and u.joint=:joint ");
 		query.setParameter("shelf", shelf);
 		query.setParameter("joint", joint);
@@ -326,7 +304,6 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 
 	@Override
 	public int findAllJointNum(int shelf, int joint) {
-		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("select u from AppInfo u where u.isThrough=1 and u.shelf=:shelf and u.joint=:joint ");
 		query.setParameter("shelf", shelf);
 		query.setParameter("joint", joint);
@@ -387,6 +364,18 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 		query.setParameter("isThrough", isThrough);
 		query.setParameter("shelf", shelf);
 		return query.getResultList().size();
+	}
+
+	@Override
+	public List<AppInfo> findByKeyword(String keyword, int crrentPage,
+			int pageSize) {
+		Query query = entityManager.createQuery("se");
+		return null;
+	}
+
+	@Override
+	public int findByKeywordNum(String keyword) {
+		return 0;
 	}
 
 }

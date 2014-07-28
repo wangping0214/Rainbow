@@ -128,7 +128,13 @@ function downUrl(url){
                 <dl>
                    <dt><a href="details.action?apkId=<s:property value="#appApplication.appInfo.id" />"><img src="<%=request.getContextPath() %><s:property value="#appApplication.appSou.logo1"/>" /></a></dt>
                    <dd><a href="details.action?apkId=<s:property value="#appApplication.appInfo.id" />"><s:property value="#appApplication.appInfo.appName" /></a></dd>
-                   <dd class="downnum"><span><s:property value="#appApplication.appAut.amountOfDown" />次下载</span></dd>
+                   <dd class="downnum"><span>
+                   <s:if test="#appApplication.appAut.amountOfDown>10000">
+  <s:property value="#appApplication.appAut.amountOfDown/10000+'.'+(#appApplication.appAut.amountOfDown-(#appApplication.appAut.amountOfDown/10000)*10000)/1000" />
+万次下载
+  </s:if>
+  <s:else><s:property value="#appApplication.appAut.amountOfDown" />次下载</s:else>
+                   </span></dd>
                    <dd class="xiazai"><a href="downApk.action?bowser=<%=bowser %>&appSouId=<s:property value="#appApplication.appSou.id" />&downPath=<s:property value="#appApplication.appSou.packge" escape='false'/>"><img src="images/xia_03.jpg" /></a></dd>
                 </dl>
                 </s:iterator>
@@ -146,7 +152,13 @@ function downUrl(url){
                 <dl>
                    <dt><a href="details.action?apkId=<s:property value="#appGame.appInfo.id" />"><img src="<%=request.getContextPath() %><s:property value="#appGame.appSou.logo1"/>" /></a></dt>
                    <dd><a href="details.action?apkId=<s:property value="#appGame.appInfo.id" />"><s:property value="#appGame.appInfo.appName" /></a></dd>
-                   <dd class="downnum"><span><s:property value="#appGame.appAut.amountOfDown" />次下载</span></dd>
+                   <dd class="downnum"><span>
+                   <s:if test="#appGame.appAut.amountOfDown>10000">
+  <s:property value="#appGame.appAut.amountOfDown/10000+'.'+(#appGame.appAut.amountOfDown-(#appGame.appAut.amountOfDown/10000)*10000)/1000" />
+万次下载
+  </s:if>
+  <s:else><s:property value="#appGame.appAut.amountOfDown" />次下载</s:else>
+                   </span></dd>
                    <dd class="xiazai"><a href="downApk.action?bowser=<%=bowser %>&appSouId=<s:property value="#appGame.appSou.id" />&downPath=<s:property value="#appGame.appSou.packge" escape='false'/>"><img src="images/xia_03.jpg" /></a></dd>
                 </dl>
                 </s:iterator>

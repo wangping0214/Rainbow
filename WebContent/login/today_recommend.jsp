@@ -93,11 +93,17 @@ $(document).ready(function(){
             <h3 class="tjtit1"><p><img src="<%=request.getContextPath()%>/login/images/icon_03.jpg" />安卓精品</p></h3>
             <!-- ********************精品推荐***************************** -->
             <div class="jujiaolist">
-            <s:iterator value="#request['appBoutique']" id="appBoutique">
+            <s:iterator value="#request['appRecommend']" id="appBoutique">
                 <dl>
                    <dt><a href="details.action?apkId=<s:property value="#appBoutique.appInfo.id" />"><img src="<%=request.getContextPath() %><s:property value="#appBoutique.appSou.logo1"/>" /></a></dt>
                    <dd><a href="details.action?apkId=<s:property value="#appBoutique.appInfo.id" />"><s:property value="#appBoutique.appInfo.appName" /></a></dd>
-                   <dd class="downnum"><span><s:property value="#appBoutique.appAut.amountOfDown" />次下载</span></dd>
+                   <dd class="downnum"><span>
+                   <s:if test="#appBoutique.appAut.amountOfDown>10000">
+  <s:property value="#appBoutique.appAut.amountOfDown/10000+'.'+(#appBoutique.appAut.amountOfDown-(#appBoutique.appAut.amountOfDown/10000)*10000)/1000" />
+万次下载
+  </s:if>
+  <s:else><s:property value="#appBoutique.appAut.amountOfDown" />次下载</s:else>
+                   </span></dd>
                    <dd class="xiazai"><a href="downApk.action?bowser=<%=bowser %>&appSouId=<s:property value="#appBoutique.appSou.id" />&downPath=<s:property value="#appBoutique.appSou.packge" escape='false'/>"><img src="<%=request.getContextPath()%>/login/images/xia_03.jpg"  /></a></dd>
                 </dl>
                 </s:iterator>
@@ -131,7 +137,13 @@ $(document).ready(function(){
                       <dl>
                          <dt><a href="details.action?apkId=<s:property value="#appRecommend.appInfo.id" />"><img src="<%=request.getContextPath() %><s:property value="#appRecommend.appSou.logo1"/>" /></a></dt>
                          <dd><a href="details.action?apkId=<s:property value="#appRecommend.appInfo.id" />"><s:property value="#appRecommend.appInfo.appName" /></a></dd>
-                         <dd><b><s:property value="#appRecommend.appAut.amountOfDown" />次下载</b></dd>
+                         <dd><b>
+                         <s:if test="#appRecommend.appAut.amountOfDown>10000">
+  <s:property value="#appRecommend.appAut.amountOfDown/10000+'.'+(#appRecommend.appAut.amountOfDown-(#appRecommend.appAut.amountOfDown/10000)*10000)/1000" />
+万次下载
+  </s:if>
+  <s:else><s:property value="#appRecommend.appAut.amountOfDown" />次下载</s:else>
+                         </b></dd>
                       </dl>
                       <a href="downApk.action?bowser=<%=bowser %>&appSouId=<s:property value="#appRecommend.appSou.id" />&downPath=<s:property value="#appRecommend.appSou.packge" escape='false'/>" class="sidexia"><img src="<%=request.getContextPath()%>/login/images/xia_03.jpg" /></a>
                    </div>
@@ -149,7 +161,13 @@ $(document).ready(function(){
                       <dl>
                          <dt><a href="details.action?apkId=<s:property value="#appRank.appInfo.id" />"><img src="<%=request.getContextPath() %><s:property value="#appRank.appSou.logo1"/>" /></a></dt>
                          <dd><a href="details.action?apkId=<s:property value="#appRank.appInfo.id" />"><s:property value="#appRank.appInfo.appName" /></a></dd>
-                         <dd><b><s:property value="#appRank.appAut.amountOfDown" />次下载</b></dd>
+                         <dd><b>
+                         <s:if test="#appRank.appAut.amountOfDown>10000">
+  <s:property value="#appRank.appAut.amountOfDown/10000+'.'+(#appRank.appAut.amountOfDown-(#appRank.appAut.amountOfDown/10000)*10000)/1000" />
+万次下载
+  </s:if>
+  <s:else><s:property value="#appRank.appAut.amountOfDown" />次下载</s:else>
+                         </b></dd>
                       </dl>
                       <a href="downApk.action?bowser=<%=bowser %>&appSouId=<s:property value="#appRank.appSou.id" />&downPath=<s:property value="#appRank.appSou.packge" escape='false'/>"" class="sidexia"><img src="<%=request.getContextPath()%>/login/images/xia_03.jpg" /></a>
                    </div>

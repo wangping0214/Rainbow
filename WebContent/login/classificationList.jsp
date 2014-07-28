@@ -125,7 +125,13 @@ function downLoad(downLoadId){
                   <dt><a href="details.action?apkId=<s:property value="#app.appInfo.id" />"><img src="<%=request.getContextPath() %><s:property value="#app.appSou.logo1"/>" style="width:48px; height:48px;" /></a></dt>
                   <dd><a href="details.action?apkId=<s:property value="#app.appInfo.id" />" class="fl"><s:property value="#app.appInfo.appName" /></a>
                   <a href="downApk.action?bowser=<%=bowser %>&appSouId=<s:property value="#app.appSou.id" />&downPath=<s:property value="#app.appSou.packge" escape='false'/>" class="xia2">下载</a></dd>
-                  <dd>下载：<s:property value="#app.appAut.amountOfDown" />次   大小:<s:property value="#app.appSou.packgeSize" />M</dd>
+                  <dd>
+                  下载：<s:if test="#app.appAut.amountOfDown>10000">
+  <s:property value="#app.appAut.amountOfDown/10000+'.'+(#app.appAut.amountOfDown-(#app.appAut.amountOfDown/10000)*10000)/1000" />
+万次
+  </s:if>
+  <s:else><s:property value="#app.appAut.amountOfDown" />次</s:else>
+                    大小:<s:property value="#app.appSou.packgeSize" />M</dd>
                </dl>
                <p class="intro">游戏简介：<s:property value="#app.appInfo.appIntrodution" /></p>
            </div>

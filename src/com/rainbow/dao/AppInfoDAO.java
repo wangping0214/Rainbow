@@ -106,6 +106,9 @@ public interface AppInfoDAO {
 	
 	public List<AppInfo> findUserIsJointApp(String cp_id,int joint, int isThrough, int shelf,int currentPage,int pageSize);
 	public int findUserIsJointAppNum(String cp_id,int joint, int isThrough, int shelf);
+	
+	public List<AppInfo> findByKeyword(String keyword,int crrentPage,int pageSize);
+	public int findByKeywordNum(String keyword);
 	/**
 	 * @param appInfo
 	 */

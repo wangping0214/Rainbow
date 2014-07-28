@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>会员管理</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript"src="js/jquery.js"></script>
+<script type="text/javascript"src="js/jquery.min.js"></script>
 <script type="text/javascript"src="js/nav.js"></script>
 <style type="text/css">
 .searchcont2{ background:url(images/searchs.png) no-repeat; width:227px; height:25px; line-height:25px; margin:20px 0 7px 0px;}

@@ -1,6 +1,6 @@
-<%@ page import="com.rainbow.entity.AppInfo" language="java" contentType="text/html; charset=UTF-8"
+<%@ page import="com.rainbow.entity.AppAuthority" language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%AppInfo info = (AppInfo)session.getAttribute("info"); %>
+	<%AppAuthority appAut = (AppAuthority)session.getAttribute("appAut"); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -55,19 +55,19 @@ return true;
                   <div class="list">
                       <h3 class="tit2">管理审核 & 提交</h3>
                       <div class="xinxicont">
-                      <form id="id_form" name="form1" method="post" onsubmit="test()" action="auditSubmit.action?appTmp.auditManagementId=<%=info.getId() %>"  enctype="multipart/form-data">
+                      <form id="id_form" name="form1" method="post" onsubmit="test()" action="auditSubmit.action?appTmp.auditManagementId=<%=appAut.getId() %>"  enctype="multipart/form-data">
                           <div class="shenhecont">
                               <div class="shen">
                                    <div class="xuanze"><input type="radio" name="subApp.appInfo.isThrough" value='-1' id="id_isThrough" />未通过前方打钩</div>
                                    <div class="liyou"><textarea cols="40" rows="5" name="subApp.appAut.reasonsNotThrough">未通过理由</textarea></div>
                              </div>
                              <div class="shen">
-                                   <div class="xuanze"><input type="radio" name="subApp.appInfo.isThrough" value='1' id="id_isThrough"/>通过前方打钩</div>
+                                   <div class="xuanze"><input type="radio" name="subApp.appInfo.isThrough" checked="checked" value='1' id="id_isThrough"/>通过前方打钩</div>
                                    <div class="tguo">
-                                       <div>推荐级别选择：<input type="text" name="subApp.appAut.strRecomLevel" id="id_recomLevel"/> 取值0-100
+                                       <div>推荐级别选择：<input type="text" name="subApp.appAut.strRecomLevel" id="id_recomLevel" value="<%=appAut.getRecomLevel()%>"/> 取值0-100
                                        </div>
-                                       <div>评分：<input type="text" name="subApp.appAut.strScore" id="id_score"  /> 取值0-100</div>
-                                       <div>下载量：<input type="text" name="subApp.appAut.strAmountOfDown" id="id_amountOfDown" /> 设置初始下载量</div>
+                                       <div>评分：<input type="text" name="subApp.appAut.strScore" id="id_score" value="<%=appAut.getScore()%>" /> 取值0-100</div>
+                                       <div>下载量：<input type="text" name="subApp.appAut.strAmountOfDown" id="id_amountOfDown" value="<%=appAut.getAmountOfDown()%>" /> 设置初始下载量</div>
                                    </div>
                              </div>
                           </div>

@@ -6,9 +6,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>游戏应用－柴米游言－中国第一手游杂志</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <style type="text/css">
 *{ padding:0; margin:0;}
 #c{
@@ -173,7 +173,7 @@ box-shadow:1px 1px 5px #909090;/*opera或ie9*/
 	font-family: "微软雅黑";
 	font-size: 14px;
 	background-color: #FFF;
-	margin-top: 10px;
+	margin-top: 5px;
 	line-height: 1.5;
 	height: 50px;
 	width: 90%;
@@ -272,10 +272,23 @@ border-radius: 15px;
 <div  class="fc2-11">
 <div class="fc211"><a href="specificInformation.action?apkId=<s:property value="#app.appInfo.id"/>"><img src="<%=request.getContextPath() %><s:property value="#app.appSou.logo1"/>"  width="50px" height="50px" /></a></div>
 <div class="fc212"><a href="specificInformation.action?apkId=<s:property value="#app.appInfo.id"/>"><s:property value="#app.appInfo.appName" /></a><img src="image/mll.gif" /><br />
-  <p class="xinxi"><span>下载：<s:property value="#app.appAut.amountOfDown" />次</span><span>大小:<s:property value="#app.appSou.packgeSize" />MB</span></p> 
+  <p class="xinxi"><span>
+  下载：<s:if test="#app.appAut.amountOfDown>10000">
+  <s:property value="#app.appAut.amountOfDown/10000+'.'+(#app.appAut.amountOfDown-(#app.appAut.amountOfDown/10000)*10000)/1000" />
+万次
+  </s:if>
+  <s:else><s:property value="#app.appAut.amountOfDown" />次</s:else>
+  </span><span>大小:<s:property value="#app.appSou.packgeSize" />MB</span></p> 
 </div>
 <div class="fc213"><a href="downApk.action?appSouId=<s:property value="#app.appSou.id" />&downPath=<s:property value="#app.appSou.packge" escape='false'/>" ><img src="pic/as_06.jpg"  width="55" height="23" /></a></div>
-<div class="fc214"><hr /><a href="specificInformation.action?apkId=<s:property value="#app.appInfo.id"/>">游戏简介：<s:property value="#app.appInfo.appIntrodution" /></a></div>
+<div class="fc214"><hr /><a href="specificInformation.action?apkId=<s:property value="#app.appInfo.id"/>">
+游戏简介：<s:if test="#app.appInfo.appIntrodution.length()>40">
+<s:property value="#app.appInfo.appIntrodution.substring(0, 40) + \"...\"" />
+</s:if>
+<s:else>
+<s:property value="#app.appInfo.appIntrodution" />
+</s:else>
+</a></div>
 </div>
 </s:iterator>
 <div>

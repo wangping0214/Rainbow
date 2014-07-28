@@ -245,7 +245,7 @@ border-radius: 15px;
 </div>
 <%App app = (App)session.getAttribute("app"); %>
 <div  class="fc2-11">
-<div class="fc211"><img src="<%=request.getContextPath()+app.getAppSou().getLogo1() %>"  width="50px" height="50px" /></div>
+<div class="fc211"><img src="<%=request.getContextPath()+app.getAppSou().getLogo2() %>"  width="50px" height="50px" /></div>
 <div class="fc212"><p><span class="fl mingcheng"><%=app.getAppInfo().getAppName() %></span>
 <a href="downApk.action?appSouId=<%=app.getAppSou().getId() %>&downPath=<%=app.getAppSou().getPackge() %>" class="fr"><img src="pic/an.gif"  width="55" height="22" /></a></p>
   <p class="xinxi clear"><span>下载：<%=app.getAppAut().getAmountOfDown() %>次</span><span>大小:<%=app.getAppSou().getPackgeSize() %>MB</span></p> 
