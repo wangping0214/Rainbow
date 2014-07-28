@@ -5,9 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>游戏应用－柴米游言－中国第一手游杂志</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <style type="text/css">
 body{ background:#000;}
 *{ margin:0; padding:0;}
@@ -258,22 +258,23 @@ li{
 <div id="c">
 <div class="fc2177"> <font color="#000"><a href="javascript:if(confirm('http://iread.wo.com.cn/zz/3g/index.aspx  \n\n该文件无法用 Teleport Ultra 下载, 因为 它是一个域或路径外部被设置为它的启始地址的地址。  \n\n你想在服务器上打开它?'))window.location='http://iread.wo.com.cn/zz/3g/index.aspx'"><img src="image/wo-logo.png"  width="110" height="30" border="0" /></a></font> 柴米游戏－中国第一手游杂志</div>
 
-<div class="fc2"><table height="46" align="center" cellspacing="0" background="newpic/ssbg0.gif" class="clearit" style="width:100%; background-color: #70c570;">
-
+<div class="fc2">
+<table height="43" align="center" cellspacing="0" background="newpic/ssbg0.gif" class="clearit" style="width:100%; background-color: #70c570;">
   <tr>
-    <td><div align="center"><a href="index.jsp"><font color="#FFFFFF" style="font-weight:bold">封面</font></a></div></td>
-    <td width="1"><font color="#FFFFFF">│</font></td>
-    <td><div align="center"><a href="mulu.jsp"><font color="#FFFFFF" style="font-weight:bold">目录</font></a></div></td>
-    <td width="1"><font color="#FFFFFF">│</font></td>
-    <td ><div align="center"><a href="wangqi.jsp"><font color="#FFFFFF" style="font-weight:bold">往期</font> </a></div></td>
-    <td width="1"><font color="#FFFFFF">│</font></td>
-	<td><div style="background:url(newpic/ssbg00.gif) repeat-x top; height:43px; line-height:43px; color:#FFF; margin:0 10%; color:#FFF" align="center"><a href="showByRecomLevel.action?appTmp.showByRecomLevelCurrentPage=1"><font color="#FFFFFF" style="background:url(newpic/ssbg_03.jpg) no-repeat center bottom;font-weight:bold; display:block; height:43px;">游戏&amp;应用</font></a></div>
-      </td>
-    <td width="1" ><font color="#FFFFFF">│</font></td>
-	<td><div align="center"><a href="active.html"><font color="#FFFFFF" style="font-weight:bold">暑期活动</font></a>　</div></td>
+    <td><div align="center"><a href="index.jsp">柴米游言</a></div></td>
+    <td width="1">│</td>
+    <td><div align="center"><a href="mulu.jsp">目录</a></div></td>
+    <td width="1">│</td>
+    <td><div align="center"><a href="wangqi.jsp">往期 </a></div></td>
+    <td width="1">│</td>
+	<td class="new"><div align="center"><a href="showByRecomLevel?appTmp.showByRecomLevelCurrentPage=1" 
+	 style="background:url(newpic/ssbg.png) no-repeat center bottom; margin-top:1px; height:42px; line-height:42px;">首页<img src="newpic/new.gif" /></a></div></td>
+    <td width="1" >│</td>
+	<td class="price"><div align="center"><a href="active.html"><font color="#FFFFFF" style="font-weight:bold">大抽奖</font><img src="newpic/hot.gif" /></a>　</div></td>
     <td width="1"></td>
   </tr>
-</table></div>
+</table>
+</div>
 <div class="fc2-1">
 <table width="320" height="29" border="0">
   <tr>

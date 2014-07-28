@@ -1,21 +1,43 @@
 package com.rainbow.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
+
+
+
+
+
+
+
+
+
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionContext;
+import com.rainbow.dao.AppAutDAO;
+import com.rainbow.dao.AppInfoDAO;
+import com.rainbow.dao.AppSouDAO;
 import com.rainbow.dao.PrizeDAO;
+import com.rainbow.entity.AppAuthority;
+import com.rainbow.entity.AppInfo;
+import com.rainbow.entity.AppSource;
 import com.rainbow.entity.Prize;
+import com.rainbow.server.App;
 
 public class PrizeAction {
 	private static final int ISSUE = 1;
 	private Prize prize;
 	
 	private PrizeDAO prizeDAO;
+	private AppInfoDAO appInfoDAO;
+	private AppSouDAO appSouDAO;
+	private AppAutDAO appAutDAO;
 	
 	private int issue;//期数
 	private int prizeLevel;//奖级别
@@ -51,7 +73,22 @@ public class PrizeAction {
 		return Action.SUCCESS;
 	}
 	
-	
+	/**
+	 * 下载可以提升中奖概率的联运应用
+	 * @return
+	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public String promoteToPrize(){
+		List<App> app = new ArrayList<>();
+		for(AppInfo appInfo:appInfoDAO.findAllJoint(1, 1, 1, 10)){
+			AppSource appSou = appSouDAO.findById(appInfo.getId());
+			AppAuthority appAut = appAutDAO.findById(appInfo.getId());
+			app.add(new App(appInfo,appSou,appAut));
+		}
+		Map request = (Map) ActionContext.getContext().get("request");
+		request.put("app", app);
+		return Action.SUCCESS;
+	}
 	/**
 	 * 检查某期
 	 * @return
@@ -128,9 +165,16 @@ public class PrizeAction {
 		this.selectc = selectc;
 	}
 
-	public PrizeAction(PrizeDAO prizeDAO) {
+	public PrizeAction(PrizeDAO prizeDAO, AppInfoDAO appInfoDAO,
+			AppSouDAO appSouDAO, AppAutDAO appAutDAO)
+	{
 		super();
 		this.prizeDAO = prizeDAO;
+		this.appInfoDAO = appInfoDAO;
+		this.appSouDAO = appSouDAO;
+		this.appAutDAO = appAutDAO;
 	}
+
+	
 	
 }

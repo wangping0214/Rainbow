@@ -154,6 +154,9 @@
 	
 	<bean id="prizeAction" class="com.rainbow.action.PrizeAction" scope="prototype">
 		<constructor-arg ref="PrizeDAO"></constructor-arg>
+		<constructor-arg ref="AppAutDAO"></constructor-arg>
+		<constructor-arg ref="AppInfoDAO"></constructor-arg>
+		<constructor-arg ref="AppSouDAO"></constructor-arg>
 	</bean>
 	
 	<bean id="findPasswordAction" class="com.rainbow.action.FindPasswordAction" scope="prototype">

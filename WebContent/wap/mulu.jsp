@@ -135,22 +135,23 @@ a:active {text-decoration:none ; color:#339900 ;}
 <div id="c">
 <div class="fc2177"> <font color="#000"><a href="http://iread.wo.com.cn/zz/3g/index.aspx"><img src="newpic/top.jpg" border="0" width="100%" /></a></font></div>
 
-<div class="fc2"><table height="43" align="center" cellspacing="0" background="newpic/ssbg0.gif" class="clearit" style="width:100%; background-color: #70c570;">
-
+<div class="fc2">
+<table height="43" align="center" cellspacing="0" background="newpic/ssbg0.gif" class="clearit" style="width:100%; background-color: #70c570;">
   <tr>
-    <td><div align="center"><a href="index.jsp"><font color="#FFFFFF">封面</font></a></div></td>
+    <td><div align="center"><a href="index.jsp">柴米游言</a></div></td>
     <td width="1">│</td>
-    <td><div align="center" style="background:url(newpic/ssbg.png) no-repeat center bottom; margin-top:2px; height:42px; line-height:43px;"><a href="mulu.jsp"><font color="#FFFFFF">目录</font></a></div></td>
+    <td><div align="center"><a href="mulu.jsp"
+    style="background:url(newpic/ssbg.png) no-repeat center bottom; margin-top:1px; height:42px; line-height:42px;">目录</a></div></td>
     <td width="1">│</td>
-    <td ><div align="center"><a href="wangqi.jsp"><font color="#FFFFFF">往期</font> </a></div></td>
+    <td><div align="center"><a href="wangqi.jsp">往期 </a></div></td>
     <td width="1">│</td>
-	<td><div style="background:url(newpic/ssbg00.gif) repeat-x top; height:43px; line-height:43px; color:#FFF; margin:0 10%;" align="center"><a href="showByRecomLevel.action?appTmp.showByRecomLevelCurrentPage=1"><font color="#FFFFFF">游戏&amp;应用</font></a></div>
-      </td>
+	<td class="new"><div align="center"><a href="showByRecomLevel?appTmp.showByRecomLevelCurrentPage=1" >首页<img src="newpic/new.gif" /></a></div></td>
     <td width="1" >│</td>
-	<td><div align="center"><a href="active.html"><font color="#FFFFFF" style="font-weight:bold">暑期活动</font></a>　</div></td>
+	<td class="price"><div align="center"><a href="active.html"><font color="#FFFFFF" style="font-weight:bold">大抽奖</font><img src="newpic/hot.gif" /></a>　</div></td>
     <td width="1"></td>
   </tr>
-</table></div>
+</table>
+</div>
 <div class="fc"><br>
 <table width="100%" border="0" cellpadding="0" cellspacing="0" class="biao">
   <tr>

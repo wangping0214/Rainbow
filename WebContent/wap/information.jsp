@@ -354,7 +354,6 @@ $(document).ready(function(){
 						success:function(data){
 	
 							if(data=="1"){
-								alert("信息提交成功！请随时关注抽奖结果！");
 								$("#form").submit();
 								return true;
 							}
@@ -382,7 +381,6 @@ $(document).ready(function(){
 <div class="cont">
 <img src="image/dtbg_02.jpg" width="100%"/>
 <div class="infor">
-   <h2 class="inttit">恭喜您！回答正确！</h2>
    <p class="zhu">为保证实物奖励能准确邮寄，请仔细填写以下信息！</p>
    <form id="form" name="form" method="post" action="prizeInfoSub.action"   enctype="multipart/form-data">
    <div class="incont">

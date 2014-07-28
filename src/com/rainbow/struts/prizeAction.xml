@@ -4,7 +4,7 @@
 <struts>
 	<package name="prize" extends="struts-default">
 		<action name="prizeInfoSub" class="prizeAction" method="prizeInfoSub">
-			<result>index.jsp</result>
+			<result type="redirect">wap/promoteToPrize</result>
 		</action>
 		<action name="showIssuePrize" class="prizeAction" method="showIssuePrize"></action>
 		
@@ -19,6 +19,9 @@
 		</action>
 		<action name="showIssuePrize" class="prizeAction" method="showIssuePrize">
 			<result>list.jsp</result>
+		</action>
+		<action name="promoteToPrize" class="prizeAction" method="promoteToPrize">
+			<result>upgrade.jsp</result>
 		</action>
 	</package>
 </struts>

@@ -12,13 +12,14 @@ a img{ border:0;}
 /*information*/
 .infor{ position:absolute; left:10%; top:20%; width:80%;}
 .inttit{ text-align:center; font-size:22px; color:#040404; margin-bottom:1%;}
-.zhu{ text-align:center; font-size:12px; margin-bottom:6%;}
+.zhu{ text-align:center; font-size:12px; margin-bottom:6%; margin-top:15%;}
 .incont{ width:80%; margin:0 auto;}
 .incont div{ clear:both; overflow:hidden; zoom:1; margin-bottom:10px;}
 .incont b{ color:#F33; font-weight:normal; padding-right:5px;}
 .incont span,.incont input,.incont select{ float:left;}
 .incont span{ width:86px; text-align:left;}
-.incont input,.incont select{ width:50%; height:16px; line-height:16px;}
+.incont input{ width:50%; height:16px; line-height:16px;}
+.incont select{ width:51%;height:23px; line-height:23px;}
 /*list*/
 .listcont{ position:absolute; left:10%; top:9%; width:80%;}
 .ago{ text-align:right; margin-bottom:10%;}

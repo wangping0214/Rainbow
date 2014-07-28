@@ -9,6 +9,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>游戏应用－柴米游言－中国第一手游杂志</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/banner.js"></script>
 <style type="text/css">
 *{ padding:0; margin:0;}
 #c{
@@ -173,7 +175,7 @@ box-shadow:1px 1px 5px #909090;/*opera或ie9*/
 	font-family: "微软雅黑";
 	font-size: 14px;
 	background-color: #FFF;
-	margin-top: 5px;
+	margin-top: 15px;
 	line-height: 1.5;
 	height: 50px;
 	width: 90%;
@@ -225,6 +227,19 @@ border-radius: 15px;
 	margin-top: 0px;
 }
 .xinxi span{ padding-right:5px;}
+/*清浮动*/
+.clearfix:after{content:"";display:block;clear:both;}
+.clearfix{zoom:1;}
+/* banner */
+.banner{width:100%;position:relative;overflow:hidden;margin:0 auto}
+.banner-btn{display:none;}
+.banner-img{font-size:0;*word-spacing:-1px;/* IE6、7 */ letter-spacing:-3px;position:relative;}
+.banner-img li{ width:50%;display:inline-block;*display:inline;*zoom:1;/* IE6、7 */ vertical-align:top;letter-spacing:normal;word-spacing:normal;font-size:12px;}
+.banner-img li img{ display:block; width:100%;}
+.banner-circle{position:absolute;left:50%;bottom:6px;height:13px;text-align:center;font-size:0;border-radius:10px;background:rgba(255,255,255,0.3);filter:alpha(opacity:30);}
+.banner-circle li{border-radius:10px;margin:2px;display:inline-block;display:-moz-inline-stack;vertical-align:middle;zoom:1;}
+.banner-circle li a{display:block;padding-top:9px;width:9px;height:0;border-radius:50%;background:#B7B7B7;overflow:hidden;}
+.banner-circle .selected a{background:#F40;}
 </style>
 
 </head>
@@ -233,23 +248,23 @@ border-radius: 15px;
 <div id="c">
   <div class="fc2177"> <font color="#fff"><img src="newpic/logo.jpg" border="0" /></font> </div>
 
-  <div class="fc2"><table height="46" align="center" cellspacing="0" background="newpic/ssbg0.gif" class="clearit" style="width:100%; background-color: #70c570;">
-
+  <div class="fc2">
+  <table height="43" align="center" cellspacing="0" background="newpic/ssbg0.gif" class="clearit" style="width:100%; background-color: #70c570;">
   <tr>
-    <td><div align="center"><a href="index.jsp"><font color="#FFFFFF" style="font-weight:bold">封面</font></a></div></td>
-    <td width="1"><font color="#FFFFFF">│</font></td>
-    <td><div align="center"><a href="mulu.jsp"><font color="#FFFFFF" style="font-weight:bold">目录</font></a></div></td>
-    <td width="1"><font color="#FFFFFF">│</font></td>
-    <td ><div align="center"><a href="wangqi.jsp"><font color="#FFFFFF" style="font-weight:bold">往期</font> </a></div></td>
-    <td width="1"><font color="#FFFFFF">│</font></td>
-	<td><div style="background:url(newpic/ssbg00.gif) repeat-x bottom; height:43px; line-height:43px; color:#FFF; margin:0 10%; color:#FFF" align="center">
-	<a href="showByRecomLevel.action?appTmp.showByRecomLevelCurrentPage=1"><font color="#FFFFFF" style="background:url(newpic/ssbg_03.jpg) no-repeat center bottom;font-weight:bold; display:block; height:42px; padding-top:1px;">游戏&amp;应用</font></a></div>
-      </td>
-    <td width="1" ><font color="#FFFFFF">│</font></td>
-	<td><div align="center"><a href="active.html"><font color="#FFFFFF" style="font-weight:bold">暑期活动</font></a>　</div></td>
+    <td><div align="center"><a href="index.jsp">柴米游言</a></div></td>
+    <td width="1">│</td>
+    <td><div align="center"><a href="mulu.jsp">目录</a></div></td>
+    <td width="1">│</td>
+    <td><div align="center"><a href="wangqi.jsp">往期 </a></div></td>
+    <td width="1">│</td>
+	<td class="new"><div align="center"><a href="showByRecomLevel?appTmp.showByRecomLevelCurrentPage=1" 
+	 style="background:url(newpic/ssbg.png) no-repeat center bottom; margin-top:1px; height:42px; line-height:42px;">首页<img src="newpic/new.gif" /></a></div></td>
+    <td width="1" >│</td>
+	<td class="price"><div align="center"><a href="active.html"><font color="#FFFFFF" style="font-weight:bold">大抽奖</font><img src="newpic/hot.gif" /></a>　</div></td>
     <td width="1"></td>
   </tr>
-</table></div>
+</table>
+</div>
 <div class="fc2-1">
 <table width="320" height="29" border="0">
   <tr>
@@ -264,8 +279,12 @@ border-radius: 15px;
 </table>
 </div>
 <div class="fcc">
-  <a href="game.asp?id=78"><img src="tuijian/tuijian.jpg" width="100%" height="" border="0" /></a>
-  <hr />
+  <div class="banner">
+	<ul class="banner-img">
+		<li><a href="active.html"><img src="image/banner.jpg" width="100%" /></a></li>
+		<li><a href="indexAd/DJDouDiZhu_RainBow.apk"><img src="image/banner2.jpg" width="100%" /></a></li>
+	</ul>
+	<ul class="banner-circle"></ul>
 </div>
 
 <s:iterator value="#request['app']" id="app">
@@ -278,7 +297,7 @@ border-radius: 15px;
 万次
   </s:if>
   <s:else><s:property value="#app.appAut.amountOfDown" />次</s:else>
-  </span><span>大小:<s:property value="#app.appSou.packgeSize" />MB</span></p> 
+  </span><br /><span>大小:<s:property value="#app.appSou.packgeSize" />MB</span></p> 
 </div>
 <div class="fc213"><a href="downApk.action?appSouId=<s:property value="#app.appSou.id" />&downPath=<s:property value="#app.appSou.packge" escape='false'/>" ><img src="pic/as_06.jpg"  width="55" height="23" /></a></div>
 <div class="fc214"><hr /><a href="specificInformation.action?apkId=<s:property value="#app.appInfo.id"/>">

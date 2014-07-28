@@ -9,6 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/hdfengmian.js"></script>
+<script type="text/javascript" src="js/banner.js"></script>
 <style type="text/css">
 *{ margin:0; padding:0;}
 .fc{
@@ -71,21 +72,22 @@ img{ vertical-align:middle;}
 <body bgcolor="#000">
 <div class="fc2177"> <font color="#000"><a href="http://iread.wo.com.cn/zz/3g/index.aspx"><img src="newpic/top.jpg" border="0"  width="100%" /></a></font></div>
 <div style="background-color:#FFFFFF">
-<div class="fc2"><table height="43" align="center" cellspacing="0" background="newpic/ssbg0.gif" class="clearit" style="width:100%; background-color: #70c570;">
+<div class="fc2">
+<table height="43" align="center" cellspacing="0" background="newpic/ssbg0.gif" class="clearit" style="width:100%; background-color: #70c570;">
   <tr>
-    <td><div align="center" style="background:url(newpic/ssbg.png) no-repeat center bottom; margin-top:2px; height:42px; line-height:43px;"><a href="index.jsp">封面</a></div></td>
+    <td><div align="center" style="background:url(newpic/ssbg.png) no-repeat center bottom; margin-top:1px; height:42px; line-height:42px;"><a href="index.jsp">柴米游言</a></div></td>
     <td width="1">│</td>
     <td><div align="center"><a href="mulu.jsp">目录</a></div></td>
     <td width="1">│</td>
     <td><div align="center"><a href="wangqi.jsp">往期 </a></div></td>
     <td width="1">│</td>
-	<td><div style="background:url(newpic/ssbg00.gif) repeat-x top; height:43px; line-height:43px; color:#FFF; margin:0 10%;" align="center"><a href="showByRecomLevel.action?appTmp.showByRecomLevelCurrentPage=1">游戏&amp;应用</a></div>
-      </td>
+	<td class="new"><div align="center"><a href="showByRecomLevel?appTmp.showByRecomLevelCurrentPage=1">首页<img src="newpic/new.gif" /></a></div></td>
     <td width="1" >│</td>
-	<td><div align="center"><a href="active.html"><font color="#FFFFFF" style="font-weight:bold">暑期活动</font></a>　</div></td>
+	<td class="price"><div align="center"><a href="active.html"><font color="#FFFFFF" style="font-weight:bold">大抽奖</font><img src="newpic/hot.gif" /></a>　</div></td>
     <td width="1"></td>
   </tr>
-</table></div>
+</table>
+</div>
 <div class="fc"><a href="mulu.jsp"><img src="image/z-14.jpg" alt="" width="100%" usemap="#Map" border="0"/></a>
  
 </div>
@@ -100,12 +102,7 @@ img{ vertical-align:middle;}
 <div align="center">
   <span class="STYLE1"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000456710'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1000456710' type='text/javascript'%3E%3C/script%3E"));</script>&copy;2010-2014中国联通 版权所有</span></div>
   
-<div class="PopupLayer">
-	<a class="close" href="javascript:void(0);">×</a>
-	<ul>
-		<li><a href="active.html" title="我要答题"><img src="image/hd_03s.jpg" width="100%" /></a></li>
-	</ul>
-</div><!--PopupLayer end-->
+
   
 <%@ include file="cs.jsp" %>
 <%CS cs = new CS(1252900022);cs.setHttpServlet(request,response);
