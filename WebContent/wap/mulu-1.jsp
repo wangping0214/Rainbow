@@ -209,7 +209,7 @@ a:active {text-decoration:none ; color:#339900 ;}
 </div>
 </div>
 <div class="fc3q">
-<a href="index.jsp"><font color="#FFFFFF">首页</font></a>｜
+<a href="showByRecomLevel?appTmp.showByRecomLevelCurrentPage=1"><font color="#FFFFFF">首页</font></a>｜
 <a href="fenlei.jsp"><font color="#FFFFFF">分类</font></a>｜
 <a href="youxi.jsp"><font color="#FFFFFF">游戏</font></a>｜
 <a href="yingyong.jsp"><font color="#FFFFFF">应用</font></a>｜

@@ -12,7 +12,7 @@
    			<result>classification.jsp</result>
    		</action>
    		<action name="showByRecomLevel" class="mobAction" method="showByRecomLevel">
-   			<result>tuijian.jsp</result>
+   			<result>index.jsp</result>
    		</action>
    		<action name="showByCategory" class="mobAction" method="showByCategory">
    			<result>category.jsp</result>

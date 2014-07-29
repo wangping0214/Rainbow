@@ -219,6 +219,11 @@ border-radius: 15px;
 .youxiang{ clear:both; overflow:hidden; zoom:1;}
 .youxiang p{ float:left;}
 .youxiang a{ float:right;}
+.fc2{ padding-top:5px; background:#F9f9f9;}
+.fc2 a{ color:#FFF;}
+.new a,.price a{ position:relative;}
+.new a img{ position:absolute; top:-18px; right:-15px;}
+.price a img{ position:absolute; top:-18px;  right:-15px;}
 </style>
 </head>
 
@@ -227,18 +232,18 @@ border-radius: 15px;
 <div class="fc2177"> <font color="#fff"><img src="newpic/logo.jpg" border="0" /></font> </div>
 
 <div class="fc2"><table height="43" align="center" cellspacing="0" background="newpic/ssbg0.gif" class="clearit" style="width:100%; background-color: #70c570;">
-
   <tr>
-    <td><div align="center"><a href="index.jsp"><font color="#FFFFFF" style="font-weight:bold">封面</font></a></div></td>
-    <td width="1"><font color="#FFFFFF">│</font></td>
-    <td><div align="center"><a href="mulu.jsp"><font color="#FFFFFF" style="font-weight:bold">目录</font></a></div></td>
-    <td width="1"><font color="#FFFFFF">│</font></td>
-    <td ><div align="center"><a href="wangqi.jsp"><font color="#FFFFFF" style="font-weight:bold">往期</font> </a></div></td>
-    <td width="1"><font color="#FFFFFF">│</font></td>
-	<td><div style="background:url(newpic/ssbg00.gif) repeat-x bottom; height:43px; line-height:43px; color:#FFF; margin:0 10%; color:#FFF" align="center"><a href="tuijian.jsp"><font color="#FFFFFF" style="background:url(newpic/ssbg_03.jpg) no-repeat center bottom;font-weight:bold; display:block; height:42px; padding-top:1px;">游戏&amp;应用</font></a></div>
-      </td>
-    <td width="1" ><font color="#FFFFFF">│</font></td>
-	<td><div align="center"><a href="active.html"><font color="#FFFFFF" style="font-weight:bold">暑期活动</font></a>　</div></td>
+    <td><div align="center"><a href="cmyy.jsp">柴米游言</a></div></td>
+    <td width="1">│</td>
+    <td><div align="center"><a href="mulu.jsp">目录</a></div></td>
+    <td width="1">│</td>
+    <td><div align="center"><a href="wangqi.jsp">往期 </a></div></td>
+    <td width="1">│</td>
+	<td class="new">
+    <div align="center" style="background:url(newpic/ssbg.png) no-repeat center bottom; margin-top:1px; height:42px; line-height:42px;"><a href="showByRecomLevel?appTmp.showByRecomLevelCurrentPage=1">游戏&应用<img src="newpic/new.gif" /></a></div>
+    </td>
+    <td width="1" >│</td>
+	<td class="price"><div align="center"><a href="active.html"><font color="#FFFF00" style="font-weight:bold">大抽奖</font><img src="newpic/hot.gif" /></a>　</div></td>
     <td width="1"></td>
   </tr>
 </table></div>
@@ -248,7 +253,7 @@ border-radius: 15px;
     <td width="45" height="25"><a href="showByRecomLevel.action?appTmp.showByRecomLevelCurrentPage=1"><font color="#000">推荐</font></a></td>
     <td width="45"><a href="showByType.action?appTmp.showByTypeCurrentPage=1&type=1"><font color="#000">游戏</font></a></td>
     <td width="45"><a href="showByType.action?appTmp.showByTypeCurrentPage=1&type=2"><font color="#000">应用</font></a></td>
-    <td width="45"><a href="fenlei.jsp"><font color="#000">分类</font> </a></div></td>
+    <td width="45"><a href="fenlei.jsp"><font color="#000">分类</font> </a></td>
     <td width="45"><a href="showByScoreAndDown.action?appTmp.showByScoreAndDownCurrentPage=1"><font color="#000">排行榜</font></a></td>
 	<td width="45"><div class="circle"><a href="guanyu.jsp"><font color="#000"><font color="#fff">关于</font></a></td>
   </tr>
@@ -278,7 +283,7 @@ border-radius: 15px;
 
   </div>
 </div>
-<div class="fc3q"><a href="index.jsp">首页</a>｜<a href="fenlei.jsp">分类</a>｜<a href="youxi.jsp">游戏</a>｜<a href="yingyong.jsp">应用</a>｜<a href="paihang.jsp">排行</a>｜<a href="guanyu.jsp">关于</a><img src="newpic/seach.gif" width="117" height="24" /></div>
+<div class="fc3q"><a href="showByRecomLevel?appTmp.showByRecomLevelCurrentPage=1">首页</a>｜<a href="fenlei.jsp">分类</a>｜<a href="youxi.jsp">游戏</a>｜<a href="yingyong.jsp">应用</a>｜<a href="paihang.jsp">排行</a>｜<a href="guanyu.jsp">关于</a><img src="newpic/seach.gif" width="117" height="24" /></div>
 <div align="center" class="STYLE2">&copy;2010-2014中国联通 版权所有</div>
 
 

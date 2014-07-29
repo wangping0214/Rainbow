@@ -24,7 +24,7 @@ function ScrollPic(scrollContId,arrLeftId,arrRightId,dotListId,listType){
   this.pageIndex = 0;
   
   this.autoPlay = true;
-  this.autoPlayTime = 2; //秒
+  this.autoPlayTime = 5; //秒
   
   this._autoTimeObj;
   this._scrollTimeObj;

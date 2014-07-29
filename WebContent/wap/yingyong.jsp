@@ -134,37 +134,36 @@
 .fc212{
 	color: #000000;
 	font-family: "微软雅黑";
-	font-size: 14px;
-	background-color: #FFF;
-	margin-top: -50px;
+	font-size: 12px;
+	margin-top: -45px;
 	line-height: 1.5;
 	height: 50px;
 	margin-left: 70px;
-	width: 50%;
+	width: 80%;
 }
 .fc213{
 	color: #666;
 	font-family: "微软雅黑";
 	font-size: 14px;
-	background-color: #FFF;
-	margin-top: -50px;
+	margin-top: -55px;
 	line-height: 1.5;
-	height: 50px;
+	height: 40px;
 	width: 60px;
 	margin-right: 10px;
 	padding-right: 10px;
-	float: right;
+	float: right; padding-bottom:20px;
+	
 }
 .fc214{
-	color: #999999;
-	font-family: "宋体";
+	color: #666;
+	font-family: "微软雅黑";
 	font-size: 14px;
 	background-color: #FFF;
-	margin-top: 10px;
 	line-height: 1.5;
 	height: 50px;
-	width: 90%;
-	margin-left: 10px;
+	padding-top:5px;
+	width: 90%;border-top:#CCC solid 1px;
+	margin:5px auto 0 auto;
 }
 .fc21{
 	color: #03c;
@@ -212,8 +211,12 @@ border-radius: 15px;
 }
 .STYLE1 {color: #FFFFFF; margin-bottom:10px;}
 .page{ clear:both; overflow:hiddem; zoom:1;padding:20px 0; text-align:center;}
+.fc2{ padding-top:10px; background:#FFF;}
 
-
+.fc2 a{ color:#FFF;}
+.new a,.price a{ position:relative;}
+.new a img{ position:absolute; top:-18px; right:-15px;}
+.price a img{ position:absolute; top:-18px;  right:-15px;}
 </style>
 <link href="css.css" rel="stylesheet" type="text/css" />
 
@@ -226,16 +229,17 @@ border-radius: 15px;
 <div class="fc2">
 <table height="43" align="center" cellspacing="0" background="newpic/ssbg0.gif" class="clearit" style="width:100%; background-color: #70c570;">
   <tr>
-    <td><div align="center"><a href="index.jsp">柴米游言</a></div></td>
+    <td><div align="center"><a href="cmyy.jsp">柴米游言</a></div></td>
     <td width="1">│</td>
     <td><div align="center"><a href="mulu.jsp">目录</a></div></td>
     <td width="1">│</td>
     <td><div align="center"><a href="wangqi.jsp">往期 </a></div></td>
     <td width="1">│</td>
-	<td class="new"><div align="center"><a href="showByRecomLevel?appTmp.showByRecomLevelCurrentPage=1" 
-	 style="background:url(newpic/ssbg.png) no-repeat center bottom; margin-top:1px; height:42px; line-height:42px;">首页<img src="newpic/new.gif" /></a></div></td>
+	<td class="new">
+    <div align="center" style="background:url(newpic/ssbg.png) no-repeat center bottom; margin-top:1px; height:42px; line-height:42px;"><a href="showByRecomLevel?appTmp.showByRecomLevelCurrentPage=1">游戏&应用<img src="newpic/new.gif" /></a></div>
+    </td>
     <td width="1" >│</td>
-	<td class="price"><div align="center"><a href="active.html"><font color="#FFFFFF" style="font-weight:bold">大抽奖</font><img src="newpic/hot.gif" /></a>　</div></td>
+	<td class="price"><div align="center"><a href="active.html"><font color="#FFFF00" style="font-weight:bold">大抽奖</font><img src="newpic/hot.gif" /></a>　</div></td>
     <td width="1"></td>
   </tr>
 </table>
@@ -269,9 +273,9 @@ border-radius: 15px;
   </span><span>大小:<s:property value="#app.appSou.packgeSize" />MB</span></p> 
 </div>
 <div class="fc213"><a href="downApk.action?appSouId=<s:property value="#app.appSou.id" />&downPath=<s:property value="#app.appSou.packge" escape='false'/>"><img src="pic/as_06.jpg"  width="55" height="23" /></a></div>
-<div class="fc214"><hr /><a href="specificInformation.action?apkId=<s:property value="#app.appInfo.id"/>">
-游戏简介：<s:if test="#app.appInfo.appIntrodution.length()>40">
-<s:property value="#app.appInfo.appIntrodution.substring(0, 40) + \"...\"" />
+<div class="fc214"><a href="specificInformation.action?apkId=<s:property value="#app.appInfo.id"/>">
+游戏简介：<s:if test="#app.appInfo.appIntrodution.length()>30">
+<s:property value="#app.appInfo.appIntrodution.substring(0, 30) + \"...\"" />
 </s:if>
 <s:else>
 <s:property value="#app.appInfo.appIntrodution" />
@@ -296,7 +300,7 @@ border-radius: 15px;
 
 </div>
 <div class="fc3q">
-<a href="index.jsp"><font color="#FFFFFF">首页</font></a>｜
+<a href="showByRecomLevel?appTmp.showByRecomLevelCurrentPage=1"><font color="#FFFFFF">首页</font></a>｜
 <a href="fenlei.jsp"><font color="#FFFFFF">分类</font></a>｜
 <a href="showByType.action?appTmp.showByTypeCurrentPage=1&type=1"><font color="#FFFFFF">游戏</font></a>｜
 <a href="showByType.action?appTmp.showByTypeCurrentPage=1&type=2"><font color="#FFFFFF">应用</font></a>｜

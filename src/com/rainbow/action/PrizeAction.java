@@ -80,7 +80,13 @@ public class PrizeAction {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public String promoteToPrize(){
 		List<App> app = new ArrayList<>();
-		for(AppInfo appInfo:appInfoDAO.findAllJoint(1, 1, 1, 10)){
+		int total = appInfoDAO.findAllJointNum(1, 1);
+		List<AppInfo> appInfoList;
+		if(total<=6)
+			appInfoList = appInfoDAO.findAllJoint(1, 1, 1, total);
+		else
+			appInfoList = appInfoDAO.findAllJoint(1, 1, 1, 6);
+		for(AppInfo appInfo:appInfoList){
 			AppSource appSou = appSouDAO.findById(appInfo.getId());
 			AppAuthority appAut = appAutDAO.findById(appInfo.getId());
 			app.add(new App(appInfo,appSou,appAut));

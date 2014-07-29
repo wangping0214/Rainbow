@@ -169,7 +169,9 @@ a,a:hover{text-decoration: none;}
 		background-color:fff;
 			font-family: "微软雅黑";
 }
- 
+.new a,.price a{ position:relative;}
+.new a img{ position:absolute; top:-18px; right:-15px;}
+.price a img{ position:absolute; top:-18px;  right:-15px;}
 </style>
 </head>
 
@@ -179,16 +181,16 @@ a,a:hover{text-decoration: none;}
 <div class="fc2">
 <table height="43" align="center" cellspacing="0" background="newpic/ssbg0.gif" class="clearit" style="width:100%; background-color: #70c570;">
   <tr>
-    <td><div align="center"><a href="index.jsp">柴米游言</a></div></td>
+    <td><div align="center"><a href="cmyy.jsp">柴米游言</a></div></td>
     <td width="1">│</td>
     <td><div align="center"><a href="mulu.jsp">目录</a></div></td>
     <td width="1">│</td>
-    <td><div align="center"><a href="wangqi.jsp"
-        style="background:url(newpic/ssbg.png) no-repeat center bottom; margin-top:1px; height:42px; line-height:42px;">往期 </a></div></td>
+    <td><div align="center"style="background:url(newpic/ssbg.png) no-repeat center bottom; margin-top:1px; height:42px; line-height:42px;"><a href="wangqi.jsp"
+        >往期 </a></div></td>
     <td width="1">│</td>
-	<td class="new"><div align="center"><a href="showByRecomLevel?appTmp.showByRecomLevelCurrentPage=1" >首页<img src="newpic/new.gif" /></a></div></td>
+	<td class="new"><div align="center"><a href="showByRecomLevel?appTmp.showByRecomLevelCurrentPage=1" >游戏&应用<img src="newpic/new.gif" /></a></div></td>
     <td width="1" >│</td>
-	<td class="price"><div align="center"><a href="active.html"><font color="#FFFFFF" style="font-weight:bold">大抽奖</font><img src="newpic/hot.gif" /></a>　</div></td>
+	<td class="price"><div align="center"><a href="active.html"><font color="#FFFF00" style="font-weight:bold">大抽奖</font><img src="newpic/hot.gif" /></a>　</div></td>
     <td width="1"></td>
   </tr>
 </table>
@@ -338,7 +340,7 @@ a,a:hover{text-decoration: none;}
 </div>
 </div>
 <div class="fc3q">
-<a href="index.jsp">首页</a>｜
+<a href="showByRecomLevel?appTmp.showByRecomLevelCurrentPage=1">首页</a>｜
 <a href="fenlei.jsp">分类</a>｜
 <a href="showByType.action?appTmp.showByTypeCurrentPage=1&type=1">游戏</a>｜
 <a href="showByType.action?appTmp.showByTypeCurrentPage=1&type=2">应用</a>｜

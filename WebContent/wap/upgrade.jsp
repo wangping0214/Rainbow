@@ -153,12 +153,13 @@ img{ vertical-align:middle;}
 	color: #666;
 	font-family: "微软雅黑";
 	font-size: 14px;
-	margin-top: -50px;
+	margin-top: -40px;
 	line-height: 1.5;
 	height: 50px;
 	width: 60px;
 
 	float: right;
+	margin-right:20px; display:inline;
 }
 .fc214{
 	color: #666;

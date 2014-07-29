@@ -217,7 +217,7 @@ body {
 <div class="fc2">
 <table height="43" align="center" cellspacing="0" background="newpic/ssbg0.gif" class="clearit" style="width:100%; background-color: #70c570;">
   <tr>
-    <td><div align="center"><a href="index.jsp">柴米游言</a></div></td>
+    <td><div align="center"><a href="cmyy.jsp">柴米游言</a></div></td>
     <td width="1">│</td>
     <td><div align="center"><a href="mulu.jsp">目录</a></div></td>
     <td width="1">│</td>
@@ -265,7 +265,7 @@ body {
      </ul>
      </div>
  <div class="fc3q">
- <a href="index.jsp"><font color="#fff">首页</font></a>｜
+ <a href="showByRecomLevel?appTmp.showByRecomLevelCurrentPage=1"><font color="#fff">首页</font></a>｜
  <a href="fenlei.jsp"><font color="#fff">分类</font></a>｜
  <a href="showByType.action?appTmp.showByTypeCurrentPage=1&type=1"><font color="#fff">游戏</font></a>｜
  <a href="showByType.action?appTmp.showByTypeCurrentPage=1&type=2"><font color="#fff">应用</font></a>｜

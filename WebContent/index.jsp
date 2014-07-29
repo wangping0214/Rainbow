@@ -25,7 +25,7 @@ if (system.win || system.mac || system.xll||system.ipad) {
 } 
 else {
 
-    window.location.href = "wap/index.jsp";
+    window.location.href = "wap/showByRecomLevel?appTmp.showByRecomLevelCurrentPage=1";
 }
 </script>
 </head>
