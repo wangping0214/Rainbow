@@ -51,7 +51,9 @@ public class AppInfo {
 	@Column(name="cp_id")
 	private String cp_id;
 	@Column(name="notify_url")
-	private String notify_url;
+	private String notify_url;//»Øµ÷µØÖ·
+	@Column(name="md5_key")
+	private String md5_key;
 	
 	
 	
@@ -213,6 +215,14 @@ public class AppInfo {
 	public void setNotify_url(String notify_url)
 	{
 		this.notify_url = notify_url;
+	}
+
+	public String getMd5_key() {
+		return md5_key;
+	}
+
+	public void setMd5_key(String md5_key) {
+		this.md5_key = md5_key;
 	}
 	
 	

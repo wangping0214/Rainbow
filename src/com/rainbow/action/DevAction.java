@@ -173,7 +173,6 @@ public class DevAction
 					+ "/gamePhoto", appTmp.getGamePhotoContent5(),
 					appTmp.getGamePhotoContent5FileName(),
 					appTmp.getGamePhotoContent5ContentType(), true));
-		System.out.println(opeFun.getNowTime());
 		appInfo.setUpTime(opeFun.getNowTime());
 		
 		httpSession.removeAttribute("app");
@@ -226,7 +225,6 @@ public class DevAction
 		User user = (User) httpSession.getAttribute("user");
 
 		appInfo.setCp_id(user.getCp_id());
-
 		appInfo.setUserName(user.getUsername());
 		appInfo.setIsThrough(-2);
 
@@ -587,7 +585,6 @@ public class DevAction
 				.getSession();
 		userName = (String) httpSession.getAttribute("username");
 		int userTotal = appInfoDAO.findByIsThroughNum(userName, 0);
-		System.out.println("userName" + userName + "userTotal" + userTotal);
 		httpSession.setAttribute("userTotal", userTotal);
 		String str = "";
 		switch (userType)

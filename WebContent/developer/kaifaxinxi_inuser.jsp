@@ -12,6 +12,7 @@
 <script type="text/javascript"src="<%=request.getContextPath()%>/developer/js/jquery.min.js"></script>
 <script type="text/javascript"src="<%=request.getContextPath()%>/developer/js/nav.js"></script>
 <script type="text/javascript"src="<%=request.getContextPath()%>/developer/js/update.js"></script>
+<script charset="utf-8" src="<%=request.getContextPath()%>/scripts/appUpload.js" type="text/javascript"></script>
 <script language="javascript" type="text/javascript"> 
 function fn_browse1() 
 { 

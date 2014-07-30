@@ -230,7 +230,7 @@ border-radius: 15px;
     <div align="center" style="background:url(newpic/ssbg.png) no-repeat center bottom; margin-top:1px; height:42px; line-height:42px;"><a href="showByRecomLevel?appTmp.showByRecomLevelCurrentPage=1">游戏&应用<img src="newpic/new.gif" /></a></div>
     </td>
     <td width="1" >│</td>
-	<td class="price"><div align="center"><a href="active.html"><font color="#FFFFFF" style="font-weight:bold">大抽奖</font><img src="newpic/hot.gif" /></a>　</div></td>
+	<td class="price"><div align="center"><a href="active.html"><font color="#FFFF00" style="font-weight:bold">大抽奖</font><img src="newpic/hot.gif" /></a>　</div></td>
     <td width="1"></td>
   </tr>
 </table>

@@ -2,16 +2,17 @@
 	pageEncoding="UTF-8"%>
 	<%@ taglib prefix="s" uri="/struts-tags" %>
         <s:set name="user" value="#request.user"/>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>企业用户信息</title>
 <link href="<%=request.getContextPath()%>/developer/css/style.css" rel="stylesheet" type="text/css" />
 <link href="<%=request.getContextPath()%>/developer/css/qiye.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript"src="<%=request.getContextPath()%>/developer/js/jquery.min.js"></script>
-<script type="text/javascript"src="<%=request.getContextPath()%>/developer/js/nav.js"></script>
-<script type="text/javascript"src="<%=request.getContextPath()%>/developer/js/update.js"></script>
+<script type="text/javascript"src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript"src="js/nav.js"></script>
+<script type="text/javascript"src="js/update.js"></script>
+
 <script language="javascript" type="text/javascript"> 
 function fn_browse() 
 { 
@@ -28,15 +29,13 @@ function fn_browse2()
 	document.user_form.user_photo2.click(); 
 	document.user_form.file.value = document.all.user_form.user_photo2.value; 
 } 
-$(document).ready(function(){
-	$("#group_photo").uploadPreview({ Img: "photo"});
-	$("#user_photo1").uploadPreview({ Img: "photo1"});
-	$("#user_photo2").uploadPreview({ Img: "photo2"});
-});
-$(document).ready
+jQuery(document).ready
 (
 		function()
 		{
+			$("#group_photo").uploadPreview({ Img: "photo"});
+			$("#user_photo1").uploadPreview({ Img: "photo1"});
+			$("#user_photo2").uploadPreview({ Img: "photo2"});
 			user_check();
 			$("#user_form").submit(userSubmit);
 			group_check();
@@ -367,7 +366,7 @@ function js_group_telephone()
                                   <div class="form2" >
                                       <div><label>姓名：</label><input type="text" id="user_realname"name="user.realname"value="<s:property value="#user.realname"/>" /></div>
                                       <div><label>职务：</label><input type="text" id="user_duty"name="user.duty"value="<s:property value="#user.duty"/>" /></div>
-                                      <div class="shenfen"><label>身份证：</label><p class="fl"><input type="file" id="user_photo1" name="user.cardphoto1" style="display:none;"  /><a href="javascript:fn_browse1();"> 
+                                      <div><label>身份证：</label><p class="fl"><input type="file" id="user_photo1" name="user.cardphoto1" style="display:none;"  /><a href="javascript:fn_browse1();"> 
                                        <%if(session.getAttribute("photo1")==null||session.getAttribute("photo1")==""){ %>
                                       <img id="photo1"name="btn" src="<%=request.getContextPath()%>/developer/images/img26.png" width="81" height="71" border="0" />
                                       <%} else{%>

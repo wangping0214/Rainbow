@@ -134,6 +134,11 @@ $(document).ready(function(){
 			alert("请上传48*48的APP图标！");
 			 return false;
 		}
+		if($("#id_notify_url").val()!=""&&$("#id_md5_key").val()==""){
+			alert("请填写md5 key");
+			$("#id_md5_key").focus();
+			return false;
+		}
 		$("#form1").submit();
 	});
 	
@@ -191,9 +196,11 @@ $(document).ready(function(){
                       <h3 class="tit2">注册APP</h3>
                       <div class="form">
                            <form id="form1" name="form1" method="post" action="dev_zhuce_App.action"  enctype="multipart/form-data" >
-                           		<div><font color="#f00">若此应用还在测试阶段，为区分正式提交的应用请在名称处加以标记，待测试结束后在完善信息处修改为正式名称</font></div>
+                           		<div><font color="#f00">若此应用还在测试阶段，为区分正式提交的应用请在名称处加以标记，待测试结束后在完善信息处修改为正式名称<br />
+                           		若您的应用有回调地址请填写回调地址和md5 key，否则无需填写</font></div>
                                <div><label>APP名称：</label><input type="text" name="appInfo.appName" id="id_appName" class="shuru"/></div>
                                <div><label>回调地址：</label><input type="text" name="appInfo.notify_url" id="id_notify_url" class="shuru"/></div>
+                               <div><label>md5 key：</label><input type="text" name="appInfo.md5_key" id="id_md5_key" value="" class="shuru"/></div>
                                <div class="shangchuan"><label>应用图标 ：</label><div class="suolv">
                                <input type="file"  name="appTmp.logo1Content" id="id_logo1" style="display:none;"  />
                                <a href="javascript:fn_browse();"> 

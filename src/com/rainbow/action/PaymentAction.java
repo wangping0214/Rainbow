@@ -69,6 +69,7 @@ public class PaymentAction
 		{
 			mesPay.setChina_unicom_product_id(payData.get(mes_price - 1).productId);
 			mesPay.setChina_unicom_consume_code(payData.get(mes_price - 1).consumeCode);
+			mesPay.setPrice(mes_price);
 			mesPay.setApp_id(app.getAppInfo().getApp_id());
 			mesPay.setCp_id(app.getAppInfo().getCp_id());
 			messageDAO.save(mesPay);
@@ -104,6 +105,7 @@ public class PaymentAction
 			mesPay.setCp_id(app.getAppInfo().getCp_id());
 			mesPay.setChina_unicom_product_id(payData.get(mes_price - 1).productId);
 			mesPay.setChina_unicom_consume_code(payData.get(mes_price - 1).consumeCode);
+			mesPay.setPrice(mes_price);
 			if (messagePayment != null)
 			{
 				//价格30以内变动

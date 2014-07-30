@@ -93,7 +93,7 @@ $(document).ready(function(){
             <h3 class="tjtit1"><p><img src="<%=request.getContextPath()%>/login/images/icon_03.jpg" />安卓精品</p></h3>
             <!-- ********************精品推荐***************************** -->
             <div class="jujiaolist">
-            <s:iterator value="#request['appRecommend']" id="appBoutique">
+            <s:iterator value="#request['appBoutique']" id="appBoutique">
                 <dl>
                    <dt><a href="details.action?apkId=<s:property value="#appBoutique.appInfo.id" />"><img src="<%=request.getContextPath() %><s:property value="#appBoutique.appSou.logo1"/>" /></a></dt>
                    <dd><a href="details.action?apkId=<s:property value="#appBoutique.appInfo.id" />"><s:property value="#appBoutique.appInfo.appName" /></a></dd>
