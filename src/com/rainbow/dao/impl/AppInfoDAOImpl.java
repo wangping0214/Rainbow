@@ -293,7 +293,7 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 	@Override
 	public List<AppInfo> findAllJoint(int shelf, int joint, int currentPage,
 			int pageSize) {
-		Query query = entityManager.createQuery("select u from AppInfo u,AppAuthority s where u.isThrough=1 and u.shelf=:shelf and u.joint=:joint order by s.recomLevel desc,s.score desc, s.amountOfDown desc ");
+		Query query = entityManager.createQuery("select u from AppInfo u,AppAuthority s where u.id=s.id and u.isThrough=1 and u.shelf=:shelf and u.joint=:joint order by s.recomLevel desc,s.score desc, s.amountOfDown desc ");
 		query.setParameter("shelf", shelf);
 		query.setParameter("joint", joint);
 		int startRow = (currentPage-1)*pageSize;

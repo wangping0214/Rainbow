@@ -9,11 +9,11 @@
 <title>企业用户信息</title>
 <link href="<%=request.getContextPath()%>/developer/css/style.css" rel="stylesheet" type="text/css" />
 <link href="<%=request.getContextPath()%>/developer/css/qiye.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript"src="js/jquery-1.11.1.min.js"></script>
-<script type="text/javascript"src="js/nav.js"></script>
-<script type="text/javascript"src="js/update.js"></script>
+<script type="text/javascript"src="<%=request.getContextPath()%>/developer/js/jquery.min.js"></script>
 
-<script language="javascript" type="text/javascript"> 
+<script charset="GB2312" type="text/javascript"src="<%=request.getContextPath()%>/developer/js/update.js"></script>
+
+<script  type="text/javascript" language="javascript"> 
 function fn_browse() 
 { 
 	document.group_form.group_photo.click(); 

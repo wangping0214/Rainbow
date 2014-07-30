@@ -11,7 +11,7 @@
 <title>注册APP</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript"src="js/jquery.min.js"></script>
-<script charset="utf-8" src="<%=request.getContextPath()%>/scripts/appUpload.js" type="text/javascript"></script>
+<script charset="GB2312" src="<%=request.getContextPath()%>/scripts/appUpload.js" type="text/javascript"></script>
 <script charset="utf-8" src="<%=request.getContextPath()%>/scripts/ajaxfileupload.js" type="text/javascript"></script>
 <style type="text/css">
 *{padding:0; margin:0;}
