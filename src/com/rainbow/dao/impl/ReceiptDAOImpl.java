@@ -55,4 +55,31 @@ public class ReceiptDAOImpl implements ReceiptDAO
 		return query.getResultList();
 	}
 
+	@Override
+	public int findByCp_idNum(String cp_id) {
+		Query query = entityManager.createQuery("select u from Receipt u where u.cp_id = :cp_id");
+		query.setParameter("cp_id", cp_id);
+		return query.getResultList().size();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Receipt> findByCp_idAndTime(String cp_id, String startTime,
+			String endTime) {
+		Query query = entityManager.createQuery("select u from Receipt u where u.cp_id = :cp_id and u.receipt_time BETWEEN :startTime and :endTime");
+		query.setParameter("cp_id", cp_id);
+		query.setParameter("startTime", startTime);
+		query.setParameter("endTime", endTime);
+		return query.getResultList();
+	}
+
+	@Override
+	public Receipt findByOrder_id(String order_id) {
+		Query query = entityManager.createQuery("select u from Receipt u where u.order_id = :order_id");
+		query.setParameter("order_id", order_id);
+		if(query.getResultList().size()>0)
+			return (Receipt) query.getResultList().get(0);
+		else return null;
+	}
+
 }

@@ -368,8 +368,8 @@ a.blue2{ color:#06C; text-decoration:underline}
 .nextMonth{ font-size:12px;font-weight:bold;cursor:pointer;margin-left:18px;color:#0080FF;}
 .mh_date{width:149px;height:20px;line-height:20px;padding:2px;border:1px #ccc solid;cursor:pointer;background:url(dateIco.png) no-repeat right center;}
 .zhezhao{width:100%;height:100%;position:fixed;z-index:998;background:#fff;filter:alpha(opacity=10);opacity:0.1;display:none;}
-.allorder{ width:600px; clear:both; overflow:hidden; zoom:1; margin-bottom:20px;}
-.odaochu{ background:none; border:none; background:url(../images/bgg.png) no-repeat; width:47px; height:24px; text-align:center; line-height:24px; color:#FFF; cursor:pointer;}
+.allorder{ width:700px; clear:both; overflow:hidden; zoom:1; margin-bottom:20px;}
+.odaochu{ background:none; border:none; background:url(../images/bgg2.png) no-repeat; width:47px; height:24px; text-align:center; line-height:24px; color:#FFF; cursor:pointer;}
 .progress{z-index: 2000} 
 .mask{position: fixed;top: 0;right: 0;bottom: 0;left: 0; z-index: 1000; background-color: #2F2F2F} 
 

@@ -12,7 +12,7 @@
 <script type="text/javascript"src="<%=request.getContextPath()%>/developer/js/jquery.min.js"></script>
 
 <script charset="GB2312" type="text/javascript"src="<%=request.getContextPath()%>/developer/js/update.js"></script>
-
+<script charset="GB2312" type="text/javascript"src="<%=request.getContextPath()%>/developer/js/nav.js"></script>
 <script  type="text/javascript" language="javascript"> 
 function fn_browse() 
 { 
@@ -76,7 +76,6 @@ function user_check(){
 	});
 	$("#user_duty").blur(function(){
 		var duty=$("#user_duty").val();
-		alert(photo1);
 		if(duty!="") return isUserDuty=true;
 		else return isUserDuty=false;
 	});
@@ -96,6 +95,7 @@ function user_check(){
 		if(inemail!=""){
 			 var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
 	          if (!reg.test(inemail)) {
+	        	  $("#user_email").val("")
 	        	alert("邮箱格式不正确，请输入正确的邮箱");
 	             return isUserEmail =false;
 	             }
@@ -146,6 +146,7 @@ function js_user_email()
 					isUserEmail =true;
 				}
 				else{
+					$("#user_email").val("")
 					alert("此邮箱已被注册!");
 					isUserEmail =false;
 				}
@@ -170,6 +171,7 @@ function js_user_telephone()
 					isUserTelephone =true;
 				}
 				else{
+					$("#user_telephone").val("")
 					alert("此手机号已被注册");
 					isUserTelephone =false;
 				}
@@ -264,6 +266,7 @@ function js_group_email()
 					isGroupEmail =true;
 				}
 				else{
+					$("#group_email").val("")
 					alert("此邮箱已被注册!");
 					isGroupEmail =false;
 				}
@@ -288,6 +291,7 @@ function js_group_telephone()
 					isGroupTelephone =true;
 				}
 				else{
+					$("#group_telephone").val("")
 					alert("此手机号已被注册");
 					isGroupTelephone =false;
 				}

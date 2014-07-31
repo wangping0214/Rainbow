@@ -27,6 +27,7 @@ $(function (){
 .searchcont2 input{outline:none; height:25px; line-height:25px; float:left;}
 .socont2{ width:175px; height:25px;background:none; border:none; margin-left:4px; display:inline; color:#FFF; font-size:14px;}
 .sobut2{ width:35px; height:25px; background:none; border:none; cursor:pointer}
+.mbotm10{ margin-bottom:10px;}
 </style>
 </head>
 
@@ -99,7 +100,7 @@ $(function (){
                                       <option>全部应用</option>
                                       <option>游戏名称</option>
                                   </select>
-                                  <p>订单号/应用名称查询<input type="text" class="chatext" /><input type="submit" value="查询" class="chaxun" /></p>
+                                  
                              </div>
                              <!--allcha-->
                              <div class="allcha">
@@ -117,10 +118,12 @@ $(function (){
                                   <p>从 <input type="text" class="mh_date" readonly="true" /> 到 <input type="text" class="mh_date" readonly="true" />&nbsp;<input type="submit" value="查询" class="chaxun" /></p>
                              </div>
                              <!--allcha-->
+                             <p class="mbotm10">订单号/应用名称查询<input type="text" class="chatext" /><input type="submit" value="查询" class="chaxun" /></p>
                              <div class="allorder">
                                 <p class="fl">订单总支付额：<span class="red"> xxx</span></p><input type="submit" value="导出" class="odaochu fr" />
                              </div>
                              <!--allorder-->
+                             
                              <a name="dddd"></a>
                              <table border="0" cellpadding="0" cellspacing="0" width="98%" class="table1">
                                    <tr>

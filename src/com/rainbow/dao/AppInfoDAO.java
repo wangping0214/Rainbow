@@ -7,6 +7,8 @@ import com.rainbow.entity.AppInfo;
 public interface AppInfoDAO {
 	public List<AppInfo> findAll();
 	public AppInfo findById(int id);
+	
+	public AppInfo findByCp_idAndApp_id(String cp_id,String app_id);
 	/**用户应用是否上架
 	 * @param userName
 	 * @param isThrough
@@ -104,7 +106,18 @@ public interface AppInfoDAO {
 	public List<AppInfo> findByUserIdAndThrough(String cp_id,int isThrough,int currentPage,int pageSize);
 	public int findByUserIdAndThroughNum(String cp_id,int isThrough);
 	
+	/**找到用户所有联运的应用
+	 * @param cp_id
+	 * @param joint
+	 * @param isThrough
+	 * @param shelf
+	 * @param currentPage
+	 * @param pageSize
+	 * @return
+	 */
 	public List<AppInfo> findUserIsJointApp(String cp_id,int joint, int isThrough, int shelf,int currentPage,int pageSize);
+	public List<AppInfo> findUserJointApp(String cp_id,int joint);//cp所有联运的应用不管是否通过审核或是否上架
+	public List<AppInfo> findUserJointAppByAppName(String cp_id,int joint,String appName);
 	public int findUserIsJointAppNum(String cp_id,int joint, int isThrough, int shelf);
 	
 	public List<AppInfo> findByKeyword(String keyword,int crrentPage,int pageSize);

@@ -378,4 +378,33 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 		return 0;
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<AppInfo> findUserJointApp(String cp_id, int joint) {
+		Query query = entityManager.createQuery("select u from AppInfo u where u.cp_id = :cp_id and u.joint = :joint");
+		query.setParameter("cp_id", cp_id);
+		query.setParameter("joint", joint);
+		return query.getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<AppInfo> findUserJointAppByAppName(String cp_id, int joint,String appName) {
+		Query query = entityManager.createQuery("select u from AppInfo u where u.cp_id = :cp_id and u.joint = :joint and u.appName = :appName");
+		query.setParameter("cp_id", cp_id);
+		query.setParameter("joint", joint);
+		query.setParameter("appName", appName);
+		return query.getResultList();
+	}
+
+	@Override
+	public AppInfo findByCp_idAndApp_id(String cp_id, String app_id) {
+		Query query = entityManager.createQuery("select u from AppInfo u where u.cp_id = :cp_id and u.app_id = :app_id");
+		query.setParameter("cp_id", cp_id);
+		query.setParameter("app_id", app_id);
+		if(query.getResultList().size()>0)
+			return (AppInfo) query.getResultList().get(0);
+		else return null;
+	}
+
 }

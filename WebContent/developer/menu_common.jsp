@@ -103,9 +103,31 @@
  }
  
  window.onload = function() {
+	 var tou=document.getElementById("touxiang");
+		var tuichu=	document.getElementById("tuichu");
+		var timer=null;
+		 tou.onmouseover=function(){
+			 clearInterval(timer);
+		   	tuichu.style.display="block"; 
+		 }
+		 tou.onmouseout=function(){
+			 timer=setTimeout(function(){
+				tuichu.style.display="none"; 
+				 
+			},1000) 
+		 }
+		 tuichu.onmouseover=function(){
+		   clearTimeout(timer);	 
+	     }
+		 tuichu.onmouseout=function(){
+		   	timer=setTimeout(function(){
+			tuichu.style.display="none";  	
+		 },500)
+		}
   var show_item = "opt_1";
   if (getCookie("show_item") != null) {
     show_item= "opt_" + getCookie("show_item");
+    
   }
   document.getElementById(show_item).style.display = "block";
   var items = document.getElementsByClassName("title");
