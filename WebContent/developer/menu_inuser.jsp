@@ -163,7 +163,7 @@
     <li><a href="devShowJoint.action?currentPage=1&shelf=1&joint=1" target="main"><img src="images/lianyun.gif" />联运应用管理</a></li>
     <li><a href="devIsShelf.action?appTmp.isShelfCurrentPage=1" target="main"><img src="images/img16.gif" />推广应用管理</a></li>
     <li><a href="devUploadAppOfMenu.action" target="main"><img src="images/img17.gif"/>添加新应用</a></li>
-    <li class="gl"><a href="devIsThrough.action?appTmp.isThrough=0"><img src="images/img18.gif"/>审核管理</a><p class="dainum"><%=session.getAttribute("userTotal") %></p></li>
+    <li class="gl"><a href="devIsThrough.action?appTmp.isThrough=0" target="main"><img src="images/img18.gif"/>审核管理</a><p class="dainum"><%=session.getAttribute("userTotal") %></p></li>
     <li><a href="showUserStatistics.action?currentPage=1" target="main"><img src="images/img29.gif" />统计列表</a></li>
 
    </ul>

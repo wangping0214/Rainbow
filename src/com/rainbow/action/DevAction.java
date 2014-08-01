@@ -348,6 +348,7 @@ public class DevAction
 		info.setShelf(-1);//屏蔽前台
 		info.setAppName(appInfo.getAppName());
 		info.setNotify_url(appInfo.getNotify_url());
+		info.setMd5_key(appInfo.getMd5_key());
 		
 		AppSource sou = appSouDAO.findById(appId);
 		if (null != appTmp&&null!=appTmp.getLogo1Content())// 上传logo

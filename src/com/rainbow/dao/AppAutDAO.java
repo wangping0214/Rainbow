@@ -69,6 +69,7 @@ public interface AppAutDAO {
 	
 	public void save(AppAuthority appAut);
 	public void update(int id,AppAuthority appAut);
+	public void updatePart(AppAuthority appAut);
 	public void delete(int id);
 
 }

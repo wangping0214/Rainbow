@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+ <struts>
+ <package name="report" extends="struts-default">
+    	<action name="reportInitialize" class="reportAction" method="reportInitialize">
+    	</action>
+    	<action name="searchByOrderOrAppName" class="reportAction" method="searchByOrderOrAppName">
+    	</action>
+    	<action name="downReportToExcel" class="reportAction" method="downReportToExcel">
+    	</action>
+    	<action name="searchByAppName" class="reportAction" method="searchByAppName">
+    	</action>
+    </package>
+ </struts>

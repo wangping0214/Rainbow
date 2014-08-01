@@ -194,6 +194,7 @@
 	<li><a href="tongjiliebiao.jsp" target="main"><img src="images/img29.gif" />统计列表</a></li>
     <li><a href="<%=request.getContextPath()%>/mem_manager.action?isuserType=individualGroups" target="main"><img src="images/img30.gif" />会员管理</a></li>
     <li><a href="message2.jsp" target="main"><img src="images/xiao.gif" />消息管理</a></li>
+    <li><a href="split.html" target="main"><img src="images/bili.gif" />分成管理</a></li>
    </ul>
  </li>
 </ul>

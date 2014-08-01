@@ -191,7 +191,7 @@ public class AppAction {
 			httpSession.setAttribute("appName", appInfo.getAppName());
 			appInfoDAO.update(appTmp.getChangeId(), appInfo);
 			appSouDAO.update(appTmp.getChangeId(), appSou);
-			appAutDAO.update(appTmp.getChangeId(), appAut);
+			//appAutDAO.update(appTmp.getChangeId(), appAut);
 			return "edit_sec";
 		}
 

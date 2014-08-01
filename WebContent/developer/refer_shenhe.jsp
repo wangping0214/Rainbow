@@ -151,6 +151,25 @@ function change_notify_url(apkId,old_notify_url){
 		$("#notify_url").attr("value",old_notify_url);
 	}
 }
+function change_md5_key(apkId,old_md5_key){
+	if(window.confirm("是否修改md5 key？")){
+		jQuery.ajax({
+			type:"post",
+			url:"change_md5_key.action",
+			data:{
+				"apkId":apkId,
+				"md5_key":$("#md5_key").val()
+			},
+			success:function(){
+				alert("md5 key修改成功！");
+			}
+			
+		});
+	}
+	else{
+		$("#md5_key").attr("value",old_md5_key);
+	}
+}
 </script> 
 </head>
 
@@ -176,6 +195,9 @@ function change_notify_url(apkId,old_notify_url){
                           <div class="tokenurl">
                           <label>回调地址：<input type="text" name="notify_url" id="notify_url" value="<s:property value="#app.appInfo.notify_url"/>" /></label>
                           <input type="button" id="change_notify_url" onclick="change_notify_url('<s:property value="#app.appInfo.id"/>','<s:property value="#app.appInfo.notify_url"/>')" value="修改" class="xiu"/></div>
+                          <div class="tokenurl">
+                          <label>md5 key：<input type="text" name="md5_key" id="md5_key" value="<s:property value="#app.appInfo.md5_key"/>" /></label>
+                          <input type="button" id="change_md5_key" onclick="change_md5_key('<s:property value="#app.appInfo.id"/>','<s:property value="#app.appInfo.md5_key"/>')" value="修改" class="xiu"/></div>
                           <div class="appshuoming">
                               <p><span class="xuhao">①</span><input type="button" value="添加商品" class="tian" onclick="location.href='showAppProduct.action?apkId=<s:property value="#app.appInfo.id"/>';" /></p>
                               <p class="ml70">添加商品后，您可以进行SDK测试。</p>

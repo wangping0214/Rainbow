@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+ <struts>
+<!--******************************** 分成管理******************************************* -->
+   <package name="dividManageAction" extends="struts-default">
+   		<action name="findAllUserJoint" class="dividManageAction" method="findAllUserJoint">
+    	</action>
+    	<action name="checkUserJointApps" class="dividManageAction" method="checkUserJointApps">
+    	</action>
+    	<action name="editAppDivided" class="dividManageAction" method="editAppDivided">
+    	</action>
+   </package>
+</struts>

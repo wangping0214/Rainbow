@@ -71,6 +71,7 @@ public class AttachmentDownAction {
 			response.reset();
 			response.setContentType("application/octet-stream; charset=UTF-8");//设置文件格式
 			response.addHeader("Content-Disposition", "attachment; filename=" + fileName );//下载任务，而不是在线打开，并且将文件名传到下载任务
+			response.setHeader("Content_Length", file.length()+"");
 			FileInputStream fis = new FileInputStream(file);
 			int i = -1;
 			while((i=fis.read())!=-1){

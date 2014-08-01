@@ -2,6 +2,8 @@ package com.rainbow.action;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,6 +13,7 @@ import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.Action;
@@ -18,7 +21,6 @@ import com.rainbow.dao.AppAutDAO;
 import com.rainbow.dao.AppInfoDAO;
 import com.rainbow.dao.AppSouDAO;
 import com.rainbow.dao.ReceiptDAO;
-import com.rainbow.dao.UserDAO;
 import com.rainbow.entity.AppAuthority;
 import com.rainbow.entity.AppInfo;
 import com.rainbow.entity.AppSource;
@@ -33,7 +35,6 @@ import com.rainbow.server.AppReceipt;
  */
 public class ReportAction {
 	private ReceiptDAO receiptDAO;
-	private UserDAO userDAO;
 	private AppInfoDAO appInfoDAO;
 	private AppSouDAO appSouDAO;
 	private AppAutDAO appAutDAO;
@@ -145,29 +146,33 @@ public class ReportAction {
 		Date dt = new Date();
 		// 最后的aa表示“上午”或“下午” HH表示24小时制 如果换成hh表示12小时制
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
-		String fileName = "CMYX" + sdf.format(dt);
+		String fileName = "CMYX" + sdf.format(dt) + ".xlsx";
+		System.out.println(fileName);
 		try {
 			// 对文件名作处理，避免中文乱码问题
-			fileName = new String(fileName.getBytes("gbk"), "iso8859-1");
+			fileName = encodingFileName(fileName);
 			// 设置response相应属性，设置为下载
-			response.setContentType("application/x-msdownload");
-			response.setHeader("Content-Disposition", "attachment;filename="
+			response.reset();
+			response.setContentType("application/vnd.ms-excel; charset=UTF-8");
+			response.setHeader("Content-Disposition", "attachment; filename="
 					+ fileName);
 			// 获得response中的输出流
 			OutputStream out = response.getOutputStream();
 			String head = "企业名称\t应用名称\t下单时间\t订单号\t支付金额\t支付类型\t分成比例%\t通道费率%\n";
 			out.write(head.getBytes("gbk"));
-			for (AppReceipt appReceipt : reportList) {
-				for (Receipt receipt : appReceipt.getReceiptList()) {
-					String line = appReceipt.getUser().getCorporatename()
-							+ "\t"
-							+ appReceipt.getApp().getAppInfo().getAppName()
-							+ "\t" + receipt.getReceipt_time() + "\t"
-							+ receipt.getOrder_id() + "\t" + receipt.getPrice()
-							+ "\t" + getType(receipt.getOrder_id()) + "\n";
-					out.write(line.getBytes("gbk"));
+			if (reportList != null)
+				for (AppReceipt appReceipt : reportList) {
+					for (Receipt receipt : appReceipt.getReceiptList()) {
+						String line = appReceipt.getUser().getCorporatename()
+								+ "\t"
+								+ appReceipt.getApp().getAppInfo().getAppName()
+								+ "\t" + receipt.getReceipt_time() + "\t"
+								+ receipt.getOrder_id() + "\t"
+								+ receipt.getPrice() + "\t"
+								+ getType(receipt.getOrder_id()) + "\n";
+						out.write(line.getBytes("gbk"));
+					}
 				}
-			}
 			out.flush();
 			out.close();
 		} catch (IOException e) {
@@ -179,6 +184,7 @@ public class ReportAction {
 
 	/**
 	 * 根据订单号获取支付类型
+	 * 
 	 * @param Order_id
 	 * @return
 	 */
@@ -235,6 +241,44 @@ public class ReportAction {
 		}
 	}
 
+	/**
+	 * 中文名乱码 空格问题
+	 * 
+	 * @param fileName
+	 * @return
+	 */
+	public static String encodingFileName(String fileName) {
+		String returnFileName = "";
+		String bowser = "";
+		if (ServletActionContext.getRequest().getHeader("USER-AGENT")
+				.toLowerCase().indexOf("firefox") > 0)
+			bowser = "firefox";
+		else
+			bowser = "IE";
+
+		try {
+			if ("firefox".equals(bowser)) {
+				returnFileName = new String(fileName.getBytes("UTF-8"),
+						"ISO8859-1");
+				returnFileName = StringUtils.replace(returnFileName, " ", "");
+			} else {
+				returnFileName = URLEncoder.encode(fileName, "UTF-8");
+				returnFileName = StringUtils
+						.replace(returnFileName, "+", "%20");
+				if (returnFileName.length() > 150) {
+					returnFileName = new String(fileName.getBytes("GB2312"),
+							"ISO8859-1");
+					returnFileName = StringUtils.replace(returnFileName, " ",
+							"%20");
+				}
+			}
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+
+		}
+		return returnFileName;
+	}
+
 	public int getReportId() {
 		return reportId;
 	}
@@ -281,6 +325,15 @@ public class ReportAction {
 
 	public void setAppName(String appName) {
 		this.appName = appName;
+	}
+
+	public ReportAction(ReceiptDAO receiptDAO, AppInfoDAO appInfoDAO,
+			AppSouDAO appSouDAO, AppAutDAO appAutDAO) {
+		super();
+		this.receiptDAO = receiptDAO;
+		this.appInfoDAO = appInfoDAO;
+		this.appSouDAO = appSouDAO;
+		this.appAutDAO = appAutDAO;
 	}
 
 }

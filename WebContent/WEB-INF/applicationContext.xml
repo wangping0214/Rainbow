@@ -63,6 +63,7 @@
 	<bean id="MessageDAO" class="com.rainbow.dao.impl.MessageDAOImpl"></bean>
 	<bean id="OtherPaymentDAO" class="com.rainbow.dao.impl.OtherPaymentDAOImpl"></bean>
 	<bean id="PrizeDAO" class="com.rainbow.dao.impl.PrizeDAOImpl"></bean>
+	<bean id="ReceiptDAO" class="com.rainbow.dao.impl.ReceiptDAOImpl"></bean>
 	
 	
 
@@ -170,7 +171,18 @@
 		<constructor-arg ref="ReviewDAO"></constructor-arg>
 	</bean>
 	
-	
+	<bean id="reportAction" class="com.rainbow.action.ReportAction" scope="prototype">
+		<constructor-arg ref="ReceiptDAO"></constructor-arg>
+		<constructor-arg ref="AppInfoDAO"></constructor-arg>
+		<constructor-arg ref="AppSouDAO"></constructor-arg>
+		<constructor-arg ref="AppAutDAO"></constructor-arg>
+	</bean>
+	<bean id="dividManageAction" class="com.rainbow.action.DividManageAction" scope="prototype">
+		<constructor-arg ref="appInfoDAO"></constructor-arg>
+		<constructor-arg ref="appSouDAO"></constructor-arg>
+		<constructor-arg ref="appAutDAO"></constructor-arg>
+		<constructor-arg ref="userDAO"></constructor-arg>
+	</bean>
 
 	
 	

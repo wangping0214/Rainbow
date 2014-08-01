@@ -124,7 +124,6 @@ public class AppAutDAOImpl implements AppAutDAO{
 	@Override
 	public List<AppAuthority> findByBoutique(int recomLevel, int score,
 			int currentPage, int pageSize) {
-		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("select u from AppAuthority u , AppInfo s where u.id=s.id and s.shelf = 1 and u.recomLevel >:recomLevel and u.score >:score order by u.recomLevel desc, u.score desc,u.amountOfDown desc,s.upTime desc");
 		query.setParameter("recomLevel", recomLevel);
 		query.setParameter("score", score);
@@ -173,6 +172,11 @@ public class AppAutDAOImpl implements AppAutDAO{
 		query.setFirstResult(startRow);
 		query.setMaxResults(pageSize);
 		return query.getResultList();
+	}
+
+	@Override
+	public void updatePart(AppAuthority appAut) {
+		entityManager.merge(appAut);
 	}
 
 }

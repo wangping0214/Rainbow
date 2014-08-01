@@ -343,3 +343,24 @@ a.blue2{ color:#06C; text-decoration:underline}
 .zhezhao{width:100%;height:100%;position:fixed;z-index:998;background:#fff;filter:alpha(opacity=10);opacity:0.1;display:none;}
 .allorder{ width:600px; clear:both; overflow:hidden; zoom:1; margin-bottom:20px;}
 .odaochu{ background:none; border:none; background:url(../images/bgg.png) no-repeat; width:47px; height:24px; text-align:center; line-height:24px; color:#FFF; cursor:pointer;}
+/*==========split========*/
+.editform{ border-collapse:collapse;}
+.editform th,.editform td{ text-align:center; height:40px; line-height:40px; border:#CCC solid 1px;}
+.editform th{ font-size:16px; color:#70AD47}
+.edit_details{ background:url(../images/img13.png) no-repeat; width:131px; height:25px; margin:0 auto; display:block; line-height:25px; color:#FFF; text-align:center;}
+.ptit{ clear:both; overflow:hidden; zoom:1; margin-bottom:15px;}
+.ptit p{ float:left; font-size:12px; font-weight:bold;}
+.ptit span{ color:#70AD47; padding-left:10px;}
+.ptit a{ float:right; margin-right:50px; display:inline; color:#FFF; background:url(../images/qy.png) no-repeat; width:54px; height:20px; text-align:center; line-height:20px;}
+.ptit2{ font-size:16px; font-weight:bold;}
+.ptit2 span{ color:#70AD47; padding-right:20px;}
+.ptit2 b{ color:#70AD47}
+.appslist{ clear:both; margin-top:40px;border-collapse:collapse;}
+.appslist td{ text-align:center; padding:20px; border:#CCC solid 1px;}
+.appslist dl{ text-align:center; width:80px;}
+.appslist dt img{ width:48px; height:48px;}
+.appslist  div{ margin-bottom:10px;}
+.appslist div b{ color:#000; font-size:14px;}
+.appslist p{ float:left; margin-right:8px;}
+.appslist input{ width:40px; height:20px; line-height:20px; text-align:center;}
+.appslist .appque{ display:block; background:none; border:none; background:url(../images/bgg2.png) no-repeat; width:47px; height:24px; text-align:center; line-height:24px; color:#FFF;}

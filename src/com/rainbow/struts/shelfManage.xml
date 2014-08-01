@@ -9,5 +9,6 @@
 		<action name="deleteJointApp" class="shelfManageAction" method="deleteJointApp"></action>
 		
 		<action name="change_notify_url" class="shelfManageAction" method="change_notify_url"></action>
+		<action name="change_md5_key" class="shelfManageAction" method="change_md5_key"></action>
 	</package>
 </struts>

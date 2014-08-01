@@ -27,6 +27,7 @@ public class ShelfManageAction
 	private int apkId;
 	private int payId;
 	private String notify_url;
+	private String md5_key;
 
 	public void shelfManage()
 	{
@@ -74,6 +75,11 @@ public class ShelfManageAction
 		appInfoDAO.updataPart(appInfo);
 	}
 	
+	public void change_md5_key(){
+		AppInfo appInfo = appInfoDAO.findById(apkId);
+		appInfo.setMd5_key(md5_key);
+		appInfoDAO.updataPart(appInfo);
+	}
 	
 	public String getNotify_url()
 	{
@@ -113,6 +119,14 @@ public class ShelfManageAction
 	public void setApkId(int apkId)
 	{
 		this.apkId = apkId;
+	}
+	
+	public String getMd5_key() {
+		return md5_key;
+	}
+
+	public void setMd5_key(String md5_key) {
+		this.md5_key = md5_key;
 	}
 
 	public ShelfManageAction(MessageDAO messageDAO,

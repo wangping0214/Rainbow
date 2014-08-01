@@ -200,7 +200,7 @@ $(document).ready(function(){
                            		若您的应用有回调地址请填写回调地址和md5 key，否则无需填写</font></div>
                                <div><label>APP名称：</label><input type="text" name="appInfo.appName" id="id_appName" class="shuru"/></div>
                                <div><label>回调地址：</label><input type="text" name="appInfo.notify_url" id="id_notify_url" class="shuru"/></div>
-                               <div><label>md5 key：</label><input type="text" name="appInfo.md5_key" id="id_md5_key" value="" class="shuru"/></div>
+                               <div><label>md5 key：</label><input type="text" name="appInfo.md5_key" id="id_md5_key"  class="shuru"/></div>
                                <div class="shangchuan"><label>应用图标 ：</label><div class="suolv">
                                <input type="file"  name="appTmp.logo1Content" id="id_logo1" style="display:none;"  />
                                <a href="javascript:fn_browse();"> 

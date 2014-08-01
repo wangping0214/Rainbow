@@ -117,6 +117,8 @@ public interface AppInfoDAO {
 	 */
 	public List<AppInfo> findUserIsJointApp(String cp_id,int joint, int isThrough, int shelf,int currentPage,int pageSize);
 	public List<AppInfo> findUserJointApp(String cp_id,int joint);//cp所有联运的应用不管是否通过审核或是否上架
+	public List<AppInfo> findUserJointApp(String cp_id,int joint,int currentPage,int pageSize);
+	public int findUserJointAppNum(String cp_id,int joint);
 	public List<AppInfo> findUserJointAppByAppName(String cp_id,int joint,String appName);
 	public int findUserIsJointAppNum(String cp_id,int joint, int isThrough, int shelf);
 	
