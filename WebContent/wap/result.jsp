@@ -16,8 +16,8 @@ a{ display:block; width:100%;}
 <body>
 <div class="cont">
 <img src="image/jg_02.jpg" width="100%"/>
-<a href="showIssuePrize.action?issue=1"></a>
-<img src="image/jg_02un.jpg" width="100%"/>
+<a href="showIssuePrize.action?issue=1">
+<img src="image/jg_03.jpg" width="100%"/></a>
 <img src="image/jg_04.jpg" width="100%"/>
 <img src="image/jg_05.jpg" width="100%"/>
 <img src="image/jg_06.jpg" width="100%"/>

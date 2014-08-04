@@ -31,7 +31,7 @@ import com.rainbow.entity.Prize;
 import com.rainbow.server.App;
 
 public class PrizeAction {
-	private static final int ISSUE = 1;
+	private static final int ISSUE = 2;//第ISSUE期
 	private Prize prize;
 	
 	private PrizeDAO prizeDAO;
@@ -54,7 +54,7 @@ public class PrizeAction {
 	 * @return
 	 */
 	public String prizeInfoSub(){
-		prize.setIssue(ISSUE);//第一期
+		prize.setIssue(ISSUE);
 		prize.setPrize(0);//不中奖
 		prize.setProvince(selectp);
 		prize.setCity(selectc);
