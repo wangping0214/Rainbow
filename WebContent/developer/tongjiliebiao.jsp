@@ -43,8 +43,8 @@
      <div class="midcont tongjimidcont">
                   <div class="list">
                       <ul class="guanggaonav">
-                         <li><a href="pingtai.jsp">平台访问</a></li>
                          <li class="blue"><a class="tongjiliebiao.jsp">下载量</a></li>
+                         <li><a href="reportInitialize">订单</a></li>
                       </ul>
                         <div class="searchcont2">
                             <input type="text" value="搜索应用名称" class="socont2 fl"/><input type="submit" value="" class="sobut fr"/>

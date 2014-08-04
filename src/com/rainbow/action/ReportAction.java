@@ -54,15 +54,18 @@ public class ReportAction {
 	public String reportInitialize() {
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		User user = (User) session.getAttribute("user");
-		int cpTotalNum = appInfoDAO.findByUserIdAndThroughNum(user.getCp_id(),
-				1);// cp通过审核的应用的总数
-		session.setAttribute("cpTotalNum", cpTotalNum);
-		int cpOrderNum = receiptDAO.findByCp_idNum(user.getCp_id());// cp的订单总数
-		session.setAttribute("cpOrderNum", cpOrderNum);
+		int cpTotalNum = 0;
+		cpTotalNum = appInfoDAO.findByUserIdAndThroughNum(user.getCp_id(), 1);// cp通过审核的应用的总数
+
+		int cpOrderNum = 0;
+		cpOrderNum = receiptDAO.findByCp_idNum(user.getCp_id());// cp的订单总数
+		
+		int paySun = 0;
+		int searchPaySun = 0;
 		/*
 		 * 查询cp每个应用的账单
 		 */
-		List<AppReceipt> AppReceiptList = new ArrayList<>();
+		List<AppReceipt> appReceiptList = new ArrayList<AppReceipt>();
 		List<AppInfo> appInfo = appInfoDAO.findUserJointApp(user.getCp_id(), 1);
 		for (AppInfo info : appInfo) {
 			AppSource sou = appSouDAO.findById(info.getId());
@@ -80,14 +83,23 @@ public class ReportAction {
 			for (Receipt receipt : receiptList) {
 				orderSun++;
 				payment += receipt.getPrice();
+				paySun += receipt.getPrice();
 			}
 			appReceipt.setOrderSun(orderSun);
 			appReceipt.setPayment(payment);
-			AppReceiptList.add(appReceipt);
+			appReceiptList.add(appReceipt);
 		}
-		List<AppReceipt> reportList = new ArrayList<AppReceipt>(AppReceiptList);
+		/*
+		 * appReceiptList为cp的全部应用 reportList为根据cp的查询条件查询到的报表 初始这两个相同
+		 */
+		List<AppReceipt> reportList = new ArrayList<AppReceipt>(appReceiptList);
+		searchPaySun = paySun;
+		session.setAttribute("cpTotalNum", cpTotalNum);
+		session.setAttribute("cpOrderNum", cpOrderNum);
+		session.setAttribute("paySun", paySun);
+		session.setAttribute("searchPaySun", searchPaySun);
 		session.setAttribute("reportList", reportList);
-		session.setAttribute("AppReceiptList", AppReceiptList);
+		session.setAttribute("AppReceiptList", appReceiptList);
 
 		return Action.SUCCESS;
 	}
@@ -99,6 +111,7 @@ public class ReportAction {
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		User user = (User) session.getAttribute("user");
 		List<AppReceipt> reportList = new ArrayList<AppReceipt>();
+		int searchPaySun = 0;
 		// 输入的应用名
 		List<AppInfo> appInfo = appInfoDAO.findUserJointAppByAppName(
 				user.getCp_id(), 1, orderIdOrAppName);
@@ -112,11 +125,25 @@ public class ReportAction {
 				List<Receipt> receiptList = receiptDAO.findByCp_idAndApp_id(
 						info.getCp_id(), info.getApp_id());
 				report.setReceiptList(receiptList);
+				int orderSun = 0;
+				int payment = 0;
+				for (Receipt receipt : receiptList) {
+					orderSun++;
+					payment += receipt.getPrice();
+					searchPaySun += receipt.getPrice();
+				}
+				report.setOrderSun(orderSun);
+				report.setPayment(payment);
 				reportList.add(report);
 			}
 		} else {
 			// 输入的是订单号
 			Receipt receipt = receiptDAO.findByOrder_id(orderIdOrAppName);
+			int orderSun = 0;
+			int payment = 0;
+			orderSun++;
+			payment += receipt.getPrice();
+			searchPaySun += receipt.getPrice();	
 			if (receipt != null) {
 				AppInfo info = appInfoDAO.findByCp_idAndApp_id(
 						receipt.getCp_id(), receipt.getApp_id());
@@ -127,10 +154,13 @@ public class ReportAction {
 				report.setUser(user);
 				List<Receipt> receiptList = new ArrayList<Receipt>();
 				receiptList.add(receipt);
+				report.setOrderSun(orderSun);
+				report.setPayment(payment);
 				report.setReceiptList(receiptList);
 				reportList.add(report);
 			}
 		}
+		session.setAttribute("searchPaySun", searchPaySun);
 		session.setAttribute("reportList", reportList);
 	}
 
@@ -141,8 +171,8 @@ public class ReportAction {
 	public void downReportToExcel() {
 		HttpServletResponse response = ServletActionContext.getResponse();
 		HttpSession session = ServletActionContext.getRequest().getSession();
-		List<AppReceipt> reportList = (List<AppReceipt>) session
-				.getAttribute("reportList");
+		List<AppReceipt> reportList = new ArrayList<AppReceipt>();
+		reportList = (List<AppReceipt>) session.getAttribute("reportList");
 		Date dt = new Date();
 		// 最后的aa表示“上午”或“下午” HH表示24小时制 如果换成hh表示12小时制
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
@@ -206,6 +236,7 @@ public class ReportAction {
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		User user = (User) session.getAttribute("user");
 		List<AppReceipt> reportList = new ArrayList<AppReceipt>();
+		int searchPaySun = 0;
 		if ("全部应用".equals(appName)) {
 			// 搜索全部应用
 			List<AppInfo> appInfo = appInfoDAO.findUserJointApp(
@@ -220,6 +251,15 @@ public class ReportAction {
 				List<Receipt> receiptList = receiptDAO.findByCp_idAndApp_id(
 						info.getCp_id(), info.getApp_id());
 				report.setReceiptList(receiptList);
+				int orderSun = 0;
+				int payment = 0;
+				for (Receipt receipt : receiptList) {
+					orderSun++;
+					payment += receipt.getPrice();
+					searchPaySun += receipt.getPrice();
+				}
+				report.setOrderSun(orderSun);
+				report.setPayment(payment);
 				reportList.add(report);
 			}
 		} else {
@@ -235,8 +275,18 @@ public class ReportAction {
 				List<Receipt> receiptList = receiptDAO.findByCp_idAndApp_id(
 						info.getCp_id(), info.getApp_id());
 				report.setReceiptList(receiptList);
+				int orderSun = 0;
+				int payment = 0;
+				for (Receipt receipt : receiptList) {
+					orderSun++;
+					payment += receipt.getPrice();
+					searchPaySun += receipt.getPrice();
+				}
+				report.setOrderSun(orderSun);
+				report.setPayment(payment);
 				reportList.add(report);
 			}
+			session.setAttribute("searchPaySun", searchPaySun);
 			session.setAttribute("reportList", reportList);
 		}
 	}

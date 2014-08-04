@@ -24,13 +24,13 @@ public class AppAuthority {
 	@Column(name="amountOfDown")
 	private int amountOfDown;
 	@Column(name="divided")
-	private int divided;
+	private float divided;
 	@Column(name="channel_message")
-	private int channel_message;
+	private float channel_message;
 	@Column(name="channel_bank")
-	private int channel__bank;
+	private float channel_bank;
 	@Column(name="channel_alipay")
-	private int channel_alipay;
+	private float channel_alipay;
 	@Transient
 	private String strRecomLevel;
 	@Transient
@@ -44,10 +44,10 @@ public class AppAuthority {
 		this.recomLevel = 0;
 		this.score = 0;
 		this.amountOfDown = 0;
-		this.divided = -1;
-		this.channel_message = -1;
-		this.channel__bank = -1;
-		this.channel_alipay = -1;
+		this.divided = 0;
+		this.channel_message = 0;
+		this.channel_bank = 0;
+		this.channel_alipay = 0;
 	}
 	
 	public String getStrRecomLevel() {
@@ -105,37 +105,39 @@ public class AppAuthority {
 		this.amountOfDown = amountOfDown;
 	}
 
-	public int getDivided() {
+	public float getDivided() {
 		return divided;
 	}
 
-	public void setDivided(int divided) {
+	public void setDivided(float divided) {
 		this.divided = divided;
 	}
 
-	public int getChannel_message() {
+	public float getChannel_message() {
 		return channel_message;
 	}
 
-	public void setChannel_message(int channel_message) {
+	public void setChannel_message(float channel_message) {
 		this.channel_message = channel_message;
 	}
 
-	public int getChannel__bank() {
-		return channel__bank;
+	public float getChannel_bank() {
+		return channel_bank;
 	}
 
-	public void setChannel__bank(int channel__bank) {
-		this.channel__bank = channel__bank;
+	public void setChannel_bank(float channel_bank) {
+		this.channel_bank = channel_bank;
 	}
 
-	public int getChannel_alipay() {
+	public float getChannel_alipay() {
 		return channel_alipay;
 	}
 
-	public void setChannel_alipay(int channel_alipay) {
+	public void setChannel_alipay(float channel_alipay) {
 		this.channel_alipay = channel_alipay;
 	}
+
+	
 	
 	
 	

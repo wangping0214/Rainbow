@@ -21,16 +21,15 @@ a img{ border:0;}
 .incont input{ width:50%; height:16px; line-height:16px;}
 .incont select{ width:51%;height:23px; line-height:23px;}
 /*list*/
-.listcont{ position:absolute; left:10%; top:9%; width:80%;}
+.listcont{ position:absolute; left:10%; top:6.5%; width:80%;}
 .ago{ text-align:right; margin-bottom:10%;}
 .ago a{font-weight:bold; color:#109a4e;}
 .atit{ text-align:center; color:#109a4e; font-size:20px; margin-bottom:5%;}
-#demo{ width:100%;}
-#demo1{ width:100%;}
-#demo1 div{ height:35px; line-height:35px; width:100%;color:#109a4e; }
-#demo1 .ming{ float:left;}
-.ming span{ margin-right:3px;}
-#demo1 .jiang{ float:right;}
+#demo1 div{ width:320px; height:35px; line-height:35px;color:#109a4e; clear:both; overflow:hidden;}
+#demo1 span{ float:left; overflow:hidden; zoom:1;}
+.name{ width:30px;}
+.tel{ width:85px; text-align:center;}
+.jiang{ width:170px;}
 .won{width:90%; margin:0 auto; position:absolute; top:21%; left:5%; display:none;}
 .tishi{ width:100%; position:relative;}
 .guanbi{ position:absolute; top:0; right:0; color:#FFF; font-size:20px; cursor:pointer; width:25px; height:25px; display:block;}

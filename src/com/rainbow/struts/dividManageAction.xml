@@ -3,10 +3,12 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
  <struts>
 <!--******************************** 分成管理******************************************* -->
-   <package name="dividManageAction" extends="struts-default">
+   <package name="dividManage" extends="struts-default">
    		<action name="findAllUserJoint" class="dividManageAction" method="findAllUserJoint">
+   			<result>split.jsp</result>
     	</action>
     	<action name="checkUserJointApps" class="dividManageAction" method="checkUserJointApps">
+    		<result>edit_details.jsp</result>
     	</action>
     	<action name="editAppDivided" class="dividManageAction" method="editAppDivided">
     	</action>

@@ -4,6 +4,7 @@
  <struts>
  <package name="report" extends="struts-default">
     	<action name="reportInitialize" class="reportAction" method="reportInitialize">
+    		<result>order_form.jsp</result>
     	</action>
     	<action name="searchByOrderOrAppName" class="reportAction" method="searchByOrderOrAppName">
     	</action>

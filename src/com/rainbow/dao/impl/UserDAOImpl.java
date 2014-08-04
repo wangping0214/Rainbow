@@ -157,14 +157,17 @@ public class UserDAOImpl implements UserDAO
 	@Override
 	public List<User> findDiviedUserApproved(int approved, int currentPage,
 			int pageSize) {
-		Query query = entityManager.createQuery("select u from User u where u.approved = :approved and (u.userType = individualUsers or u.userType = individualGroups )");
+		Query query = entityManager.createQuery("select u from User u where u.approved = :approved and (u.userType = 'individualUsers' or u.userType = 'individualGroups' )");
 		query.setParameter("approved", approved);
+		int startRow = (currentPage-1)*pageSize;
+		query.setFirstResult(startRow);
+		query.setMaxResults(pageSize);
 		return query.getResultList();
 	}
 
 	@Override
 	public int findDiviedUserApprovedNum(int approved) {
-		Query query = entityManager.createQuery("select u from User u where u.approved = :approved and (u.userType = individualUsers or u.userType = individualGroups )");
+		Query query = entityManager.createQuery("select u from User u where u.approved = :approved and (u.userType = 'individualUsers' or u.userType = 'individualGroups' )");
 		query.setParameter("approved", approved);
 		return query.getResultList().size();
 	}

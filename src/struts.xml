@@ -30,5 +30,6 @@
     <include file="com/rainbow/struts/FindPasswordAction.xml"></include><!-- 找回密码 -->
     <include file="com/rainbow/struts/StatisticsAction.xml"></include><!-- 统计列表 -->
     <include file="com/rainbow/struts/reportAction.xml"></include><!-- 报表 -->
+    <include file="com/rainbow/struts/dividManageAction.xml"></include><!-- 分成管理 -->
     
 </struts>

@@ -9,8 +9,8 @@ public class AppReceipt {
 	private User user;
 	private App app;
 	private List<Receipt> receiptList;
-	private int orderSun;
-	private int payment;
+	private int orderSun;//订单总数
+	private int payment;//总金额
 	public App getApp() {
 		return app;
 	}

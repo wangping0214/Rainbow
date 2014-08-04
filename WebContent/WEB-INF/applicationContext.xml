@@ -178,9 +178,9 @@
 		<constructor-arg ref="AppAutDAO"></constructor-arg>
 	</bean>
 	<bean id="dividManageAction" class="com.rainbow.action.DividManageAction" scope="prototype">
-		<constructor-arg ref="appInfoDAO"></constructor-arg>
-		<constructor-arg ref="appSouDAO"></constructor-arg>
-		<constructor-arg ref="appAutDAO"></constructor-arg>
+		<constructor-arg ref="AppInfoDAO"></constructor-arg>
+		<constructor-arg ref="AppSouDAO"></constructor-arg>
+		<constructor-arg ref="AppAutDAO"></constructor-arg>
 		<constructor-arg ref="userDAO"></constructor-arg>
 	</bean>
 

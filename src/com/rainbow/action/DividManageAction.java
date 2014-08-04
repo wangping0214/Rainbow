@@ -58,6 +58,7 @@ public class DividManageAction {
 			UserApps userApps = new UserApps();
 			userApps.setUser(user);
 			userApps.setApp(appList);
+			userAppsList.add(userApps);
 		}
 		Map request = (Map) ActionContext.getContext().get("request");
 		request.put("userAppsList", userAppsList);
@@ -99,7 +100,7 @@ public class DividManageAction {
 	public void editAppDivided() {
 		AppAuthority aut = appAutDAO.findById(appId);
 		aut.setDivided(appAut.getDivided());
-		aut.setChannel__bank(appAut.getChannel__bank());
+		aut.setChannel_bank(appAut.getChannel_bank());
 		aut.setChannel_alipay(appAut.getChannel_alipay());
 		aut.setChannel_message(appAut.getChannel_message());
 		appAutDAO.updatePart(aut);
