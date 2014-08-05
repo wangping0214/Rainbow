@@ -55,8 +55,16 @@ function userSubmit(){
 }
 function groupSubmit(){
 	if(isGroupCorporatename&&isGroupWebsite&&isGroupAddress&&isGroupRealname&&isGroupDuty&&isGroupEmail&&isGroupTelephone&&isGroupEmailTel){
-		alert("升级用户申请成功!审核中,请耐心等待。。。 ");
-		return true;
+			if($("#photo_txt").val()!=""){
+			alert("升级用户申请成功!审核中,请耐心等待。。。 ");
+			return true;
+			}
+			else{
+				alert("请上传营业执照！ ");
+				return false;
+			}
+	
+		
 	}
 	else {
 		alert("很遗憾,请完善信息 .除特殊说明外,均为必填信息！ ");
@@ -80,9 +88,8 @@ function user_check(){
 		else return isUserDuty=false;
 	});
 	$("#user_photo1").blur(function(){
-		var photo1=$("#user_photo1").val();
-		if(photo1!=""||photo1!=null) return isUserPhoto1=true;
-		else return isUserPhoto1=false;
+		var photo1=$("#user_photo1").attr("src");
+		 isUserPhoto1=true;
 	});
 	$("#user_photo2").blur(function(){
 		var photo2=$("#user_photo2").val();
@@ -94,7 +101,7 @@ function user_check(){
 		if(inemail!=""){
 			 var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
 	          if (!reg.test(inemail)) {
-	        	  $("#user_email").val("")
+	        	  $("#user_email").val("");
 	        	alert("邮箱格式不正确，请输入正确的邮箱");
 	             return isUserEmail =false;
 	             }
@@ -145,7 +152,7 @@ function js_user_email()
 					isUserEmail =true;
 				}
 				else{
-					$("#user_email").val("")
+					$("#user_email").val("");
 					alert("此邮箱已被注册!");
 					isUserEmail =false;
 				}
@@ -170,7 +177,7 @@ function js_user_telephone()
 					isUserTelephone =true;
 				}
 				else{
-					$("#user_telephone").val("")
+					$("#user_telephone").val("");
 					alert("此手机号已被注册");
 					isUserTelephone =false;
 				}
@@ -227,7 +234,7 @@ function group_check(){
 	$("#group_telephone").blur(function(){
 		var intelephone=$("#group_telephone").val();
 		if(intelephone!=""){
-			var reg=/^0?(13[0-9]|15[012356789]|18[0236789]|14[57])[0-9]{8}$/;
+			var reg=/^0?(13[0-9]|15[012356789]|18[02356789]|14[57])[0-9]{8}$/;
 			if(!reg.test(intelephone)){
 					alert("请输入正确的手机号");
 				return isGroupTelephone =false;
@@ -330,12 +337,15 @@ function js_group_telephone()
                                   <p class="tits">公司信息</p>
                                   <div class="form2" >
                                       <div><label>公司名称：</label><input type="text"id="group_corporatename"name="user.corporatename"value="<s:property value="#user.corporatename"/>" /> <p class="zhushi4">请填写与企业营业执照等级名称一致公司全称</p></div>
-                                      <div><label>企业营业执照：</label><p class="fl"><input type="file" id="group_photo" name="user.cardphoto1" style="display:none;"  /><a href="javascript:fn_browse();">
+                                      <div><label>企业营业执照：</label><p class="fl"><input type="file" id="group_photo" name="user.cardphoto1" style="display:none;" onchange="photo_txt.value=this.value"  /><a href="javascript:fn_browse();">
                                       <%if(session.getAttribute("photo1")==null){ %>
                                        <img id="photo" name="btn" src="<%=request.getContextPath()%>/developer/images/img26.png" width="81" height="71" border="0" />
+                                      <input type="hidden" id="photo_txt"  />
                                       <%} else{%>
                                       <img id="photo" name="btn" src="<%=request.getContextPath()+session.getAttribute("photo1")%>" width="81" height="71" border="0" />
-                                      <%} %></a></p>
+                                      <input type="hidden" id="photo_txt" value="<%=request.getContextPath()+session.getAttribute("photo1")%>" />
+                                     
+<%} %></a></p>
                                       <p class="zz"><span>请上传最新年检的营业执照副本扫描件<b>不超过5MB（.jpg 或 .png 格式）</b></span></p></div>
                                       <div><label>企业网站：</label><p class="fl"><input type="text" id="group_website"name="user.website"value="<s:property value="#user.website"/>"  /></p><p class="zhushi4s">公司网站地址</p></div>
                                       <div><label>所在地区：</label><input type="text" id="group_address"name="user.address"value="<s:property value="#user.address"/>" /><p class="zhushi4s">平台联系您，汇集协议等，请填写有效地址</p></div>
@@ -374,6 +384,7 @@ function js_group_telephone()
                                       <img id="photo1"name="btn" src="<%=request.getContextPath()%>/developer/images/img26.png" width="81" height="71" border="0" />
                                       <%} else{%>
                                        <img id="photo1" name="btn" src="<%=request.getContextPath()+session.getAttribute("photo1")%>" width="81" height="71" border="0" />
+                                       
                                       <%} %></a>
                                       <input type="file" id="user_photo2" name="user.cardphoto2" style="display:none;"  /><a href="javascript:fn_browse2();"> 
                                       <%if(session.getAttribute("photo2")==null||session.getAttribute("photo2")==""){ %>

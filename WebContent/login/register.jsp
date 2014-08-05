@@ -239,7 +239,7 @@ function tel_check(){
 	$("#tel_telephone").blur(function(){
 		var intelephone=$("#tel_telephone").val();
 		if(intelephone!=""){
-			var reg=/^0?(13[0-9]|15[012356789]|18[0236789]|14[57])[0-9]{8}$/;
+			var reg=/^0?(13[0-9]|15[012356789]|18[02356789]|14[57])[0-9]{8}$/;
 			if(!reg.test(intelephone)){
 				$("#tel_telephone").text(function(){
 					$("#tel_telephone_div").text("请输入正确的手机号");

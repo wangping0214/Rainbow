@@ -11,6 +11,7 @@
     	<action name="downReportToExcel" class="reportAction" method="downReportToExcel">
     	</action>
     	<action name="searchByAppName" class="reportAction" method="searchByAppName">
+    		<result>order_form.jsp</result>
     	</action>
     </package>
  </struts>
