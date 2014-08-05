@@ -96,7 +96,13 @@ $(document).ready(function(){
             <s:iterator value="#request['appBoutique']" id="appBoutique">
                 <dl>
                    <dt><a href="details.action?apkId=<s:property value="#appBoutique.appInfo.id" />"><img src="<%=request.getContextPath() %><s:property value="#appBoutique.appSou.logo1"/>" /></a></dt>
-                   <dd><a href="details.action?apkId=<s:property value="#appBoutique.appInfo.id" />"><s:property value="#appBoutique.appInfo.appName" /></a></dd>
+                   <dd><a href="details.action?apkId=<s:property value="#appBoutique.appInfo.id" />">
+                   <s:if test="#appBoutique.appInfo.appName.length()>6">
+<s:property value="#appBoutique.appInfo.appName.substring(0, 6) + \"...\"" />
+</s:if>
+<s:else>
+<s:property value="#appBoutique.appInfo.appName" />
+</s:else></a></dd>
                    <dd class="downnum"><span>
                    <s:if test="#appBoutique.appAut.amountOfDown>10000">
   <s:property value="#appBoutique.appAut.amountOfDown/10000+'.'+(#appBoutique.appAut.amountOfDown-(#appBoutique.appAut.amountOfDown/10000)*10000)/1000" />
@@ -136,7 +142,14 @@ $(document).ready(function(){
                    <div class="detial">
                       <dl>
                          <dt><a href="details.action?apkId=<s:property value="#appRecommend.appInfo.id" />"><img src="<%=request.getContextPath() %><s:property value="#appRecommend.appSou.logo1"/>" /></a></dt>
-                         <dd><a href="details.action?apkId=<s:property value="#appRecommend.appInfo.id" />"><s:property value="#appRecommend.appInfo.appName" /></a></dd>
+                         <dd><a href="details.action?apkId=<s:property value="#appRecommend.appInfo.id" />">
+                         <s:if test="#appRecommend.appInfo.appName.length()>6">
+<s:property value="#appRecommend.appInfo.appName.substring(0, 6) + \"...\"" />
+</s:if>
+<s:else>
+<s:property value="#appRecommend.appInfo.appName" />
+</s:else>
+</a></dd>
                          <dd><b>
                          <s:if test="#appRecommend.appAut.amountOfDown>10000">
   <s:property value="#appRecommend.appAut.amountOfDown/10000+'.'+(#appRecommend.appAut.amountOfDown-(#appRecommend.appAut.amountOfDown/10000)*10000)/1000" />

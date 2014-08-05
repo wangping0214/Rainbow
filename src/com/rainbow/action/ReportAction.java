@@ -60,8 +60,8 @@ public class ReportAction {
 		int cpOrderNum = 0;
 		cpOrderNum = receiptDAO.findByCp_idNum(user.getCp_id());// cp的订单总数
 		
-		int paySun = 0;
-		int searchPaySun = 0;
+		double paySun = 0.0;
+		double searchPaySun = 0.0;
 		/*
 		 * 查询cp每个应用的账单
 		 */
@@ -96,10 +96,10 @@ public class ReportAction {
 		searchPaySun = paySun;
 		session.setAttribute("cpTotalNum", cpTotalNum);
 		session.setAttribute("cpOrderNum", cpOrderNum);
-		session.setAttribute("paySun", paySun);
-		session.setAttribute("searchPaySun", searchPaySun);
+		session.setAttribute("paySun", String.valueOf(paySun));
+		session.setAttribute("searchPaySun", String.valueOf(searchPaySun));
 		session.setAttribute("reportList", reportList);
-		session.setAttribute("AppReceiptList", appReceiptList);
+		session.setAttribute("appReceiptList", appReceiptList);
 
 		return Action.SUCCESS;
 	}
@@ -111,7 +111,7 @@ public class ReportAction {
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		User user = (User) session.getAttribute("user");
 		List<AppReceipt> reportList = new ArrayList<AppReceipt>();
-		int searchPaySun = 0;
+		double searchPaySun = 0;
 		// 输入的应用名
 		List<AppInfo> appInfo = appInfoDAO.findUserJointAppByAppName(
 				user.getCp_id(), 1, orderIdOrAppName);
@@ -160,7 +160,7 @@ public class ReportAction {
 				reportList.add(report);
 			}
 		}
-		session.setAttribute("searchPaySun", searchPaySun);
+		session.setAttribute("searchPaySun", String.valueOf(searchPaySun));
 		session.setAttribute("reportList", reportList);
 	}
 
@@ -236,7 +236,8 @@ public class ReportAction {
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		User user = (User) session.getAttribute("user");
 		List<AppReceipt> reportList = new ArrayList<AppReceipt>();
-		int searchPaySun = 0;
+		double searchPaySun = 0;
+		System.out.println("appName:"+appName);
 		if ("全部应用".equals(appName)) {
 			// 搜索全部应用
 			List<AppInfo> appInfo = appInfoDAO.findUserJointApp(
@@ -286,7 +287,9 @@ public class ReportAction {
 				report.setPayment(payment);
 				reportList.add(report);
 			}
-			session.setAttribute("searchPaySun", searchPaySun);
+			session.setAttribute("searchPaySun", String.valueOf(searchPaySun));
+			System.out.println("reportList:"+reportList.size());
+			session.removeAttribute("reportList");
 			session.setAttribute("reportList", reportList);
 		}
 	}

@@ -25,13 +25,17 @@ a img{ border:0;}
 .ago{ text-align:right; margin-bottom:10%;}
 .ago a{font-weight:bold; color:#109a4e;}
 .atit{ text-align:center; color:#109a4e; font-size:20px; margin-bottom:5%;}
-#demo1 div{ width:320px; height:35px; line-height:35px;color:#109a4e; clear:both; overflow:hidden;}
+#demo1{ height:260px; overflow:hidden; zoom:1; margin-bottom:5px;}
+#demo1 ul{ list-style:none;}
+#demo1 li{ width:250px; margin:0 auto; display:block; height:33px; line-height:33px;color:#109a4e; clear:both; overflow:hidden;}
 #demo1 span{ float:left; overflow:hidden; zoom:1;}
 .name{ width:30px;}
 .tel{ width:85px; text-align:center;}
-.jiang{ width:170px;}
+.jiang{ width:135px;}
 .won{width:90%; margin:0 auto; position:absolute; top:21%; left:5%; display:none;}
 .tishi{ width:100%; position:relative;}
 .guanbi{ position:absolute; top:0; right:0; color:#FFF; font-size:20px; cursor:pointer; width:25px; height:25px; display:block;}
 .xuanze{ position:absolute; bottom:15px; left:0; padding-left:13%;}
 .xuanze a{ float:left; width:50%;display:inline;}
+#btn1,#btn2{ float:left; background:#F93; margin-right:7px; width:90px; height:20px; line-height:20px; text-align:center; color:#FFF;}
+#btn1{ margin-left:30px; display:inline;}

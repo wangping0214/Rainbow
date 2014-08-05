@@ -81,7 +81,6 @@ function user_check(){
 	});
 	$("#user_photo1").blur(function(){
 		var photo1=$("#user_photo1").val();
-		alert(photo1);
 		if(photo1!=""||photo1!=null) return isUserPhoto1=true;
 		else return isUserPhoto1=false;
 	});
@@ -108,7 +107,7 @@ function user_check(){
 	$("#user_telephone").blur(function(){
 		var intelephone=$("#user_telephone").val();
 		if(intelephone!=""){
-			var reg=/^0?(13[0-9]|15[012356789]|18[0236789]|14[57])[0-9]{8}$/;
+			var reg=/^0?(13[0-9]|15[012356789]|18[02356789]|14[57])[0-9]{8}$/;
 			if(!reg.test(intelephone)){
 					alert("请输入正确的手机号");
 				return isUserTelephone =false;

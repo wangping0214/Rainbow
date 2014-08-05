@@ -3,8 +3,9 @@
 <%@ page import="com.rainbow.server.AppReceipt"%>
 <%@ page import="java.util.*"%>
 <%@ page import="java.text.SimpleDateFormat"%>
-<%@ page import="com.rainbow.entity.Receipt" %>
-<%@ page import="java.util.regex.Pattern" %>
+<%@ page import="com.rainbow.entity.Receipt"%>
+<%@ page import="java.util.regex.Pattern"%>
+<%@ page import="java.lang.*"%>
 <%
 	/*
 	appReceiptList为cp的全部应用
@@ -13,14 +14,14 @@
 	*/
 		Integer cpTotalNum = (Integer)session.getAttribute("cpTotalNum");
 		Integer cpOrderNum = (Integer)session.getAttribute("cpOrderNum");
-		Integer paySun = (Integer)session.getAttribute("paySun");
-		Integer searchPaySun = (Integer)session.getAttribute("searchPaySun");
+		String paySun = (String)session.getAttribute("paySun");
+		String searchPaySun = (String)session.getAttribute("searchPaySun");
 		List<AppReceipt> appReceiptList = (List<AppReceipt>)session.getAttribute("appReceiptList");
 		if(appReceiptList==null)
-			appReceiptList = new ArrayList<AppReceipt>();
+	appReceiptList = new ArrayList<AppReceipt>();
 		List<AppReceipt> reportList = (List<AppReceipt>)session.getAttribute("reportList");
 		if(reportList==null)
-			reportList = new ArrayList<AppReceipt>();
+	reportList = new ArrayList<AppReceipt>();
 		Date dt = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String initTime = sdf.format(dt);
@@ -89,6 +90,76 @@
 	margin-bottom: 10px;
 }
 </style>
+<script type="text/javascript" language="javascript">
+	$(document).ready(function() {
+		$("#app_select_id").change(function() {
+			
+			jQuery.ajax({
+				type : "post",
+				url : "searchByAppName",
+				beforeSend: function(){
+					},
+				data : {
+					"appName" : $("#app_select_id").val()
+				},
+				success : function() {
+					<%
+					reportList = (List<AppReceipt>)session.getAttribute("reportList");
+					if(reportList==null)
+							reportList = new ArrayList<AppReceipt>();
+					%>
+					alert("<%=reportList.size()%>"+"<%=appReceiptList.size()%>")
+					var table = $("<table id=\"report_table\" border=\"0\" cellpadding=\"0\"cellspacing=\"0\" width=\"98%\" class=\"table1\">");
+					table.appendTo($("#report_div"));
+					var tr=$("<tr></tr>");
+					tr.appendTo(table);
+					var td=$("<th width=\"15%\">企业名称</th>");
+					td.appendTo(tr);
+					td=$("<th width=\"15%\">应用名称</th>");
+					td.appendTo(tr);
+					td=$("<th width=\"10%\">下单时间</th>");
+					td.appendTo(tr);
+					td=$("<th width=\"10%\">订单号</th>");
+					td.appendTo(tr);
+					td=$("<th width=\"10%\">支付金额</th>");
+					td.appendTo(tr);
+					td=$("<th width=\"10%\">支付类型</th>");
+					td.appendTo(tr);
+					td=$("<th width=\"10%\">分成比例%</th>");
+					td.appendTo(tr);
+					td=$("<th width=\"10%\">通道费率%</th>");
+					td.appendTo(tr);
+					<%
+					for (AppReceipt appReceipt : reportList)
+						for (Receipt receipt : appReceipt.getReceiptList()) {
+				%>
+				tr=$("<tr></tr>");
+				tr.appendTo(table);
+				var name = "<%=appReceipt.getUser().getCorporatename()%>";
+				td=$("<td width=\"15%\">"+name+"</td>");
+				td.appendTo(tr);
+				td=$("<td width=\"15%\">"+"</td>");
+				td.appendTo(tr);
+				td=$("<td width=\"10%\">"+"</td>");
+				td.appendTo(tr);
+				td=$("<td width=\"10%\">"+"</td>");
+				td.appendTo(tr);
+				td=$("<td width=\"10%\">"+"</td>");
+				td.appendTo(tr);
+				td=$("<td width=\"10%\">"+"</td>");
+				td.appendTo(tr);
+				td=$("<td width=\"10%\">"+"</td>");
+				td.appendTo(tr);
+				td=$("<td width=\"10%\">"+"</td>");
+				td.appendTo(tr);
+				<%}%>
+					trend.appendTo(table);
+					$("#report_div").append("</table>");
+				}
+			});
+		});
+	});
+</script>
 </head>
 
 <body>
@@ -114,7 +185,8 @@
 								</p>
 								<p>
 									总订单数：<%=cpOrderNum%></p>
-								<p>总支付金额：<%=paySun%></p>
+								<p>
+									总支付金额：<%=paySun%></p>
 							</div>
 							<!--tit6-->
 							<div class="searchcont2">
@@ -130,16 +202,20 @@
 										<li>&nbsp;</li>
 									</ul>
 									<div class="ordercont">
-									<%for(AppReceipt appReceipt:appReceiptList){  %>
+										<%
+											for (AppReceipt appReceipt : appReceiptList) {
+										%>
 										<div>
-											<p><%=appReceipt.getApp().getAppInfo().getAppName() %></p>
-											<p><%=appReceipt.getOrderSun() %></p>
-											<p><%=appReceipt.getPayment() %>></p>
+											<p><%=appReceipt.getApp().getAppInfo().getAppName()%></p>
+											<p><%=appReceipt.getOrderSun()%></p>
+											<p><%=appReceipt.getPayment()%></p>
 											<p>
 												<a href="#dddd" class="xinxi">查看明细</a>
 											</p>
 										</div>
-										<%} %>
+										<%
+											}
+										%>
 									</div>
 									<!--orderconts-->
 								</div>
@@ -147,11 +223,15 @@
 							</div>
 							<!--yonghu-->
 							<div class="allcha">
-								<select>
+								<select id="app_select_id">
 									<option>全部应用</option>
-									<%for(AppReceipt appReceipt:appReceiptList){  %>
-									<option><%=appReceipt.getApp().getAppInfo().getAppName() %></option>
-									<%} %>
+									<%
+										for (AppReceipt appReceipt : appReceiptList) {
+									%>
+									<option><%=appReceipt.getApp().getAppInfo().getAppName()%></option>
+									<%
+										}
+									%>
 								</select>
 
 							</div>
@@ -164,8 +244,9 @@
 									<option>银联</option>
 								</select>
 								<p>
-									从 <input type="text" class="mh_date" readonly="true" value="<%=initTime %>" /> 到 <input
-										type="text" class="mh_date" readonly="true" value="<%=initTime %>" />&nbsp;<input
+									从 <input type="text" class="mh_date" readonly="true"
+										value="<%=initTime%>" /> 到 <input type="text" class="mh_date"
+										readonly="true" value="<%=initTime%>" />&nbsp;<input
 										type="submit" value="查询" class="chaxun" />
 								</p>
 							</div>
@@ -176,58 +257,62 @@
 							</p>
 							<div class="allorder">
 								<p class="fl">
-									订单总支付额：<span class="red"> <%=searchPaySun %></span>
+									订单总支付额：<span class="red"> <%=searchPaySun%></span>
 								</p>
 								<input type="submit" value="导出" class="odaochu fr" />
 							</div>
 							<!--allorder-->
 
 							<a name="dddd"></a>
-							<table border="0" cellpadding="0" cellspacing="0" width="98%"
-								class="table1">
-								<tr>
-									<th width="15%">企业名称</th>
-									<th width="15%">应用名称</th>
-									<th width="10%">下单时间</th>
-									<th width="10%">订单号</th>
-									<th width="10%">支付金额</th>
-									<th width="10%">支付类型</th>
-									<th width="10%">分成比例%</th>
-									<th width="10%">通道费率%</th>
-								</tr>
-								<%for(AppReceipt appReceipt : reportList) 
-									for(Receipt receipt:appReceipt.getReceiptList()){
-								%>
-								<tr>
-									<td class="name"><%=appReceipt.getUser().getCorporatename() %></td>
-									<td><%=appReceipt.getApp().getAppInfo().getAppName() %></td>
-									<td><%=receipt.getReceipt_time() %></td>
-									<td><%=receipt.getOrder_id() %></td>
-									<td><%=receipt.getPrice() %></td>
+							<div id="report_div">
+								<table id="report_table" border="0" cellpadding="0"
+									cellspacing="0" width="98%" class="table1">
+									<tr>
+										<th width="15%">应用名称</th>
+										<th width="10%">下单时间</th>
+										<th width="10%">订单号</th>
+										<th width="10%">支付金额</th>
+										<th width="10%">支付类型</th>
+										<th width="10%">分成比例%</th>
+										<th width="10%">通道费率%</th>
+									</tr>
 									<%
-									String reg1 = "^[0-9]{12}00[0-9]*$";
-									String reg2 = "^[0-9]{12}01[0-9]*$";
-									String pay_type = "";
-									float channel = 0;
-									if (Pattern.matches(reg1, receipt.getOrder_id())){
-										pay_type = "短代";
-										channel = appReceipt.getApp().getAppAut().getChannel_message();
-									}
-									else if (Pattern.matches(reg2, receipt.getOrder_id())){
-										pay_type = "支付宝";
-										channel = appReceipt.getApp().getAppAut().getChannel_alipay();
-									}
-									else{
-										pay_type = "银联";
-										channel = appReceipt.getApp().getAppAut().getChannel_bank();
-									}
+										for (AppReceipt appReceipt : reportList)
+											for (Receipt receipt : appReceipt.getReceiptList()) {
 									%>
-									<td><%=pay_type %></td>
-									<td><%=appReceipt.getApp().getAppAut().getDivided() %></td>
-									<td><%=channel %></td>
-								</tr>
-								<%}%>
-							</table>
+									<tr>
+										<td><%=appReceipt.getApp().getAppInfo().getAppName()%></td>
+										<td><%=receipt.getReceipt_time()%></td>
+										<td><%=receipt.getOrder_id()%></td>
+										<td><%=receipt.getPrice()%></td>
+										<%
+											String reg1 = "^[0-9]{12}00[0-9]*$";
+													String reg2 = "^[0-9]{12}01[0-9]*$";
+													String pay_type = "";
+													float channel = 0;
+													if (Pattern.matches(reg1, receipt.getOrder_id())) {
+														pay_type = "短代";
+														channel = appReceipt.getApp().getAppAut()
+																.getChannel_message();
+													} else if (Pattern.matches(reg2, receipt.getOrder_id())) {
+														pay_type = "支付宝";
+														channel = appReceipt.getApp().getAppAut()
+																.getChannel_alipay();
+													} else {
+														pay_type = "银联";
+														channel = appReceipt.getApp().getAppAut()
+																.getChannel_bank();
+													}
+										%>
+										<td><%=pay_type%></td>
+										<td><%=appReceipt.getApp().getAppAut().getDivided()%></td>
+										<td><%=channel%></td>
+									</tr>
+									<%
+										}
+									%>
+								</table>
+							</div>
 						</div>
 
 					</div>

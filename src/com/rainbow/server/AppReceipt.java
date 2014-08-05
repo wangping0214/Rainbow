@@ -10,7 +10,7 @@ public class AppReceipt {
 	private App app;
 	private List<Receipt> receiptList;
 	private int orderSun;//订单总数
-	private int payment;//总金额
+	private double payment;//总金额
 	public App getApp() {
 		return app;
 	}
@@ -29,10 +29,11 @@ public class AppReceipt {
 	public void setOrderSun(int orderSun) {
 		this.orderSun = orderSun;
 	}
-	public int getPayment() {
+	
+	public double getPayment() {
 		return payment;
 	}
-	public void setPayment(int payment) {
+	public void setPayment(double payment) {
 		this.payment = payment;
 	}
 	public User getUser() {
