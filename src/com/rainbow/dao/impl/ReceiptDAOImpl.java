@@ -1,6 +1,8 @@
 package com.rainbow.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -47,12 +49,18 @@ public class ReceiptDAOImpl implements ReceiptDAO
 			String endTime)
 	{
 		String reg = "^[0-9]{12}"+type+"[0-9]*$";
-		Query query = entityManager.createQuery("select u from Receipt u where u.cp_id = :cp_id and u.order_id REGEXP :reg and u.receipt_time BETWEEN :startTime and :endTime");
+		Query query = entityManager.createQuery("select u from Receipt u where u.cp_id = :cp_id and u.receipt_time BETWEEN :startTime and :endTime");
 		query.setParameter("cp_id", cp_id);
-		query.setParameter("reg", reg);
 		query.setParameter("startTime", startTime);
 		query.setParameter("endTime", endTime);
-		return query.getResultList();
+		List<Receipt> receiptList = query.getResultList();
+		List<Receipt> receiptRmList = new ArrayList<Receipt>();
+		for(Receipt receipt:receiptList){
+			if(!Pattern.matches(reg,receipt.getOrder_id()))
+				receiptRmList.add(receipt);
+		}
+		receiptList.removeAll(receiptRmList);
+		return receiptList;
 	}
 
 	@Override

@@ -47,6 +47,7 @@ public class ReportAction {
 	private String endTime;
 	private String orderIdOrAppName;
 	private String appName;
+	public int appId;
 
 	/**
 	 * 报表初始化
@@ -115,7 +116,7 @@ public class ReportAction {
 	/**
 	 * 根据订单号或应用名称查询
 	 */
-	public void searchByOrderOrAppName() {
+	public String searchByOrderOrAppName() {
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		User user = (User) session.getAttribute("user");
 		List<DetailReceipt> detailReceiptList = new ArrayList<DetailReceipt>();
@@ -153,6 +154,7 @@ public class ReportAction {
 			}
 		session.setAttribute("searchPaySun", String.valueOf(searchPaySun));
 		session.setAttribute("detailReceiptList", detailReceiptList);
+		return Action.SUCCESS;
 	}
 
 	/**
@@ -167,7 +169,7 @@ public class ReportAction {
 		Date dt = new Date();
 		// 最后的aa表示“上午”或“下午” HH表示24小时制 如果换成hh表示12小时制
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
-		String fileName = "CMYX" + sdf.format(dt) + ".xlsx";
+		String fileName = "CMYX" + sdf.format(dt) + ".xsl";
 		try {
 			// 对文件名作处理，避免中文乱码问题
 			fileName = encodingFileName(fileName);
@@ -192,13 +194,12 @@ public class ReportAction {
 						String line = detailReceipt.getUser().getCorporatename()
 								+ "\t"
 								+ detailReceipt.getApp().getAppInfo().getAppName()
-								+ "\t" + detailReceipt.getReceipt().getReceipt_time() + "\t"
-								+ detailReceipt.getReceipt().getOrder_id() + "\t"
+								+ "\t「" + detailReceipt.getReceipt().getReceipt_time() + "」\t「"
+								+ detailReceipt.getReceipt().getOrder_id() + "」\t"
 								+ detailReceipt.getReceipt().getPrice() + "\t"
 								+ type + "\t"
 								+detailReceipt.getApp().getAppAut().getDivided()+"\t"
 								+channel+"\n";
-						
 						out.write(line.getBytes("gbk"));
 				}
 			out.flush();
@@ -256,18 +257,44 @@ public class ReportAction {
 				detailReceipt.setApp(new App(info, sou, aut));
 				detailReceipt.setUser(user);
 				detailReceipt.setReceipt(receipt);
-				detailReceiptList.add(detailReceipt);
-				
+				detailReceiptList.add(detailReceipt);	
 			}
 		}
 		session.setAttribute("searchPaySun", String.valueOf(searchPaySun));
 		session.setAttribute("detailReceiptList", detailReceiptList);
 		return Action.SUCCESS;
 	}
+	
+	/**
+	 * 查看app的详情订单
+	 * @return
+	 */
+	public String showAppReportDetail(){
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		User user = (User) session.getAttribute("user");
+		List<DetailReceipt> detailReceiptList = new ArrayList<DetailReceipt>();
+		double searchPaySun = 0;
+		AppInfo info = appInfoDAO.findById(appId);
+		AppSource sou = appSouDAO.findById(info.getId());
+		AppAuthority aut = appAutDAO.findById(info.getId());
+		List<Receipt> receiptList = receiptDAO.findByCp_idAndApp_id(
+				info.getCp_id(), info.getApp_id());
+		for (Receipt receipt : receiptList) {
+			searchPaySun += receipt.getPrice();
+			DetailReceipt detailReceipt = new DetailReceipt();
+			detailReceipt.setApp(new App(info, sou, aut));
+			detailReceipt.setUser(user);
+			detailReceipt.setReceipt(receipt);
+			detailReceiptList.add(detailReceipt);	
+		}
+		session.setAttribute("searchPaySun", String.valueOf(searchPaySun));
+		session.setAttribute("detailReceiptList", detailReceiptList);
+		 return Action.SUCCESS;
+	 }
 	/**
 	 * 根据时间段查询报表
 	 */
-	public void searchByTime(){
+	public String searchByTime(){
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		User user = (User) session.getAttribute("user");
 		List<DetailReceipt> detailReceiptList = new ArrayList<DetailReceipt>();
@@ -278,7 +305,13 @@ public class ReportAction {
 			
 		}
 		else{
-			receiptList = receiptDAO.findByCp_idAndTypeAndTime(user.getCp_id(), type, startTime, endTime);
+			String typeReg="";
+			switch(type){
+			case "短代":typeReg="00";break;
+			case "支付宝":typeReg="01";break;
+			default :typeReg="02";break;
+			}
+			receiptList = receiptDAO.findByCp_idAndTypeAndTime(user.getCp_id(), typeReg, startTime, endTime);
 		}
 		for(Receipt receipt:receiptList){
 			searchPaySun += receipt.getPrice();
@@ -293,6 +326,7 @@ public class ReportAction {
 		}
 		session.setAttribute("searchPaySun", String.valueOf(searchPaySun));
 		session.setAttribute("detailReceiptList", detailReceiptList);
+		return Action.SUCCESS;
 	}
 
 	/**
@@ -379,6 +413,14 @@ public class ReportAction {
 
 	public void setAppName(String appName) {
 		this.appName = appName;
+	}
+	
+	public int getAppId() {
+		return appId;
+	}
+
+	public void setAppId(int appId) {
+		this.appId = appId;
 	}
 
 	public ReportAction(ReceiptDAO receiptDAO, AppInfoDAO appInfoDAO,

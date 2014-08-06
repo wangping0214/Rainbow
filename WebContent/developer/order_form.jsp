@@ -94,15 +94,21 @@
 <script type="text/javascript" language="javascript">
 	$(document).ready(function() {
 		$("#app_select_id").change(function() {
-			window.open("searchByAppName?appName="+$("#app_select_id").val(),"main");
+			window.open("searchByAppName?appName="+$("#app_select_id").val(),"reportSearchResult");
+		});
+		$("#downReport").click(function(){
+			location.href="downReportToExcel";
+		});
+		$("#searchByTime").click(function(){
+			window.open("searchByTime?type="+$("#pay_type").val()+"&startTime="+$("#startTime").val()+"&endTime="+$("#endTime").val(),"reportSearchResult")
+		});
+		$("#orderOrAppName").click(function(){
+			window.open("searchByOrderOrAppName?orderIdOrAppName="+$("#orderIdOrAppName").val(),"reportSearchResult")
 		});
 	});
-	$("#downReport").click(function(){
-		jQuery.ajax({
-			type:"post",
-			url:"downReportToExcel"
-		});
-	});
+	function showAppReportDetail(appId){
+		window.open("showAppReportDetail?appId="+appId,"reportSearchResult")
+	}
 </script>
 </head>
 
@@ -133,10 +139,7 @@
 									总支付金额：<%=paySun%></p>
 							</div>
 							<!--tit6-->
-							<div class="searchcont2">
-								<input type="text" value="输入应用名称" class="socont2 fl" /><input
-									type="submit" value="" class="sobut fr" />
-							</div>
+							<br></br>
 							<div class="yonghu2">
 								<div class="orderlist">
 									<ul class="ornav">
@@ -154,7 +157,7 @@
 											<p><%=appReceipt.getOrderSun()%></p>
 											<p><%=appReceipt.getPayment()%></p>
 											<p>
-												<a href="#dddd" class="xinxi">查看明细</a>
+												<a href="#dddd" id="reportDetail" onclick="showAppReportDetail(<%=appReceipt.getApp().getAppInfo().getId() %>)" class="xinxi">查看明细</a>
 											</p>
 										</div>
 										<%
@@ -181,23 +184,23 @@
 							</div>
 							<!--allcha-->
 							<div class="allcha">
-								<select>
+								<select id="pay_type">
 									<option>支付类型</option>
 									<option>短代</option>
 									<option>支付宝</option>
 									<option>银联</option>
 								</select>
 								<p>
-									从 <input type="text" class="mh_date" readonly="true"
-										value="<%=initTime%>" /> 到 <input type="text" class="mh_date"
+									从 <input type="text" class="mh_date" id="startTime" readonly="true"
+										value="<%=initTime%>" /> 到 <input type="text" id="endTime"  class="mh_date"
 										readonly="true" value="<%=initTime%>" />&nbsp;<input
-										type="submit" value="查询" class="chaxun" />
+										type="button" value="查询" id="searchByTime" class="chaxun" />
 								</p>
 							</div>
 							<!--allcha-->
 							<p class="mbotm10">
-								订单号/应用名称查询<input type="text" class="chatext" /><input
-									type="submit" value="查询" class="chaxun" />
+								订单号/应用名称查询<input type="text" class="chatext" id="orderIdOrAppName" /><input
+									type="button" value="查询" id="orderOrAppName" class="chaxun" />
 							</p>
 							<div class="allorder">
 								<p class="fl">
@@ -209,52 +212,20 @@
 
 							<a name="dddd"></a>
 							<div id="report_div">
-								<table id="report_table" border="0" cellpadding="0"
-									cellspacing="0" width="98%" class="table1">
+							<table id="report_table" border="0" cellpadding="0"
+									cellspacing="0" width="700" class="table1">
 									<tr>
 										<th width="15%">应用名称</th>
-										<th width="10%">下单时间</th>
-										<th width="10%">订单号</th>
+										<th width="20%">下单时间</th>
+										<th width="20%">订单号</th>
 										<th width="10%">支付金额</th>
 										<th width="10%">支付类型</th>
 										<th width="10%">分成比例%</th>
 										<th width="10%">通道费率%</th>
 									</tr>
-									<%
-										for (DetailReceipt detailReceipt : detailReceiptList) {
-									%>
-									<tr>
-										<td><%=detailReceipt.getApp().getAppInfo().getAppName()%></td>
-										<td><%=detailReceipt.getReceipt().getReceipt_time()%></td>
-										<td><%=detailReceipt.getReceipt().getOrder_id()%></td>
-										<td><%=detailReceipt.getReceipt().getPrice()%></td>
-										<%
-											String reg1 = "^[0-9]{12}00[0-9]*$";
-													String reg2 = "^[0-9]{12}01[0-9]*$";
-													String pay_type = "";
-													float channel = 0;
-													if (Pattern.matches(reg1, detailReceipt.getReceipt().getOrder_id())) {
-														pay_type = "短代";
-														channel = detailReceipt.getApp().getAppAut()
-																.getChannel_message();
-													} else if (Pattern.matches(reg2, detailReceipt.getReceipt().getOrder_id())) {
-														pay_type = "支付宝";
-														channel = detailReceipt.getApp().getAppAut()
-																.getChannel_alipay();
-													} else {
-														pay_type = "银联";
-														channel = detailReceipt.getApp().getAppAut()
-																.getChannel_bank();
-													}
-										%>
-										<td><%=pay_type%></td>
-										<td><%=detailReceipt.getApp().getAppAut().getDivided()%></td>
-										<td><%=channel%></td>
-									</tr>
-									<%
-										}
-									%>
-								</table>
+									</table>
+							<iframe src="reportSearchResult.jsp" name="reportSearchResult" frameborder="0" width="850">
+							</iframe>						
 							</div>
 						</div>
 

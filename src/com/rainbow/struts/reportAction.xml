@@ -7,11 +7,18 @@
     		<result>order_form.jsp</result>
     	</action>
     	<action name="searchByOrderOrAppName" class="reportAction" method="searchByOrderOrAppName">
+    		<result>reportSearchResult.jsp</result>
+    	</action>
+    	<action name="searchByTime" class="reportAction" method="searchByTime">
+    		<result>reportSearchResult.jsp</result>
     	</action>
     	<action name="downReportToExcel" class="reportAction" method="downReportToExcel">
     	</action>
     	<action name="searchByAppName" class="reportAction" method="searchByAppName">
-    		<result>order_form.jsp</result>
+    		<result>reportSearchResult.jsp</result>
+    	</action>
+    	<action name="showAppReportDetail" class="reportAction" method="showAppReportDetail">
+    		<result>reportSearchResult.jsp</result>
     	</action>
     </package>
  </struts>
