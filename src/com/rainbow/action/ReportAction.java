@@ -300,7 +300,7 @@ public class ReportAction {
 		List<DetailReceipt> detailReceiptList = new ArrayList<DetailReceipt>();
 		double searchPaySun = 0;
 		List<Receipt> receiptList = new ArrayList<Receipt>();
-		if("支付类型".equals(type)){
+		if("全部支付".equals(type)){
 			receiptList = receiptDAO.findByCp_idAndTime(user.getCp_id(), startTime, endTime);
 			
 		}

@@ -23,7 +23,7 @@ $(function() {
 		var isToday = true;//是否为今天默认为是	
 		var date = new Date();//获得时间对象
 		var nowYear = date.getFullYear();//获得当前年份
-		var nowMonth = date.getMonth() + 1;//获得当前月份
+		var nowMonth =date.getMonth() + 1;//获得当前月份
 		var today = date.getDate();//获得当前天数
 		var nowWeek = new Date(nowYear, nowMonth - 1, 1).getDay();//获得当前星期
 		var nowLastday = getMonthNum(nowMonth, nowYear);//获得最后一天
@@ -32,6 +32,7 @@ $(function() {
 			$("<option value='"+i+"'>"+i+"年</option>").appendTo($("#year"));
 		}
 		for(var i=1; i<=12; i++){
+			
 			$("<option value='"+i+"'>"+i+"月</option>").appendTo($("#month"));
 		}		
 		ManhuaDate(nowYear, nowMonth, nowWeek, nowLastday);//初始化为当前日期		
@@ -82,9 +83,9 @@ $(function() {
 			var year = parseInt($("#year").val());
 			var month = parseInt($("#month").val());
 		
-			month = parseInt(month) + 1;
+			month =parseInt(month) + 1;
 			if (parseInt(month) > 12) {
-				month = 1;
+				month =1;
 				year = parseInt(year) + 1;
 			}
 			if(nowYear==year && nowMonth==month){
@@ -103,33 +104,46 @@ $(function() {
 			var n = 1;
 			for (var j = 0; j < week; j++) {
 				table.rows[1].cells[j].innerHTML = "&nbsp;"
+				
 			}
 			for (var j = week; j < 7; j++) {
 				if (n == today && isToday) {				
-					table.rows[1].cells[j].className="tdtoday";				
+					table.rows[1].cells[j].className="tdtoday";			
+						
 				}else {
 					table.rows[1].cells[j].className="";
+					
 				}
-				table.rows[1].cells[j].innerHTML = n;
+				table.rows[1].cells[j].innerHTML ="0"+n;
 				n++;
 			}
 			for (var i = 2; i < 7; i++) {
+				
 				for (j = 0; j < 7; j++) {
 					if (n > lastday) {
 						table.rows[i].cells[j].innerHTML = "&nbsp"
 					}
 					 else {
 						if (n == today && isToday) {						
-							table.rows[i].cells[j].className="tdtoday";						
+							table.rows[i].cells[j].className="tdtoday";	
+							n="0"+n;
 						}else {
 							table.rows[i].cells[j].className="";
+							 if(n<10){
+						      n="0"+n;	
+					         }
 						}
-						table.rows[i].cells[j].innerHTML = n;
+						table.rows[i].cells[j].innerHTML =n;
 						n++;
+						
 					}
+					
+					
 				}
+				
 			}
 		}
+
 		//获得月份的天数
 		function getMonthNum(month, year) {
 			month = month - 1;
@@ -171,7 +185,11 @@ $(function() {
 					var nd = new Date();
 					str = $("#year").val() + options.fuhao + $("#month").val() + options.fuhao + dv + " "+ nd.getHours()+":"+nd.getMinutes()+":"+nd.getSeconds();
 				 }else{
-					str = $("#year").val() + options.fuhao + $("#month").val() + options.fuhao + dv;
+					 var moth2=$("#month").val();
+					 if(moth2<10){
+						 moth2="0"+moth2;
+						 }
+					str = $("#year").val() + options.fuhao +moth2+ options.fuhao + dv;
 				}				 
 				$("input.dateVisited").val(str);
 				$("input.dateVisited").removeClass('dateVisited')

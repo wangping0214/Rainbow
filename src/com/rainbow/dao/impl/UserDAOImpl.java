@@ -172,6 +172,27 @@ public class UserDAOImpl implements UserDAO
 		return query.getResultList().size();
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<User> findByUserCompanyOrName(int approved,String companyOrName,int currentPage,int pageSize) {
+		Query query = entityManager.createQuery("select u from User u where u.approved = £»approved and (u.userType = 'individualUsers' or u.userType = 'individualGroups' ) and (u.corporatename like '%:companyOrName%' or u.username like '%:companyOrName%')");
+		query.setParameter("companyOrName", companyOrName);
+		query.setParameter("approved", approved);
+		int startRow = (currentPage-1)*pageSize;
+		query.setFirstResult(startRow);
+		query.setMaxResults(pageSize);
+		return query.getResultList();
+	}
+
+	@Override
+	public int findByUserCompanyOrNameNum(int approved,
+			String companyOrName) {
+		Query query = entityManager.createQuery("select u from User u where u.approved = £»approved and (u.userType = 'individualUsers' or u.userType = 'individualGroups' ) and (u.corporatename like '%:companyOrName%' or u.username like '%:companyOrName%')");
+		query.setParameter("companyOrName", companyOrName);
+		query.setParameter("approved", approved);
+		return query.getResultList().size();
+	}
+
 	
 
 }

@@ -72,6 +72,8 @@ $(document).ready(function(){
 		<a href="javascript:void(0);" class="prev" id="prev-04">&nbsp </a>
 		<div class="jCarouselLite" id="demo-04">
 			<ul>
+				<li><a href="Elist/ml14-10.jsp" ><img src="images/zazhi/cover14-10.jpg" width="189" height="250" /></a></li>
+				<li><a href="Elist/ml14-09.jsp" ><img src="images/zazhi/cover14-09.jpg" width="189" height="250" /></a></li>
                 <li><a href="Elist/ml14-08.jsp" ><img src="images/zazhi/cover14-08.jpg" width="189" height="250" /></a></li>
                 <li><a href="Elist/ml14-07.jsp" ><img src="images/zazhi/cover14-07.jpg" width="189" height="250" /></a></li>
                 <li><a href="Elist/ml14-06.jsp" ><img src="images/zazhi/cover14-06.jpg" width="189" height="250" /></a></li>
@@ -79,9 +81,6 @@ $(document).ready(function(){
                 <li><a href="Elist/ml14-04.jsp" ><img src="images/zazhi/cover14-04.jpg" width="189" height="250" /></a></li>
                 <li><a href="Elist/ml14-03.jsp" ><img src="images/zazhi/cover14-03.jpg" width="189" height="250" /></a></li>
                 <li><a href="Elist/ml14-02.jsp" ><img src="images/zazhi/cover14-02.jpg" width="189" height="250" /></a></li>
-                <li><a href="Elist/ml14-01.jsp" ><img src="images/zazhi/cover14-01.jpg" width="189" height="250" /></a></li>
-                <li><a href="Elist/ml13-02.jsp" ><img src="images/zazhi/cover13-02.jpg" width="189" height="250" /></a></li>
-                <li><a href="Elist/ml13-01.jsp" ><img src="images/zazhi/cover13-01.jpg" width="189" height="250" /></a></li>
 			</ul>
 		</div>
 		<a href="javascript:void(0);" class="next" id="next-04">&nbsp; </a>

@@ -21,7 +21,7 @@ system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
 system.ipad = (navigator.userAgent.match(/iPad/i) != null)?true:false;
 //跳转语句，如果电脑访问页面自动跳到login/index.jsp,如果是手机访问就自动跳转到mobile/index.jsp页面
 if (system.win || system.mac || system.xll||system.ipad) {
-	window.location.href = "login/index.jsp";
+	window.location.href = "login/";
 } 
 else {
 

@@ -23,7 +23,6 @@ input{ outline:none;}
 .cont{position:relative;height:535px;margin:0 auto}
 .jian1{ position:absolute; bottom:0; display:block; width:179px; margin:0 auto; left:45%; }
 
-.mainCon{padding-bottom:400px;}
 .zccont{ width:450px; margin:20px auto 0 auto;overflow:hidden; zoom:1;}
 .zcnav{ width:380px; margin:0 auto;  overflow:hidden; zoom:1;}
 .zcnav li{ width:125px; float:left; cursor:pointer; margin-right:5px; overflow:hidden; zoom:1; width:77px; height:35px; line-height:35px; font-size:12px; font-weight:bold; padding-left:48px; }

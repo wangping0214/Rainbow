@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%
+				String bowser= "";
+				//火狐
+                if (request.getHeader("User-Agent").toLowerCase().indexOf("firefox") > 0) {
+                    bowser = "firefox";
+                }
+                //IE
+                else {
+                	 bowser = "IE";
+                }%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,7 +18,15 @@
 <link href="<%=request.getContextPath()%>/developer/css/style.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="<%=request.getContextPath()%>/developer/js/jquery.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/developer/js/jq.js"></script>
-
+<script type="text/javascript">
+var bowser = "<%=bowser%>";
+if(bowser=="IE"){
+	window.location.href = "brwserError.jsp";
+}
+else{
+	window.location.href = "login.jsp";
+}
+</script>
 </head>
 
 <body>

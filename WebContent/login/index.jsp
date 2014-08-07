@@ -104,18 +104,26 @@ $(function()
      <div class="mm2">  
        <div class="im2"> 
            <div class="cont card bg1">
-           <span  idx="1"  class="bg_arr"><img  src="images/im1.png"  alt=""></span>
+           <span  idx="1"  class="bg_arr"><img  src="images/im1.png"  alt=""/></span>
             <div class="lunbo1">
                    <div class="picList">
                       <div class="big">
-                          <a href="Elist/ml14-01.jsp"><img src="images/zazhi/cover_600.jpg" width="220" height="297" /></a>
-                          <a href="Elist/ml13-02.jsp"><img src="images/zazhi/cover_480.jpg" width="220" height="297" /></a>
-                          <a href="Elist/ml13-01.jsp"><img src="images/zazhi/cover_320.jpg" width="220" height="297" /></a>
+                          <a href="Elist/ml14-10.jsp"><img src="images/zazhi/cover14-10.jpg" width="220" height="297" /></a>
+                          <a href="Elist/ml14-09.jsp"><img src="images/zazhi/cover14-09.jpg" width="220" height="297" /></a>
+                          <a href="Elist/ml14-08.jsp"><img src="images/zazhi/cover14-08.jpg" width="220" height="297" /></a>
+                          <a href="Elist/ml14-07.jsp"><img src="images/zazhi/cover14-07.jpg" width="220" height="297" /></a>
+                          <a href="Elist/ml14-06.jsp"><img src="images/zazhi/cover14-06.jpg" width="220" height="297" /></a>
+                          <a href="Elist/ml14-05.jsp"><img src="images/zazhi/cover14-05.jpg" width="220" height="297" /></a>
+                          <a href="Elist/ml14-04.jsp"><img src="images/zazhi/cover14-04.jpg" width="220" height="297" /></a>
                       </div>
                      <ul class="smallList">
-                        <li><img src="images/zazhi/cover_600.jpg" width="52" height="72" /><div class="redLine"></div></li>
-                        <li><img src="images/zazhi/cover_480.jpg" width="52" height="72" /></li>
-                        <li><img src="images/zazhi/cover_320.jpg" width="52" height="72" /></li>
+                        <li><img src="images/zazhi/cover14-10.jpg" width="52" height="72" /><div class="redLine"></div></li>
+                        <li><img src="images/zazhi/cover14-09.jpg" width="52" height="72" /></li>
+                        <li><img src="images/zazhi/cover14-08.jpg" width="52" height="72" /></li>
+                        <li><img src="images/zazhi/cover14-07.jpg" width="52" height="72" /></li>
+                        <li><img src="images/zazhi/cover14-06.jpg" width="52" height="72" /></li>
+                        <li><img src="images/zazhi/cover14-05.jpg" width="52" height="72" /></li>
+                        <li><img src="images/zazhi/cover14-04.jpg" width="52" height="72" /></li>
                      </ul> 
                      <div class="clear"></div>
                   </div>
@@ -135,7 +143,7 @@ $(function()
    <!--mm2-->
        <div class="im3">
           <div class="cont theme bg1">
-             <span  idx="2"  class="bg_arr bg_arr2"><img  src="images/im2.png"  alt=""></span>
+             <span  idx="2"  class="bg_arr bg_arr2"><img  src="images/im2.png"  alt=""/></span>
              <p class="join"><a href="todayRecommend.action"><img src="images/join_03.jpg" /></a></p>
              <p class="im3text">柴米市场是基于android平台的安卓资源下载平台，为安卓手机玩家提供最全、最新、最棒最快捷的海量国内外免费应用和游戏下载，
 这里汇集了大量最新最热应用和游戏，类目齐全,随心下载，自由享受更多玩机乐趣! </p>
@@ -147,7 +155,7 @@ $(function()
        <div class="im4">             
              <div  class="cont theme_bg">					
 					<div  class="theme theme2">
-                       <span  idx="3"  class="bg_arr bg_arr3"><img  src="images/im3.png"  alt=""></span>
+                       <span  idx="3"  class="bg_arr bg_arr3"><img  src="images/im3.png"  alt=""/></span>
 						<div  class="theme_title_box">
                             <div class="im4text">
                                 <p><img src="images/m_03.jpg" /></p>
@@ -156,7 +164,7 @@ $(function()
                                 <p><a href="E-zine.jsp"><img src="images/m_07.jpg" /></a></p>
                             </div>	
 							<div  class="theme_tit">
-								<strong  class="tit"><img  src="images/theme_tit1.gif"></strong>
+								<strong  class="tit"><img  src="images/theme_tit1.gif"/></strong>
 							</div>	
 						</div>
 						<!--theme_title_box-->
@@ -178,16 +186,16 @@ $(function()
 						<!--phone_box-->				
 						<div  class="theme_con">
 							<ul  class="theme_lst">
-							<li><a href="javascript:changeTheme(0);"><img  src="images/theme_thumb1.jpg"></a></li>
-							<li><a href="javascript:changeTheme(1);"><img  src="images/theme_thumb2.jpg"></a></li>
-							<li><a href="javascript:changeTheme(2);"><img  src="images/theme_thumb3.jpg"></a></li>
-							<li><a href="javascript:changeTheme(3);"><img  src="images/theme_thumb4.jpg"></a></li>
-							<li><a href="javascript:changeTheme(4);"><img  src="images/theme_thumb5.jpg"></a></li>
-							<li><a href="javascript:changeTheme(5);"><img  src="images/theme_thumb6.jpg"></a></li>
-							<li><a href="javascript:changeTheme(6);"><img  src="images/theme_thumb7.jpg"></a></li>
-							<li><a href="javascript:changeTheme(7);"><img  src="images/theme_thumb8.jpg"></a></li>
-							<li><a href="javascript:changeTheme(8);"><img  src="images/theme_thumb9.jpg"></a></li>
-							<li><a href="javascript:changeTheme(9);"><img  src="images/theme_thumb10.jpg" ></a></li>
+							<li><a href="javascript:changeTheme(0);"><img  src="images/theme_thumb1.jpg"/></a></li>
+							<li><a href="javascript:changeTheme(1);"><img  src="images/theme_thumb2.jpg"/></a></li>
+							<li><a href="javascript:changeTheme(2);"><img  src="images/theme_thumb3.jpg"/></a></li>
+							<li><a href="javascript:changeTheme(3);"><img  src="images/theme_thumb4.jpg"/></a></li>
+							<li><a href="javascript:changeTheme(4);"><img  src="images/theme_thumb5.jpg"/></a></li>
+							<li><a href="javascript:changeTheme(5);"><img  src="images/theme_thumb6.jpg"/></a></li>
+							<li><a href="javascript:changeTheme(6);"><img  src="images/theme_thumb7.jpg"/></a></li>
+							<li><a href="javascript:changeTheme(7);"><img  src="images/theme_thumb8.jpg"/></a></li>
+							<li><a href="javascript:changeTheme(8);"><img  src="images/theme_thumb9.jpg"/></a></li>
+							<li><a href="javascript:changeTheme(9);"><img  src="images/theme_thumb10.jpg"/></a></li>
 							
                             
                             </ul>

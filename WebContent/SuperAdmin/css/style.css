@@ -364,3 +364,10 @@ a.blue2{ color:#06C; text-decoration:underline}
 .appslist p{ float:left; margin-right:8px;}
 .appslist input{ width:40px; height:20px; line-height:20px; text-align:center;}
 .appslist .appque{ display:block; background:none; border:none; background:url(../images/bgg2.png) no-repeat; width:47px; height:24px; text-align:center; line-height:24px; color:#FFF;}
+/*====================business_order================*/
+.tit6s{ margin-bottom:15px;}
+.chaxun2{ background:url(../images/img23.png) no-repeat; width:78px; height:29px; line-height:29px; margin-left:20px; display:inline;}
+.allcha select{ height:25px; line-height:25px;}
+.jine{ font-size:16px;}
+.chatext2{ margin-left:0;}
+.mingxi{ background:url(../images/chakan.png) no-repeat; width:84px; height:22px; line-height:22px; font-weight:normal; color:#FFF;display:block;}

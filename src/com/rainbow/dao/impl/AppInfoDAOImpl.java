@@ -427,4 +427,11 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 		return query.getResultList().size();
 	}
 
+	@Override
+	public int findAllJointNum(int joint) {
+		Query query = entityManager.createQuery("select u from AppInfo u where u.joint = :joint");
+		query.setParameter("joint", joint);
+		return query.getResultList().size();
+	}
+
 }

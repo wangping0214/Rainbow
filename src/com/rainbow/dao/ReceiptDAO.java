@@ -13,7 +13,9 @@ public interface ReceiptDAO
 	 * type 00短代 01支付宝 11银联
 	 */
 	public List<Receipt> findByCp_idAndTypeAndTime(String cp_id,String type,String startTime,String endTime);
+	public List<Receipt> findByTypeAndTime(String type,String startTime,String endTime);
 	public List<Receipt> findByCp_idAndTime(String cp_id,String startTime,String endTime);
+	public List<Receipt> findByTime(String startTime,String endTime);
 	public Receipt findByOrder_id(String order_id);
 	public int findByCp_idNum(String cp_id);
 }

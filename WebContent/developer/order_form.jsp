@@ -185,7 +185,7 @@
 							<!--allcha-->
 							<div class="allcha">
 								<select id="pay_type">
-									<option>支付类型</option>
+									<option>全部支付</option>
 									<option>短代</option>
 									<option>支付宝</option>
 									<option>银联</option>

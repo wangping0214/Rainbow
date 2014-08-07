@@ -100,6 +100,9 @@ public interface AppInfoDAO {
 	public List<AppInfo> findAllJoint(int shelf,int joint,int currentPage,int pageSize);
 	public int findAllJointNum(int shelf,int joint);
 	
+	//找到联运应用的数量 不管是否上架，是否通过审核
+	public int findAllJointNum(int joint);
+	
 	public List<AppInfo> findUserTypeMessage(String userName,int isThrough,String type,int currentPage,int pageSize);
 	public int findUserTypeMessageNum(String userName,int isThrough,String type);
 	

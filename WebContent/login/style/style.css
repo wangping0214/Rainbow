@@ -85,7 +85,7 @@ ul{ list-style:none;}
 .footcont  a:hover{ color:#fff;}
 .logo2{ margin-top:15px; margin-left:180px; display:inline;}
 .icon2{ clear:both; width:132px; margin:70px auto 0 auto;}
-.fotter2{ width:100%; padding-top:30px;padding-bottom:30px;}
+.fotter2{ width:100%; padding-top:30px;}
 .fixed{position: fixed;
 _position: absolute;
 bottom: 0; width:100%;}
