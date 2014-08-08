@@ -852,7 +852,7 @@ function selectCategory(){
                                     } 
                                     }
                                     else{%>
-                                    <p><input type="radio" value="1" name="appInfo.fee"  />没有收费内容</p>
+                                    <p><input type="radio" value="1" name="appInfo.fee"  checked="checked"/>没有收费内容</p>
                                     <p><input type="radio" value="2" name="appInfo.fee"  />这个应用是试用版，付费后才能使用完整功能</p>
                                     <p><input type="radio" value="3" name="appInfo.fee" />这个应用包含付费内容，如表情，道具，电子书等虚拟物品</p>
                                     <p><input type="radio" value="4" name="appInfo.fee" />这个应用是试用版，付费后才能使用完整功能，同时应用中包含付费方可购买的虚拟物品</p>
@@ -1038,7 +1038,7 @@ function selectCategory(){
                                </div>
                                <div class="time"><label>发布时间:</label><p class="pp">
                                <%if(app.getAppInfo().getReleaseTime()==null){ %>
-                               <input type="radio" name="appInfo.releaseTime" value="0"/><b>审核后立即发布</b><br /><br />
+                               <input type="radio" name="appInfo.releaseTime" value="0" checked="checked"/><b>审核后立即发布</b><br /><br />
                                <input type="radio" name="appInfo.releaseTime" value="1"/><b>等待发布</b><br /><span>
 </span></p>			
 								<%}

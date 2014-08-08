@@ -31,5 +31,6 @@
     <include file="com/rainbow/struts/StatisticsAction.xml"></include><!-- 统计列表 -->
     <include file="com/rainbow/struts/reportAction.xml"></include><!-- 报表 -->
     <include file="com/rainbow/struts/dividManageAction.xml"></include><!-- 分成管理 -->
+    <include file="com/rainbow/struts/adminReportAction.xml"></include><!-- 超级管理员账单 -->
     
 </struts>

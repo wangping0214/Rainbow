@@ -239,6 +239,119 @@ border-radius: 15px;
 .new a,.price a{ position:relative;}
 .new a img{ position:absolute; top:-18px; right:-15px;}
 .price a img{ position:absolute; top:-18px;  right:-15px;}
+
+/*lunbo*/
+
+    #slides {
+      display: none; position:relative;
+    }
+
+    #slides .slidesjs-navigation {
+      margin-top:3px;
+    }
+
+    #slides .slidesjs-previous {
+      margin-right: 5px;
+      float: left;
+    }
+
+    #slides .slidesjs-next {
+      margin-right: 5px;
+      float: left;
+    }
+
+    .slidesjs-pagination {
+      margin: 6px 0 0;
+      float: right;
+      list-style: none;
+	  position:absolute; bottom:10px; right:30px; z-index:11
+    }
+
+    .slidesjs-pagination li {
+      float: left;
+      margin: 0 1px;
+    }
+
+    .slidesjs-pagination li a {
+      display: block;
+      width: 13px;
+      height: 0;
+      padding-top: 13px;
+      background-image: url(image/pagination.png);
+      background-position: 0 0;
+      float: left;
+      overflow: hidden;
+    }
+
+    .slidesjs-pagination li a.active,
+    .slidesjs-pagination li a:hover.active {
+      background-position: 0 -13px
+    }
+
+    .slidesjs-pagination li a:hover {
+      background-position: 0 -26px
+    }
+
+    #slides a:link,
+    #slides a:visited {
+      color: #333
+    }
+
+    #slides a:hover,
+    #slides a:active {
+      color: #9e2020
+    }
+
+    .navbar {
+      overflow: hidden
+    }
+  </style>
+  <!-- End SlidesJS Optional-->
+ <!-- CSS for slidesjs.com example -->
+  <link rel="stylesheet" href="css/example.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css"> 
+  <!-- End CSS for slidesjs.com example -->
+  <!-- SlidesJS Required: These styles are required if you'd like a responsive slideshow -->
+  <style>
+    #slides {
+      display: none
+    }
+
+    .container {
+		width:100%;
+      margin: 0 auto
+    }
+
+    /* For tablets & smart phones */
+    @media (max-width: 767px) {
+      .container {
+        width: 100%
+      }
+    }
+
+    /* For smartphones */
+    @media (max-width: 480px) {
+      .container {
+        width: 100%;
+      }
+    }
+
+    /* For smaller displays like laptops */
+    @media (min-width: 768px) and (max-width: 979px) {
+      .container {
+        width: 100%;
+      }
+    }
+
+    /* For larger displays */
+    @media (min-width: 1200px) {
+      .container {
+        width: 100%;
+      }
+    }
+
+
+
 </style>
 
 </head>
@@ -278,7 +391,7 @@ border-radius: 15px;
   </tr>
 </table>
 </div>
-<div class="fcc">
+<!-- <div class="fcc">
 <div class="scroll">
 	<div class="slide_01" id="slide_01">
 		<div class="mod_01"><a href="active.html"><img src="image/banner.jpg"  /></a></div>
@@ -288,7 +401,49 @@ border-radius: 15px;
 		<div id="slide_01_dot"></div>
 	</div>
 </div>
+ -->
+ 
+ 
+ 
+ <!-- SlidesJS Required: Start Slides -->
+  <!-- The container is used to define the width of the slideshow -->
+  <div class="container">
+    <div id="slides">
+      <a href="active.html"><img src="image/banner.jpg" width="100%" /></a>
+      <a href="indexAd/DJDouDiZhu_RainBow.apk"><img src="image/banner2.jpg" width="100%" /></a>
+      <a href="#" class="slidesjs-previous slidesjs-navigation"></a>
+      <a href="#" class="slidesjs-next slidesjs-navigation"></a>
+    </div>
+  </div>
+  <!-- End SlidesJS Required: Start Slides -->
 
+
+  <script src="js/jquery-1.9.1.min.js"></script>
+  <!-- End SlidesJS Required -->
+
+  <!-- SlidesJS Required: Link to jquery.slides.js -->
+  <script src="js/jquery.slides.min.js"></script>
+  <!-- End SlidesJS Required -->
+
+  <!-- SlidesJS Required: Initialize SlidesJS with a jQuery doc ready -->
+  <script>
+    $(function() {
+      $('#slides').slidesjs({
+        width: 940,
+        height: 390,
+        navigation: false,
+        play: {
+            active: false,
+            auto: true,
+            interval: 4000,
+            swap: true
+        }
+      });
+    });
+  </script>
+  <!-- End SlidesJS Required -->
+ 
+ 
 
 
 <s:iterator value="#request['app']" id="app">

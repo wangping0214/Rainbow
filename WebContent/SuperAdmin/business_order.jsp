@@ -1,5 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ page import="java.util.*"%>
+	<%@ page import="java.text.SimpleDateFormat"%>
+	<%@ page import="java.lang.*"%>
+	<%@ page import="com.rainbow.server.UserApps" %>
+	<%@ page import="com.rainbow.util.PageUtil" %>
+	<%
+		Integer jointAppCount = (Integer)session.getAttribute("jointAppCount");
+		Integer receiptCount = (Integer)session.getAttribute("receiptCount");
+		String cmyxPaySum = (String)session.getAttribute("cmyxPaySum");
+		PageUtil pageUtil = (PageUtil)session.getAttribute("page");
+		Date dt = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String initTime = sdf.format(dt);
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -22,6 +36,20 @@ $(function (){
 	});
 	
 });
+</script>
+<script type="text/javascript" language="javascript">
+$(document).ready(function(){
+	$("#companyOrName").focus(function(){
+		if($("#companyOrName").val()=="搜索企业名称"){
+			$("#companyOrName").val("");
+		}
+	});
+	$("#companyOrName").blur(function(){
+		if($("#companyOrName").val()==""){
+			$("#companyOrName").val("搜索企业名称");
+		}
+	});
+})
 </script>
 <style type="text/css">
 .searchcont2{ background:url(images/searchs.png) no-repeat; width:227px; height:25px; line-height:25px; margin:20px 0 7px 0px;}
@@ -48,57 +76,78 @@ $(function (){
                       <div class="guanggaocont">
                           <div class="huiyuancont">
                               <div class="tit6 tit6s">
-                                  <p>联运应用：  [<a href="#" class="red">500</a>]</p>
-                                  <p>订单总数：  [<a href="#" class="red">500</a>]</p>
-                                  <p>总支付额： [<a href="#" class="red">500</a>]</p>
+                                  <p>联运应用：  [<a href="#" class="red"><%=jointAppCount %></a>]</p>
+                                  <p>订单总数：  [<a href="#" class="red"><%=receiptCount %></a>]</p>
+                                  <p>总支付额： [<a href="#" class="red"><%=cmyxPaySum %></a>]</p>
                               </div>
                               <!--tit6-->
                               <div class="allorder">
-                                <p class="fl jine">金额：<span class="red"> xxx</span></p>
+                                <p class="fl jine">金额：<span class="red" id="earningsSum"></span></p>
                              </div>
                              <!--allorder-->
                              <div class="allcha">
-                                  <select>
+                                  <select id="payType">
                                       <option>全部支付</option>
                                       <option>短代</option>
                                       <option>支付宝</option>
                                       <option>银联</option>
                                   </select>
-                                  <p>从 <input type="text" class="mh_date" readonly="true" /> 到 <input type="text" class="mh_date" readonly="true" />&nbsp;<input type="submit" value="金额查询" class="chaxun chaxun2" /></p>
+                                  <p>从 <input type="text" class="mh_date" id="startTime" readonly="true" value="<%=initTime %>" /> 
+                                 	 到 <input type="text" class="mh_date" id="endTime" value="<%=initTime %>" readonly="true" />&nbsp;
+                                  <input type="button" value="金额查询" id="adminEarnings" class="chaxun chaxun2" /></p>
                              </div>
                              <!--allcha-->
                              <div class="allcha">
-                                  <p><input type="text" class="chatext chatext2" value="搜索企业名称" /><input type="submit" value="查询" class="chaxun" /></p>
+                                  <p><input type="text" id="companyOrName" class="chatext chatext2" value="搜索企业名称" />
+                                  <input type="button" value="查询" class="chaxun" /></p>
                              </div>
                              <!--allcha-->
                              <a name="dddd"></a>
-                             <table border="0" cellpadding="0" cellspacing="0" width="98%" class="table1">
+                             <table border="0" cellpadding="0" cellspacing="0" width="700" class="table1">
                                    <tr>
                                        <th width="25%">企业名称</th>
                                        <th width="20%">联运应用总数</th>
                                        <th width="18%">订单总数</th>
                                        <th width="20%">总支付金额</th>
                                        <th width="15%">&nbsp;</th>
-                                   </tr>
-                                   <tr>
-                                       <td class="name">北京五彩时空</td>
-                                       <td>222</td>
-                                       <td>333</td>
-                                       <td>20101010</td>
-                                       <td><a href="order_form.html" class="mingxi">查看明细</a></td>
-                                   </tr>
-                                  
+                                   </tr>                                  
                               </table>
-                              <ul class="page">
-                               <li><a href="#">首页</a></li>
-                               <li><a href="#">上一页</a></li>
-                               <li><a href="#">1</a></li>
-                               <li><a href="#">2</a></li>
-                               <li><a href="#">3</a></li>
-                               <li><a href="#">4</a></li>
-                               <li><a href="#">5</a></li>
-                               <li><a href="#">下一页</a></li>
-                             </ul>
+                              <iframe src="business_order_result.jsp" name="business_order_result" frameborder="0" width="850">
+                              </iframe>
+                             <ul class="page">
+    <s:set name="page" value="#request.page"/>
+       <s:if test="#page.hasFirst">
+       <li><a href="isShelf.action?appTmp.isShelfCurrentPage=1&appTmp.isShelf=-1">首页</a>
+		</li>
+		</s:if>
+       <s:if test="#page.hasPrevious">
+       <li><a href="isShelf.action?appTmp.isShelfCurrentPage=<s:property value="#page.currentPage-1"/>&appTmp.isShelf=-1">上一页</a>
+		</li>
+		</s:if>
+		<s:if test="#page.totalPage>1">
+       <li><a href="isShelf.action?appTmp.isShelfCurrentPage=1&appTmp.isShelf=-1">1</a></li>
+       </s:if>
+       <s:if test="#page.totalPage>2">
+       <li><a href="isShelf.action?appTmp.isShelfCurrentPage=2&appTmp.isShelf=-1">2</a></li>
+        </s:if>
+        <s:if test="#page.totalPage>3">
+       <li><a href="isShelf.action?appTmp.isShelfCurrentPage=3&appTmp.isShelf=-1">3</a></li>
+        </s:if>
+        <s:if test="#page.totalPage>4">
+       <li><a href="isShelf.action?appTmp.isShelfCurrentPage=4&appTmp.isShelf=-1">4</a></li>
+       </s:if>
+       <s:if test="#page.totalPage>5">
+       <li><a href="isShelf.action?appTmp.isShelfCurrentPage=5&appTmp.isShelf=-1">5</a></li>
+       </s:if>
+       <s:if test="#page.hasNext">
+       <li><a href="isShelf.action?appTmp.isShelfCurrentPage=<s:property value="#page.currentPage+1"/>&appTmp.isShelf=-1">下一页</a></li>
+       </s:if>
+       <s:if test="#page.hasLast">
+		<li><a href="isShelf.action?appTmp.isShelfCurrentPage=<s:property value="#page.totalPage"/>&appTmp.isShelf=-1">尾页</a></li>
+		</s:if>
+		<li>当前第<s:property value="#page.currentPage"/>页，总共<s:property value="#page.totalPage"/>页
+		</li>
+     </ul>
                           </div>
                           
                       </div>

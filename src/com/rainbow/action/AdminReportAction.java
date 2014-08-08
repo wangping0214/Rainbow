@@ -21,6 +21,8 @@ import com.rainbow.entity.AppSource;
 import com.rainbow.entity.Receipt;
 import com.rainbow.entity.User;
 import com.rainbow.server.App;
+import com.rainbow.server.AppReceipt;
+import com.rainbow.server.DetailReceipt;
 import com.rainbow.server.UserApps;
 import com.rainbow.util.PageUtil;
 
@@ -53,10 +55,23 @@ public class AdminReportAction {
 		int receiptCount = 0;//订单数
 		double cmyxPaySum = 0; //总金额
 		
-		int total = userDAO.findDiviedUserApprovedNum(1);
-		PageUtil page = new PageUtil(currentPage, total);
-		page.setPageSize(5);
-		List<User> userList = userDAO.findDiviedUserApproved(1, currentPage, page.getPageSize());
+		int total = 0;
+				
+		PageUtil page ;
+		 
+		List<User> userList = new ArrayList<User>();
+		if(companyOrName==null){
+			total = userDAO.findDiviedUserApprovedNum(1);
+			page = new PageUtil(currentPage, total);
+			page.setPageSize(5);
+			userList = userDAO.findDiviedUserApproved(1, currentPage, page.getPageSize());
+		}
+		else{
+			total = userDAO.findByUserCompanyOrNameNum(1, companyOrName);
+			page = new PageUtil(currentPage, total);
+			page.setPageSize(5);
+			userList = userDAO.findByUserCompanyOrName(1, companyOrName, currentPage, page.getPageSize());
+		}
 		List<UserApps> userAppsList = new ArrayList<UserApps>();
 		for(User user: userList){
 			List<App> appList = new ArrayList<App>();
@@ -83,9 +98,10 @@ public class AdminReportAction {
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		session.setAttribute("jointAppCount", jointAppCount);
 		session.setAttribute("receiptCount", receiptCount);
-		session.setAttribute("cmyxPaySum", cmyxPaySum);
+		session.setAttribute("cmyxPaySum", String.valueOf(cmyxPaySum));
 		session.setAttribute("userAppsList", userAppsList);
 		session.setAttribute("page", page);
+		
 		return Action.SUCCESS;
 	}
 	
@@ -156,6 +172,69 @@ public class AdminReportAction {
 		return Action.SUCCESS;
 	}
 	
+	/**
+	 * 超级管理员查看cp的账单
+	 * @return
+	 */
+	public String adminCheckUserReport(){
+		User user = userDAO.find(userId);
+		int cpTotalNum = 0;
+		cpTotalNum = appInfoDAO.findByUserIdAndThroughNum(user.getCp_id(), 1);// cp通过审核的应用的总数
+
+		int cpOrderNum = 0;
+		cpOrderNum = receiptDAO.findByCp_idNum(user.getCp_id());// cp的订单总数
+		
+		double paySun = 0.0;
+		double searchPaySun = 0.0;
+		/*
+		 * 查询cp每个应用的账单
+		 */
+		List<AppReceipt> appReceiptList = new ArrayList<AppReceipt>();
+		List<DetailReceipt> detailReceiptList = new ArrayList<DetailReceipt>();
+		List<AppInfo> appInfo = appInfoDAO.findUserJointApp(user.getCp_id(), 1);
+		for (AppInfo info : appInfo) {
+			AppSource sou = appSouDAO.findById(info.getId());
+			AppAuthority aut = appAutDAO.findById(info.getId());
+			AppReceipt appReceipt = new AppReceipt();
+			appReceipt.setApp(new App(info, sou, aut));
+			appReceipt.setUser(user);
+
+			List<Receipt> receiptList = receiptDAO.findByCp_idAndApp_id(
+					info.getCp_id(), info.getApp_id());
+			appReceipt.setReceiptList(receiptList);
+
+			int orderSun = 0;
+			int payment = 0;
+			for (Receipt receipt : receiptList) {
+				orderSun++;
+				payment += receipt.getPrice();
+				paySun += receipt.getPrice();
+				DetailReceipt detailReceipt = new DetailReceipt();
+				detailReceipt.setApp(new App(info, sou, aut));
+				detailReceipt.setUser(user);
+				detailReceipt.setReceipt(receipt);
+				detailReceiptList.add(detailReceipt);
+			}
+			appReceipt.setOrderSun(orderSun);
+			appReceipt.setPayment(payment);
+			appReceiptList.add(appReceipt);
+		}
+		/*
+		 * appReceiptList为cp的全部应用 reportList为根据cp的查询条件查询到的报表 初始这两个相同
+		 */
+
+		searchPaySun = paySun;
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		session.setAttribute("cpTotalNum", cpTotalNum);
+		session.setAttribute("cpOrderNum", cpOrderNum);
+		session.setAttribute("paySun", String.valueOf(paySun));
+		session.setAttribute("searchPaySun", String.valueOf(searchPaySun));
+		session.setAttribute("detailReceiptList", detailReceiptList);
+		session.setAttribute("appReceiptList", appReceiptList);
+
+		return Action.SUCCESS;
+	}
+	
 	public int getUserId() {
 		return userId;
 	}
@@ -201,14 +280,16 @@ public class AdminReportAction {
 	public void setOrderIdOrAppName(String orderIdOrAppName) {
 		this.orderIdOrAppName = orderIdOrAppName;
 	}
-	public AdminReportAction(AppInfoDAO appInfoDAO, AppSouDAO appSouDAO,
-			AppAutDAO appAutDAO, ReceiptDAO receiptDAO, String orderIdOrAppName) {
+
+	public AdminReportAction(UserDAO userDAO, AppInfoDAO appInfoDAO,
+			AppSouDAO appSouDAO, AppAutDAO appAutDAO, ReceiptDAO receiptDAO) {
 		super();
+		this.userDAO = userDAO;
 		this.appInfoDAO = appInfoDAO;
 		this.appSouDAO = appSouDAO;
 		this.appAutDAO = appAutDAO;
 		this.receiptDAO = receiptDAO;
-		this.orderIdOrAppName = orderIdOrAppName;
 	}
+	
 	
 }

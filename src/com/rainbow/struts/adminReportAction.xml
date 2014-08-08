@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+ <struts>
+ 	<package name="adminRepot" extends="struts-default">
+ 		<action name="adminReportInit" class="adminReportAction" method="adminReportInit">
+ 			<result>business_order.jsp</result>
+ 		</action>
+ 		
+ 		<action name="adminEarnings" class="adminReportAction" method="adminEarnings">
+ 		</action>
+ 		
+ 		<action name="adminSearchUserReport" class="adminReportAction" method="adminSearchUserReport">
+ 		</action>
+ 		
+ 		<action name="adminCheckUserReport" class="adminReportAction" method="adminCheckUserReport">
+ 		</action>
+ 	</package>
+ </struts>
