@@ -11,6 +11,7 @@
  		</action>
  		
  		<action name="adminSearchUserReport" class="adminReportAction" method="adminSearchUserReport">
+ 			<result>business_order_result.jsp</result>
  		</action>
  		
  		<action name="adminCheckUserReport" class="adminReportAction" method="adminCheckUserReport">

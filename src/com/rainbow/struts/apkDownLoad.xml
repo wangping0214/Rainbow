@@ -5,7 +5,6 @@
 <!--******************************** 文件下载******************************************* -->
     <package name="apkDownLoad" extends="struts-default">
     	<action name="downApk" class="attachmentDownAction" method="downApk">
-    		
     	</action>
     	<action name="downPhoto" class="attachmentDownAction" method="downPhoto">
     	</action>

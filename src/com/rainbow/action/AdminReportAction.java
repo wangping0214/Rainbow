@@ -1,6 +1,8 @@
 package com.rainbow.action;
 
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,65 +30,77 @@ import com.rainbow.util.PageUtil;
 
 /**
  * @author STerOTto
- *@version 2014-8-7 15:35:50
+ * @version 2014-8-7 15:35:50
  */
-public class AdminReportAction {
+public class AdminReportAction
+{
 	private UserDAO userDAO;
 	private AppInfoDAO appInfoDAO;
 	private AppSouDAO appSouDAO;
 	private AppAutDAO appAutDAO;
 	private ReceiptDAO receiptDAO;
-	
-	private int userId ;
-	private int appId ;
+
+	private int userId;
+	private int appId;
 	private String payType;
-	private String startTime ;
-	private String endTime ;
+	private String startTime;
+	private String endTime;
 	private String companyOrName;
-	private String orderIdOrAppName ;
-	private int currentPage = 1 ;
-	
+	private String orderIdOrAppName;
+	private int currentPage = 1;
+
 	/**
 	 * 企业订单初始化
+	 * 
 	 * @return
 	 */
-	public String adminReportInit(){
-		int jointAppCount = appInfoDAO.findAllJointNum(1);//联运应用数量
-		int receiptCount = 0;//订单数
-		double cmyxPaySum = 0; //总金额
-		
+	public String adminReportInit()
+	{
+		int jointAppCount = appInfoDAO.findAllJointNum(1);// 联运应用数量
+		int receiptCount = 0;// 订单数
+		double cmyxPaySum = 0; // 总金额
+
 		int total = 0;
-				
-		PageUtil page ;
-		 
+
+		PageUtil page;
+
 		List<User> userList = new ArrayList<User>();
-		if(companyOrName==null){
+		if (companyOrName == null || "搜索企业名称".equals(companyOrName)
+				|| "".equals(companyOrName))
+		{
 			total = userDAO.findDiviedUserApprovedNum(1);
 			page = new PageUtil(currentPage, total);
 			page.setPageSize(5);
-			userList = userDAO.findDiviedUserApproved(1, currentPage, page.getPageSize());
+			userList = userDAO.findDiviedUserApproved(1, currentPage,
+					page.getPageSize());
 		}
-		else{
+		else
+		{
 			total = userDAO.findByUserCompanyOrNameNum(1, companyOrName);
 			page = new PageUtil(currentPage, total);
 			page.setPageSize(5);
-			userList = userDAO.findByUserCompanyOrName(1, companyOrName, currentPage, page.getPageSize());
+			userList = userDAO.findByUserCompanyOrName(1, companyOrName,
+					currentPage, page.getPageSize());
 		}
 		List<UserApps> userAppsList = new ArrayList<UserApps>();
-		for(User user: userList){
+		for (User user : userList)
+		{
 			List<App> appList = new ArrayList<App>();
-			List<AppInfo> appInfo = appInfoDAO.findUserJointApp(user.getCp_id(), 1);
-			for(AppInfo info : appInfo){
+			List<AppInfo> appInfo = appInfoDAO.findUserJointApp(
+					user.getCp_id(), 1);
+			for (AppInfo info : appInfo)
+			{
 				AppSource sou = appSouDAO.findById(info.getId());
 				AppAuthority aut = appAutDAO.findById(info.getId());
-				appList.add(new App(info,sou,aut));
+				appList.add(new App(info, sou, aut));
 			}
 			List<Receipt> receiptList = receiptDAO.findByCp_id(user.getCp_id());
 			double paySum = 0;
-			for (Receipt receipt:receiptList){
+			for (Receipt receipt : receiptList)
+			{
 				receiptCount++;
 				paySum += receipt.getPrice();
-				cmyxPaySum+=receipt.getPrice();
+				cmyxPaySum += receipt.getPrice();
 			}
 			UserApps userApps = new UserApps();
 			userApps.setUser(user);
@@ -101,89 +115,67 @@ public class AdminReportAction {
 		session.setAttribute("cmyxPaySum", String.valueOf(cmyxPaySum));
 		session.setAttribute("userAppsList", userAppsList);
 		session.setAttribute("page", page);
-		
+
 		return Action.SUCCESS;
 	}
-	
+
 	/**
 	 * 管理员查询金额
+	 * 
 	 * @return
+	 * @throws IOException
 	 */
-	public void adminEarnings(){
+	public void adminEarnings() throws IOException
+	{
 		double earningsSum = 0;
 		List<Receipt> receiptList = new ArrayList<Receipt>();
-		if("全部支付".equals(payType)){
+		if ("全部支付".equals(payType))
+		{
 			receiptList = receiptDAO.findByTime(startTime, endTime);
 		}
-		else{
-			String typeReg="";
-			switch(payType){
-			case "短代":typeReg="00";break;
-			case "支付宝":typeReg="01";break;
-			default :typeReg="02";break;
+		else
+		{
+			String typeReg = "";
+			switch (payType)
+			{
+			case "短代":
+				typeReg = "00";
+				break;
+			case "支付宝":
+				typeReg = "01";
+				break;
+			default:
+				typeReg = "02";
+				break;
 			}
-			receiptList = receiptDAO.findByTypeAndTime(typeReg, startTime, endTime);
+			receiptList = receiptDAO.findByTypeAndTime(typeReg, startTime,
+					endTime);
 		}
-		for(Receipt receipt:receiptList)
-			earningsSum+=receipt.getPrice();
-		HttpServletResponse response = ServletActionContext.getResponse();      
-        response.setCharacterEncoding("UTF-8");      
-        try {
-			response.getWriter().write(String.valueOf(earningsSum));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		for (Receipt receipt : receiptList)
+			earningsSum += receipt.getPrice();
+		HttpServletResponse response = ServletActionContext.getResponse();
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		System.out.println("String.valueOf(earningsSum)="
+				+ String.valueOf(earningsSum));
+		response.getWriter().println(String.valueOf(earningsSum));
+
 	}
-	
-	/**
-	 * 超级管理员搜索某个企业的账单
-	 * @return
-	 */
-	public String adminSearchUserReport(){
-		int total = userDAO.findByUserCompanyOrNameNum(1, companyOrName);
-		PageUtil page = new PageUtil(currentPage, total);
-		page.setPageSize(5);
-		List<User> userList = userDAO.findByUserCompanyOrName(1, companyOrName, currentPage, page.getPageSize());
-		List<UserApps> userAppsList = new ArrayList<UserApps>();
-		for(User user: userList){
-			List<App> appList = new ArrayList<App>();
-			List<AppInfo> appInfo = appInfoDAO.findUserJointApp(user.getCp_id(), 1);
-			for(AppInfo info : appInfo){
-				AppSource sou = appSouDAO.findById(info.getId());
-				AppAuthority aut = appAutDAO.findById(info.getId());
-				appList.add(new App(info,sou,aut));
-			}
-			List<Receipt> receiptList = receiptDAO.findByCp_id(user.getCp_id());
-			double paySum = 0;
-			for (Receipt receipt:receiptList){
-				paySum += receipt.getPrice();
-			}
-			UserApps userApps = new UserApps();
-			userApps.setUser(user);
-			userApps.setApp(appList);
-			userApps.setReceiptList(receiptList);
-			userApps.setPaySum(paySum);
-			userAppsList.add(userApps);
-		}
-		HttpSession session = ServletActionContext.getRequest().getSession();
-		session.setAttribute("userAppsList", userAppsList);
-		session.setAttribute("page", page);
-		return Action.SUCCESS;
-	}
-	
+
 	/**
 	 * 超级管理员查看cp的账单
+	 * 
 	 * @return
 	 */
-	public String adminCheckUserReport(){
+	public String adminCheckUserReport()
+	{
 		User user = userDAO.find(userId);
 		int cpTotalNum = 0;
 		cpTotalNum = appInfoDAO.findByUserIdAndThroughNum(user.getCp_id(), 1);// cp通过审核的应用的总数
 
 		int cpOrderNum = 0;
 		cpOrderNum = receiptDAO.findByCp_idNum(user.getCp_id());// cp的订单总数
-		
+
 		double paySun = 0.0;
 		double searchPaySun = 0.0;
 		/*
@@ -192,7 +184,8 @@ public class AdminReportAction {
 		List<AppReceipt> appReceiptList = new ArrayList<AppReceipt>();
 		List<DetailReceipt> detailReceiptList = new ArrayList<DetailReceipt>();
 		List<AppInfo> appInfo = appInfoDAO.findUserJointApp(user.getCp_id(), 1);
-		for (AppInfo info : appInfo) {
+		for (AppInfo info : appInfo)
+		{
 			AppSource sou = appSouDAO.findById(info.getId());
 			AppAuthority aut = appAutDAO.findById(info.getId());
 			AppReceipt appReceipt = new AppReceipt();
@@ -205,7 +198,8 @@ public class AdminReportAction {
 
 			int orderSun = 0;
 			int payment = 0;
-			for (Receipt receipt : receiptList) {
+			for (Receipt receipt : receiptList)
+			{
 				orderSun++;
 				payment += receipt.getPrice();
 				paySun += receipt.getPrice();
@@ -235,54 +229,145 @@ public class AdminReportAction {
 		return Action.SUCCESS;
 	}
 	
-	public int getUserId() {
+	public String adminSearchUserReport()
+	{
+		int total = 0;
+
+		PageUtil page;
+
+		List<User> userList = new ArrayList<User>();
+		if (companyOrName == null || "搜索企业名称".equals(companyOrName)
+				|| "".equals(companyOrName))
+		{
+			total = userDAO.findDiviedUserApprovedNum(1);
+			page = new PageUtil(currentPage, total);
+			page.setPageSize(5);
+			userList = userDAO.findDiviedUserApproved(1, currentPage,
+					page.getPageSize());
+		}
+		else
+		{
+			total = userDAO.findByUserCompanyOrNameNum(1, companyOrName);
+			page = new PageUtil(currentPage, total);
+			page.setPageSize(5);
+			userList = userDAO.findByUserCompanyOrName(1, companyOrName,
+					currentPage, page.getPageSize());
+		}
+		List<UserApps> userAppsList = new ArrayList<UserApps>();
+		for (User user : userList)
+		{
+			List<App> appList = new ArrayList<App>();
+			List<AppInfo> appInfo = appInfoDAO.findUserJointApp(
+					user.getCp_id(), 1);
+			for (AppInfo info : appInfo)
+			{
+				AppSource sou = appSouDAO.findById(info.getId());
+				AppAuthority aut = appAutDAO.findById(info.getId());
+				appList.add(new App(info, sou, aut));
+			}
+			List<Receipt> receiptList = receiptDAO.findByCp_id(user.getCp_id());
+			double paySum = 0;
+			for (Receipt receipt : receiptList)
+			{
+				paySum += receipt.getPrice();
+			}
+			UserApps userApps = new UserApps();
+			userApps.setUser(user);
+			userApps.setApp(appList);
+			userApps.setReceiptList(receiptList);
+			userApps.setPaySum(paySum);
+			userAppsList.add(userApps);
+		}
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		session.setAttribute("userAppsList", userAppsList);
+		session.setAttribute("page", page);
+
+		return Action.SUCCESS;
+	}
+
+	public int getUserId()
+	{
 		return userId;
 	}
-	public void setUserId(int userId) {
+
+	public void setUserId(int userId)
+	{
 		this.userId = userId;
 	}
-	public int getAppId() {
+
+	public int getAppId()
+	{
 		return appId;
 	}
-	public void setAppId(int appId) {
+
+	public void setAppId(int appId)
+	{
 		this.appId = appId;
 	}
-	public String getPayType() {
+
+	public String getPayType()
+	{
 		return payType;
 	}
-	public void setPayType(String payType) {
+
+	public void setPayType(String payType)
+	{
 		this.payType = payType;
 	}
-	public String getStartTime() {
+
+	public String getStartTime()
+	{
 		return startTime;
 	}
-	public void setStartTime(String startTime) {
+
+	public void setStartTime(String startTime)
+	{
 		this.startTime = startTime;
 	}
-	public String getEndTime() {
+
+	public String getEndTime()
+	{
 		return endTime;
 	}
-	public void setEndTime(String endTime) {
+
+	public void setEndTime(String endTime)
+	{
 		this.endTime = endTime;
 	}
-	
-	public String getCompanyOrName() {
+
+	public String getCompanyOrName()
+	{
 		return companyOrName;
 	}
 
-	public void setCompanyOrName(String companyOrName) {
+	public void setCompanyOrName(String companyOrName)
+	{
 		this.companyOrName = companyOrName;
 	}
 
-	public String getOrderIdOrAppName() {
+	public String getOrderIdOrAppName()
+	{
 		return orderIdOrAppName;
 	}
-	public void setOrderIdOrAppName(String orderIdOrAppName) {
+
+	public void setOrderIdOrAppName(String orderIdOrAppName)
+	{
 		this.orderIdOrAppName = orderIdOrAppName;
+	}
+	
+	public int getCurrentPage()
+	{
+		return currentPage;
+	}
+
+	public void setCurrentPage(int currentPage)
+	{
+		this.currentPage = currentPage;
 	}
 
 	public AdminReportAction(UserDAO userDAO, AppInfoDAO appInfoDAO,
-			AppSouDAO appSouDAO, AppAutDAO appAutDAO, ReceiptDAO receiptDAO) {
+			AppSouDAO appSouDAO, AppAutDAO appAutDAO, ReceiptDAO receiptDAO)
+	{
 		super();
 		this.userDAO = userDAO;
 		this.appInfoDAO = appInfoDAO;
@@ -290,6 +375,5 @@ public class AdminReportAction {
 		this.appAutDAO = appAutDAO;
 		this.receiptDAO = receiptDAO;
 	}
-	
-	
+
 }
