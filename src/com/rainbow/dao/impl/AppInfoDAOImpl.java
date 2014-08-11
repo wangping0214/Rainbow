@@ -390,10 +390,10 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<AppInfo> findUserJointAppByAppName(String cp_id, int joint,String appName) {
-		Query query = entityManager.createQuery("select u from AppInfo u where u.cp_id = :cp_id and u.joint = :joint and u.appName = :appName");
+		Query query = entityManager.createQuery("select u from AppInfo u where u.cp_id = :cp_id and u.joint = :joint and u.appName like :appName");
 		query.setParameter("cp_id", cp_id);
 		query.setParameter("joint", joint);
-		query.setParameter("appName", appName);
+		query.setParameter("appName", "%"+appName+"%");
 		return query.getResultList();
 	}
 
@@ -407,6 +407,7 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 		else return null;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<AppInfo> findUserJointApp(String cp_id, int joint,
 			int currentPage, int pageSize) {

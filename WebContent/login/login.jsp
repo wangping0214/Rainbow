@@ -51,14 +51,16 @@ $(document).ready(function(){
 function getVerificationCode(){
 	jQuery.ajax({
 		type : "post",
-		url :	"<%=request.getContextPath()%>/getVerificationCode.action",
-		
+		url :	"getVerificationCode"
 	});
 }
-
 function refreshVerificationCode(){
-	$("#id_code").attr("src",getVerificationCode());
+	var url = "";
+	objectURL = window.URL.createObjectURL(getVerificationCode());
+	alert(url);
+	//$("#id_code").attr("src",url);
 }
+
 </script>
 </head>
 

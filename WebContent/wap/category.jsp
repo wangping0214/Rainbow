@@ -15,7 +15,7 @@
 	height:1000px;
 	
 }
-
+.app{height:500px; overflow:scroll;overflow-x:hidden;}
 .fc{    background-color:#E8E8E8;
     color:#333;
 	font-family: "微软雅黑";
@@ -238,10 +238,8 @@ body {
 <a href="fenlei.jsp" TEXT-DECORATION:"underline"; ><font color="#CC0000"  style="TEXT-DECORATION: underline">分类</font></a>　
 <a href="showByScoreAndDown.action?appTmp.showByScoreAndDownCurrentPage=1"><font color="#000">排行榜</font></a>　
 <a href="guanyu.jsp"><font color="#000">关于</font></a></div>
-<div class="fcc">
-  <hr />
-</div>
 
+<div class="app">
 <s:iterator value="#request['app']" id="app">
 <div  class="fc2-11">
 <div class="fc211"><a href="specificInformation.action?apkId=<s:property value="#app.appInfo.id"/>"><img src="<%=request.getContextPath() %><s:property value="#app.appSou.logo1"/>"  width="50px" height="50px" /></a></div>
@@ -252,6 +250,7 @@ body {
 <div class="fc214"><hr /><a href="specificInformation.action?apkId=<s:property value="#app.appInfo.id"/>">游戏简介：<s:property value="#app.appInfo.appIntrodution" /></a></div>
 </div>
 </s:iterator>
+</div>
 <div>
 <ul class="page">
     <s:set name="page" value="#request.page"/>

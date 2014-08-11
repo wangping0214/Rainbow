@@ -14,7 +14,27 @@
  			<result>business_order_result.jsp</result>
  		</action>
  		
- 		<action name="adminCheckUserReport" class="adminReportAction" method="adminCheckUserReport">
+ 		<action name="adminInitializeUserReport" class="adminReportAction" method="adminInitializeUserReport">
+ 			<result>order_form.jsp</result>
+ 		</action>
+ 		
+ 		<action name="adminSearchByOrderOrAppName" class="adminReportAction" method="adminSearchByOrderOrAppName">
+ 			<result>reportSearchResult.jsp</result>
+ 		</action>
+ 		
+ 		<action name="adminDownReportToExcel" class="adminReportAction" method="adminDownReportToExcel">
+ 		</action>
+ 		
+ 		<action name="adminSearchByAppName" class="adminReportAction" method="adminSearchByAppName">
+ 			<result>reportSearchResult.jsp</result>
+ 		</action>
+ 		
+ 		<action name="adminShowAppReportDetail" class="adminReportAction" method="adminShowAppReportDetail">
+ 			<result>reportSearchResult.jsp</result>
+ 		</action>
+ 		
+ 		<action name="adminSearchByTime" class="adminReportAction" method="adminSearchByTime">
+ 			<result>reportSearchResult.jsp</result>
  		</action>
  	</package>
  </struts>

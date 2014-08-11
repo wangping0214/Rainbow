@@ -292,10 +292,7 @@ li{
   </tr>
 </table>
 </div>
-<div class="fcc">
-  <hr />
-  
-</div>
+
 <div  class="fc2-11">
  &nbsp; &nbsp;游戏分类：<br />
  <div class="right1" onclick="location= 'showByCategory.action?appTmp.showByCategoryCurrentPage=1&category=1' ">

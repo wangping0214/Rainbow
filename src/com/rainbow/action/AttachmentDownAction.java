@@ -46,20 +46,6 @@ public class AttachmentDownAction
 
 	private static String bowser;// 浏览器类型
 
-	private HttpServletResponse response;
-	private HttpServletRequest request;
-	private HttpSession session;
-
-	/**
-	 * @return
-	 * @throws IOException
-	 */
-	// public InputStream getInputStream() throws IOException{
-	// File file = new
-	// File(ServletActionContext.getServletContext().getRealPath("")+new
-	// String(downPath.getBytes("ISO-8859-1"),"UTF-8"));
-	// return new FileInputStream(file);
-	// }
 
 	/**
 	 * 下载文件 将sou表中的id 跟下载路径传过来,并且转换成utf-8编码，以防中文乱码
@@ -81,7 +67,7 @@ public class AttachmentDownAction
 			response.setContentType("application/octet-stream; charset=UTF-8");// 设置文件格式
 			response.addHeader("Content-Disposition", "attachment; filename="
 					+ fileName);// 下载任务，而不是在线打开，并且将文件名传到下载任务
-			response.setHeader("contentLength", file.length() + "");
+			response.setHeader("Content-Length", String.valueOf(file.length()));
 			FileInputStream fis = new FileInputStream(file);
 			byte by[] = new byte[1024];
 			int i = -1;

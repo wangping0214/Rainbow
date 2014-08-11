@@ -109,6 +109,7 @@
 	line-height:1.5;
 
 }
+.app{height:500px; overflow:scroll;overflow-x:hidden;}
 .fc2-11{
 	color: #666;
 	font-family: "微软雅黑";
@@ -256,11 +257,9 @@ border-radius: 15px;
   </tr>
 </table>
 </div>
-<div class="fcc">
-  <hr />
-</div>
 
 
+<div class="app">
 <s:iterator value="#request['app']" id="app">
 <div  class="fc2-11">
 <div class="fc211"><a href="specificInformation.action?apkId=<s:property value="#app.appInfo.id"/>"><img src="<%=request.getContextPath() %><s:property value="#app.appSou.logo1"/>"  width="50px" height="50px" /></a></div>
@@ -291,6 +290,7 @@ border-radius: 15px;
 </a></div>
 </div>
 </s:iterator>
+</div>
 <div>
 <ul class="page">
     <s:set name="page" value="#request.page"/>

@@ -114,6 +114,7 @@ $(function() {
 					table.rows[1].cells[j].className="";
 					
 				}
+	
 				table.rows[1].cells[j].innerHTML ="0"+n;
 				n++;
 			}
@@ -126,7 +127,9 @@ $(function() {
 					 else {
 						if (n == today && isToday) {						
 							table.rows[i].cells[j].className="tdtoday";	
-							n="0"+n;
+							if(n<10){
+						      n="0"+n;	
+					         }
 						}else {
 							table.rows[i].cells[j].className="";
 							 if(n<10){

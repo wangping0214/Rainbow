@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ page import="java.util.*"%>
 <%@ page import="java.text.SimpleDateFormat"%>
 <%@ page import="java.lang.*"%>
@@ -11,7 +12,6 @@
 	Integer receiptCount = (Integer) session
 			.getAttribute("receiptCount");
 	String cmyxPaySum = (String) session.getAttribute("cmyxPaySum");
-	PageUtil pageUtil = (PageUtil) session.getAttribute("page");
 	Date dt = new Date();
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	String initTime = sdf.format(dt);
@@ -55,12 +55,12 @@
 				$("#companyOrName").val("搜索企业名称");
 			}
 		});
-		
+
 	});
-	function adminEarnings(){
+	function adminEarnings() {
 		jQuery.ajax({
 			type : "post",
-			dataType: "json",
+			dataType : "json",
 			url : "adminEarnings.action",
 			data : {
 				"payType" : $("#payType").val(),
@@ -68,10 +68,11 @@
 				"endTime" : $("#endTime").val()
 			},
 			success : function(response) {
-				alter(response);
-				//$("#earningsSum").html(response);
+				$("#earningsSum").html(response);
 			},
-			error:function(XMLResponse){alert(XMLResponse.responseText)}
+			error : function(XMLResponse) {
+				alert(XMLResponse.responseText)
+			}
 		});
 	}
 	function adminSearchUserReport(currentPage) {
@@ -161,20 +162,19 @@
 								</select>
 								<p>
 									从 <input type="text" class="mh_date" id="startTime"
-										readonly="true" value="<%=initTime%>" /> 到 <input
-										type="text" class="mh_date" id="endTime"
-										value="<%=initTime%>" readonly="true" />&nbsp; <input
-										type="button" value="金额查询" id="adminEarnings_id"
-										onclick="adminEarnings()"class="chaxun chaxun2" />
+										readonly="true" value="<%=initTime%>" /> 到 <input type="text"
+										class="mh_date" id="endTime" value="<%=initTime%>"
+										readonly="true" />&nbsp; <input type="button" value="金额查询"
+										id="adminEarnings_id" onclick="adminEarnings()"
+										class="chaxun chaxun2" />
 								</p>
 							</div>
 							<!--allcha-->
 							<div class="allcha">
 								<p>
 									<input type="text" id="companyOrName" class="chatext chatext2"
-										value="搜索企业名称" /> 
-										<input type="button" value="查询"
-										class="chaxun" onclick="adminSearchUserReport(1)"/>
+										value="搜索企业名称" /> <input type="button" value="查询"
+										class="chaxun" onclick="adminSearchUserReport(1)" />
 								</p>
 							</div>
 							<!--allcha-->
@@ -192,74 +192,46 @@
 							<iframe src="business_order_result.jsp"
 								name="business_order_result" frameborder="0" width="850">
 							</iframe>
-							<ul class="page">
-								<%
-									if (pageUtil.isHasFirst())
-									{
-								%>
-								<li><a href="javascript:adminSearchUserReport(1)">首页</a></li>
-								<%
-									}
-									if (pageUtil.isHasPrevious())
-									{
-								%>
 
-								<li><a
-									href="javascript:adminSearchUserReport(<%=pageUtil.getCurrentPage() - 1%>)">上一页</a>
-								</li>
-								<%
-									}
-									if (pageUtil.getTotalPage() > 1)
-									{
-								%>
-
-								<li><a href="javascript:adminSearchUserReport(1)">1</a></li>
-								<%
-									}
-									if (pageUtil.getTotalPage() > 2)
-									{
-								%>
-								<li><a href="javascript:adminSearchUserReport(2)">2</a></li>
-								<%
-									}
-									if (pageUtil.getTotalPage() > 3)
-									{
-								%>
-								<li><a href="javascript:adminSearchUserReport(3)">3</a></li>
-								<%
-									}
-									if (pageUtil.getTotalPage() > 4)
-									{
-								%>
-
-								<li><a href="javascript:adminSearchUserReport(4)">4</a></li>
-								<%
-									}
-									if (pageUtil.getTotalPage() > 5)
-									{
-								%>
-								<li><a href="javascript:adminSearchUserReport(5)">5</a></li>
-								<%
-									}
-									if (pageUtil.isHasNext())
-									{
-								%>
-								<li><a
-									href="javascript:adminSearchUserReport(<%=pageUtil.getCurrentPage() + 1%>)">下一页</a></li>
-								<%
-									}
-									if (pageUtil.isHasLast())
-									{
-								%>
-								<li><a
-									href="javascript:adminSearchUserReport(<%=pageUtil.getTotalPage()%>)">尾页</a></li>
-								<%
-									}
-								%>
-								<li>当前第<%=pageUtil.getCurrentPage()%>页，总共<%=pageUtil.getTotalPage()%>页
-								</li>
-							</ul>
 						</div>
+
+						<ul class="page">
+							<s:set name="page" value="#request.page" />
+							<s:if test="#page.hasFirst">
+								<li><a href="javascript:adminSearchUserReport(1)">首页</a></li>
+							</s:if>
+							<s:if test="#page.hasPrevious">
+								<li><a
+									href="javascript:adminSearchUserReport(<s:property value="#page.currentPage-1"/>)">上一页</a>
+								</li>
+							</s:if>
+							<s:if test="#page.totalPage>1">
+								<li><a href="javascript:adminSearchUserReport(1)">1</a></li>
+							</s:if>
+							<s:if test="#page.totalPage>2">
+								<li><a href="javascript:adminSearchUserReport(2)">2</a></li>
+							</s:if>
+							<s:if test="#page.totalPage>3">
+								<li><a href="javascript:adminSearchUserReport(3)">3</a></li>
+							</s:if>
+							<s:if test="#page.totalPage>4">
+								<li><a href="javascript:adminSearchUserReport(4)">4</a></li>
+							</s:if>
+							<s:if test="#page.totalPage>5">
+								<li><a href="javascript:adminSearchUserReport(5)">5</a></li>
+							</s:if>
+							<s:if test="#page.hasNext">
+								<li><a
+									href="javascript:adminSearchUserReport(<s:property value="#page.currentPage+1"/>)">下一页</a></li>
+							</s:if>
+							<s:if test="#page.hasLast">
+								<li><a
+									href="javascript:adminSearchUserReport(<s:property value="#page.totalPage"/>)">尾页</a></li>
+							</s:if>
+							<li>当前第<s:property value="#page.currentPage" />页，总共<s:property
+									value="#page.totalPage" />页
+							</li>
+						</ul>
 
 					</div>
 					<!--guanggaocont-->
