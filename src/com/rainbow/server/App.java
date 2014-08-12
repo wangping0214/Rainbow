@@ -6,6 +6,7 @@ import com.rainbow.entity.AppAuthority;
 import com.rainbow.entity.AppInfo;
 import com.rainbow.entity.AppSource;
 import com.rainbow.entity.Review;
+import com.rainbow.entity.TaxRate;
 
 /**
  * @author Administrator
@@ -15,6 +16,7 @@ public class App {
 	private AppInfo appInfo;
 	private AppSource appSou;
 	private AppAuthority appAut;
+	private TaxRate taxRate;
 	private List<Review> review;
 	
 	private String appAut_recomLevel;
@@ -39,6 +41,7 @@ public class App {
 		this.appInfo = new AppInfo();
 		this.appSou = new AppSource();
 		this.appAut = new AppAuthority();
+		this.taxRate = new TaxRate();
 	}
 	
 	public String getAppAut_recomLevel() {
@@ -82,6 +85,12 @@ public class App {
 	}
 	public void setReview(List<Review> review) {
 		this.review = review;
+	}
+	public TaxRate getTaxRate() {
+		return taxRate;
+	}
+	public void setTaxRate(TaxRate taxRate) {
+		this.taxRate = taxRate;
 	}
 	
 	

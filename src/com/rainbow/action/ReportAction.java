@@ -21,14 +21,17 @@ import com.rainbow.dao.AppAutDAO;
 import com.rainbow.dao.AppInfoDAO;
 import com.rainbow.dao.AppSouDAO;
 import com.rainbow.dao.ReceiptDAO;
+import com.rainbow.dao.TaxRateDAO;
 import com.rainbow.entity.AppAuthority;
 import com.rainbow.entity.AppInfo;
 import com.rainbow.entity.AppSource;
 import com.rainbow.entity.Receipt;
+import com.rainbow.entity.TaxRate;
 import com.rainbow.entity.User;
 import com.rainbow.server.App;
 import com.rainbow.server.AppReceipt;
 import com.rainbow.server.DetailReceipt;
+import com.rainbow.server.ReceiptTax;
 
 /**
  * @author STerOTto
@@ -40,6 +43,7 @@ public class ReportAction {
 	private AppInfoDAO appInfoDAO;
 	private AppSouDAO appSouDAO;
 	private AppAutDAO appAutDAO;
+	private TaxRateDAO taxRateDAO;
 
 	private int reportId;
 	private String type;
@@ -75,12 +79,23 @@ public class ReportAction {
 			AppSource sou = appSouDAO.findById(info.getId());
 			AppAuthority aut = appAutDAO.findById(info.getId());
 			AppReceipt appReceipt = new AppReceipt();
-			appReceipt.setApp(new App(info, sou, aut));
+			App app = new App(info, sou, aut);
+			appReceipt.setApp(app);
 			appReceipt.setUser(user);
-
+			
+			List<ReceiptTax> receiptTaxList = new ArrayList<ReceiptTax>();
 			List<Receipt> receiptList = receiptDAO.findByCp_idAndApp_id(
 					info.getCp_id(), info.getApp_id());
-			appReceipt.setReceiptList(receiptList);
+			for(Receipt receipt :receiptList){
+				SimpleDateFormat matter = new SimpleDateFormat("yyyy-MM");
+				String time = matter.format(receipt.getReceipt_time());
+				TaxRate taxRate = taxRateDAO.findByYearMonth(time);
+				ReceiptTax receiptTax = new ReceiptTax();
+				receiptTax.setReceipt(receipt);
+				receiptTax.setTaxRate(taxRate);
+				receiptTaxList.add(receiptTax);
+			}
+			appReceipt.setReceiptTaxList(receiptTaxList);
 
 			int orderSun = 0;
 			int payment = 0;
@@ -91,7 +106,14 @@ public class ReportAction {
 				DetailReceipt detailReceipt = new DetailReceipt();
 				detailReceipt.setApp(new App(info, sou, aut));
 				detailReceipt.setUser(user);
-				detailReceipt.setReceipt(receipt);
+				SimpleDateFormat matter = new SimpleDateFormat("yyyy-MM");
+				String time = matter.format(receipt.getReceipt_time());
+				TaxRate taxRate = taxRateDAO.findByYearMonth(time);
+				ReceiptTax receiptTax = new ReceiptTax();
+				receiptTax.setReceipt(receipt);
+				receiptTax.setTaxRate(taxRate);
+				receiptTaxList.add(receiptTax);
+				//error
 				detailReceiptList.add(detailReceipt);
 			}
 			appReceipt.setOrderSun(orderSun);
@@ -424,12 +446,14 @@ public class ReportAction {
 	}
 
 	public ReportAction(ReceiptDAO receiptDAO, AppInfoDAO appInfoDAO,
-			AppSouDAO appSouDAO, AppAutDAO appAutDAO) {
+			AppSouDAO appSouDAO, AppAutDAO appAutDAO, TaxRateDAO taxRateDAO) {
 		super();
 		this.receiptDAO = receiptDAO;
 		this.appInfoDAO = appInfoDAO;
 		this.appSouDAO = appSouDAO;
 		this.appAutDAO = appAutDAO;
+		this.taxRateDAO = taxRateDAO;
 	}
+
 
 }

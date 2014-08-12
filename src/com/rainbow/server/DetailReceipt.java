@@ -1,13 +1,12 @@
 package com.rainbow.server;
 
-import com.rainbow.entity.Receipt;
 import com.rainbow.entity.User;
 
 public class DetailReceipt
 {
 	private User user;
 	private App app;
-	private Receipt receipt;
+	private ReceiptTax ReceiptTax;
 	public User getUser()
 	{
 		return user;
@@ -24,13 +23,12 @@ public class DetailReceipt
 	{
 		this.app = app;
 	}
-	public Receipt getReceipt()
-	{
-		return receipt;
+	public ReceiptTax getReceiptTax() {
+		return ReceiptTax;
 	}
-	public void setReceipt(Receipt receipt)
-	{
-		this.receipt = receipt;
+	public void setReceiptTax(ReceiptTax receiptTax) {
+		ReceiptTax = receiptTax;
 	}
+	
 	
 }

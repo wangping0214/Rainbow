@@ -77,9 +77,6 @@
 				data : {
 					"appId" : appId,
 					"appAut.divided" : divided,
-					"appAut.channel_message" : channel_message,
-					"appAut.channel_bank" : channel_bank,
-					"appAut.channel_alipay" : channel_alipay
 				},
 				success : function() {
 					alert("修改成功！")
@@ -140,7 +137,7 @@
 												</div>
 												<div>
 													<input type="text" id="divided<s:property value='#st.count' />"
-														value="<s:property value="#app.appAut.divided" />">
+														value="<s:property value="#app.appAut.divided" />"/>
 												</div>
 											</td>
 											<td>
@@ -150,15 +147,15 @@
 												<div>
 													<p>
 														短代：<input type="text" id="channel_message<s:property value='#st.count' />"
-															value="<s:property value="#app.appAut.channel_message" />">
+															value="<s:property value="#app.taxRate.channel_message" />"/>
 													</p>
 													<p>
 														银联：<input type="text" id="channel_bank<s:property value='#st.count' />"
-															value="<s:property value="#app.appAut.channel_bank" />">
+															value="<s:property value="#app.taxRate.channel_bank" />"/>
 													</p>
 													<p>
 														支付宝：<input type="text" id="channel_alipay<s:property value='#st.count' />"
-															value="<s:property value="#app.appAut.channel_alipay" />">
+															value="<s:property value="#app.taxRate.channel_alipay" />"/>
 													</p>
 												</div>
 											</td>
@@ -219,20 +216,7 @@
 					</div>
 					<!--guanggaocont-->
 					<div class="guanggaocont">
-						<div class="qyzcshenpi">
-							<div class="daishenpi">
-								待审批数量<span class="red">10</span>
-							</div>
-							<div class="all">
-								<select><option>全部</option>
-									<option>企业用户</option>
-									<option>个人用户</option></select>
-							</div>
-							<div class="qi">
-								<span>企业</span><span class="green">五彩时空科技有限公司</span><a
-									href="chulishenpi.html" target="main" class="chuli">处理审批</a>
-							</div>
-						</div>
+						
 						<!--qyzcshenpi-->
 					</div>
 					<!--guanggaocont-->

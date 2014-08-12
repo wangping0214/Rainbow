@@ -15,6 +15,7 @@
 	Date dt = new Date();
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	String initTime = sdf.format(dt);
+	String companyOrName = (String)session.getAttribute("companyOrName");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -76,9 +77,9 @@
 		});
 	}
 	function adminSearchUserReport(currentPage) {
-		window.open("adminSearchUserReport?currentPage=" + currentPage
+		window.open("adminReportInit?currentPage=" + currentPage
 				+ "&companyOrName=" + $("#companyOrName").val(),
-				"business_order_result");
+				"main");
 	}
 </script>
 <style type="text/css">
@@ -173,7 +174,8 @@
 							<div class="allcha">
 								<p>
 									<input type="text" id="companyOrName" class="chatext chatext2"
-										value="搜索企业名称" /> <input type="button" value="查询"
+										<%if(companyOrName==null){ %>value="搜索企业名称"
+										<%}else{ %>value="<%=companyOrName %>"<%} %> /> <input type="button" value="查询"
 										class="chaxun" onclick="adminSearchUserReport(1)" />
 								</p>
 							</div>

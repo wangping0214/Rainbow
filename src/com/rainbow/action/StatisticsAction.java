@@ -38,7 +38,8 @@ public class StatisticsAction
 	private ReviewDAO reviewDAO;
 	
 	private String cp_id;
-	private int currentPage;
+	private int currentPage = 1 ;
+	private int appId;
 	
 	/**
 	 * 根据cp_id找到用户的通过审核的应用
@@ -71,6 +72,25 @@ public class StatisticsAction
 		return Action.SUCCESS;
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public String showAppStatistics(){
+		int total = 1;
+		PageUtil page = new PageUtil(currentPage, total);
+		page.setPageSize(5);
+		List<App> appList = new ArrayList<>();
+		AppInfo info = appInfoDAO.findById(appId);
+		AppSource sou = appSouDAO.findById(appId);
+		AppAuthority aut = appAutDAO.findById(appId);
+		List<Review> review = reviewDAO.findByAppId(appId);
+		App app = new App(info, sou, aut);
+		app.setReview(review);
+		appList.add(app);
+		Map request = (Map) ActionContext.getContext().get("request");
+		request.put("app", appList);
+		request.put("page", page);
+		return Action.SUCCESS;
+	}
+	
 	public StatisticsAction(AppInfoDAO appInfoDAO, AppAutDAO appAutDAO,
 			AppSouDAO appSouDAO, ReviewDAO reviewDAO)
 	{
@@ -94,6 +114,14 @@ public class StatisticsAction
 	public int getCurrentPage()
 	{
 		return currentPage;
+	}
+	
+	public int getAppId() {
+		return appId;
+	}
+
+	public void setAppId(int appId) {
+		this.appId = appId;
 	}
 
 	public void setCurrentPage(int currentPage)

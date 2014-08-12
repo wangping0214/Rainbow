@@ -95,11 +95,13 @@ public class AttachmentDownAction
 	 */
 	public void downApk() throws UnsupportedEncodingException
 	{
+		
+		downFile();
 		appSou = appSouDAO.findById(appSouId);
 		appAut = appAutDAO.findById(appSouId);
-		appAut.setAmountOfDown(appAut.getAmountOfDown() + 1);
+		int downAmount = appAut.getAmountOfDown();
+		appAut.setAmountOfDown(++downAmount);
 		appAutDAO.update(appSouId, appAut);
-		downFile();
 		// return Action.SUCCESS;
 	}
 

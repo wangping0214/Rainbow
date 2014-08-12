@@ -1,6 +1,8 @@
 package com.rainbow.action;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -9,10 +11,12 @@ import com.opensymphony.xwork2.ActionContext;
 import com.rainbow.dao.AppAutDAO;
 import com.rainbow.dao.AppInfoDAO;
 import com.rainbow.dao.AppSouDAO;
+import com.rainbow.dao.TaxRateDAO;
 import com.rainbow.dao.UserDAO;
 import com.rainbow.entity.AppAuthority;
 import com.rainbow.entity.AppInfo;
 import com.rainbow.entity.AppSource;
+import com.rainbow.entity.TaxRate;
 import com.rainbow.entity.User;
 import com.rainbow.server.App;
 import com.rainbow.server.UserApps;
@@ -27,6 +31,7 @@ public class DividManageAction {
 	private AppSouDAO appSouDAO;
 	private AppAutDAO appAutDAO;
 	private UserDAO userDAO;
+	private TaxRateDAO taxRateDAO;
 
 	private int appId;
 	private int currentPage = 1;
@@ -84,7 +89,13 @@ public class DividManageAction {
 		for (AppInfo info : appInfo) {
 			AppSource sou = appSouDAO.findById(info.getId());
 			AppAuthority aut = appAutDAO.findById(info.getId());
-			appList.add(new App(info, sou, aut));
+			App app = new App(info, sou, aut);
+			Date dt=new Date();
+			SimpleDateFormat matter1=new SimpleDateFormat("yyyy-MM");
+			String time = matter1.format(dt);
+			TaxRate taxRate = taxRateDAO.findByYearMonth(time);
+			app.setTaxRate(taxRate);
+			appList.add(app);
 		}
 		userApps.setUser(user);
 		userApps.setApp(appList);
@@ -100,19 +111,19 @@ public class DividManageAction {
 	public void editAppDivided() {
 		AppAuthority aut = appAutDAO.findById(appId);
 		aut.setDivided(appAut.getDivided());
-		aut.setChannel_bank(appAut.getChannel_bank());
-		aut.setChannel_alipay(appAut.getChannel_alipay());
-		aut.setChannel_message(appAut.getChannel_message());
 		appAutDAO.updatePart(aut);
 	}
 
+	
+
 	public DividManageAction(AppInfoDAO appInfoDAO, AppSouDAO appSouDAO,
-			AppAutDAO appAutDAO, UserDAO userDAO) {
+			AppAutDAO appAutDAO, UserDAO userDAO, TaxRateDAO taxRateDAO) {
 		super();
 		this.appInfoDAO = appInfoDAO;
 		this.appSouDAO = appSouDAO;
 		this.appAutDAO = appAutDAO;
 		this.userDAO = userDAO;
+		this.taxRateDAO = taxRateDAO;
 	}
 
 	public int getAppId() {

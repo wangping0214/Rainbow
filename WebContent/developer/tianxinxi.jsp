@@ -114,7 +114,7 @@ function user_check(){
 	$("#user_telephone").blur(function(){
 		var intelephone=$("#user_telephone").val();
 		if(intelephone!=""){
-			var reg=/^0?(13[0-9]|15[012356789]|18[02356789]|14[57])[0-9]{8}$/;
+			var reg=/^0?(13[0-9]|15[012356789]|18[0-9]|14[57]||17[0678])[0-9]{8}$/;
 			if(!reg.test(intelephone)){
 					alert("请输入正确的手机号");
 				return isUserTelephone =false;
@@ -234,7 +234,7 @@ function group_check(){
 	$("#group_telephone").blur(function(){
 		var intelephone=$("#group_telephone").val();
 		if(intelephone!=""){
-			var reg=/^0?(13[0-9]|15[012356789]|18[02356789]|14[57])[0-9]{8}$/;
+			var reg=/^0?(13[0-9]|15[012356789]|18[0-9]|14[57]||17[0678])[0-9]{8}$/;
 			if(!reg.test(intelephone)){
 					alert("请输入正确的手机号");
 				return isGroupTelephone =false;

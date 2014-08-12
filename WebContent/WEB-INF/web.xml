@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>Rainbow</display-name>
-   <!-- *****************************userError***************************** -->
-  <filter>
-  	<filter-name>userError</filter-name>
-  	<filter-class>com.rainbow.filter.UserError</filter-class>
-  	<init-param>  
-        <param-name>logonStrings</param-name><!-- 对登录页面不进行过滤 -->  
-        <param-value>/developer/index.jsp;login_developer.action;/developer/login.jsp;/developer/loginTimeOut.jsp;</param-value>  
-    </init-param>
-    <init-param>  
-        <param-name>includeStrings</param-name><!-- 只对指定过滤参数后缀进行过滤 -->  
-        <param-value>.action;.jsp</param-value>  
-    </init-param> 
-  </filter>
-  <filter-mapping>
-  	<filter-name>userError</filter-name>
-  	<url-pattern>/developer/*</url-pattern>
-  </filter-mapping>
-<!-- *****************************userError end***************************** -->
+   
   <filter>
     <filter-name>SprintOpenEntityManagerInViewFilter</filter-name>
     <filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter</filter-class>
@@ -36,6 +19,44 @@
     <filter-name>struts2</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  
+  <!-- *****************************userError***************************** -->
+  <filter>
+  	<filter-name>userError</filter-name>
+  	<filter-class>com.rainbow.filter.UserError</filter-class>
+  	<init-param>  
+        <param-name>logonStrings</param-name><!-- 对登录页面不进行过滤 -->  
+        <param-value>/developer/index.jsp;login_developer.action;/developer/login.jsp;/developer/loginTimeOut.jsp;/developer/brwserError.jsp</param-value>  
+    </init-param>
+    <init-param>  
+        <param-name>includeStrings</param-name><!-- 只对指定过滤参数后缀进行过滤 -->  
+        <param-value>.action;.jsp</param-value>  
+    </init-param> 
+  </filter>
+  <filter-mapping>
+  	<filter-name>userError</filter-name>
+  	<url-pattern>/developer/*</url-pattern>
+  </filter-mapping>
+<!-- *****************************userError end***************************** -->
+
+<!-- *****************************adminError***************************** -->
+  <filter>
+  	<filter-name>adminError</filter-name>
+  	<filter-class>com.rainbow.filter.AdminError</filter-class>
+  	<init-param>  
+        <param-name>logonStrings</param-name><!-- 对登录页面不进行过滤 -->  
+        <param-value>/SuperAdmin/index.jsp;login_admin.action;login_admin;/SuperAdmin/login.jsp;/SuperAdmin/loginTimeOut.jsp;</param-value>  
+    </init-param>
+    <init-param>  
+        <param-name>includeStrings</param-name><!-- 只对指定过滤参数后缀进行过滤 -->  
+        <param-value>.action;.jsp</param-value>  
+    </init-param> 
+  </filter>
+  <filter-mapping>
+  	<filter-name>adminError</filter-name>
+  	<url-pattern>/SuperAdmin/*</url-pattern>
+  </filter-mapping>
+<!-- *****************************adminError end***************************** -->
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
     <welcome-file>index.html</welcome-file>

@@ -36,6 +36,9 @@ public class VerificationAction {
     private HttpServletResponse response;
     private HttpServletRequest request;
     private HttpSession session;
+    
+    private String timestamp;
+    private String tamp;
     /**
      * 检查验证码是否输入正确
      * @return
@@ -190,6 +193,26 @@ public class VerificationAction {
 	}
 	public void setUserId(int userId) {
 		this.userId = userId;
+	}
+
+
+	public String getTimestamp() {
+		return timestamp;
+	}
+
+
+	public void setTimestamp(String timestamp) {
+		this.timestamp = timestamp;
+	}
+
+
+	public String getTamp() {
+		return tamp;
+	}
+
+
+	public void setTamp(String tamp) {
+		this.tamp = tamp;
 	}
 	
 }

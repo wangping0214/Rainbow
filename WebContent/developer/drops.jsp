@@ -152,11 +152,18 @@ function setIsShelf(name,id){
   <s:iterator value="#request['app']" id="app">
 	<div class="b3">
 	     <p><img src="<%=request.getContextPath() %><s:property value="#app.appSou.logo1"/>" width="80" height="80" /></p>
-		 <p><s:property value="#app.appInfo.appName" /></p>
+		 <p>
+		 <s:if test="#app.appInfo.appName.length()>6">
+<s:property value="#app.appInfo.appName.substring(0, 6) + \"...\"" />
+</s:if>
+<s:else>
+<s:property value="#app.appInfo.appName" />
+</s:else>
+		 </p>
 		 <div class="twobut">
              <a href="devEditApp.action?appTmp.editId=<s:property value="#app.appInfo.id"/>" target="main"></a>
              <a href="javascript:setIsShelf('<s:property value="#app.appInfo.appName"/>','<s:property value="#app.appInfo.id"/>');"></a>
-             <a href="tongjiliebiao2.jsp"></a>
+             <a href="showAppStatistics?appId=<s:property value="#app.appInfo.id"/>"></a>
              <a href="javascript:if(confirm('确认删除<s:property value="#app.appInfo.appName" />'))window.location='devDeleteApp.action?appTmp.deleteAppId=<s:property value="#app.appInfo.id"/>'" title="删除"></a>
 		  </div>
 	</div>

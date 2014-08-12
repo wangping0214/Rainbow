@@ -54,13 +54,23 @@ function getVerificationCode(){
 		url :	"getVerificationCode"
 	});
 }
-function refreshVerificationCode(){
-	var url = "";
-	objectURL = window.URL.createObjectURL(getVerificationCode());
-	alert(url);
-	//$("#id_code").attr("src",url);
-}
 
+//为了使每次生成图片不一致，即不让浏览器读缓存，所以需要加上时间戳
+function chgUrl(url){
+ var timestamp = (new Date()).valueOf();
+ url = url.substring(0,19);
+ if((url.indexOf("&")>=0)){
+  url = url + "×tamp=" + timestamp;
+ }else{
+  url = url + "?timestamp=" + timestamp;
+ }
+ return url;
+}
+function changeImg(){
+	 var imgSrc = $("#id_code");
+	 var src = imgSrc.attr("src");
+	 imgSrc.attr("src",chgUrl(src));
+	}
 </script>
 </head>
 
@@ -97,7 +107,7 @@ function refreshVerificationCode(){
         </div>
         <!--zhuceform-->
         <div class="yanzheng">
-            <div class="ma"><div><label>验证码：</label><input type="text" id="id_text_code"/></div><p><img src="getVerificationCode()" id="id_code" /><a href="javascript:location.reload();"><img src="<%=request.getContextPath()%>/login/images/sx.png" /></a></p></div>
+            <div class="ma"><div><label>验证码：</label><input type="text" id="id_text_code"/></div><p><img src="getVerificationCode" id="id_code" /><a href="javascript:changeImg();"><img src="<%=request.getContextPath()%>/login/images/sx.png" /></a></p></div>
         </div>
         <div class="zidong"><p class="fl"><input type="checkbox" checked="checked" />自动登录</p><a href="password_find1.jsp" class="fr">找回密码？</a></div>
 

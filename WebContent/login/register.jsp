@@ -67,10 +67,27 @@ $(document).ready(function(){
 function getVerificationCode(){
 	jQuery.ajax({
 		type : "post",
-		url :	"<%=request.getContextPath()%>/getVerificationCode.action",
+		url :	"getVerificationCode"
 		
 	});
 }
+
+//为了使每次生成图片不一致，即不让浏览器读缓存，所以需要加上时间戳
+function chgUrl(url){
+ var timestamp = (new Date()).valueOf();
+ url = url.substring(0,19);
+ if((url.indexOf("&")>=0)){
+  url = url + "×tamp=" + timestamp;
+ }else{
+  url = url + "?timestamp=" + timestamp;
+ }
+ return url;
+}
+function changeImg(){
+	 var imgSrc = $("#id_code");
+	 var src = imgSrc.attr("src");
+	 imgSrc.attr("src",chgUrl(src));
+	}
 
 function checkSubmit0(){
 	if(isEmailUsername&&isEmailEmail&&isEmailPassword&&isEmailRepassword){
@@ -239,7 +256,7 @@ function tel_check(){
 	$("#tel_telephone").blur(function(){
 		var intelephone=$("#tel_telephone").val();
 		if(intelephone!=""){
-			var reg=/^0?(13[0-9]|15[012356789]|18[02356789]|14[57])[0-9]{8}$/;
+			var reg=/^0?(13[0-9]|15[012356789]|18[0-9]|14[57]||17[0678])[0-9]{8}$/;
 			if(!reg.test(intelephone)){
 				$("#tel_telephone").text(function(){
 					$("#tel_telephone_div").text("请输入正确的手机号");
@@ -489,7 +506,7 @@ function ispass1(inpassword,inrepassword){
         </div>
         <!--zhuceform-->
         <div class="yanzheng">
-            <div class="ma"><div><label>验证码：</label><input type="text" id="email_cade_id" /></div><p><img src="getVerificationCode()" /><a href="javascript:location.reload();"><img src="<%=request.getContextPath()%>/login/images/sx.png" /></a></p></div>
+            <div class="ma"><div><label>验证码：</label><input type="text" id="email_cade_id" /></div><p><img src="getVerificationCode" id="id_code" /><a href="javascript:changeImg();"><img src="<%=request.getContextPath()%>/login/images/sx.png" /></a></p></div>
             <div class="gree"><input type="checkbox" checked="checked" />我已经阅读并同意<span class="red">《柴米用户服务条数》</span><a href="use_item.jsp">详情阅读</a></div>
         </div>
         <div class="zcbut"><input type="button"id="email_submit"  value="马上注册"/></div>

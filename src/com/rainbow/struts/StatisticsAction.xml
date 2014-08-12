@@ -6,5 +6,10 @@
 		<action name="showUserStatistics" class="statisticsAction" method="showUserStatistics">
 			<result>tongjiliebiao.jsp</result>
 		</action>
+		
+		<action name="showAppStatistics" class="statisticsAction" method="showAppStatistics">
+			<result>tongjiliebiao.jsp</result>
+		</action>
+		
 	</package>
 </struts>

@@ -62,7 +62,7 @@ public class AdminReportAction {
 
 	/**
 	 * 企业订单初始化
-	 * 
+	 * 管理员数据用户名或公司名模糊查询；
 	 * @return
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -75,7 +75,8 @@ public class AdminReportAction {
 
 		PageUtil page;
 
-		List<User> userList = new ArrayList<User>();
+		List<User> userList = new ArrayList<User>();//分页显示符合条件的cp
+		List<User> allUserList = new ArrayList<User>();//不分页显示符合条件的cp，用户求总的订单量和金额
 		if (companyOrName == null || "搜索企业名称".equals(companyOrName)
 				|| "".equals(companyOrName)) {
 			total = userDAO.findDiviedUserApprovedNum(1);
@@ -83,13 +84,24 @@ public class AdminReportAction {
 			page.setPageSize(5);
 			userList = userDAO.findDiviedUserApproved(1, currentPage,
 					page.getPageSize());
+			allUserList = userDAO.findDiviedUserApproved(1);
 		} else {
 			total = userDAO.findByUserCompanyOrNameNum(1, companyOrName);
 			page = new PageUtil(currentPage, total);
 			page.setPageSize(5);
 			userList = userDAO.findByUserCompanyOrName(1, companyOrName,
 					currentPage, page.getPageSize());
+			allUserList = userDAO.findByUserCompanyOrName(1, companyOrName);
 		}
+		
+		for(User user : allUserList){
+			List<Receipt> receiptList = receiptDAO.findByCp_id(user.getCp_id());
+			for (Receipt receipt : receiptList) {
+				receiptCount++;
+				cmyxPaySum += receipt.getPrice();
+			}
+		}
+		
 		List<UserApps> userAppsList = new ArrayList<UserApps>();
 		for (User user : userList) {
 			List<App> appList = new ArrayList<App>();
@@ -103,9 +115,7 @@ public class AdminReportAction {
 			List<Receipt> receiptList = receiptDAO.findByCp_id(user.getCp_id());
 			double paySum = 0;
 			for (Receipt receipt : receiptList) {
-				receiptCount++;
 				paySum += receipt.getPrice();
-				cmyxPaySum += receipt.getPrice();
 			}
 			UserApps userApps = new UserApps();
 			userApps.setUser(user);
@@ -119,6 +129,7 @@ public class AdminReportAction {
 		session.setAttribute("receiptCount", receiptCount);
 		session.setAttribute("cmyxPaySum", String.valueOf(cmyxPaySum));
 		session.setAttribute("userAppsList", userAppsList);
+		session.setAttribute("companyOrName", companyOrName);
 		Map request = (Map) ServletActionContext.getContext().get("request");
 		request.put("page", page);
 
@@ -161,61 +172,6 @@ public class AdminReportAction {
 
 	}
 
-	/**
-	 * 管理员数据用户名或公司名模糊查询；
-	 * 
-	 * @return
-	 */
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public String adminSearchUserReport() {
-		int total = 0;
-
-		PageUtil page;
-
-		List<User> userList = new ArrayList<User>();
-		if (companyOrName == null || "搜索企业名称".equals(companyOrName)
-				|| "".equals(companyOrName)) {
-			total = userDAO.findDiviedUserApprovedNum(1);
-			page = new PageUtil(currentPage, total);
-			page.setPageSize(5);
-			userList = userDAO.findDiviedUserApproved(1, currentPage,
-					page.getPageSize());
-		} else {
-			total = userDAO.findByUserCompanyOrNameNum(1, companyOrName);
-			page = new PageUtil(currentPage, total);
-			page.setPageSize(5);
-			userList = userDAO.findByUserCompanyOrName(1, companyOrName,
-					currentPage, page.getPageSize());
-		}
-		List<UserApps> userAppsList = new ArrayList<UserApps>();
-		for (User user : userList) {
-			List<App> appList = new ArrayList<App>();
-			List<AppInfo> appInfo = appInfoDAO.findUserJointApp(
-					user.getCp_id(), 1);
-			for (AppInfo info : appInfo) {
-				AppSource sou = appSouDAO.findById(info.getId());
-				AppAuthority aut = appAutDAO.findById(info.getId());
-				appList.add(new App(info, sou, aut));
-			}
-			List<Receipt> receiptList = receiptDAO.findByCp_id(user.getCp_id());
-			double paySum = 0;
-			for (Receipt receipt : receiptList) {
-				paySum += receipt.getPrice();
-			}
-			UserApps userApps = new UserApps();
-			userApps.setUser(user);
-			userApps.setApp(appList);
-			userApps.setReceiptList(receiptList);
-			userApps.setPaySum(paySum);
-			userAppsList.add(userApps);
-		}
-		HttpSession session = ServletActionContext.getRequest().getSession();
-		session.setAttribute("userAppsList", userAppsList);
-		Map request = (Map) ServletActionContext.getContext().get("request");
-		request.put("page", page);
-
-		return Action.SUCCESS;
-	}
 
 	/*
 	 * 下面是管理员查看某个cp具体的账单情况 根据userId找到user进行对应查询
