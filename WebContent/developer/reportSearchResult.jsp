@@ -105,27 +105,27 @@
 						String reg2 = "^[0-9]{12}01[0-9]*$";
 						String pay_type = "";
 						float channel = 0;
-						if (Pattern.matches(reg1, detailReceipt.getReceipt()
+						if (Pattern.matches(reg1, detailReceipt.getReceiptTax().getReceipt()
 								.getOrder_id())) {
 							pay_type = "短代";
-							channel = detailReceipt.getApp().getAppAut()
+							channel = detailReceipt.getReceiptTax().getTaxRate()
 									.getChannel_message();
-						} else if (Pattern.matches(reg2, detailReceipt.getReceipt()
+						} else if (Pattern.matches(reg2, detailReceipt.getReceiptTax().getReceipt()
 								.getOrder_id())) {
 							pay_type = "支付宝";
-							channel = detailReceipt.getApp().getAppAut()
+							channel = detailReceipt.getReceiptTax().getTaxRate()
 									.getChannel_alipay();
 						} else {
 							pay_type = "银联";
-							channel = detailReceipt.getApp().getAppAut()
+							channel = detailReceipt.getReceiptTax().getTaxRate()
 									.getChannel_bank();
 						}
 				%>
 			<tr>
 				<td width="15%"><%=detailReceipt.getApp().getAppInfo().getAppName()%></td>
-				<td width="20%"><%=detailReceipt.getReceipt().getReceipt_time()%></td>
-				<td width="20%"><%=detailReceipt.getReceipt().getOrder_id()%></td>
-				<td width="10%"><%=detailReceipt.getReceipt().getPrice()%></td>
+				<td width="20%"><%=detailReceipt.getReceiptTax().getReceipt().getReceipt_time()%></td>
+				<td width="20%"><%=detailReceipt.getReceiptTax().getReceipt().getOrder_id()%></td>
+				<td width="10%"><%=detailReceipt.getReceiptTax().getReceipt().getPrice()%></td>
 				<td width="10%"><%=pay_type%></td>
 				<td width="10%"><%=detailReceipt.getApp().getAppAut().getDivided()%></td>
 				<td width="10%"><%=channel%></td>

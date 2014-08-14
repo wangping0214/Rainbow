@@ -62,7 +62,7 @@
 				%>
 			</td>
 			<td width="20%"><%=userApps.getApp().size()%></td>
-			<td width="18%"><%=userApps.getReceiptList().size()%></td>
+			<td width="18%"><%=userApps.getReceiptTaxList().size()%></td>
 			<td width="20%"><%=userApps.getPaySum()%></td>
 			<td width="15%"><a
 				href="adminInitializeUserReport?userId=<%=userApps.getUser().getId()%>"

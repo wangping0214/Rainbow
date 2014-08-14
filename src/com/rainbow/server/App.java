@@ -9,7 +9,9 @@ import com.rainbow.entity.Review;
 import com.rainbow.entity.TaxRate;
 
 /**
- * @author Administrator
+ * app服务层
+ * 包含基本信息，app资源，管理信息，app的本月税率，app评论
+ * @author STerOtto
  *
  */
 public class App {

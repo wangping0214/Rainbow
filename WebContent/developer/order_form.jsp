@@ -139,7 +139,7 @@
 									总支付金额：<%=paySun%></p>
 							</div>
 							<!--tit6-->
-							<br></br>
+							<p style="color:red">红色为测试APP </p>
 							<div class="yonghu2">
 								<div class="orderlist">
 									<ul class="ornav">
@@ -153,7 +153,7 @@
 											for (AppReceipt appReceipt : appReceiptList) {
 										%>
 										<div>
-											<p><%=appReceipt.getApp().getAppInfo().getAppName()%></p>
+											<p <%if(appReceipt.getApp().getAppInfo().getIsThrough()==-2||appReceipt.getApp().getAppInfo().getIsThrough()==-3){ %> style="color:red"<%} %>><%=appReceipt.getApp().getAppInfo().getAppName()%></p>
 											<p><%=appReceipt.getOrderSun()%></p>
 											<p><%=appReceipt.getPayment()%></p>
 											<p>

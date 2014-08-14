@@ -117,4 +117,31 @@ public class ReceiptDAOImpl implements ReceiptDAO
 		return query.getResultList();
 	}
 
+	@Override
+	public void update(Receipt receipt) {
+		entityManager.merge(receipt);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Receipt> findByUserAppYearMonth(String cp_id,String app_id,String yearMonth) {
+		Query query = entityManager.createQuery("select u from Receipt u where u.cp_id = :cp_id and u.app_id = :app_id and u.receipt_time like :yearMonth");
+		query.setParameter("cp_id", cp_id);
+		query.setParameter("app_id", app_id);
+		query.setParameter("yearMonth", yearMonth+"%");
+		return query.getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Receipt> findByUserAppYearMonthCheckOut(String cp_id,
+			String app_id, String yearMonth, int check_out) {
+		Query query = entityManager.createQuery("select u from Receipt u where u.cp_id = :cp_id and u.app_id = :app_id and u.receipt_time like :yearMonth and u.check_out = :check_out");
+		query.setParameter("cp_id", cp_id);
+		query.setParameter("app_id", app_id);
+		query.setParameter("yearMonth", yearMonth+"%");
+		query.setParameter("check_out", check_out);
+		return query.getResultList();
+	}
+
 }

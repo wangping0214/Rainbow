@@ -5,6 +5,7 @@ import com.rainbow.entity.OtherPayment;
 
 /**
  * 支付服务层
+ * 包含短代支付和其它支付（支付宝和银联）
  * @author STerOTto
  *@version 2014-7-1 15:57:47
  */

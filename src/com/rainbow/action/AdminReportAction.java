@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,20 +23,35 @@ import org.apache.struts2.ServletActionContext;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 import com.opensymphony.xwork2.Action;
 import com.rainbow.dao.AppAutDAO;
 import com.rainbow.dao.AppInfoDAO;
 import com.rainbow.dao.AppSouDAO;
 import com.rainbow.dao.ReceiptDAO;
+import com.rainbow.dao.TaxRateDAO;
 import com.rainbow.dao.UserDAO;
 import com.rainbow.entity.AppAuthority;
 import com.rainbow.entity.AppInfo;
 import com.rainbow.entity.AppSource;
 import com.rainbow.entity.Receipt;
+import com.rainbow.entity.TaxRate;
 import com.rainbow.entity.User;
 import com.rainbow.server.App;
 import com.rainbow.server.AppReceipt;
 import com.rainbow.server.DetailReceipt;
+import com.rainbow.server.ReceiptTax;
 import com.rainbow.server.UserApps;
 import com.rainbow.util.PageUtil;
 
@@ -49,6 +65,7 @@ public class AdminReportAction {
 	private AppSouDAO appSouDAO;
 	private AppAutDAO appAutDAO;
 	private ReceiptDAO receiptDAO;
+	private TaxRateDAO taxRateDAO;
 
 	private int userId;
 	private int appId;
@@ -64,9 +81,10 @@ public class AdminReportAction {
 	 * 企业订单初始化
 	 * 管理员数据用户名或公司名模糊查询；
 	 * @return
+	 * @throws ParseException 
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public String adminReportInit() {
+	public String adminReportInit() throws ParseException {
 		int jointAppCount = appInfoDAO.findAllJointNum(1);// 联运应用数量
 		int receiptCount = 0;// 订单数
 		double cmyxPaySum = 0; // 总金额
@@ -112,15 +130,23 @@ public class AdminReportAction {
 				AppAuthority aut = appAutDAO.findById(info.getId());
 				appList.add(new App(info, sou, aut));
 			}
+			List<ReceiptTax> receiptTaxList = new ArrayList<ReceiptTax>();
 			List<Receipt> receiptList = receiptDAO.findByCp_id(user.getCp_id());
 			double paySum = 0;
 			for (Receipt receipt : receiptList) {
 				paySum += receipt.getPrice();
+				SimpleDateFormat matter = new SimpleDateFormat("yyyy-MM");		
+				String time = matter.format(matter.parse(receipt.getReceipt_time()));
+				TaxRate taxRate = taxRateDAO.findByYearMonth(time);
+				ReceiptTax receiptTax = new ReceiptTax();
+				receiptTax.setReceipt(receipt);
+				receiptTax.setTaxRate(taxRate);
+				receiptTaxList.add(receiptTax);
 			}
 			UserApps userApps = new UserApps();
 			userApps.setUser(user);
 			userApps.setApp(appList);
-			userApps.setReceiptList(receiptList);
+			userApps.setReceiptTaxList(receiptTaxList);
 			userApps.setPaySum(paySum);
 			userAppsList.add(userApps);
 		}
@@ -180,8 +206,9 @@ public class AdminReportAction {
 	 * 报表初始化
 	 * 
 	 * @return
+	 * @throws ParseException 
 	 */
-	public String adminInitializeUserReport() {
+	public String adminInitializeUserReport() throws ParseException {
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		User user = userDAO.find(userId);
 		int cpTotalNum = 0;
@@ -205,9 +232,19 @@ public class AdminReportAction {
 			appReceipt.setApp(new App(info, sou, aut));
 			appReceipt.setUser(user);
 
+			List<ReceiptTax> receiptTaxList = new ArrayList<ReceiptTax>();
 			List<Receipt> receiptList = receiptDAO.findByCp_idAndApp_id(
 					info.getCp_id(), info.getApp_id());
-			appReceipt.setReceiptList(receiptList);
+			for(Receipt receipt :receiptList){
+				SimpleDateFormat matter = new SimpleDateFormat("yyyy-MM");		
+				String time = matter.format(matter.parse(receipt.getReceipt_time()));
+				TaxRate taxRate = taxRateDAO.findByYearMonth(time);
+				ReceiptTax receiptTax = new ReceiptTax();
+				receiptTax.setReceipt(receipt);
+				receiptTax.setTaxRate(taxRate);
+				receiptTaxList.add(receiptTax);
+			}
+			appReceipt.setReceiptTaxList(receiptTaxList);
 
 			int orderSun = 0;
 			int payment = 0;
@@ -218,7 +255,13 @@ public class AdminReportAction {
 				DetailReceipt detailReceipt = new DetailReceipt();
 				detailReceipt.setApp(new App(info, sou, aut));
 				detailReceipt.setUser(user);
-				detailReceipt.setReceipt(receipt);
+				SimpleDateFormat matter = new SimpleDateFormat("yyyy-MM");
+				String time = matter.format(matter.parse(receipt.getReceipt_time()));
+				TaxRate taxRate = taxRateDAO.findByYearMonth(time);
+				ReceiptTax receiptTax = new ReceiptTax();
+				receiptTax.setReceipt(receipt);
+				receiptTax.setTaxRate(taxRate);
+				detailReceipt.setReceiptTax(receiptTax);
 				detailReceiptList.add(detailReceipt);
 			}
 			appReceipt.setOrderSun(orderSun);
@@ -243,8 +286,9 @@ public class AdminReportAction {
 
 	/**
 	 * 根据订单号或应用名称查询
+	 * @throws ParseException 
 	 */
-	public String adminSearchByOrderOrAppName() {
+	public String adminSearchByOrderOrAppName() throws ParseException {
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		User user = (User) session.getAttribute("user");
 		List<DetailReceipt> detailReceiptList = new ArrayList<DetailReceipt>();
@@ -262,7 +306,13 @@ public class AdminReportAction {
 					searchPaySun += receipt.getPrice();
 					detailReceipt.setApp(new App(info, sou, aut));
 					detailReceipt.setUser(user);
-					detailReceipt.setReceipt(receipt);
+					SimpleDateFormat matter = new SimpleDateFormat("yyyy-MM");
+					String time = matter.format(matter.parse(receipt.getReceipt_time()));
+					TaxRate taxRate = taxRateDAO.findByYearMonth(time);
+					ReceiptTax receiptTax = new ReceiptTax();
+					receiptTax.setReceipt(receipt);
+					receiptTax.setTaxRate(taxRate);
+					detailReceipt.setReceiptTax(receiptTax);
 					detailReceiptList.add(detailReceipt);
 				}
 			}
@@ -277,7 +327,13 @@ public class AdminReportAction {
 				AppAuthority aut = appAutDAO.findById(info.getId());
 				detailReceipt.setApp(new App(info, sou, aut));
 				detailReceipt.setUser(user);
-				detailReceipt.setReceipt(receipt);
+				SimpleDateFormat matter = new SimpleDateFormat("yyyy-MM");
+				String time = matter.format(matter.parse(receipt.getReceipt_time()));
+				TaxRate taxRate = taxRateDAO.findByYearMonth(time);
+				ReceiptTax receiptTax = new ReceiptTax();
+				receiptTax.setReceipt(receipt);
+				receiptTax.setTaxRate(taxRate);
+				detailReceipt.setReceiptTax(receiptTax);
 				detailReceiptList.add(detailReceipt);
 			}
 		session.setAttribute("searchPaySun", String.valueOf(searchPaySun));
@@ -312,19 +368,19 @@ public class AdminReportAction {
 			out.write(head.getBytes("gbk"));
 			if (detailReceiptList != null)
 				for (DetailReceipt detailReceipt : detailReceiptList) {
-					String type = getType(detailReceipt.getReceipt().getOrder_id());
+					String type = getType(detailReceipt.getReceiptTax().getReceipt().getOrder_id());
 					float channel = 0;
 					switch(type){
-					case "短代":channel = detailReceipt.getApp().getAppAut().getChannel_message();break;
-					case "支付宝":channel = detailReceipt.getApp().getAppAut().getChannel_alipay();break;
-					default:channel = detailReceipt.getApp().getAppAut().getChannel_bank();break;
+					case "短代":channel = detailReceipt.getReceiptTax().getTaxRate().getChannel_message();break;
+					case "支付宝":channel = detailReceipt.getReceiptTax().getTaxRate().getChannel_alipay();break;
+					default:channel = detailReceipt.getReceiptTax().getTaxRate().getChannel_bank();break;
 					}
 						String line = detailReceipt.getUser().getCorporatename()
 								+ "\t"
 								+ detailReceipt.getApp().getAppInfo().getAppName()
-								+ "\t「" + detailReceipt.getReceipt().getReceipt_time() + "」\t「"
-								+ detailReceipt.getReceipt().getOrder_id() + "」\t"
-								+ detailReceipt.getReceipt().getPrice() + "\t"
+								+ "\t「" + detailReceipt.getReceiptTax().getReceipt().getReceipt_time() + "」\t「"
+								+ detailReceipt.getReceiptTax().getReceipt().getOrder_id() + "」\t"
+								+ detailReceipt.getReceiptTax().getReceipt().getPrice() + "\t"
 								+ type + "\t"
 								+detailReceipt.getApp().getAppAut().getDivided()+"\t"
 								+channel+"\n";
@@ -358,8 +414,9 @@ public class AdminReportAction {
 
 	/**
 	 * 根据appName搜索
+	 * @throws ParseException 
 	 */
-	public String adminSearchByAppName() {
+	public String adminSearchByAppName() throws ParseException {
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		User user = (User) session.getAttribute("user");
 		List<DetailReceipt> detailReceiptList = new ArrayList<DetailReceipt>();
@@ -384,7 +441,13 @@ public class AdminReportAction {
 				DetailReceipt detailReceipt = new DetailReceipt();
 				detailReceipt.setApp(new App(info, sou, aut));
 				detailReceipt.setUser(user);
-				detailReceipt.setReceipt(receipt);
+				SimpleDateFormat matter = new SimpleDateFormat("yyyy-MM");
+				String time = matter.format(matter.parse(receipt.getReceipt_time()));
+				TaxRate taxRate = taxRateDAO.findByYearMonth(time);
+				ReceiptTax receiptTax = new ReceiptTax();
+				receiptTax.setReceipt(receipt);
+				receiptTax.setTaxRate(taxRate);
+				detailReceipt.setReceiptTax(receiptTax);
 				detailReceiptList.add(detailReceipt);	
 			}
 		}
@@ -396,8 +459,9 @@ public class AdminReportAction {
 	/**
 	 * 查看app的详情订单
 	 * @return
+	 * @throws ParseException 
 	 */
-	public String adminShowAppReportDetail(){
+	public String adminShowAppReportDetail() throws ParseException{
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		User user = (User) session.getAttribute("user");
 		List<DetailReceipt> detailReceiptList = new ArrayList<DetailReceipt>();
@@ -412,7 +476,13 @@ public class AdminReportAction {
 			DetailReceipt detailReceipt = new DetailReceipt();
 			detailReceipt.setApp(new App(info, sou, aut));
 			detailReceipt.setUser(user);
-			detailReceipt.setReceipt(receipt);
+			SimpleDateFormat matter = new SimpleDateFormat("yyyy-MM");
+			String time = matter.format(matter.parse(receipt.getReceipt_time()));
+			TaxRate taxRate = taxRateDAO.findByYearMonth(time);
+			ReceiptTax receiptTax = new ReceiptTax();
+			receiptTax.setReceipt(receipt);
+			receiptTax.setTaxRate(taxRate);
+			detailReceipt.setReceiptTax(receiptTax);
 			detailReceiptList.add(detailReceipt);	
 		}
 		session.setAttribute("searchPaySun", String.valueOf(searchPaySun));
@@ -421,8 +491,9 @@ public class AdminReportAction {
 	 }
 	/**
 	 * 根据时间段查询报表
+	 * @throws ParseException 
 	 */
-	public String adminSearchByTime(){
+	public String adminSearchByTime() throws ParseException{
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		User user = (User) session.getAttribute("user");
 		List<DetailReceipt> detailReceiptList = new ArrayList<DetailReceipt>();
@@ -449,7 +520,13 @@ public class AdminReportAction {
 			DetailReceipt detailReceipt = new DetailReceipt();
 			detailReceipt.setApp(new App(info, sou, aut));
 			detailReceipt.setUser(user);
-			detailReceipt.setReceipt(receipt);
+			SimpleDateFormat matter = new SimpleDateFormat("yyyy-MM");
+			String time = matter.format(matter.parse(receipt.getReceipt_time()));
+			TaxRate taxRate = taxRateDAO.findByYearMonth(time);
+			ReceiptTax receiptTax = new ReceiptTax();
+			receiptTax.setReceipt(receipt);
+			receiptTax.setTaxRate(taxRate);
+			detailReceipt.setReceiptTax(receiptTax);
 			detailReceiptList.add(detailReceipt);
 		}
 		session.setAttribute("searchPaySun", String.valueOf(searchPaySun));
@@ -570,13 +647,15 @@ public class AdminReportAction {
 	}
 
 	public AdminReportAction(UserDAO userDAO, AppInfoDAO appInfoDAO,
-			AppSouDAO appSouDAO, AppAutDAO appAutDAO, ReceiptDAO receiptDAO) {
+			AppSouDAO appSouDAO, AppAutDAO appAutDAO, ReceiptDAO receiptDAO,
+			TaxRateDAO taxRateDAO) {
 		super();
 		this.userDAO = userDAO;
 		this.appInfoDAO = appInfoDAO;
 		this.appSouDAO = appSouDAO;
 		this.appAutDAO = appAutDAO;
 		this.receiptDAO = receiptDAO;
+		this.taxRateDAO = taxRateDAO;
 	}
 
 }

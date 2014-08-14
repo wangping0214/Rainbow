@@ -23,7 +23,9 @@
                    <div class="list">
                       <h3 class="tit2">分成管理</h3>
                       <div class="form">
+                      			<a href="initTaxRate" class="edit_details">系数编辑</a>						                
                            <table border="0" cellpadding="0" cellspacing="0" width="90%" class="editform">
+                           	
                                <tr>
                                   <th width="40%">企业名称</th>
                                   <th width="30%">应用数量</th>
@@ -31,7 +33,15 @@
                                </tr>
                                <s:iterator id="userAppsList" value="#request['userAppsList']">
                                	<tr>
-                                  	<td><s:property value="#userAppsList.user.corporatename"/></td>
+                                  	<td>
+                                  	<s:if test="#userAppsList.user.corporatename!=null">
+                                  	<s:property value="#userAppsList.user.corporatename"/>
+                                  	</s:if>
+                                  	<s:else>
+                                  	<s:property value="#userAppsList.user.realname"/>
+                                  	</s:else>
+                                  	</td>
+                                  	
                                   	<td><s:property value="#userAppsList.app.size()" />款</td>
                                   	<td><a href="checkUserJointApps?userId=<s:property value="#userAppsList.user.id"/>" class="edit_details">详情编辑</a></td>
                                	</tr>

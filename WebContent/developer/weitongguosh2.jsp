@@ -140,7 +140,14 @@ a{ text-decoration:none; color:#666;}
   <s:iterator value="#request['app']" id="app">
 	<div class="b3">
 	     <p><a href="weitgliyou2.jsp?name=<s:property value="#app.appInfo.appName"/>&logo1=<s:property value="#app.appSou.logo1"/>&reasonsNotThrough=<s:property value="#app.appAut.reasonsNotThrough"/>&id=<s:property value="#app.appInfo.id"/>" target="main"><img src="<%=request.getContextPath() %><s:property value="#app.appSou.logo1"/>" width="80" height="80" /></a></p>
-		 <p><a href="weitgliyou2.jsp?name=<s:property value="#app.appInfo.appName"/>&logo1=<s:property value="#app.appSou.logo1"/>&reasonsNotThrough=<s:property value="#app.appAut.reasonsNotThrough"/>&id=<s:property value="#app.appInfo.id"/>" target="main"><s:property value="#app.appInfo.appName"/></a></p>
+		 <p><a href="weitgliyou2.jsp?name=<s:property value="#app.appInfo.appName"/>&logo1=<s:property value="#app.appSou.logo1"/>&reasonsNotThrough=<s:property value="#app.appAut.reasonsNotThrough"/>&id=<s:property value="#app.appInfo.id"/>" target="main">
+		 <s:if test="#app.appInfo.appName.length()>6">
+<s:property value="#app.appInfo.appName.substring(0, 6) + \"...\"" />
+</s:if>
+<s:else>
+<s:property value="#app.appInfo.appName" />
+</s:else>
+		 </a></p>
 	</div>
 	</s:iterator>
 	</div>

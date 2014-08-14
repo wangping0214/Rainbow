@@ -147,15 +147,15 @@
 												<div>
 													<p>
 														短代：<input type="text" id="channel_message<s:property value='#st.count' />"
-															value="<s:property value="#app.taxRate.channel_message" />"/>
+															value="<s:property value="#app.taxRate.channel_message" />" readonly="readonly"/>
 													</p>
 													<p>
 														银联：<input type="text" id="channel_bank<s:property value='#st.count' />"
-															value="<s:property value="#app.taxRate.channel_bank" />"/>
+															value="<s:property value="#app.taxRate.channel_bank" />" readonly="readonly"/>
 													</p>
 													<p>
 														支付宝：<input type="text" id="channel_alipay<s:property value='#st.count' />"
-															value="<s:property value="#app.taxRate.channel_alipay" />"/>
+															value="<s:property value="#app.taxRate.channel_alipay" />" readonly="readonly"/>
 													</p>
 												</div>
 											</td>

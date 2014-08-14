@@ -4,6 +4,12 @@ import java.util.List;
 
 import com.rainbow.entity.User;
 
+/**
+ * app账单服务层
+ * 包含app所有信息，开发者信息，订单信息，订单总数，app金钱总额
+ * @author STerOTto
+ *
+ */
 public class AppReceipt {
 	private User user;
 	private App app;

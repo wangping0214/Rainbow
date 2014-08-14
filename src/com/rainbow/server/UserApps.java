@@ -4,6 +4,12 @@ import java.util.List;
 
 import com.rainbow.entity.User;
 
+/**
+ * 开发者app服务层
+ * 包含开发者信息，某开发者的所有app信息，某开发者所有订单信息
+ * @author STerOTto
+ *
+ */
 public class UserApps {
 	private User user;
 	private List<App> app;
