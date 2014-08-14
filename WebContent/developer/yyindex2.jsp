@@ -159,7 +159,7 @@ function setWithdrawn(name,id){
 		 <p><s:property value="#app.appInfo.appName" /></p>
 		 <div class="twobut">
              <a href="devEditApp.action?appTmp.editId=<s:property value="#app.appInfo.id"/>" target="main"></a>
-             <a href="tongjiliebiao2.jsp"></a>
+             <a href="showAppStatistics?appId=<s:property value="#app.appInfo.id"/>"></a>
              <a href="javascript:setWithdrawn('<s:property value="#app.appInfo.appName" />','<s:property value="#app.appInfo.id"/>');"></a>
 		  </div>
 	</div>

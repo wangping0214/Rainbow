@@ -100,6 +100,7 @@
 			location.href="downReportToExcel";
 		});
 		$("#searchByTime").click(function(){
+			$("#app_select_id").val("全部应用");
 			window.open("searchByTime?type="+$("#pay_type").val()+"&startTime="+$("#startTime").val()+"&endTime="+$("#endTime").val(),"reportSearchResult")
 		});
 		$("#orderOrAppName").click(function(){

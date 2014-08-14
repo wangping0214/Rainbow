@@ -104,6 +104,7 @@
 			location.href="adminDownReportToExcel";
 		});
 		$("#searchByTime").click(function(){
+			$("#app_select_id").val("全部应用");
 			window.open("adminSearchByTime?payType="+$("#pay_type").val()+"&startTime="+$("#startTime").val()+"&endTime="+$("#endTime").val(),"reportSearchResult")
 		});
 		$("#orderOrAppName").click(function(){

@@ -211,9 +211,6 @@ public class AdminReportAction {
 	public String adminInitializeUserReport() throws ParseException {
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		User user = userDAO.find(userId);
-		int cpTotalNum = 0;
-		cpTotalNum = appInfoDAO.findByUserIdAndThroughNum(user.getCp_id(), 1);// cp通过审核的应用的总数
-
 		int cpOrderNum = 0;
 		cpOrderNum = receiptDAO.findByCp_idNum(user.getCp_id());// cp的订单总数
 		
@@ -225,6 +222,9 @@ public class AdminReportAction {
 		List<AppReceipt> appReceiptList = new ArrayList<AppReceipt>();
 		List<DetailReceipt> detailReceiptList = new ArrayList<DetailReceipt>();
 		List<AppInfo> appInfo = appInfoDAO.findUserJointApp(user.getCp_id(), 1);
+		int cpTotalNum = 0;
+		if(appInfo!=null)
+			cpTotalNum = appInfo.size();// cp通过审核的应用的总数
 		for (AppInfo info : appInfo) {
 			AppSource sou = appSouDAO.findById(info.getId());
 			AppAuthority aut = appAutDAO.findById(info.getId());
@@ -247,7 +247,7 @@ public class AdminReportAction {
 			appReceipt.setReceiptTaxList(receiptTaxList);
 
 			int orderSun = 0;
-			int payment = 0;
+			float payment = 0;
 			for (Receipt receipt : receiptList) {
 				orderSun++;
 				payment += receipt.getPrice();
@@ -299,10 +299,11 @@ public class AdminReportAction {
 			for (AppInfo info : appInfo) {
 				AppSource sou = appSouDAO.findById(info.getId());
 				AppAuthority aut = appAutDAO.findById(info.getId());
-				DetailReceipt detailReceipt = new DetailReceipt();
+				
 				List<Receipt> receiptList = receiptDAO.findByCp_idAndApp_id(
 						info.getCp_id(), info.getApp_id());
 				for (Receipt receipt : receiptList) {
+					DetailReceipt detailReceipt = new DetailReceipt();
 					searchPaySun += receipt.getPrice();
 					detailReceipt.setApp(new App(info, sou, aut));
 					detailReceipt.setUser(user);
@@ -353,13 +354,13 @@ public class AdminReportAction {
 		Date dt = new Date();
 		// 最后的aa表示“上午”或“下午” HH表示24小时制 如果换成hh表示12小时制
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
-		String fileName = "CMYX" + sdf.format(dt) + ".xsl";
+		String fileName = "CMYX" + sdf.format(dt) + ".xls";
 		try {
 			// 对文件名作处理，避免中文乱码问题
 			fileName = encodingFileName(fileName);
 			// 设置response相应属性，设置为下载
 			response.reset();
-			response.setContentType("application/vnd.ms-excel; charset=UTF-8");
+			response.setContentType("application/x-msdownload; charset=UTF-8");
 			response.setHeader("Content-Disposition", "attachment; filename="
 					+ fileName);
 			// 获得response中的输出流
@@ -494,6 +495,8 @@ public class AdminReportAction {
 	 * @throws ParseException 
 	 */
 	public String adminSearchByTime() throws ParseException{
+		startTime+=" 00:00:00";
+		endTime+=" 23:59:59";
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		User user = (User) session.getAttribute("user");
 		List<DetailReceipt> detailReceiptList = new ArrayList<DetailReceipt>();

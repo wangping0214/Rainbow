@@ -96,7 +96,16 @@
 <div id="report_div">
 		<table id="report_table" border="0" cellpadding="0"
 									cellspacing="0" width="700" class="table5">
-
+			<%if(detailReceiptList.size()==0){ %>
+			<tr>
+			<td></td>
+			<td></td>
+			<td>未查询到订单</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			</tr>
+			<%} %>
 			<%
 				for (DetailReceipt detailReceipt : detailReceiptList) {
 			%>
@@ -124,7 +133,14 @@
 			<tr>
 				<td width="15%"><%=detailReceipt.getApp().getAppInfo().getAppName()%></td>
 				<td width="20%"><%=detailReceipt.getReceiptTax().getReceipt().getReceipt_time()%></td>
-				<td width="20%"><%=detailReceipt.getReceiptTax().getReceipt().getOrder_id()%></td>
+				<td width="20%">
+				<%if(detailReceipt.getReceiptTax().getReceipt().getOrder_id().length()<=24){ %>
+				<%=detailReceipt.getReceiptTax().getReceipt().getOrder_id()%>
+				<%}
+				else{%>
+				<%=detailReceipt.getReceiptTax().getReceipt().getOrder_id().substring(0, 23)+"..." %>
+				<%} %>
+				</td>
 				<td width="10%"><%=detailReceipt.getReceiptTax().getReceipt().getPrice()%></td>
 				<td width="10%"><%=pay_type%></td>
 				<td width="10%"><%=detailReceipt.getApp().getAppAut().getDivided()%></td>

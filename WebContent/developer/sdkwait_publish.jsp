@@ -166,7 +166,7 @@ a{ text-decoration:none; color:#666;}
 		 <div class="twobut">
              <a href="devEditApp.action?appTmp.editId=<s:property value="#app.appInfo.id"/>" target="main"></a>
              <a href="javascript:shelfManage('<s:property value="#app.appInfo.appName" />','<s:property value="#app.appInfo.id"/>','1');"></a>
-             <a href="tongjiliebiao2.jsp"></a>
+             <a href="showAppStatistics?appId=<s:property value="#app.appInfo.id"/>"></a>
              <a href="javascript:shelfManage('<s:property value="#app.appInfo.appName" />','<s:property value="#app.appInfo.id"/>','-1');"></a>
              <a href="showAppProduct.action?apkId=<s:property value="#app.appInfo.id"/>" title="虚拟物品"></a>
 		  </div>
