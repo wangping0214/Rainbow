@@ -15,7 +15,7 @@ import com.rainbow.entity.UniqueId;
 /**
  * 
  * @author STerOtto
- * @version 2014-6-28 23:29:20 ÓÃÓÚÉú³Écp_id ºÍ app_id µÄµ¥Àı
+ * @version 2014-6-28 23:29:20 ç”¨äºç”Ÿæˆcp_id å’Œ app_id çš„å•ä¾‹
  * 
  */
 
@@ -48,15 +48,15 @@ public class IdGenerator
 	private UniqueIdDAO _uniqueIdDAO; // cp_id
 
 	/**
-	 * ¹¹Ôìº¯Êı
+	 * æ„é€ å‡½æ•°
 	 */
 	private IdGenerator()
 	{
-		_appIdSeedMap = new HashMap<String, AtomicLong>();// _appIdSeedMap³õÊ¼»¯
+		_appIdSeedMap = new HashMap<String, AtomicLong>();// _appIdSeedMapåˆå§‹åŒ–
 	}
 
 	/**
-	 * ³õÊ¼»¯_cpIdSeedºÍ_appIdSeedMap
+	 * åˆå§‹åŒ–_cpIdSeedå’Œ_appIdSeedMap
 	 */
 	public void initialize(Object uniqueIdDAO)
 	{
@@ -76,7 +76,7 @@ public class IdGenerator
 		UniqueId adminAppId = _uniqueIdDAO.findByName("00000000");
 		if (adminAppId == null)
 		{
-			// Èç¹ûÃ»ÓĞÎª¹ÜÀíÔ±Éú³ÉÒ»¸öÖÖ×ÓÔòÎª¹ÜÀíÔ±Éú³ÉÒ»¸öÖÖ×Ó
+			// å¦‚æœæ²¡æœ‰ä¸ºç®¡ç†å‘˜ç”Ÿæˆä¸€ä¸ªç§å­åˆ™ä¸ºç®¡ç†å‘˜ç”Ÿæˆä¸€ä¸ªç§å­
 			adminAppId = new UniqueId();
 			adminAppId.setName("00000000");
 			adminAppId.setValue(0L);
@@ -92,7 +92,7 @@ public class IdGenerator
 	}
 
 	/**
-	 * »ñÈ¡ÏÂÒ»¸öcp_id ²¢ÇÒÎªĞÂµÄcp´æÈëÒ»¸ö³õÊ¼»¯ÖÖ×Ó ²¢ÇÒ½«cp_idµÄÖÖ×Ó¸úĞÂ
+	 * è·å–ä¸‹ä¸€ä¸ªcp_id å¹¶ä¸”ä¸ºæ–°çš„cpå­˜å…¥ä¸€ä¸ªåˆå§‹åŒ–ç§å­ å¹¶ä¸”å°†cp_idçš„ç§å­è·Ÿæ–°
 	 * 
 	 * @return
 	 */
@@ -103,7 +103,7 @@ public class IdGenerator
 	}
 
 	/**
-	 * »ñÈ¡ÏÂÒ»¸öapp_id
+	 * è·å–ä¸‹ä¸€ä¸ªapp_id
 	 * 
 	 * @param cpId
 	 * @return
@@ -112,7 +112,7 @@ public class IdGenerator
 	{
 		if (!_appIdSeedMap.containsKey(cpId))
 		{
-			// Èç¹û_appIdSeedMapÖĞ²»°üº¬cpIdÔòĞÂ½¨Ò»¸öapp_id
+			// å¦‚æœ_appIdSeedMapä¸­ä¸åŒ…å«cpIdåˆ™æ–°å»ºä¸€ä¸ªapp_id
 			_appIdSeedMap.put(cpId, new AtomicLong(0));
 			UniqueId appIdSeedNew = new UniqueId();
 			appIdSeedNew.setName(cpId);
@@ -124,18 +124,18 @@ public class IdGenerator
 	}
 
 	/**
-	 * ¸úĞÂÊı¾İ¿âÖĞµÄÖÖ×Ó
+	 * è·Ÿæ–°æ•°æ®åº“ä¸­çš„ç§å­
 	 */
 	public void destroy()
 	{
 
 		// persist
-		for (Entry<String, AtomicLong> entry : _appIdSeedMap.entrySet())// ¸úĞÂapp_idÖÖ×Ó
+		for (Entry<String, AtomicLong> entry : _appIdSeedMap.entrySet())// è·Ÿæ–°app_idç§å­
 		{
 			UniqueId appIdSeed = _uniqueIdDAO.findByName(entry.getKey());
 			if (appIdSeed != null)
 			{
-				// Êı¾İ¿âÖĞÓĞ£¬ÔòÎª¸úĞÂ ·ñÔò´æÈëĞÂµÄapp_idµÄÖÖ×Ó
+				// æ•°æ®åº“ä¸­æœ‰ï¼Œåˆ™ä¸ºè·Ÿæ–° å¦åˆ™å­˜å…¥æ–°çš„app_idçš„ç§å­
 				appIdSeed.setValue(entry.getValue().get());
 				_uniqueIdDAO.update(appIdSeed);
 			}
@@ -143,7 +143,7 @@ public class IdGenerator
 			{
 				appIdSeed = new UniqueId();
 				appIdSeed.setName(entry.getKey());
-				// Êı¾İ¿âÖĞÓĞ£¬ÔòÎª¸úĞÂ ·ñÔò´æÈëĞÂµÄapp_idµÄÖÖ×Ó
+				// æ•°æ®åº“ä¸­æœ‰ï¼Œåˆ™ä¸ºè·Ÿæ–° å¦åˆ™å­˜å…¥æ–°çš„app_idçš„ç§å­
 				appIdSeed.setValue(entry.getValue().get());
 				_uniqueIdDAO.save(appIdSeed);
 			}
@@ -154,11 +154,15 @@ public class IdGenerator
 		{
 			cpIdSeedEntity = new UniqueId();
 			cpIdSeedEntity.setName(CP_ID_SEED_NAME);
-			cpIdSeedEntity.setValue(0L);
+			cpIdSeedEntity.setValue(_cpIdSeed.get());
 			_uniqueIdDAO.save(cpIdSeedEntity);
+			logger.info(String.format("Save cpIdSeed=%d", _cpIdSeed.get()));
 		}
-		cpIdSeedEntity.setValue(_cpIdSeed.get());
-		_uniqueIdDAO.update(cpIdSeedEntity);
-		logger.info(String.format("Persist cpIdSeed with %d", _cpIdSeed.get()));
+		else
+		{
+			cpIdSeedEntity.setValue(_cpIdSeed.get());
+			_uniqueIdDAO.update(cpIdSeedEntity);
+			logger.info(String.format("Update cpIdSeed=%d", _cpIdSeed.get()));
+		}
 	}
 }
