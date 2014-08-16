@@ -1,7 +1,5 @@
 package com.rainbow.server;
 
-import java.io.Serializable;
-
 import com.rainbow.entity.TaxRate;
 
 /**
@@ -10,11 +8,7 @@ import com.rainbow.entity.TaxRate;
  * @author STerOTto
  *
  */
-public class TaxRateSev implements Serializable{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class TaxRateSev {
 	private TaxRate taxRate;
 	private String year;
 	private String month;

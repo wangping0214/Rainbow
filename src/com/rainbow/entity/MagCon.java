@@ -1,7 +1,5 @@
 package com.rainbow.entity;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,11 +11,7 @@ import javax.persistence.Transient;
 
 @Entity
 @Table(name="magcontent")
-public class MagCon implements Serializable{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class MagCon {
 	@Id
 	@Column(name="id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

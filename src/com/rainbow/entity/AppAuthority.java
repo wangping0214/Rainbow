@@ -1,7 +1,5 @@
 package com.rainbow.entity;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,11 +10,7 @@ import javax.persistence.Transient;
 
 @Entity
 @Table(name = "appAuthority")
-public class AppAuthority implements Serializable{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class AppAuthority {
 	@Id
 	@Column(name="id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

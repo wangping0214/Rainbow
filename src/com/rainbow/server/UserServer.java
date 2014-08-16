@@ -1,15 +1,9 @@
 package com.rainbow.server;
 
-import java.io.Serializable;
-
 import com.rainbow.entity.User;
 
-public class UserServer implements Serializable
+public class UserServer
 {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private User user;
 	private App app;
 	

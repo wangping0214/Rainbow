@@ -12,7 +12,7 @@
     </init-param>
     <init-param>  
         <param-name>includeStrings</param-name><!-- 只对指定过滤参数后缀进行过滤 -->  
-        <param-value>.action;.jsp</param-value>  
+        <param-value>.js;.action;.jsp</param-value>  
     </init-param> 
   </filter>
   <filter-mapping>

@@ -1,7 +1,5 @@
 package com.rainbow.server;
 
-import java.io.Serializable;
-
 import com.rainbow.entity.MessagePayment;
 import com.rainbow.entity.OtherPayment;
 
@@ -11,11 +9,7 @@ import com.rainbow.entity.OtherPayment;
  * @author STerOTto
  *@version 2014-7-1 15:57:47
  */
-public class Pay implements Serializable{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class Pay {
 	private MessagePayment mesPay;
 	private OtherPayment otherPay;
 	

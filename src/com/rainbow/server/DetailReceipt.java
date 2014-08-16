@@ -1,7 +1,5 @@
 package com.rainbow.server;
 
-import java.io.Serializable;
-
 import com.rainbow.entity.User;
 
 /**
@@ -10,12 +8,8 @@ import com.rainbow.entity.User;
  * @author STerOTto
  *
  */
-public class DetailReceipt implements Serializable
+public class DetailReceipt
 {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private User user;
 	private App app;
 	private ReceiptTax ReceiptTax;
