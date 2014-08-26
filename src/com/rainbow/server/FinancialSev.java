@@ -1,5 +1,6 @@
 package com.rainbow.server;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.rainbow.entity.User;
@@ -10,7 +11,11 @@ import com.rainbow.entity.User;
  * @author STerOTto
  *
  */
-public class FinancialSev {
+public class FinancialSev implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private User user;
 	private List<Financial> financialList;
 	public User getUser() {

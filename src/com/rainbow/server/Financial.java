@@ -1,5 +1,6 @@
 package com.rainbow.server;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.rainbow.entity.Receipt;
@@ -12,7 +13,11 @@ import com.rainbow.entity.TaxRate;
  * @author STerOTto
  *
  */
-public class Financial {
+public class Financial implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int check_out;
 	private App app;
 	private List<Receipt> receiptList;
