@@ -410,7 +410,8 @@ border-radius: 15px;
   <div class="container">
     <div id="slides">
       <a href="active.html"><img src="image/banner.jpg" width="100%" /></a>
-      <a href="indexAd/DJDouDiZhu_RainBow.apk"><img src="image/banner2.jpg" width="100%" /></a>
+      <a href="indexAd/bxxy_caimi_CN.apk"><img src="indexAd/bxxy_caimi_CN.jpg" width="100%" /></a>
+      <a href="indexAd/JungleRunner.apk"><img src="indexAd/JungleRunner.jpg" width="100%" /></a>
       <a href="#" class="slidesjs-previous slidesjs-navigation"></a>
       <a href="#" class="slidesjs-next slidesjs-navigation"></a>
     </div>

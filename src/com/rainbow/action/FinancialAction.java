@@ -1,5 +1,6 @@
 package com.rainbow.action;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -65,7 +66,7 @@ public class FinancialAction {
 			year = String.valueOf(now.get(Calendar.YEAR));
 		}
 		if (month == null || "".equals(month)) {
-			month = String.format("%02d",now.get(Calendar.MONTH));
+			month = String.format("%02d",now.get(Calendar.MONTH)+1);
 		}
 		else
 			month = String.format("%02d",Integer.valueOf(month));
@@ -77,6 +78,7 @@ public class FinancialAction {
 		}
 		else{
 			switch(status){
+				case "全部": check_out = -1;break;
 				case "已结算": check_out = 1;break;
 				default : check_out = 0;break;
 			}
@@ -88,7 +90,6 @@ public class FinancialAction {
 			List<AppInfo> appInfoList = appInfoDAO.findUserJointApp(
 					user.getCp_id(), 1);
 			for (AppInfo info : appInfoList) {
-				System.out.println("appName:"+info.getAppName());
 				Financial financial = new Financial();
 				AppSource sou = appSouDAO.findById(info.getId());
 				AppAuthority aut = appAutDAO.findById(info.getId());
@@ -109,11 +110,11 @@ public class FinancialAction {
 					return Action.ERROR;
 				financial.setTaxRate(taxRate);
 
-				double sum = 0;
-				double massageSum = 0;
-				double alipaySum = 0;
-				double bankSum = 0;
-				double paySum = 0;
+				double sum = 0.0;
+				double massageSum = 0.0;
+				double alipaySum = 0.0;
+				double bankSum = 0.0;
+				double paySum = 0.0;
 				for (Receipt receipt : receiptList) {
 					switch (getType(receipt.getOrder_id())) {
 					case 0:
@@ -134,11 +135,12 @@ public class FinancialAction {
 						* (1 - taxRate.getTax_rate() / 100)
 						* (1 - app.getAppAut().getDivided() / 100);
 				
+				DecimalFormat df=new DecimalFormat(".##");
 				financial.setSum(sum);
 				financial.setMassageSum(massageSum);
 				financial.setAlipaySum(alipaySum);
 				financial.setBankSum(bankSum);
-				financial.setPaySum(paySum);
+				financial.setPaySum(Double.valueOf(df.format(paySum)));
 
 				financialList.add(financial);
 			}
@@ -166,7 +168,7 @@ public class FinancialAction {
 			year = String.valueOf(now.get(Calendar.YEAR));
 		}
 		if (month == null || "".equals(month)) {
-			month = String.format("%02d",now.get(Calendar.MONTH));
+			month = String.format("%02d",now.get(Calendar.MONTH)+1);
 		}
 		else
 			month = String.format("%02d",Integer.valueOf(month));
