@@ -114,4 +114,15 @@ public class AdminDAOImpl implements AdminDAO {
 		else
 			return null;
 	}
+
+	@Override
+	public Admin findUserNameAndPassword(String userName, String password) {
+		Query query = entityManager.createQuery("select u from Admin u where u.username=:userName and u.password = :password");
+		query.setParameter("userName", userName);
+		query.setParameter("password", password);
+		if(query.getResultList().size()>0)
+			return (Admin) query.getResultList().get(0);
+		else
+			return null;
+	}
 }

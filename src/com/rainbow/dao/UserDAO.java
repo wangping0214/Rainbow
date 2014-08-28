@@ -26,6 +26,7 @@ public interface UserDAO
 	public List<User> findDiviedUserApproved(int approved);//≤ª∑÷“≥
 	public List<User> findByUserCompanyOrName(int approved,String companyOrName,int currentPage,int pageSize);
 	public List<User> findByUserCompanyOrName(int approved,String companyOrName);
+	public User findByCp_id(String cp_id);
 	public int findByUserCompanyOrNameNum(int approved,String companyOrName);
 	public int findDiviedUserApprovedNum(int approved);
 	public void save(User user);

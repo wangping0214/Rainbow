@@ -435,4 +435,15 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 		return query.getResultList().size();
 	}
 
+	@Override
+	public AppInfo findJointAppByAppName(int joint, String appName) {
+		Query query = entityManager.createQuery("select u from AppInfo u where u.joint = :joint and u.appName = :appName");
+		query.setParameter("joint", joint);
+		query.setParameter("appName", appName);
+		if(query.getResultList().size()>0)
+			return (AppInfo) query.getResultList().get(0);
+		else
+			return null;
+	}
+
 }

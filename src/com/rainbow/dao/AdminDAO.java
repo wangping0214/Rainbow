@@ -9,6 +9,7 @@ public interface AdminDAO {
 	public Admin find(Integer id);
 	public Admin findByName(String userName);
 	public Admin find(String str1,String str2,String string1,String string2);
+	public Admin findUserNameAndPassword(String userName,String password);
 	public int getNum(String userType);
 	public int getRegNum(String userType,int approved);
 	public List<Admin> getRegThrough(String userType,int approved,int currentPage,int pageSize);

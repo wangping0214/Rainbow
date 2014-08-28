@@ -7,6 +7,6 @@
 <title>财务系统</title>
 </head>
 <body>
-查询失败
+<div align="center"><img alt="" src="images/searchNone.jpg"></div>
 </body>
 </html>

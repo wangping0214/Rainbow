@@ -125,6 +125,9 @@ public interface AppInfoDAO {
 	public List<AppInfo> findUserJointAppByAppName(String cp_id,int joint,String appName);
 	public int findUserIsJointAppNum(String cp_id,int joint, int isThrough, int shelf);
 	
+	//根据appName精确查询联运的应用
+	public AppInfo findJointAppByAppName(int joint,String appName);
+	
 	public List<AppInfo> findByKeyword(String keyword,int crrentPage,int pageSize);
 	public int findByKeywordNum(String keyword);
 	/**

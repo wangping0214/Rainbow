@@ -8,6 +8,7 @@
    			<result name="success">financial.jsp</result>
    			<result name="error">financialError.jsp</result>
    		</action>
+   		<action name="financialLogin"  class="financialAction" method="financialLogin"></action>
    		<action name="checkOutAppFinancial" class="financialAction" method="checkOutAppFinancial"></action>
    </package>
 </struts>

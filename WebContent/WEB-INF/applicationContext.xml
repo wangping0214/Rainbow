@@ -204,6 +204,7 @@
 		<constructor-arg ref="AppSouDAO"></constructor-arg>
 		<constructor-arg ref="AppAutDAO"></constructor-arg>
 		<constructor-arg ref="userDAO"></constructor-arg>
+		<constructor-arg ref="adminDAO"></constructor-arg>
 	</bean>
 
 	

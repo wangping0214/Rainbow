@@ -210,6 +210,16 @@ public class UserDAOImpl implements UserDAO
 		return query.getResultList();
 	}
 
+	@Override
+	public User findByCp_id(String cp_id) {
+		Query query = entityManager.createQuery("select u from User u where u.cp_id = :cp_id");
+		query.setParameter("cp_id", cp_id);
+		if(query.getResultList().size()>0)
+			return (User) query.getResultList().get(0);
+		else
+			return null;
+	}
+
 	
 
 }
