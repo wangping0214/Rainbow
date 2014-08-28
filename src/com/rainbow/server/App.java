@@ -1,5 +1,6 @@
 package com.rainbow.server;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.rainbow.entity.AppAuthority;
@@ -14,7 +15,11 @@ import com.rainbow.entity.TaxRate;
  * @author STerOtto
  *
  */
-public class App {
+public class App implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private AppInfo appInfo;
 	private AppSource appSou;
 	private AppAuthority appAut;
