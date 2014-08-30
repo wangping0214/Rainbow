@@ -110,7 +110,7 @@ public class FinancialAction {
 				break;
 			}
 		}
-
+		DecimalFormat df = new DecimalFormat(".##");//数据格式
 		// 未结算数
 		int no_check_out = 0;
 		List<User> allUserList = userDAO.findDiviedUserApproved(1);
@@ -213,11 +213,11 @@ public class FinancialAction {
 							* (1 - taxRate.getTax_rate() / 100)
 							* (1 - app.getAppAut().getDivided() / 100);
 
-					DecimalFormat df = new DecimalFormat(".##");
-					financial.setSum(sum);
-					financial.setMassageSum(massageSum);
-					financial.setAlipaySum(alipaySum);
-					financial.setBankSum(bankSum);
+					
+					financial.setSum(Double.valueOf(df.format(sum)));
+					financial.setMassageSum(Double.valueOf(df.format(massageSum)));
+					financial.setAlipaySum(Double.valueOf(df.format(alipaySum)));
+					financial.setBankSum(Double.valueOf(df.format(bankSum)));
 					financial.setPaySum(Double.valueOf(df.format(paySum)));
 
 					financialList.add(financial);
@@ -276,11 +276,10 @@ public class FinancialAction {
 					* (1 - taxRate.getTax_rate() / 100)
 					* (1 - app.getAppAut().getDivided() / 100);
 
-			DecimalFormat df = new DecimalFormat(".##");
-			financial.setSum(sum);
-			financial.setMassageSum(massageSum);
-			financial.setAlipaySum(alipaySum);
-			financial.setBankSum(bankSum);
+			financial.setSum(Double.valueOf(df.format(sum)));
+			financial.setMassageSum(Double.valueOf(df.format(massageSum)));
+			financial.setAlipaySum(Double.valueOf(df.format(alipaySum)));
+			financial.setBankSum(Double.valueOf(df.format(bankSum)));
 			financial.setPaySum(Double.valueOf(df.format(paySum)));
 
 			financialList.add(financial);
