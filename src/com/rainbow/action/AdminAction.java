@@ -35,6 +35,7 @@ public class AdminAction
 	private UserServer userServer;
 	
 	private UserDAO userDAO;
+	  
 	
 	private int isCurrentPage = 1;
 	private String isuserType;
