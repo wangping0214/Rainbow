@@ -11,6 +11,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.rainbow.util.IdGenerator;
 import com.rainbow.util.ServerConfig;
+import com.rainbow.util.TaxRateExecutor;
 
 /**
  * Application Lifecycle Listener implementation class InitListener
@@ -43,6 +44,8 @@ public class InitListener implements ServletContextListener
 		ApplicationContext ac = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(event.getServletContext());
 		IdGenerator.getInstance().initialize(ac.getBean("uniqueIdDAO"));
+		Thread taxRateThread =  new TaxRateExecutor(ac.getBean("TaxRateDAO"));
+		taxRateThread.start();
 	}
 
 	/**
