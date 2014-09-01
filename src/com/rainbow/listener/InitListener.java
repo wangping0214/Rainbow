@@ -1,5 +1,8 @@
 package com.rainbow.listener;
 
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
@@ -22,6 +25,7 @@ public class InitListener implements ServletContextListener
 {
 
 	private static final Log logger = LogFactory.getLog(InitListener.class);
+	private static ScheduledThreadPoolExecutor stpe = null;
 
 	/**
 	 * Default constructor.
@@ -44,8 +48,10 @@ public class InitListener implements ServletContextListener
 		ApplicationContext ac = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(event.getServletContext());
 		IdGenerator.getInstance().initialize(ac.getBean("uniqueIdDAO"));
-		Thread taxRateThread =  new TaxRateExecutor(ac.getBean("TaxRateDAO"));
-		taxRateThread.start();
+		stpe = new ScheduledThreadPoolExecutor(5); 
+		TaxRateExecutor taxRateThread =  new TaxRateExecutor(ac.getBean("TaxRateDAO"));
+		//隔3秒后开始执行任务，并且在上一次任务开始后隔3秒再执行3次；
+		stpe.scheduleWithFixedDelay(taxRateThread,3, 3, TimeUnit.SECONDS);
 	}
 
 	/**
@@ -54,6 +60,7 @@ public class InitListener implements ServletContextListener
 	public void contextDestroyed(ServletContextEvent arg0)
 	{
 		IdGenerator.getInstance().destroy();
+		stpe.shutdown();
 	}
 
 }
