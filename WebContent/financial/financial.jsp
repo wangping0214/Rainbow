@@ -358,6 +358,14 @@ window.onload=function(){
 			<%
 				}
 			%>
+			<%
+			/*
+				计算页数，每次显示区间为本页的10页
+			*/
+				int currentPage = pageUtil.getCurrentPage();
+				int startPage = currentPage/10+1;
+				int endPage = startPage+9;
+			%>
 
 			<ul class="page">
 				<%
@@ -376,39 +384,13 @@ window.onload=function(){
 					}
 				%>
 				<%
-					if (pageUtil.getTotalPage() > 1) {
+				for(int iPage = startPage;iPage<endPage;iPage++){
+					if (pageUtil.getTotalPage() >= iPage) {
 				%>
-				<li><a href="javascript:initFinancial(1)">1</a></li>
+				<li <%if(currentPage == iPage){ %>class="current" <%} %>><a href="javascript:initFinancial('<%=iPage%>')"><%=iPage%></a></li>
 				<%
 					}
-				%>
-				<%
-					if (pageUtil.getTotalPage() > 2) {
-				%>
-				<li><a href="javascript:initFinancial(2)">2</a></li>
-				<%
-					}
-				%>
-				<%
-					if (pageUtil.getTotalPage() > 3) {
-				%>
-				<li><a href="javascript:initFinancial(3)">3</a></li>
-				<%
-					}
-				%>
-				<%
-					if (pageUtil.getTotalPage() > 4) {
-				%>
-				<li><a href="javascript:initFinancial(4)">4</a></li>
-				<%
-					}
-				%>
-				<%
-					if (pageUtil.getTotalPage() > 5) {
-				%>
-				<li><a href="javascript:initFinancial(5)">5</a></li>
-				<%
-					}
+				}
 				%>
 				<%
 					if (pageUtil.isHasNext()) {
@@ -426,7 +408,7 @@ window.onload=function(){
 				<%
 					}
 				%>
-				<li>当前第<%=pageUtil.getCurrentPage()%>页，总共<%=pageUtil.getTotalPage()%>页
+				<li>共<%=pageUtil.getTotalPage()%>页
 				</li>
 			</ul>
 			<!--page-->
