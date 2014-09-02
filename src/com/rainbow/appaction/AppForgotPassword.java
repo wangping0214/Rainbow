@@ -22,7 +22,7 @@ import com.opensymphony.xwork2.Action;
  */
 public class AppForgotPassword
 {
-	private String num;
+	private String code;
 	private String phone;
 	String account = "cf_wcskdxyz";
 	String password = "wcsk1212";
@@ -39,11 +39,11 @@ public class AppForgotPassword
 
 			session = ServletActionContext.getRequest().getSession();
 			// 随机生成6位随机数
-			int numb = (int) ((Math.random() * 9 + 1) * 100000);
-			// 保存numb
-			session.setAttribute("app_code", String.valueOf(numb));
+			int num = (int) ((Math.random() * 9 + 1) * 100000);
+			// 保存num
+			session.setAttribute("app_code", String.valueOf(num));
 
-			String content = new String("您的验证码是：" + numb
+			String content = new String("您的验证码是：" + num
 					+ "。请不要把验证码泄露给其他人。如非本人操作，可不用理会！");
 			URL url = new URL(postUrl);
 			HttpURLConnection connection = (HttpURLConnection) url
@@ -76,17 +76,17 @@ public class AppForgotPassword
 	public void appCheckCode() throws IOException
 	{
 		session = ServletActionContext.getRequest().getSession();
-		String code = (String) session.getAttribute("app_code");
+		String codes = (String) session.getAttribute("app_code");
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
-		if (code == null)
+		if (codes == null)
 		{
 			out.print(Action.NONE); // "none"
 			return;
 		}
-		if (code.equalsIgnoreCase(num))
+		if (codes.equalsIgnoreCase(code))
 		{
 			out.println(Action.SUCCESS);
 		}
@@ -108,14 +108,16 @@ public class AppForgotPassword
 		this.phone = phone;
 	}
 
-	public String getNum()
+	
+
+	public String getCode()
 	{
-		return num;
+		return code;
 	}
 
-	public void setNum(String num)
+	public void setCode(String code)
 	{
-		this.num = num;
+		this.code = code;
 	}
 
 	public HttpSession getSession()
