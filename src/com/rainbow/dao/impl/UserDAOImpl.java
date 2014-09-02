@@ -220,6 +220,23 @@ public class UserDAOImpl implements UserDAO
 			return null;
 	}
 
+	@Override
+	public User login(String name, String password)
+	{
+		
+		// TODO ·ÀÖ¹sql×¢Èë
+		Query query = entityManager.createQuery("select u from User u where u.username=:name and u.password=:password");
+		query.setParameter("name",name);
+		query.setParameter("password",password);
+
+		query.setMaxResults(1);
+		@SuppressWarnings("unchecked")
+		List<User> users = query.getResultList();
+		if (users.size() > 0)
+				return users.get(0);
+			return null;
+	}
+
 	
 
 }

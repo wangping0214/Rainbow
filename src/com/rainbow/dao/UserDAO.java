@@ -10,6 +10,7 @@ public interface UserDAO
 	public User find(Integer id);
 	public User findByUser(String username);
 	public User find(String str1,String str2);
+	public User login(String name,String password);
 	public User find(String str1,String str2,String string1,String string2);
 	public User find(String str1,String str2,String string1,int string2);
 	public User find(String str1,String str2,String string1,String string2,String stri1,String stri2);
