@@ -206,8 +206,13 @@
 		<constructor-arg ref="userDAO"></constructor-arg>
 		<constructor-arg ref="adminDAO"></constructor-arg>
 	</bean>
+	<!--  //验证app端的登入-->
 	<bean id="AppLoginaAction" class="com.rainbow.appaction.AppLoginAction" scope="prototype">
 		<constructor-arg ref="userDAO"></constructor-arg>
+	</bean>
+	
+	<bean id="AppFPwd" class="com.rainbow.appaction.AppForgotPassword" scope="prototype">
+	
 	</bean>
 	
 </beans>

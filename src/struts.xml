@@ -8,6 +8,9 @@
     <constant name="struts.i18n.encoding" value="UTF-8"/>
     <constant name="struts.ui.theme" value="simple"/> 
     <constant name="struts.multipart.maxSize" value="1070109600"/>
+    
+     <include file="com/rainbow/struts/appforgotpassword.xml"></include><!-- app验证码 找回密码 -->
+     
     <include file="com/rainbow/struts/appLogin.xml"></include><!-- 用户登入 -->
     <include file="com/rainbow/struts/userManager.xml"></include><!-- 普通用户管理 -->
     <include file="com/rainbow/struts/developer.xml"></include><!-- 开发者用户管理 -->
