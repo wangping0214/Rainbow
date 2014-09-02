@@ -363,8 +363,8 @@ window.onload=function(){
 				计算页数，每次显示区间为本页的10页
 			*/
 				int currentPage = pageUtil.getCurrentPage();
-				int startPage = currentPage/10+1;
-				int endPage = startPage+9;
+				int startPage = currentPage/5*5+1;
+				int endPage = startPage+5;
 			%>
 
 			<ul class="page">
