@@ -31,26 +31,30 @@ a img{ border:0;}
 
 .shu{ background:none; border:none;width:206px; height:40px; line-height:39px; padding-left:9px; color:#666; font-size:14px;}
 .soubut{ vertical-align:top;}
-.math{ margin-bottom:10px;}
 .math span{ color:#e74c3c  }
 
-.header li{ float:left; height:40px; line-height:40px; border-right:solid 1px #FFF; text-align:center; background:#00a185; color:#FFF; font-size:18px; font-family:"微软雅黑";}
+
+/*.header li{ float:left; height:40px; line-height:40px; border-right:solid 1px #FFF; text-align:center; background:#00a185; color:#FFF; font-size:18px; font-family:"微软雅黑";}*/
+.header li{ float:left; height:40px; line-height:40px; border-right:solid 1px #FFF; text-align:center; background:#00a185; color:#FFF; font-size:18px; font-family:"微软雅黑"; margin-top:20px;}
 .name{ width:30%;}
 .open{ width:15%;}
 .zhihang{ width:14.4%;}
 .card,.cname{ width:20%;}
-.header2 li{ float:left; height:50px; line-height:50px; border-right:solid 1px #00a185; text-align:center; background:#fff; color:#555b5c; font-size:18px; font-family:"微软雅黑";}
-.header2 .cname{ border:none;}
+.header2 li{ float:left; height:50px; line-height:50px; border-right:solid 1px #00a185; border-bottom:dashed 1px #CCC; text-align:center; background:#fff; color:#555b5c; font-size:18px; font-family:"微软雅黑";}
+.header2 .cname{ border-right:none;}
 .message{ clear:both;}
-.message td{ text-align:center; line-height:180%; padding:10px 0; border-bottom:solid 1px #1db69b; font-size:16px; font-family:微软雅黑;}
+.message td{ text-align:center; line-height:180%; padding:10px 0; border-bottom:solid 1px #00a185; font-size:16px; font-family:微软雅黑;}
 .green{ color:#00a185}
 .orange{ color:#e74c3c}
-.state input{border:none; background:#00a185; color:#FFF;font-family:"微软雅黑";display:block; width:100%; line-height:180%;}
-.state2 input{border:none; background:#34495e; color:#FFF;font-family:"微软雅黑";display:block; width:100%; line-height:180%;}
+.state input{ border:0; font-family:微软雅黑; display:block; width:100%; line-height:180%;background:#00a185; color:#FFF;}
+.state2 input{ border:0; font-family:微软雅黑; display:block; width:100%; line-height:180%; background:#34495e; color:#FFF;}
 .num2{background:url(images/num.png) no-repeat; width:24px; height:24px; margin:0 auto; font-size:12px; line-height:24px; text-align:center; color:#FFF;}
 .page{ clear:both; overflow:hidden;zoom:1; width:350px; margin:30px auto 0 auto;}
 .page li{ float:left; margin-right:8px;}
 .page a{ color:#939393;}
 .page a{ background:url(images/page_07.jpg) no-repeat; float:left; height:22px; padding-left:5px;}
 .page span{ background:url(images/page_08.jpg) no-repeat right top; float:left; height:22px; line-height:22px; padding:0 5px 0 0px;}
-.page a:hover{ color:#1fb5ad;}
+.page a:hover{ color:#00a185;}
+.current a{ background:none; color:#00a185; text-decoration:underline;}
+.current span{ background:none;}
+.line{ margin-bottom:10px;}
