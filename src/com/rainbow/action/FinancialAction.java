@@ -211,7 +211,7 @@ public class FinancialAction {
 							* (1 - taxRate.getChannel_alipay() / 100) + bankSum
 							* (1 - taxRate.getChannel_bank() / 100))
 							* (1 - taxRate.getTax_rate() / 100)
-							* (1 - app.getAppAut().getDivided() / 100);
+							* (app.getAppAut().getDivided() / 100);
 
 					
 					financial.setSum(Double.valueOf(df.format(sum)));
@@ -274,7 +274,7 @@ public class FinancialAction {
 					+ alipaySum * (1 - taxRate.getChannel_alipay() / 100) + bankSum
 					* (1 - taxRate.getChannel_bank() / 100))
 					* (1 - taxRate.getTax_rate() / 100)
-					* (1 - app.getAppAut().getDivided() / 100);
+					* (app.getAppAut().getDivided() / 100);
 
 			financial.setSum(Double.valueOf(df.format(sum)));
 			financial.setMassageSum(Double.valueOf(df.format(massageSum)));
