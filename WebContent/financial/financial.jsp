@@ -66,7 +66,7 @@ window.onload=function(){
 
 
 	function initFinancial(currentPage) {
-		location.href = "initFinancial?currentPage=" + currentPage + "&status="
+		location.href = "initFinancial.action?currentPage=" + currentPage + "&status="
 				+ $("#status").val() + "&year=" + $("#year").val() + "&month="
 				+ $("#month").val()+"&userOrAppName="+$("#userOrAppName").val();
 	}
@@ -77,7 +77,7 @@ window.onload=function(){
 				+ month + "\n结算金额：" + paySum+"元")) {
 			jQuery.ajax({
 				type : "post",
-				url : "checkOutAppFinancial",
+				url : "checkOutAppFinancial.action",
 				data : {
 					"appId" : appId,
 					"year" : year,
@@ -116,7 +116,13 @@ window.onload=function(){
 					src="images/cu_03.jpg" />
 			</p>
 			<p class="fr jiesuan">
+				<%if(null==admin){%>
+				<a href="index.jsp"><img src="images/cu_06.jpg" /><br />请登录</a>
+				<%}
+				else
+				{%>
 				<a><img src="images/cu_06.jpg" /><br /><%=admin.getUsername() %></a>
+				<%} %>
 				<a class="nojiesuan"><img src="images/cu_09.jpg" /><br />未结算<span
 					class="num" id="no_check_out"><%=no_check_out%></span></a>
 			</p>
