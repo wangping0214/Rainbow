@@ -5,5 +5,5 @@
  	<package name="Apploginsa" extends="struts-default">
           <action name="AppLoginAction" class="AppLoginaAction" method="AppLogin">
     	</action>
-    </package>
+    </package> 
  </struts>
