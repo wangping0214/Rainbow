@@ -15,6 +15,8 @@ import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.Action;
+import com.rainbow.dao.UserDAO;
+import com.rainbow.entity.User;
 
 /**
  * @author Gyn 用手机找回密码功能
@@ -22,6 +24,9 @@ import com.opensymphony.xwork2.Action;
  */
 public class AppForgotPassword
 {
+	private UserDAO userdao;
+	
+
 	private String code;
 	private String phone;
 	String account = "cf_wcskdxyz";
@@ -34,6 +39,15 @@ public class AppForgotPassword
 
 	public void appSendCode() throws IOException
 	{
+
+		HttpServletResponse response = ServletActionContext.getResponse();
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		  
+		User user=userdao.findByPhone(phone);
+		if(user!=null)
+		{
 		try
 		{
 
@@ -61,12 +75,18 @@ public class AppForgotPassword
 			OutputStream os = connection.getOutputStream();
 			os.write(sb.toString().getBytes());
 			os.close();
+			out.println(Action.SUCCESS); 
 
 		}
 		catch (Exception e)
 		{
 			// TODO: handle exception
 			e.printStackTrace(System.out);
+		}
+		}
+		else
+		{
+			out.println(Action.ERROR); 
 		}
 
 	}
@@ -128,5 +148,10 @@ public class AppForgotPassword
 	public void setSession(HttpSession session)
 	{
 		this.session = session;
+	}
+	public AppForgotPassword(UserDAO userdao)
+	{
+		super();
+		this.userdao = userdao;
 	}
 }
