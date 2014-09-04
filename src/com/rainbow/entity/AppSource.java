@@ -25,15 +25,15 @@ public class AppSource implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	@Column(name="packge")
-	private String packge;
+	private String packge;//apk包的相对路径
 	@Column(name="packgeSize")
-	private float packgeSize;
+	private float packgeSize;//包大小
 	@Column(name="logo1")
-	private String logo1;
+	private String logo1;//48*48的logo路径
 	@Column(name="logo2")
-	private String logo2;
+	private String logo2;//94*94的logo路径
 	@Column(name="gamePhoto1")
-	private String gamePhoto1;
+	private String gamePhoto1;//游戏截图1-5的路径
 	@Column(name="gamePhoto2")
 	private String gamePhoto2;
 	@Column(name="gamePhoto3")

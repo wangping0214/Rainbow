@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.struts2.ServletActionContext;
+
 
 
 
@@ -60,6 +62,10 @@ import com.rainbow.util.PageUtil;
  * @version 2014-8-7 15:35:50
  */
 public class AdminReportAction {
+	private final static String START_OF_DAY = " 00:00:00";
+	private final static String END_OF_DAY =" 23:59:59";
+	private final static DecimalFormat df = new DecimalFormat(".##");//数据格式
+	
 	private UserDAO userDAO;
 	private AppInfoDAO appInfoDAO;
 	private AppSouDAO appSouDAO;
@@ -147,13 +153,13 @@ public class AdminReportAction {
 			userApps.setUser(user);
 			userApps.setApp(appList);
 			userApps.setReceiptTaxList(receiptTaxList);
-			userApps.setPaySum(paySum);
+			userApps.setPaySum(Double.valueOf(df.format(paySum)));
 			userAppsList.add(userApps);
 		}
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		session.setAttribute("jointAppCount", jointAppCount);
 		session.setAttribute("receiptCount", receiptCount);
-		session.setAttribute("cmyxPaySum", String.valueOf(cmyxPaySum));
+		session.setAttribute("cmyxPaySum", df.format(cmyxPaySum));
 		session.setAttribute("userAppsList", userAppsList);
 		session.setAttribute("companyOrName", companyOrName);
 		Map request = (Map) ServletActionContext.getContext().get("request");
@@ -169,10 +175,10 @@ public class AdminReportAction {
 	 * @throws IOException
 	 */
 	public void adminEarnings() throws IOException {
-		double earningsSum = 0;
+		double earningsSum = 0.00;
 		List<Receipt> receiptList = new ArrayList<Receipt>();
 		if ("全部支付".equals(payType)) {
-			receiptList = receiptDAO.findByTime(startTime, endTime);
+			receiptList = receiptDAO.findByTime(startTime+START_OF_DAY, endTime+END_OF_DAY);
 		} else {
 			String typeReg = "";
 			switch (payType) {
@@ -194,7 +200,8 @@ public class AdminReportAction {
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
-		response.getWriter().println(String.valueOf(earningsSum));
+		System.out.println(df.format(earningsSum));
+		response.getWriter().println(df.format(earningsSum));
 
 	}
 
@@ -265,7 +272,7 @@ public class AdminReportAction {
 				detailReceiptList.add(detailReceipt);
 			}
 			appReceipt.setOrderSun(orderSun);
-			appReceipt.setPayment(payment);
+			appReceipt.setPayment(Float.valueOf(df.format(payment)));
 			appReceiptList.add(appReceipt);
 		}
 		/*
@@ -276,8 +283,8 @@ public class AdminReportAction {
 		session.setAttribute("user", user);
 		session.setAttribute("cpTotalNum", cpTotalNum);
 		session.setAttribute("cpOrderNum", cpOrderNum);
-		session.setAttribute("paySun", String.valueOf(paySun));
-		session.setAttribute("searchPaySun", String.valueOf(searchPaySun));
+		session.setAttribute("paySun", df.format(paySun));
+		session.setAttribute("searchPaySun", df.format(searchPaySun));
 		session.setAttribute("detailReceiptList", detailReceiptList);
 		session.setAttribute("appReceiptList", appReceiptList);
 
@@ -337,7 +344,7 @@ public class AdminReportAction {
 				detailReceipt.setReceiptTax(receiptTax);
 				detailReceiptList.add(detailReceipt);
 			}
-		session.setAttribute("searchPaySun", String.valueOf(searchPaySun));
+		session.setAttribute("searchPaySun", df.format(searchPaySun));
 		session.setAttribute("detailReceiptList", detailReceiptList);
 		return Action.SUCCESS;
 	}
@@ -486,7 +493,7 @@ public class AdminReportAction {
 			detailReceipt.setReceiptTax(receiptTax);
 			detailReceiptList.add(detailReceipt);	
 		}
-		session.setAttribute("searchPaySun", String.valueOf(searchPaySun));
+		session.setAttribute("searchPaySun", df.format(searchPaySun));
 		session.setAttribute("detailReceiptList", detailReceiptList);
 		 return Action.SUCCESS;
 	 }
@@ -495,12 +502,12 @@ public class AdminReportAction {
 	 * @throws ParseException 
 	 */
 	public String adminSearchByTime() throws ParseException{
-		startTime+=" 00:00:00";
-		endTime+=" 23:59:59";
+		startTime+=START_OF_DAY;
+		endTime+=END_OF_DAY;
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		User user = (User) session.getAttribute("user");
 		List<DetailReceipt> detailReceiptList = new ArrayList<DetailReceipt>();
-		double searchPaySun = 0;
+		double searchPaySun = 0.00;
 		List<Receipt> receiptList = new ArrayList<Receipt>();
 		if("全部支付".equals(payType)){
 			receiptList = receiptDAO.findByCp_idAndTime(user.getCp_id(), startTime, endTime);
@@ -532,7 +539,7 @@ public class AdminReportAction {
 			detailReceipt.setReceiptTax(receiptTax);
 			detailReceiptList.add(detailReceipt);
 		}
-		session.setAttribute("searchPaySun", String.valueOf(searchPaySun));
+		session.setAttribute("searchPaySun", df.format(searchPaySun));
 		session.setAttribute("detailReceiptList", detailReceiptList);
 		return Action.SUCCESS;
 	}

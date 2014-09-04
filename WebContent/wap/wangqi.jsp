@@ -61,8 +61,8 @@ a,a:hover{text-decoration: none;}
 .vconlist li.select a,.vconlist li a:hover{color:#ed4948;text-decoration:none;}
 #c{
 	background-color:#FFFFFF;
-	width: 100%;	height:900px;
-	
+	width: 100%;
+	min-height:900px;height:auto !important;height:900px;
 }
 
 .fc{

@@ -22,15 +22,15 @@ public class AppAuthority implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	@Column(name="reasonsNotThrough")
-	private String reasonsNotThrough;
+	private String reasonsNotThrough;//为通过理由,审核通过此字段为空
 	@Column(name="recomLevel")
-	private int recomLevel;
+	private int recomLevel;//推荐级别1-100的整数
 	@Column(name="score")
-	private int score;
+	private int score;//平评分1-100的整数
 	@Column(name="amountOfDown")
-	private int amountOfDown;
+	private int amountOfDown;//下载次数
 	@Column(name="divided")
-	private float divided;
+	private float divided;//分成比例
 	@Transient
 	private String strRecomLevel;
 	@Transient

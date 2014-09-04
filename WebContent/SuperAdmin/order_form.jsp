@@ -8,6 +8,7 @@
 <%@ page import="com.rainbow.server.DetailReceipt" %>
 <%@ page import="java.lang.*"%>
 <%@ page import="com.rainbow.entity.User" %>
+<%@ page import="java.text.DecimalFormat" %>
 <%
 	/*
 	appReceiptList为cp的全部应用
@@ -30,6 +31,7 @@
 		Date dt = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String initTime = sdf.format(dt);
+		DecimalFormat df = new DecimalFormat(".##");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -166,7 +168,7 @@
 										<div>
 											<p><%=appReceipt.getApp().getAppInfo().getAppName()%></p>
 											<p><%=appReceipt.getOrderSun()%></p>
-											<p><%=appReceipt.getPayment()%></p>
+											<p><%=df.format(appReceipt.getPayment())%></p>
 											<p>
 												<a href="adminShowAppReportDetail?appId=<%=appReceipt.getApp().getAppInfo().getId() %>" id="reportDetail" target="reportSearchResult" class="xinxi">查看明细</a>
 											</p>
