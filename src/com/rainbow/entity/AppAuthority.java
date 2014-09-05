@@ -22,15 +22,17 @@ public class AppAuthority implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	@Column(name="reasonsNotThrough")
-	private String reasonsNotThrough;
+	private String reasonsNotThrough;//为通过理由,审核通过此字段为空
 	@Column(name="recomLevel")
-	private int recomLevel;
+	private int recomLevel;//推荐级别1-100的整数
 	@Column(name="score")
-	private int score;
+	private int score;//平评分1-100的整数
 	@Column(name="amountOfDown")
-	private int amountOfDown;
+	private int amountOfDown;//下载次数
 	@Column(name="divided")
-	private float divided;
+	private float divided;//分成比例
+	@Column(name="visitable")
+	private int visitable;//对财务是否可见，“1”可见，“0”
 	@Transient
 	private String strRecomLevel;
 	@Transient
@@ -45,6 +47,7 @@ public class AppAuthority implements Serializable{
 		this.score = 0;
 		this.amountOfDown = 0;
 		this.divided = 0;
+		this.visitable = 1;
 	}
 	
 	public String getStrRecomLevel() {
@@ -109,4 +112,15 @@ public class AppAuthority implements Serializable{
 	public void setDivided(float divided) {
 		this.divided = divided;
 	}
+
+	public int getVisitable()
+	{
+		return visitable;
+	}
+
+	public void setVisitable(int visitable)
+	{
+		this.visitable = visitable;
+	}
+	
 }

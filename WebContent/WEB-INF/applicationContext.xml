@@ -21,15 +21,15 @@
 		<property name="driverClassName"
 			value="com.mysql.jdbc.Driver">
 		</property>
-		   
+		     
 		<property name="url" value="jdbc:mysql://localhost:3306/rainbow"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value="root"></property>
-		 <!--
+		<!--
 		<property name="url" value="jdbc:mysql://rdsjfiaiajfiaia.mysql.rds.aliyuncs.com:3306/rainbow"></property>
 		<property name="username" value="wcsk_admin"></property>
 		<property name="password" value="wcsk_wcsk_123456"></property>
-		 -->
+		-->
 	</bean>
 	
 	<bean id="hibernateJpaVendorAdaptor"
@@ -207,22 +207,34 @@
 		<constructor-arg ref="userDAO"></constructor-arg>
 		<constructor-arg ref="adminDAO"></constructor-arg>
 	</bean>
-	<!--  验证app端的登入-->
+	<bean id="adminSetFinancialAction" class="com.rainbow.action.AdminSetFinancialAction" scope="prototype">
+		<constructor-arg ref="AppInfoDAO"></constructor-arg>
+		<constructor-arg ref="AppSouDAO"></constructor-arg>
+		<constructor-arg ref="AppAutDAO"></constructor-arg>
+		<constructor-arg ref="userDAO"></constructor-arg>
+		<constructor-arg ref="ReceiptDAO"></constructor-arg>
+	</bean>
+	 
+	
 	<bean id="AppLoginaAction" class="com.rainbow.appaction.AppLoginAction" scope="prototype">
 		<constructor-arg ref="userDAO"></constructor-arg>
 	</bean>
-	<!--  通过手机号找回密码-->
+	
 	<bean id="AppFPwd" class="com.rainbow.appaction.AppForgotPassword" scope="prototype">
 		<constructor-arg ref="userDAO"></constructor-arg>
 	</bean>
-	<!-- 通过Email找回密码 -->
+	
 	<bean id="appUserForgotEmail" class="com.rainbow.appaction.AppForgotEmail" scope="prototype">
 		<constructor-arg ref="userDAO"></constructor-arg>
 	</bean>
+<<<<<<< .merge_file_a08016
 	<!-- 获取app信息 -->
 	<bean id="AppTextText" class="com.rainbow.appaction.AppText" scope="prototype">
 		<constructor-arg ref="AppAutDAO"></constructor-arg>
 		<constructor-arg ref="AppInfoDAO"></constructor-arg>
 		<constructor-arg ref="AppSouDAO"></constructor-arg>
 	</bean>
+=======
+	 
+>>>>>>> .merge_file_a07788
 </beans>

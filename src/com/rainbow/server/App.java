@@ -20,11 +20,11 @@ public class App implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private AppInfo appInfo;
-	private AppSource appSou;
-	private AppAuthority appAut;
-	private TaxRate taxRate;
-	private List<Review> review;
+	private AppInfo appInfo;//app的基本信息
+	private AppSource appSou;//app的文件资源路径
+	private AppAuthority appAut;//app的管理信息
+	private TaxRate taxRate;//app的税率信息
+	private List<Review> review;//app的评论信息
 	
 	private String appAut_recomLevel;
 	private String appAut_score;

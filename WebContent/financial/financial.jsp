@@ -116,9 +116,10 @@ window.onload=function(){
 					src="images/cu_03.jpg" />
 			</p>
 			<p class="fr jiesuan">
-				<%if(null==admin){%>
-				<a href="index.jsp"><img src="images/cu_06.jpg" /><br />请登录</a>
-				<%}
+				<%if(null==admin)
+				{
+					response.sendRedirect("loginTimeOut.jsp");
+				}
 				else
 				{%>
 				<a><img src="images/cu_06.jpg" /><br /><%=admin.getUsername() %></a>
@@ -360,11 +361,23 @@ window.onload=function(){
 			%>
 			<%
 			/*
-				计算页数，每次显示区间为本页的10页
+				计算页数，每次显示区间为本页的5页
 			*/
 				int currentPage = pageUtil.getCurrentPage();
-				int startPage = currentPage/5*5+1;
-				int endPage = startPage+5;
+				int totalPage = pageUtil.getTotalPage();
+				int startPage = 1;
+				int endPage = 1;
+				if(currentPage+3>totalPage)
+				{
+					startPage = totalPage-4>0?totalPage-4:1;
+					endPage = totalPage+1;
+				}
+				else 
+				{
+					startPage = currentPage-2>0?currentPage-2:1;
+					endPage = startPage+5<totalPage?startPage+5:totalPage;
+				}
+
 			%>
 
 			<ul class="page">

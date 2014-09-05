@@ -412,6 +412,7 @@ border-radius: 15px;
       <a href="active.html"><img src="image/banner.jpg" width="100%" /></a>
       <a href="indexAd/bxxy_caimi_CN.apk"><img src="indexAd/bxxy_caimi_CN.jpg" width="100%" /></a>
       <a href="indexAd/JungleRunner.apk"><img src="indexAd/JungleRunner.jpg" width="100%" /></a>
+      <a href="indexAd/mof_android_wucaishikong.apk"><img src="indexAd/mof_android_wucaishikong.jpg" width="100%" /></a>
       <a href="#" class="slidesjs-previous slidesjs-navigation"></a>
       <a href="#" class="slidesjs-next slidesjs-navigation"></a>
     </div>

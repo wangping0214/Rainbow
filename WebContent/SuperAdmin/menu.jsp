@@ -196,6 +196,7 @@
     <li><a href="message2.jsp" target="main"><img src="images/xiao.gif" />消息管理</a></li>
     <li><a href="findAllUserJoint" target="main"><img src="images/bili.gif" />分成管理</a></li>
     <li><a href="adminReportInit" target="main"><img src="images/zc.gif" />账单查询</a></li>
+    <li><a href="initAdminSetFinancial" target="main"><img src="images/zc.gif" />结算管理</a></li>
    </ul>
  </li>
 </ul>

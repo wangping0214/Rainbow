@@ -21,25 +21,25 @@ public class AppInfo implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@Column(name = "userName")
-	private String userName;
+	private String userName;//cp用户名
 	@Column(name = "appName")
-	private String appName;
+	private String appName;//APP名
 	@Column(name = "type")
-	private String type;
+	private String type;//APP类型（游戏，应用）
 	@Column(name = "category")
-	private String category;
+	private String category;//APP分类
 	@Column(name = "classification")
-	private String classification;
+	private String classification;//APP类别
 	@Column(name = "language")
-	private String language;
+	private String language;//语言
 	@Column(name = "fee")
-	private String fee;//1:没有收费内容;2:这个应用是试用版，付费后才能使用完整功能;3:这个应用包含付费内容，如表情，道具，电子书等虚拟物品;4:这个应用是试用版，付费后才能使用完整功能，同时应用中包含付费方可购买的虚拟物品.
+	private String fee;//（1,2,3,4,）1:没有收费内容;2:这个应用是试用版，付费后才能使用完整功能;3:这个应用包含付费内容，如表情，道具，电子书等虚拟物品;4:这个应用是试用版，付费后才能使用完整功能，同时应用中包含付费方可购买的虚拟物品.
 	@Column(name = "security")
-	private String security;
+	private String security;//安全等级（“0|0|1|1”）字符串类型，四个级别
 	@Column(name = "appIntrodution")
-	private String appIntrodution;
+	private String appIntrodution;//APP简介
 	@Column(name = "elaborate")
-	private String elaborate;
+	private String elaborate;//详细描述
 	@Column(name = "versionIntrodution")
 	private String versionIntrodution;
 	@Column(name = "isThrough")//-3待完善，-2待提交，-1未通过，0待审核，1通过审核
@@ -47,21 +47,19 @@ public class AppInfo implements Serializable{
 	@Column(name = "shelf")
 	private int shelf;						//是否上架，-2强制下架，-1已下架，0等待发布，1已上架
 	@Column(name = "releaseTime")
-	private String releaseTime;
-	@Column(name = "upTime")		//上传时间
-	private String upTime;
+	private String releaseTime;//发布时间（0通过审核立即发布，1：通过审核等待发布）
+	@Column(name = "upTime")		
+	private String upTime;//上传时间
 	@Column(name="app_id")
 	private String app_id;// 应用id
 	@Column(name="joint")
 	private int joint;//是否联合运营1：联合运营；0：应用推广
 	@Column(name="cp_id")
-	private String cp_id;
+	private String cp_id;//cp_id
 	@Column(name="notify_url")
 	private String notify_url;//回调地址
 	@Column(name="md5_key")
-	private String md5_key;
-	
-	
+	private String md5_key;//MD5_KEY
 	
 	public AppInfo() {
 		super();
