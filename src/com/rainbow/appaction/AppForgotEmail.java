@@ -25,11 +25,16 @@ public class AppForgotEmail
 	
 	public void forgotEmail() throws IOException
 	{
-		  Email="7813699@qq.com";
+		  Email="372533079@qq.com";
 		  HttpServletResponse response = ServletActionContext.getResponse();
 		  response.setContentType("application/json");
 		  response.setCharacterEncoding("UTF-8");
 		  PrintWriter out = response.getWriter();
+		  if(Email==null)
+		  {
+			  out.print(Action.NONE); // "none"
+				return;
+		  }
 		  User u=userdao.findByEmail(Email);
 		  //判断是否有这个邮箱
 		  if(u!=null)
@@ -50,11 +55,14 @@ public class AppForgotEmail
 	      SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	      String nowTime = df.format(new Date());
 	      mailInfo.setContent(""
-	      		+ "发送的内容"
-	      		+ "");    
+	      		+ "恭喜您中了500万美元"
+	      		+ "别问我从哪里来"      	
+	      		+ "我从青铜来"
+	      		+"谢谢合作"
+	    		  );    
 	         //这个类主要来发送邮件   
 	      SimpleMailSender sms = new SimpleMailSender();   
-	          sms.sendTextMail(mailInfo);//发送文体格式    
+	          //sms.sendTextMail(mailInfo);//发送文体格式    
 	          sms.sendHtmlMail(mailInfo);//发送html格式   
 	          
 	          out.println(Action.SUCCESS);
@@ -63,6 +71,8 @@ public class AppForgotEmail
 		  {
 			  out.println(Action.ERROR);
 		  }
+		  
+		 
 	}
 	public AppForgotEmail(UserDAO userdao)
 	{

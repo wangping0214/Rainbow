@@ -5,6 +5,7 @@ import java.util.List;
 import com.rainbow.entity.AppAuthority;
 
 public interface AppAutDAO {
+	public List<AppAuthority> Section();
 	public List<AppAuthority> findAll();
 	public AppAuthority findById(int id);
 	

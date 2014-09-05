@@ -9,10 +9,12 @@ import javax.persistence.Query;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.rainbow.dao.AppInfoDAO;
+import com.rainbow.entity.AppAuthority;
 import com.rainbow.entity.AppInfo;
 
 @Transactional
 public class AppInfoDAOImpl implements AppInfoDAO{
+	
 	@PersistenceContext
 	private EntityManager entityManager;
 
@@ -445,5 +447,19 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 		else
 			return null;
 	}
+
+	@Override
+	public List<AppInfo> Section(int num)
+	{
+		Query query = entityManager.createQuery("select u from AppInfo u order by u.id asc");
+		//从第几行 开始查询
+		//query.setFirstResult(2);
+		//显示几行
+		query.setMaxResults(num);
+		
+		return query.getResultList();
+		// TODO Auto-generated method stub
+	}
+
 
 }

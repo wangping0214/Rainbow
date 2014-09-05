@@ -192,4 +192,20 @@ public class AppSouDAOImpl implements AppSouDAO {
 
 	}
 
+	@Override
+	public List<AppSource> Section(int num)
+	{
+		
+		Query query = entityManager.createQuery("select u from AppSource u order by u.id asc");
+		//从第几行 开始查询
+		//query.setFirstResult(2);
+		//显示几行
+		query.setMaxResults(num);
+		
+		return query.getResultList();
+		// TODO Auto-generated method stub
+		
+		
+	}
+
 }

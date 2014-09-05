@@ -67,6 +67,7 @@
 	<bean id="TaxRateDAO" class="com.rainbow.dao.impl.TaxRateDAOImpl"></bean>
 	
 	
+	
 
 	<!-- DAO end here -->
 	
@@ -217,5 +218,11 @@
 	<!-- 通过Email找回密码 -->
 	<bean id="appUserForgotEmail" class="com.rainbow.appaction.AppForgotEmail" scope="prototype">
 		<constructor-arg ref="userDAO"></constructor-arg>
+	</bean>
+	<!-- 获取app信息 -->
+	<bean id="AppTextText" class="com.rainbow.appaction.AppText" scope="prototype">
+		<constructor-arg ref="AppAutDAO"></constructor-arg>
+		<constructor-arg ref="AppInfoDAO"></constructor-arg>
+		<constructor-arg ref="AppSouDAO"></constructor-arg>
 	</bean>
 </beans>

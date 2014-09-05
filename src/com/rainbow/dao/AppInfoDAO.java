@@ -2,11 +2,21 @@ package com.rainbow.dao;
 
 import java.util.List;
 
+import com.rainbow.entity.AppAuthority;
 import com.rainbow.entity.AppInfo;
 
 public interface AppInfoDAO {
+	/**
+	 * Gyn
+	 * 根据前台需要几个app信息  就返回几个app信息
+	 * @return
+	 */
+	
+	
+	public List<AppInfo> Section(int num);
 	public List<AppInfo> findAll();
 	public AppInfo findById(int id);
+	
 	
 	public AppInfo findByCp_idAndApp_id(String cp_id,String app_id);
 	/**用户应用是否上架

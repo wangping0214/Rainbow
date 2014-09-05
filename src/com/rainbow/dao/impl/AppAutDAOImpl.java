@@ -179,4 +179,17 @@ public class AppAutDAOImpl implements AppAutDAO{
 		entityManager.merge(appAut);
 	}
 
+	@Override
+	public List<AppAuthority> Section()
+	{
+		Query query = entityManager.createQuery("select u from AppAuthority u order by u.id asc");
+		//从第几行 开始查询
+		//query.setFirstResult(2);
+		//显示几行
+		//query.setMaxResults(num);
+		
+		return query.getResultList();
+		// TODO Auto-generated method stub
+	}
+
 }

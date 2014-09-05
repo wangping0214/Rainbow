@@ -44,7 +44,12 @@ public class AppForgotPassword
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
-		  
+		if(phone!=null)
+		{
+			out.print(Action.NONE); // "none"
+			return;
+		}
+		
 		User user=userdao.findByPhone(phone);
 		if(user!=null)
 		{
@@ -88,6 +93,8 @@ public class AppForgotPassword
 		{
 			out.println(Action.ERROR); 
 		}
+		
+	
 
 	}
 
