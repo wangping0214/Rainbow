@@ -31,6 +31,8 @@ public class AppAuthority implements Serializable{
 	private int amountOfDown;//下载次数
 	@Column(name="divided")
 	private float divided;//分成比例
+	@Column(name="visitable")
+	private int visitable;//对财务是否可见，“1”可见，“0”
 	@Transient
 	private String strRecomLevel;
 	@Transient
@@ -45,6 +47,7 @@ public class AppAuthority implements Serializable{
 		this.score = 0;
 		this.amountOfDown = 0;
 		this.divided = 0;
+		this.visitable = 1;
 	}
 	
 	public String getStrRecomLevel() {
@@ -109,4 +112,15 @@ public class AppAuthority implements Serializable{
 	public void setDivided(float divided) {
 		this.divided = divided;
 	}
+
+	public int getVisitable()
+	{
+		return visitable;
+	}
+
+	public void setVisitable(int visitable)
+	{
+		this.visitable = visitable;
+	}
+	
 }

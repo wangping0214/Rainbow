@@ -56,6 +56,7 @@ public class FinancialAction {
 	
 	private String userName;
 	private String password;
+		
 	
 	/**
 	 * 财务登录
@@ -113,10 +114,10 @@ public class FinancialAction {
 		DecimalFormat df = new DecimalFormat(".##");//数据格式
 		// 未结算数
 		int no_check_out = 0;
-		List<User> allUserList = userDAO.findDiviedUserApproved(1);
+		List<User> allUserList = userDAO.findFinancialVisitableUsers(1,1);
 		for (User user : allUserList) {
-			List<AppInfo> appInfoList = appInfoDAO.findUserJointApp(
-					user.getCp_id(), 1);
+			List<AppInfo> appInfoList = appInfoDAO.findUserJointAppVisitable(
+					user.getCp_id(), 1,1);
 			for (AppInfo info : appInfoList) {
 				List<Receipt> receiptList = new ArrayList<Receipt>();
 				receiptList = receiptDAO.findByUserAppYearMonth(
@@ -133,23 +134,23 @@ public class FinancialAction {
 		PageUtil page;
 		List<User> userList;
 		// 根据appName查询APP
-		AppInfo appInfo = appInfoDAO.findJointAppByAppName(1, userOrAppName);
+		AppInfo appInfo = appInfoDAO.findJointAppByAppName(1, userOrAppName,1);
 		// 未输入企业/应用名称
 		if (userOrAppName == null || "".equals(userOrAppName)
 				|| "输入企业/应用名称".equals(userOrAppName)) {
-			total = userDAO.findDiviedUserApprovedNum(1);
+			total = userDAO.findFinancialVisitableUsersSize(1,1);
 			page = new PageUtil(currentPage, total);
 			page.setPageSize(5);
-			userList = userDAO.findDiviedUserApproved(1, currentPage,
+			userList = userDAO.findFinancialVisitableUsers(1,1, currentPage,
 					page.getPageSize());
 		}
 		// 输入了企业/应用名称
 		else {
 			// 查询企业
-			total = userDAO.findByUserCompanyOrNameNum(1, userOrAppName);
+			total = userDAO.findByUserCompanyOrNameVisitableSize(1, userOrAppName,1);
 			page = new PageUtil(currentPage, total);
 			page.setPageSize(5);
-			userList = userDAO.findByUserCompanyOrName(1, userOrAppName,
+			userList = userDAO.findByUserCompanyOrNameVisitable(1, userOrAppName,1,
 					currentPage, page.getPageSize());
 		}
 		// 输入的是企业名称或者未输入查询条件或根据appName未查询到APP
@@ -161,8 +162,8 @@ public class FinancialAction {
 				FinancialSev financialSev = new FinancialSev();
 				financialSev.setUser(user);
 				List<Financial> financialList = new ArrayList<Financial>();
-				List<AppInfo> appInfoList = appInfoDAO.findUserJointApp(
-						user.getCp_id(), 1);
+				List<AppInfo> appInfoList = appInfoDAO.findUserJointAppVisitable(
+						user.getCp_id(), 1,1);
 				for (AppInfo info : appInfoList) {
 					Financial financial = new Financial();
 					AppSource sou = appSouDAO.findById(info.getId());

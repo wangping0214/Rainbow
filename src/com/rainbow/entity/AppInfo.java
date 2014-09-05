@@ -61,8 +61,6 @@ public class AppInfo implements Serializable{
 	@Column(name="md5_key")
 	private String md5_key;//MD5_KEY
 	
-	
-	
 	public AppInfo() {
 		super();
 		this.userName = null;

@@ -237,6 +237,86 @@ public class UserDAOImpl implements UserDAO
 			return null;
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<User> findDeveloperHasJointApp(int approved, int currentPage,
+			int pageSize)
+	{
+		Query query = entityManager.createQuery("select u from User u,AppInfo s where u.approved = :approved and (u.userType = 'individualUsers' or u.userType = 'individualGroups' ) and u.cp_id = s.cp_id and s.joint = 1 group by u.id");
+		query.setParameter("approved", approved);
+		int startRow = (currentPage-1)*pageSize;
+		query.setFirstResult(startRow);
+		query.setMaxResults(pageSize);
+		return query.getResultList();
+	}
+
+	@Override
+	public int findDeveloperHasJointAppSize(int approved)
+	{
+		Query query = entityManager.createQuery("select u from User u,AppInfo s where u.approved = :approved and (u.userType = 'individualUsers' or u.userType = 'individualGroups' ) and u.cp_id = s.cp_id group by u.id");
+		query.setParameter("approved", approved);
+		return query.getResultList().size();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<User> findFinancialVisitableUsers(int approved, int visitable,
+			int currentPage, int pageSize)
+	{
+		Query query = entityManager.createQuery("select u from User u,AppInfo s,AppAuthority w where u.approved = :approved and (u.userType = 'individualUsers' or u.userType = 'individualGroups' ) and u.cp_id = s.cp_id and s.id = w.id and w.visitable = :visitable group by u.id");
+		query.setParameter("approved", approved);
+		query.setParameter("visitable", visitable);
+		int startRow = (currentPage-1)*pageSize;
+		query.setFirstResult(startRow);
+		query.setMaxResults(pageSize);
+		return query.getResultList();
+	}
+
+	@Override
+	public int findFinancialVisitableUsersSize(int approved, int visitable)
+	{
+		Query query = entityManager.createQuery("select u from User u,AppInfo s,AppAuthority w where u.approved = :approved and (u.userType = 'individualUsers' or u.userType = 'individualGroups' ) and u.cp_id = s.cp_id and s.id = w.id and w.visitable = :visitable group by u.id");
+		query.setParameter("approved", approved);
+		query.setParameter("visitable", visitable);
+		return query.getResultList().size();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<User> findFinancialVisitableUsers(int approved, int visitable)
+	{
+		Query query = entityManager.createQuery("select u from User u,AppInfo s,AppAuthority w where u.approved = :approved and (u.userType = 'individualUsers' or u.userType = 'individualGroups' ) and u.cp_id = s.cp_id and s.id = w.id and w.visitable = :visitable  group by u.id");
+		query.setParameter("approved", approved);
+		query.setParameter("visitable", visitable);
+		return query.getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<User> findByUserCompanyOrNameVisitable(int approved,
+			String companyOrName, int visitable, int currentPage, int pageSize)
+	{
+		Query query = entityManager.createQuery("select u from User u,AppInfo s,AppAuthority w where u.approved = :approved and (u.userType = 'individualUsers' or u.userType = 'individualGroups' ) and u.cp_id = s.cp_id and s.id = w.id and w.visitable = :visitable and (u.corporatename like :companyOrName or u.username like :companyOrName) group by u.id");
+		query.setParameter("approved", approved);
+		query.setParameter("visitable", visitable);
+		query.setParameter("companyOrName", "%"+companyOrName+"%");
+		int startRow = (currentPage-1)*pageSize;
+		query.setFirstResult(startRow);
+		query.setMaxResults(pageSize);
+		return query.getResultList();
+	}
+
+	@Override
+	public int findByUserCompanyOrNameVisitableSize(int approved,
+			String companyOrName, int visitable)
+	{
+		Query query = entityManager.createQuery("select u from User u,AppInfo s,AppAuthority w where u.approved = :approved and (u.userType = 'individualUsers' or u.userType = 'individualGroups' ) and u.cp_id = s.cp_id and s.id = w.id and w.visitable = :visitable and (u.corporatename like :companyOrName or u.username like :companyOrName) group by u.id");
+		query.setParameter("approved", approved);
+		query.setParameter("visitable", visitable);
+		query.setParameter("companyOrName", "%"+companyOrName+"%");
+		return query.getResultList().size();
+	}
+
 	
 
 }

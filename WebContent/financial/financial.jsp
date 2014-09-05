@@ -361,7 +361,7 @@ window.onload=function(){
 			%>
 			<%
 			/*
-				计算页数，每次显示区间为本页的10页
+				计算页数，每次显示区间为本页的5页
 			*/
 				int currentPage = pageUtil.getCurrentPage();
 				int totalPage = pageUtil.getTotalPage();

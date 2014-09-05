@@ -386,6 +386,15 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 		query.setParameter("joint", joint);
 		return query.getResultList();
 	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<AppInfo> findUserJointAppVisitable(String cp_id, int joint, int visitable) {
+		Query query = entityManager.createQuery("select u from AppInfo u,AppAuthority s where u.cp_id = :cp_id and u.id=s.id and u.joint = :joint and s.visitable = :visitable group by u.id");
+		query.setParameter("cp_id", cp_id);
+		query.setParameter("joint", joint);
+		query.setParameter("visitable", visitable);
+		return query.getResultList();
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -440,6 +449,17 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 		Query query = entityManager.createQuery("select u from AppInfo u where u.joint = :joint and u.appName = :appName");
 		query.setParameter("joint", joint);
 		query.setParameter("appName", appName);
+		if(query.getResultList().size()>0)
+			return (AppInfo) query.getResultList().get(0);
+		else
+			return null;
+	}
+	@Override
+	public AppInfo findJointAppByAppName(int joint, String appName,int visitable) {
+		Query query = entityManager.createQuery("select u from AppInfo u,AppAuthority s where u.id = s.id and u.joint = :joint and u.appName = :appName and s.visitable = :visitable group by u.id");
+		query.setParameter("joint", joint);
+		query.setParameter("appName", appName);
+		query.setParameter("visitable", visitable);
 		if(query.getResultList().size()>0)
 			return (AppInfo) query.getResultList().get(0);
 		else
