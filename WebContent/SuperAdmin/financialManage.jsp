@@ -179,7 +179,7 @@ function setAppVisitable(i,appId){
                                         	<p class="state2"><span></span>下线</p>
                                         <%} %>
                                        	</td>
-                                        <td width="20%"><input type="checkbox" name="checkbox<%=j %>" id="visitable<%=j %>" onclick="setAppVisitable('<%=j %>','<%=financial.getApp().getAppAut().getId() %>')" <%if(1 == financial.getApp().getAppAut().getVisitable()){ %> checked="checked"<%} %>/></td>
+                                        <td width="20%"><input type="checkbox" name="checkbox<%=i %><%=j %>" id="visitable<%=i %><%=j %>" onclick="setAppVisitable('<%=i %><%=j %>','<%=financial.getApp().getAppAut().getId() %>')" <%if(1 == financial.getApp().getAppAut().getVisitable()){ %> checked="checked"<%} %>/></td>
                                     </tr>
                                     <%} %>
                                 </table>

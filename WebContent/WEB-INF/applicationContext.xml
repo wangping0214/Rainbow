@@ -72,6 +72,7 @@
 	<!-- DAO end here -->
 	
 	<!-- Action start here -->
+	<!-- Edit by STerOTto -->
 	<bean id="userAction" class="com.rainbow.action.UserAction" scope="prototype">
 		<constructor-arg ref="userDAO"></constructor-arg>
 	</bean>
@@ -214,8 +215,9 @@
 		<constructor-arg ref="userDAO"></constructor-arg>
 		<constructor-arg ref="ReceiptDAO"></constructor-arg>
 	</bean>
+	<!-- STerOTto end -->
 	 
-	
+	<!-- Edit by gyn -->
 	<bean id="AppLoginaAction" class="com.rainbow.appaction.AppLoginAction" scope="prototype">
 		<constructor-arg ref="userDAO"></constructor-arg>
 	</bean>
@@ -227,14 +229,11 @@
 	<bean id="appUserForgotEmail" class="com.rainbow.appaction.AppForgotEmail" scope="prototype">
 		<constructor-arg ref="userDAO"></constructor-arg>
 	</bean>
-<<<<<<< .merge_file_a08016
-	<!-- 获取app信息 -->
 	<bean id="AppTextText" class="com.rainbow.appaction.AppText" scope="prototype">
 		<constructor-arg ref="AppAutDAO"></constructor-arg>
 		<constructor-arg ref="AppInfoDAO"></constructor-arg>
 		<constructor-arg ref="AppSouDAO"></constructor-arg>
 	</bean>
-=======
+	<!-- Gyn end -->
 	 
->>>>>>> .merge_file_a07788
 </beans>

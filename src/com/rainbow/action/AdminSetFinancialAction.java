@@ -42,7 +42,7 @@ public class AdminSetFinancialAction
 	private int visitable;
 	
 	/**
-	 * Get users who have apps
+	 * Get users who have joint apps
 	 * @return
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
