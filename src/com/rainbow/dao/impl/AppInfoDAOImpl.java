@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.rainbow.dao.AppInfoDAO;
 import com.rainbow.entity.AppAuthority;
 import com.rainbow.entity.AppInfo;
+import com.rainbow.entity.ADV;
 
 @Transactional
 public class AppInfoDAOImpl implements AppInfoDAO{
@@ -469,17 +470,59 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 	}
 
 	@Override
+	//按下app载量  倒序 排列
 	public List<AppInfo> Section(int num)
 	{
-		Query query = entityManager.createQuery("select u from AppInfo u order by u.id asc");
+		Query query = entityManager.createQuery("select u from AppInfo u,AppAuthority y "
+				+ "  where  u.id=y.id order by "
+				+ "y.amountOfDown desc");
 		//从第几行 开始查询
 		//query.setFirstResult(2);
 		//显示几行
 		query.setMaxResults(num);
-		
 		return query.getResultList();
 		// TODO Auto-generated method stub
 	}
+	//按照app游戏类型查找前几个app
+	@Override
+	public List<AppInfo> classification(String str)
+	{
+		Query query = entityManager.createQuery("select u from AppInfo u,"
+				+ "AppAuthority y  where  u.id=y.id and u.classification=:str"
+						+ " order by y.amountOfDown desc");
+		query.setParameter("str", str);
+		return query.getResultList();
+		// TODO Auto-generated method stub
+	}
+	/**
+	 * Gyn跟根据是否收费 返回app信息
+	 * @param num
+	 * @return
+	 */
+	@Override
+	public List<AppInfo> fee(String str)
+	{
+		Query query = entityManager.createQuery("select u from AppInfo u,"
+				+ "AppAuthority y  where  u.id=y.id and u.fee=:str"
+						+ " order by y.amountOfDown desc");
+		query.setParameter("str", str);
+		return query.getResultList();
+		// TODO Auto-generated method stub
+	}
+	/**
+	 * Gyn图片测试
+	 * @return
+	 */
+
+	@Override
+	public List<ADV> imlogo(int id)
+	{
+		Query query = entityManager.createQuery("select u from ADV u where id=:id");
+		query.setParameter("id", id);
+		return query.getResultList();
+		// TODO Auto-generated method stub
+	}
+	
 
 
 }

@@ -17,6 +17,7 @@ import com.rainbow.dao.AppInfoDAO;
 import com.rainbow.dao.AppSouDAO;
 import com.rainbow.entity.AppAuthority;
 import com.rainbow.entity.AppInfo;
+import com.rainbow.entity.ADV;
 import com.rainbow.entity.AppSource;
 import com.rainbow.server.App;
 
@@ -39,16 +40,27 @@ public class AppText
 		//实例化
 		Gson gson = new Gson();
 		List<App> appList = new ArrayList<App>();
+		//String str="益智";
+		//String str="冒险";
+		 List<ADV> ar=dao.imlogo(1);
+		for(ADV a:ar){
+			
 		
-		 for(AppInfo info:dao.Section(num)){
+			System.out.println(a.getId()+a.getLogo()+a.getCp_id());
+		}
+		
+		 for(AppInfo info:dao.Section(3)){
 			 AppSource sou = sdao.findById(info.getId());
 			 AppAuthority ay=adao.findById(info.getId());
+			
 			 App app = new App();
 			 app.setAppAut(ay);
 			 app.setAppInfo(info);
 			 app.setAppSou(sou);
 			 appList.add(app);
 			
+			 System.out.println("游戏名:"+info.getAppName()+"\t下载次:"+ay.getAmountOfDown()+"\t游戏类型:"+info.getClassification()+"类");
+			 out.println("游戏名:"+info.getAppName()+"\t下载次:"+ay.getAmountOfDown()+"\t游戏类型:"+info.getClassification()+"类");
 			
 			}
 		 //声明和赋空值
@@ -56,6 +68,7 @@ public class AppText
 		 //转换成Json
 		 result = gson.toJson(appList);
 		 out.println(result);
+		
 	 
 	}
 	

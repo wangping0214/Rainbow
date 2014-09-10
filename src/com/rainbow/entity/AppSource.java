@@ -14,7 +14,7 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="appSource")
+@Table(name="appsource")
 public class AppSource implements Serializable{
 	/**
 	 * 

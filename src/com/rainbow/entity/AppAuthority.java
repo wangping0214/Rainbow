@@ -22,7 +22,7 @@ public class AppAuthority implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	@Column(name="reasonsNotThrough")
-	private String reasonsNotThrough;//为通过理由,审核通过此字段为空
+	private String reasonsNotThrough;//为不通过理由,审核通过此字段为空
 	@Column(name="recomLevel")
 	private int recomLevel;//推荐级别1-100的整数
 	@Column(name="score")
@@ -32,7 +32,7 @@ public class AppAuthority implements Serializable{
 	@Column(name="divided")
 	private float divided;//分成比例
 	@Column(name="visitable")
-	private int visitable;//对财务是否可见，“1”可见，“0”
+	private int visitable;//对财务是否可见，“1”可见，“0”不可见
 	@Transient
 	private String strRecomLevel;
 	@Transient

@@ -4,16 +4,34 @@ import java.util.List;
 
 import com.rainbow.entity.AppAuthority;
 import com.rainbow.entity.AppInfo;
+import com.rainbow.entity.ADV;
 
 public interface AppInfoDAO {
+	
+	/**
+	 * Gyn图片测试
+	 * @return
+	 */
+	public List<ADV> imlogo(int id);
+	/**
+	 * Gyn跟根据是否收费 返回app信息
+	 * @param num
+	 * @return
+	 */
+	public List<AppInfo> fee(String str);
 	/**
 	 * Gyn
 	 * 根据前台需要几个app信息  就返回几个app信息
 	 * @return
 	 */
-	
-	
 	public List<AppInfo> Section(int num);
+	/**
+	 * Gyn
+	 * 根据app游戏类型 查找app
+	 * @param str
+	 * @return
+	 */
+	public List<AppInfo> classification(String str);
 	public List<AppInfo> findAll();
 	public AppInfo findById(int id);
 	
