@@ -13,7 +13,10 @@
     <include file="com/rainbow/struts/appText.xml"></include><!-- 获取app信息-->
     <include file="com/rainbow/struts/applicationInformation.xml"></include><!-- 查询app信息 -->
     
+    <!-- Edit by gyn -->
     <include file="com/rainbow/struts/appLogin.xml"></include><!-- 用户登入 -->
+    <!-- Gyn end -->
+    <!-- Edit by STerOTto -->
     <include file="com/rainbow/struts/userManager.xml"></include><!-- 普通用户管理 -->
     <include file="com/rainbow/struts/developer.xml"></include><!-- 开发者用户管理 -->
     <include file="com/rainbow/struts/adminManager.xml"></include><!-- 超级管理员管理用户 -->
@@ -38,5 +41,6 @@
     <include file="com/rainbow/struts/taxRateAction.xml"></include><!-- 税率管理 -->
     <include file="com/rainbow/struts/financialAction.xml"></include><!-- 财务管理 -->
     <include file="com/rainbow/struts/adminSetFinancial.xml"></include><!-- 管理员设置联运APP是否对财务可见 -->
+    <!-- STerOTto end -->
     
 </struts>

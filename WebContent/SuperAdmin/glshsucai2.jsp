@@ -1,15 +1,16 @@
 <%@ page import="com.rainbow.entity.AppSource" language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%
-				String bowser= "";
-				//火狐
-                if (request.getHeader("User-Agent").toLowerCase().indexOf("firefox") > 0) {
-                    bowser = "firefox";
-                }
-                //IE
-                else {
-                	 bowser = "IE";
-                }%>
+		String bowser= "";
+		//火狐
+		                if (request.getHeader("User-Agent").toLowerCase().indexOf("firefox") > 0) {
+		                    bowser = "firefox";
+		                }
+		                //IE
+		                else {
+		                	 bowser = "IE";
+		                }
+	%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -33,7 +34,9 @@
                <!--searchcont-->
       </div>
      <div class="midcont">
-     <%AppSource appSou = (AppSource)session.getAttribute("appSou"); %>
+     <%
+     	AppSource appSou = (AppSource)session.getAttribute("appSou");
+     %>
                   <div class="list">
                       <h3 class="tit2">素材</h3>
                       <div class="xinxicont">
