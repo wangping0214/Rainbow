@@ -159,29 +159,29 @@ a:active {text-decoration:none ; color:#339900 ;}
 <table width="100%" border="0" cellpadding="0" cellspacing="0" class="biao">
   <tr>
     <td width="126" bgcolor="#FFFFFF" valign="top"><div class="zuobian">本期推荐</div><br /><img src="newpic/benqi.jpg" width="81" /></td>
-    <td width="1002" bgcolor="#FFFFFF" valign="top">●本期热门推荐：满满都是回忆！一样的味道不一样的感受，《魔力宝贝》魔力不减，精彩依旧!；《纪念碑谷》设计巧夺天工的创意游戏,采用手工绘制,独一无二的设计灵感来自世界各地的宫殿庙宇！；《大富翁4》富可敌国当干爹，让我们一起玩耍吧，土豪！；绳子牵赛车 过弯也疯狂，全新的弹弓式玩法《弹弓赛车》；《美团团购》简简单单顺畅的操作体验让手机用户随时随地享受便捷的团购服务，更有手机用户专享的秒杀活动等着您。</td>
+    <td width="1002" bgcolor="#FFFFFF" valign="top">●本期热门推荐：别具一格的画风和令人印象深刻的诡异题材,《乌鸦人与狼孩》让搞基进行到底！；我有一门独特的落水技术《勇敢向前冲2》你就是这场真人秀里的主角！；好看又好玩《Pudding Monster》布丁怪兽超萌超上瘾，可爱好玩又休闲！；《美妙世界》轮回一梦，一世三生，原来RPG还可以这么玩！；PPTV聚力拥有海量影视剧,高清体育直播,热点视频完全免费在线观看，是广受网友推崇的上网装机必备软件。</td>
   </tr>
  </table>
  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="biao">
   <tr>
     <td width="126" bgcolor="#F4F2F3" valign="top"><div class="zuobian">骇人听闻</div><br /><img src="newpic/hairen.jpg" width="80" /></td>
     <td width="1002" bgcolor="#F4F2F3" valign="top">
-    ●      <a href="zazhi/1414/1.html"><font color="#339900">手游媒体1006获千万级美金B轮融资</font></a><br>
-  ●  <a href="zazhi/1414/2.html"><font color="#339900">爱乐游CJ连签大作 资研运三位一体</font></a><br>
-  ●  <a href="zazhi/1414/3.html"><font color="#339900">和游戏布局家庭互娱 纵享4G极速游戏</font></a><br>
-   ● <a href="zazhi/1414/4.html"><font color="#339900">NEST2014英雄联盟AB组四分之一决赛开战</font></a><br>
-   ● <a href="zazhi/1414/5.html"><font color="#339900">勇气可嘉 细节乏力 HTC One评测</font></a></td>
+    ●      <a href="zazhi/1418/1.html"><font color="#339900">中手游称将打击"火影忍者"等盗版游戏</font></a><br>
+  ●  <a href="zazhi/1418/2.html"><font color="#339900">看新闻+玩游戏：[新闻任务]的设计新思路</font></a><br>
+  ●  <a href="zazhi/1418/3.html"><font color="#339900">游戏的O2O[乐高融合]玩游戏,卖积木</font></a><br>
+   ● <a href="zazhi/1418/4.html"><font color="#339900">微笑吐露心声：是时候给自己放个长假了</font></a><br>
+   ● <a href="zazhi/1418/5.html"><font color="#339900">1799元八核4GFlyme 4.0 魅族MX4评测</font></a></td>
   </tr>
   </table>
   <table width="100%" border="0" cellpadding="0" cellspacing="0" class="biao">
   <tr>
     <td width="126" bgcolor="#FFFFFF" valign="top"><div class="zuobian">优游新得</div><br /><img src="newpic/youyou.jpg" width="81"/></td>
     <td width="1002" bgcolor="#FFFFFF" valign="top">
-    ●<a href="zazhi/1414/6.html"><font color="#339900">雷电2014</font></a><br>
-   ●<a href="zazhi/1414/7.html"><font color="#339900">魔力宝贝</font></a><br>
-   ●<a href="zazhi/1414/8.html"><font color="#339900">齿轮杰克</font></a><br>
-   ●<a href="zazhi/1414/9.html"><font color="#339900">牛仔大决斗</font></a><br>
-   ●<a href="zazhi/1414/10.html"><font color="#339900">阴暗地牢</font></a></td>
+    ●<a href="zazhi/1418/6.html"><font color="#339900">引火精灵 第二个影子</font></a><br>
+   ●<a href="zazhi/1418/7.html"><font color="#339900">乌鸦人与狼孩</font></a><br>
+   ●<a href="zazhi/1418/8.html"><font color="#339900">枪械俱乐部3</font></a><br>
+   ●<a href="zazhi/1418/9.html"><font color="#339900">勇敢向前冲2</font></a><br>
+   ●<a href="zazhi/1418/10.html"><font color="#339900">天天跑酷</font></a></td>
   </tr>
   </table>
   <table width="100%" border="0" cellpadding="0" cellspacing="0" class="biao">
@@ -189,18 +189,18 @@ a:active {text-decoration:none ; color:#339900 ;}
     <td width="126" bgcolor="#F4F2F3"><div class="zuobian">炙手可热</div><br /><img src="newpic/zhizhou.jpg" width="81"/>
       </td>
     <td width="1002"bgcolor="#F4F2F3">
-    ●<a href="zazhi/1414/11.html"><font color="#339900">印第安探险</font></a><br>
-   ●<a href="zazhi/1414/12.html"><font color="#339900">弹弓赛车</font></a><br>
-  ● <a href="zazhi/1414/13.html"><font color="#339900">大富翁4Fun</font></a><br>
-  ● <a href="zazhi/1414/14.html"><font color="#339900">钢铁蠕虫</font></a><br>
-   ●<a href="zazhi/1414/15.html"><font color="#339900">小小城市跑酷</font></a></td>
+    ●<a href="zazhi/1418/11.html"><font color="#339900">天堂岛2</font></a><br>
+   ●<a href="zazhi/1418/12.html"><font color="#339900">布丁怪兽</font></a><br>
+  ● <a href="zazhi/1418/13.html"><font color="#339900">松饼骑士</font></a><br>
+  ● <a href="zazhi/1418/14.html"><font color="#339900">僵尸快跑</font></a><br>
+   ●<a href="zazhi/1418/15.html"><font color="#339900">冒险编年史</font></a></td>
   </tr>
   </table>
   <table width="100%" border="0" cellpadding="0" cellspacing="0" class="biao">
   <tr>
     <td width="126" bgcolor="#FFFFFF" valign="top"><div class="zuobian">大开眼界</div><br /><img src="newpic/benqi.jpg" width="81" /></td>
-    <td width="1002" bgcolor="#FFFFFF" valign="top">●<a href="zazhi/1414/16.html"><font color="#339900">沙滩车闪电战</font></a><br>
-   ●<a href="zazhi/1414/17.html"><font color="#339900">纪念碑谷</font></a><br>
+    <td width="1002" bgcolor="#FFFFFF" valign="top">●<a href="zazhi/1418/16.html"><font color="#339900">梦游逃生</font></a><br>
+   ●<a href="zazhi/1418/17.html"><font color="#339900">美妙世界</font></a><br>
    </td>
   </tr>
  </table>
@@ -208,25 +208,25 @@ a:active {text-decoration:none ; color:#339900 ;}
   <tr>
     <td width="126" bgcolor="#F4F2F3" valign="top"><div class="zuobian">先声夺人</div><br /><img src="newpic/hairen.jpg" width="80" /></td>
     <td width="1002" bgcolor="#F4F2F3" valign="top">
-    ●      <a href="zazhi/1414/18.html"><font color="#339900">热酷在韩国发行《黑暗光年》日收破百万</font></a><br>
-  ●  <a href="zazhi/1414/19.html"><font color="#339900">中手游携日本聚逸推正版[火影忍者]手游</font></a><br>
-  ●  <a href="zazhi/1414/20.html"><font color="#339900">DeNA正版海贼《航海王 启航》今秋发布</font></a><br>
-   ● <a href="zazhi/1414/21.html"><font color="#339900">《头脑战争》全世界的对手与朋友</font></a><br>
-   ● <a href="zazhi/1414/22.html"><font color="#339900">滚石下半年将发布《女神之战》等手游</font></a></td>
+    ●      <a href="zazhi/1418/18.html"><font color="#339900">SE确认：《勇者斗恶龙》系列前三部转制作品即将上线</font></a><br>
+  ●  <a href="zazhi/1418/19.html"><font color="#339900">4X策略大作《反英雄联盟》明年登陆双平台</font></a><br>
+  ●  <a href="zazhi/1418/20.html"><font color="#339900">主打幽默牌 太空新游《驾驶员詹姆森》公布</font></a><br>
+   ● <a href="zazhi/1418/21.html"><font color="#339900">披着超级六边形外衣的神庙逃亡？《SUPERHYPER》月末放虐招儿</font></a><br>
+   ● <a href="zazhi/1418/22.html"><font color="#339900">蓝胖子真的要来了？！《哆啦A梦》正版手游即将登陆移动平台</font></a></td>
   </tr>
   </table>
   <table width="100%" border="0" cellpadding="0" cellspacing="0" class="biao">
   <tr>
     <td width="126" bgcolor="#FFFFFF" valign="top"><div class="zuobian">别有用心</div><br /><img src="newpic/beiyou.jpg" width="81"/></td>
-    <td width="1002"bgcolor="#FFFFFF" valign="top">●<a href="zazhi/1414/23.html"><font color="#339900">美团</font></a><br />
+    <td width="1002"bgcolor="#FFFFFF" valign="top">●<a href="zazhi/1418/23.html"><font color="#339900">PPTV聚力</font></a><br />
        <br /></td>
   </tr>
   </table>
   <table width="100%" border="0" cellpadding="0" cellspacing="0" class="biao">
   <tr>
     <td width="126" height="94" bgcolor="#F4F2F3" valign="top"><div class="zuobian">谈笑风声</div><br /><img src="newpic/tanxiao.jpg" width="81"/></td>
-    <td width="1002" bgcolor="#F4F2F3" valign="top">●<a href="zazhi/1414/24.html"><font color="#339900">神奇的老婆！</font></a><br>
-   ●<a href="zazhi/1414/25.html"><font color="#339900">我的显卡坏了吗！</font></a></td>
+    <td width="1002" bgcolor="#F4F2F3" valign="top">●<a href="zazhi/1418/24.html"><font color="#339900">亲妈</font></a><br>
+   ●<a href="zazhi/1418/25.html"><font color="#339900">我很男人</font></a></td>
   </tr>
   </table>
 </table>
