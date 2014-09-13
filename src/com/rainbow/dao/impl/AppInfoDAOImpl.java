@@ -509,19 +509,7 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 		return query.getResultList();
 		// TODO Auto-generated method stub
 	}
-	/**
-	 * GynÕº∆¨≤‚ ‘
-	 * @return
-	 */
-
-	@Override
-	public List<ADV> imlogo(int id)
-	{
-		Query query = entityManager.createQuery("select u from ADV u where id=:id");
-		query.setParameter("id", id);
-		return query.getResultList();
-		// TODO Auto-generated method stub
-	}
+	
 	
 
 

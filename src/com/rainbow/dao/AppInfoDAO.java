@@ -8,11 +8,7 @@ import com.rainbow.entity.ADV;
 
 public interface AppInfoDAO {
 	
-	/**
-	 * Gyn图片测试
-	 * @return
-	 */
-	public List<ADV> imlogo(int id);
+	
 	/**
 	 * Gyn跟根据是否收费 返回app信息
 	 * @param num

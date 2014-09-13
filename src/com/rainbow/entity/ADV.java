@@ -20,10 +20,27 @@ public class ADV implements Serializable
 	//图片的相对路径
 	@Column(name="logo")
 	private String logo;
-	//userid
-	@Column(name="cp_id")
-	private String cp_id;
+	@Column(name="type")
+	private String type;
+	@Column(name="logotime")
+	private String logotime;
 	
+	public String getType()
+	{
+		return type;
+	}
+	public void setType(String type)
+	{
+		this.type = type;
+	}
+	public String getLogotime()
+	{
+		return logotime;
+	}
+	public void setLogotime(String logotime)
+	{
+		this.logotime = logotime;
+	}
 	public int getId()
 	{
 		return id;
@@ -45,14 +62,7 @@ public class ADV implements Serializable
 		return serialVersionUID;
 	}
 	
-	public String getCp_id()
-	{
-		return cp_id;
-	}
-	public void setCp_id(String cp_id)
-	{
-		this.cp_id = cp_id;
-	}
+	
 	
 	
 	

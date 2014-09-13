@@ -1,25 +1,33 @@
 package com.rainbow.appaction;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
-import net.sf.json.JSON;
-
 import org.apache.struts2.ServletActionContext;
-import org.json.simple.JSONArray;
+
+import sun.security.action.OpenFileInputStreamAction;
 
 import com.google.gson.Gson;
+import com.opensymphony.xwork2.Action;
 import com.rainbow.dao.AppAutDAO;
 import com.rainbow.dao.AppInfoDAO;
 import com.rainbow.dao.AppSouDAO;
+import com.rainbow.entity.ADV;
 import com.rainbow.entity.AppAuthority;
 import com.rainbow.entity.AppInfo;
-import com.rainbow.entity.ADV;
 import com.rainbow.entity.AppSource;
 import com.rainbow.server.App;
+import com.rainbow.util.OpeFunction;
 
 
 
@@ -30,49 +38,64 @@ public class AppText
 	private AppSouDAO sdao;
 	private AppAutDAO adao;
 	private int num;
+	private File   upFile;  
+    private String upFileFileName; 
+    private String upFileContentType;
+    private String savePath;  
 	
-	public void Text() throws IOException
-	{
-		HttpServletResponse response = ServletActionContext.getResponse();  
+	public void Text() throws IOException{
+		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
-		//实例化
-		Gson gson = new Gson();
-		List<App> appList = new ArrayList<App>();
-		//String str="益智";
-		//String str="冒险";
-		 List<ADV> ar=dao.imlogo(1);
-		for(ADV a:ar){
-			
+		savePath="/adv/";
+		out.print(this.getUpFileFileName());
+		out.print(this.getUpFileContentType());
+		String a=OpeFunction.fileToServer(savePath, upFile, upFileFileName,upFileContentType,false);
+			out.print(a);
 		
-			System.out.println(a.getId()+a.getLogo()+a.getCp_id());
 		}
 		
-		 for(AppInfo info:dao.Section(3)){
-			 AppSource sou = sdao.findById(info.getId());
-			 AppAuthority ay=adao.findById(info.getId());
-			
-			 App app = new App();
-			 app.setAppAut(ay);
-			 app.setAppInfo(info);
-			 app.setAppSou(sou);
-			 appList.add(app);
-			
-			 System.out.println("游戏名:"+info.getAppName()+"\t下载次:"+ay.getAmountOfDown()+"\t游戏类型:"+info.getClassification()+"类");
-			 out.println("游戏名:"+info.getAppName()+"\t下载次:"+ay.getAmountOfDown()+"\t游戏类型:"+info.getClassification()+"类");
-			
-			}
-		 //声明和赋空值
-		 String result = "";
-		 //转换成Json
-		 result = gson.toJson(appList);
-		 out.println(result);
-		
-	 
+	      
+	public File getUpFile()
+	{
+		return upFile;
 	}
-	
-	
+
+	public void setUpFile(File upFile)
+	{
+		this.upFile = upFile;
+	}
+
+	public String getUpFileFileName()
+	{
+		return upFileFileName;
+	}
+
+	public void setUpFileFileName(String upFileFileName)
+	{
+		this.upFileFileName = upFileFileName;
+	}
+
+	public String getUpFileContentType()
+	{
+		return upFileContentType;
+	}
+
+	public void setUpFileContentType(String upFileContentType)
+	{
+		this.upFileContentType = upFileContentType;
+	}
+
+	public String getSavePath()
+	{
+		return savePath;
+	}
+
+	public void setSavePath(String savePath)
+	{
+		this.savePath = savePath;
+	}
 
 	public AppText(AppInfoDAO dao,AppSouDAO sdao,AppAutDAO adao)
 	{

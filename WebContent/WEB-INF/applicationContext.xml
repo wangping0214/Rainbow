@@ -50,6 +50,7 @@
 	<!-- DAO start here -->
 	
 
+	<bean id="AppADVDAO" class="com.rainbow.dao.impl.AppADVDAOImpl"></bean>
 	
 	<bean id="magDAO" class="com.rainbow.dao.impl.MagDAOImpl"></bean>
 	<bean id="magConDAO" class="com.rainbow.dao.impl.MagConDAOImpl"></bean>
@@ -229,24 +230,25 @@
 	<bean id="appUserForgotEmail" class="com.rainbow.appaction.AppForgotEmail" scope="prototype">
 		<constructor-arg ref="userDAO"></constructor-arg>
 	</bean>
-<<<<<<< .merge_file_a02248
+
 	<!-- 获取app信息  测试用的 -->
-=======
->>>>>>> .merge_file_a05308
+
 	<bean id="AppTextText" class="com.rainbow.appaction.AppText" scope="prototype">
 		<constructor-arg ref="AppAutDAO"></constructor-arg>
 		<constructor-arg ref="AppInfoDAO"></constructor-arg>
 		<constructor-arg ref="AppSouDAO"></constructor-arg>
 	</bean>
-<<<<<<< .merge_file_a02248
+
 	<!-- 根据各种条件获取app信息 -->
-	<bean id="ApplicationInformation" class="com.rainbow.appaction.ApplicationInformation" scope="prototype">
+	<bean id="applicationInformation" class="com.rainbow.appaction.ApplicationInformation" scope="prototype">
 		<constructor-arg ref="AppAutDAO"></constructor-arg>
 		<constructor-arg ref="AppInfoDAO"></constructor-arg>
 		<constructor-arg ref="AppSouDAO"></constructor-arg>
 	</bean>
-=======
+
 	<!-- Gyn end -->
-	 
->>>>>>> .merge_file_a05308
+	 <bean id="UploadAVPhotos" class="com.rainbow.appaction.UploadADVPhotos" scope="prototype">
+		<constructor-arg ref="AppADVDAO"></constructor-arg>
+	</bean> 
+
 </beans>

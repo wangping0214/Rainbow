@@ -10,6 +10,8 @@ import java.util.Date;
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
+import com.opensymphony.xwork2.Action;
+
 
 
 /**
@@ -38,6 +40,7 @@ public class OpeFunction {
 				saveFile = new File(savedir, fileName);
 			
 			FileUtils.copyFile(file, saveFile);
+			
 			return path+"/"+saveFile.getName();
 		}
 		

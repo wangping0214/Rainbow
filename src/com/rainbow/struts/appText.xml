@@ -3,7 +3,7 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
  <struts>
  	<package name="AppTexta" extends="struts-default">
-          <action name="AppText" class="AppTextText" method="Text">
+          <action name="appUploadAdv" class="AppTextText" method="Text">
     	</action>
     	
     </package> 

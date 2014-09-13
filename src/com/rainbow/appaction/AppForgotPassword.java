@@ -44,7 +44,7 @@ public class AppForgotPassword
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
-		if(phone!=null)
+		if(phone==null)
 		{
 			out.print(Action.NONE); // "none"
 			return;
@@ -55,7 +55,7 @@ public class AppForgotPassword
 		{
 		try
 		{
-
+			out.println(user.getTelephone());
 			session = ServletActionContext.getRequest().getSession();
 			// 随机生成6位随机数
 			int num = (int) ((Math.random() * 9 + 1) * 100000);
@@ -73,7 +73,7 @@ public class AppForgotPassword
 					"application/x-www-form-urlencoded");
 			connection.setRequestProperty("Connection", "Keep-Alive");
 			StringBuffer sb = new StringBuffer();
-			sb.append("account=" + account);
+			sb.append("&account=" + account);
 			sb.append("&password=" + password);
 			sb.append("&content=" + content);
 			sb.append("&mobile=" + phone);
@@ -81,6 +81,13 @@ public class AppForgotPassword
 			os.write(sb.toString().getBytes());
 			os.close();
 			out.println(Action.SUCCESS); 
+			String line, result = "";
+			BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "utf-8"));
+			while ((line = in.readLine()) != null) {
+				result += line + "\n";
+			}
+			in.close();
+			out.println(result);
 
 		}
 		catch (Exception e)

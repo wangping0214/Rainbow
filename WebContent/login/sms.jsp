@@ -18,7 +18,7 @@ try {
 	connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
 	connection.setRequestProperty("Connection", "Keep-Alive");
 	StringBuffer sb = new StringBuffer();
-	sb.append("account="+account);
+	sb.append("&account="+account);
 	sb.append("&password="+password);
 	sb.append("&mobile="+mobile);
 	sb.append("&content="+content);

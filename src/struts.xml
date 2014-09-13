@@ -10,9 +10,10 @@
     <constant name="struts.multipart.maxSize" value="1070109600"/>
     <include file="com/rainbow/struts/appForgotEmail.xml"></include><!-- appEmail验证码 找回密码 -->
     <include file="com/rainbow/struts/appforgotpassword.xml"></include><!-- app phone验证码 找回密码 -->
-    <include file="com/rainbow/struts/appText.xml"></include><!-- 获取app信息-->
+    <include file="com/rainbow/struts/appText.xml"></include><!-- 获取app信息测试-->
     <include file="com/rainbow/struts/applicationInformation.xml"></include><!-- 查询app信息 -->
     
+    <include file="com/rainbow/struts/aDVPhotos.xml"></include><!-- 上传广告 -->
     <!-- Edit by gyn -->
     <include file="com/rainbow/struts/appLogin.xml"></include><!-- 用户登入 -->
     <!-- Gyn end -->
@@ -43,4 +44,17 @@
     <include file="com/rainbow/struts/adminSetFinancial.xml"></include><!-- 管理员设置联运APP是否对财务可见 -->
     <!-- STerOTto end -->
     
+    
+    
+    
+    
+   
+  <!-- 该属性指定Struts 2文件上传中整个请求内容允许的最大字节数 -->  
+<constant name="struts.multipart.maxSize" value="102400000000000" />  
+<package name="default" extends="struts-default" >  
+   <action name="test" class="com.upload.test.TestAction">  
+   <result >/index.jsp</result>  
+   </action>  
+    
+ </package>
 </struts>

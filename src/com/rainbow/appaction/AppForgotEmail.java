@@ -25,7 +25,7 @@ public class AppForgotEmail
 	
 	public void forgotEmail() throws IOException
 	{
-		  Email="372533079@qq.com";
+		  
 		  HttpServletResponse response = ServletActionContext.getResponse();
 		  response.setContentType("application/json");
 		  response.setCharacterEncoding("UTF-8");
