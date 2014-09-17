@@ -255,21 +255,7 @@ function rankSubmit(rankSubmitId,num){
 									href="rank.action?appTmp.rankCurrentPage=<s:property value="#page.currentPage-1"/>">上一页</a>
 								</li>
 							</s:if>
-							<s:if test="#page.totalPage>1">
-								<li><a href="rank.action?appTmp.rankCurrentPage=1">1</a></li>
-							</s:if>
-							<s:if test="#page.totalPage>2">
-								<li><a href="rank.action?appTmp.rankCurrentPage=2">2</a></li>
-							</s:if>
-							<s:if test="#page.totalPage>3">
-								<li><a href="rank.action?appTmp.rankCurrentPage=3">3</a></li>
-							</s:if>
-							<s:if test="#page.totalPage>4">
-								<li><a href="rank.action?appTmp.rankCurrentPage=4">4</a></li>
-							</s:if>
-							<s:if test="#page.totalPage>5">
-								<li><a href="rank.action?appTmp.rankCurrentPage=5">5</a></li>
-							</s:if>
+							
 							<s:if test="#page.hasNext">
 								<li><a
 									href="rank.action?appTmp.rankCurrentPage=<s:property value="#page.currentPage+1"/>">下一页</a></li>
