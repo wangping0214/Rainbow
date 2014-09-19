@@ -2,9 +2,8 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
         "http://struts.apache.org/dtds/struts-2.0.dtd">
  <struts>
- 	<package name="AppForgotEmail" extends="struts-default">
-          <action name="forgotEmail" class="appUserForgotEmail" method="forgotEmail">
+ 	<package name="AppRegisters" extends="struts-default">
+          <action name="Signup" class="AppRegiste" method="Signup">
     	</action>
-    	
     </package> 
  </struts>

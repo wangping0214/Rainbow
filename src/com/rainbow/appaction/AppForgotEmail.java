@@ -55,10 +55,8 @@ public class AppForgotEmail
 	      SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	      String nowTime = df.format(new Date());
 	      mailInfo.setContent(""
-	      		+ "恭喜您中了500万美元"
-	      		+ "别问我从哪里来"      	
-	      		+ "我从青铜来"
-	      		+"谢谢合作"
+	      		+ "请点击以下链接来修改密码"
+	      		+"http://localhost:8080/Rainbow/forgotEmail"
 	    		  );    
 	         //这个类主要来发送邮件   
 	      SimpleMailSender sms = new SimpleMailSender();   

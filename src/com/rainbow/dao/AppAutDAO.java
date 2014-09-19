@@ -9,6 +9,7 @@ public interface AppAutDAO {
 	public List<AppAuthority> findAll();
 	public AppAuthority findById(int id);
 	
+	public List<AppAuthority> RecomLevel();
 	/**前台查询应用是否推荐
 	 * @param recomLevel
 	 * @param currentPage
