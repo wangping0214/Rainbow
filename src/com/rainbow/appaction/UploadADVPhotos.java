@@ -65,8 +65,8 @@ public class UploadADVPhotos
     		//l.add(a.getId());
     		//l.add(result);
     		//out.println(result);]
-    		//l.add(a.getId());
-    		l.add(a.getLogo());
+    		l.add(a.getId());
+    		l.add("http://"+ip+":8080/Rainbow"+a.getLogo());
     		
     		
         	

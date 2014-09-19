@@ -56,39 +56,49 @@
                 </table>  
             </form>  
 </div>
-<div style="background:#ccc;width:690px; height:1200px;Float:left">                                                                                                                                                                                                                                                                                                                                                                                                                                                      
-		
+<div style="background:#adc;width:690px; height:1200px;Float:left">                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+			<h3>点击图片进行删除:</h3>
 			
-	<br>有${requestScope.c}个数据</br>
-	<br>${requestScope.l[0]}</br> 
-	<br>${requestScope.l[1]}</br> 
+			<br>有${requestScope.c}个数据</br>
+			<br>ID=${requestScope.l[0]}</br> 
+			<br>SRC=${requestScope.l[1]}</br> 
 	
-	<br>${requestScope.l[2]}</br> 
-	<br>${requestScope.l[3]}</br> 
+			<br>ID=${requestScope.l[2]}</br> 
+			<br>SRC=${requestScope.l[3]}</br> 
 	
-	<br>${requestScope.l[4]}</br> 
-	<br>${requestScope.l[5]}</br>
+			<br>ID=${requestScope.l[4]}</br> 
+			<br>SRC=${requestScope.l[5]}</br>
 	
-	<br>${requestScope.l[6]}</br>
-	<br>${requestScope.l[7]}</br>
+			<br>ID=${requestScope.l[6]}</br>
+			<br>SRC=${requestScope.l[7]}</br>
+			<a href="DeleteImg?id=${requestScope.l[0]}" onclick="return ck()">
+			<img src="${requestScope.l[1]}"/>
+			</a>
+			<a href="DeleteImg?id=${requestScope.l[2]}" onclick="return ck()">
+			<img src="${requestScope.l[3]}"/>
+			</a>
+			<a href="DeleteImg?id=${requestScope.l[4]}" onclick="return ck()">
+			<img src="${requestScope.l[5]}"/>
+			</a>
+			<a href="DeleteImg?id=${requestScope.l[6]}" onclick="return ck()">
+			<img src="${requestScope.l[7]}"/>
+			</a>
 	
 	<%
 	int i=0;
-	for(;i<8;i++){
+	for(;i<8;i=i+2){
 	%>
-	<%=i %>
+	
 			<a href="DeleteImg?id=${requestScope.l[i]}" onclick="return ck()">
-			<img src="http://localhost:8080/Rainbow${requestScope.l[<%=i %>+1]}"/>
+			<img src="${requestScope.l[i+1]}"/>
+			<input  type="button" value=<%=i %>></input]>
 			</a>
 		<%
-		i=i+1;
+		
 	}
 		%>
 	
 	
-	<!--  	<s:iterator value="l" var="b">-->
- <!--  <img src="http://localhost:8080/Rainbow<%=b%>"/>-->
-  <!-- </s:iterator> -->
 			
 		
 		
