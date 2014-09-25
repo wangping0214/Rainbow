@@ -7,8 +7,12 @@ import com.rainbow.entity.AppInfo;
 import com.rainbow.entity.ADV;
 
 public interface AppInfoDAO {
-	
-	
+	/**
+	 * gyn模糊查询  根据app name按下载量查询
+	 * @param str
+	 * @return
+	 */
+	public List<AppInfo> Fuzzy(String str);
 	/**
 	 * Gyn跟根据是否收费 返回app信息
 	 * @param num

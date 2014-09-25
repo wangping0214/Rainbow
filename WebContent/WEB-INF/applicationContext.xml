@@ -246,9 +246,14 @@
 		<constructor-arg ref="AppSouDAO"></constructor-arg>
 	</bean>
 
-	<!-- Gyn end -->
+	<!-- 上传与获取广告图片 -->
+	
 	 <bean id="UploadAVPhotos" class="com.rainbow.appaction.UploadADVPhotos" scope="prototype">
 		<constructor-arg ref="AppADVDAO"></constructor-arg>
+	</bean> 
+	<!-- 新用户注册 -->
+	 <bean id="AppRegiste" class="com.rainbow.appaction.AppRegister" scope="prototype">
+		<constructor-arg ref="userDAO"></constructor-arg>
 	</bean> 
 
 </beans>

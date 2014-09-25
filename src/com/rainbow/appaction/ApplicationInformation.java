@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.ServletActionContext;
 
 import com.google.gson.Gson;
+import com.opensymphony.xwork2.Action;
 import com.rainbow.dao.AppAutDAO;
 import com.rainbow.dao.AppInfoDAO;
 import com.rainbow.dao.AppSouDAO;
@@ -135,7 +136,87 @@ public class ApplicationInformation
 		result = gson.toJson(appList);
 		out.println(result);
 	}
+	/**
+	 * gyn 模糊查询根据 app name  按下载量查询
+	 * @throws IOException 
+	 */
+	public void Fuzzy() throws IOException
+	{
+		HttpServletResponse response = ServletActionContext.getResponse();
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		// 实例化
+		Gson gson = new Gson();
+		List<App> appList = new ArrayList<App>();
+		
+		
+		
+		if(dao.Fuzzy(str)==null){
+			out.print(Action.NONE);
+		}
+		for (AppInfo a : dao.Fuzzy(str))
+		{
+			
+			
+			AppAuthority af=adao.findById(a.getId());
+			AppSource sou = sdao.findById(a.getId());
+			App app = new App();
+			
+			app.setAppInfo(a);
+			app.setAppSou(sou);
+			app.setAppAut(af);
 
+			appList.add(app);
+		}
+		
+			// 声明和赋空值
+			String result = "";
+			// 转换成Json
+			result = gson.toJson(appList);
+			out.println(result);
+	}
+		/**
+		 * 按照推荐热度 排行app信息 返回前十行
+		 * @throws IOException 
+		 */
+	public void RecomLevel() throws IOException
+	{
+		HttpServletResponse response = ServletActionContext.getResponse();
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		// 实例化
+		Gson gson = new Gson();
+		List<App> appList = new ArrayList<App>();
+		
+		
+		
+		if(adao.RecomLevel()==null){
+			out.print(Action.NONE);
+		}
+		for (AppAuthority a : adao.RecomLevel())
+		{
+			
+			
+			AppInfo af=dao.findById(a.getId());
+			AppSource sou = sdao.findById(a.getId());
+			App app = new App();
+			
+			app.setAppInfo(af);
+			app.setAppSou(sou);
+			app.setAppAut(a);
+
+			appList.add(app);
+		}
+		
+			// 声明和赋空值
+			String result = "";
+			// 转换成Json
+			result = gson.toJson(appList);
+			out.println(result);
+		
+	}
 	public ApplicationInformation(AppInfoDAO dao, AppSouDAO sdao, AppAutDAO adao)
 	{
 		super();

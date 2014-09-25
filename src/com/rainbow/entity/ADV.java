@@ -20,8 +20,10 @@ public class ADV implements Serializable
 	//图片的相对路径
 	@Column(name="logo")
 	private String logo;
+	//图片类型
 	@Column(name="type")
 	private String type;
+	//存图片的时间
 	@Column(name="logotime")
 	private String logotime;
 	
