@@ -380,6 +380,7 @@ $(document).ready(function(){
 <body>
 <div class="cont">
 <img src="image/dtbg_02.jpg" width="100%"/>
+<br />
 <div class="infor">
    <p class="zhu">为保证实物奖励能准确邮寄，请仔细填写以下信息！</p>
    <form id="form" name="form" method="post" action="prizeInfoSub.action"   enctype="multipart/form-data">
