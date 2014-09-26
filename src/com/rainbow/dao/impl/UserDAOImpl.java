@@ -317,6 +317,18 @@ public class UserDAOImpl implements UserDAO
 		query.setParameter("companyOrName", "%"+companyOrName+"%");
 		return query.getResultList().size();
 	}
+/**
+ * gyn app∂À√‹¬Î–ﬁ∏ƒ
+ */
+	@Override
+	public void updatepwd(User user)
+	{
+		User pwdUser = find(user.getId());
+		if(pwdUser.getPassword()!=null||pwdUser.getPassword()!=""){
+			user.setPassword(pwdUser.getPassword());
+		}
+		entityManager.merge(user);
+	}
 
 	
 

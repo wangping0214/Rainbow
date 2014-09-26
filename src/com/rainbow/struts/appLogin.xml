@@ -5,5 +5,8 @@
  	<package name="Apploginsa" extends="struts-default">
           <action name="AppLoginAction" class="AppLoginaAction" method="AppLogin">
     	</action>
+    	 <action name="Appupdatepwd" class="AppLoginaAction" method="updatepwd">
+    	</action>
+    	
     </package> 
  </struts>

@@ -23,10 +23,19 @@ public class AppADVDAOImpl implements AppADVDAO
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<ADV> imlogo()
+	public List<ADV> imlogo(int currentPage,int pageSize)
 	{
 		Query query = entityManager.createQuery("select u from ADV u order by u.logotime desc");
 		//query.setMaxResults(4);
+		//currentPage页数
+		int startRow = (currentPage-1)*pageSize;
+		if(startRow<0){
+			startRow=0;
+		}
+		//第几页
+		query.setFirstResult(startRow);
+		//每页显示几条数据
+		query.setMaxResults(pageSize);
 		return query.getResultList();
 	}
 	/**
@@ -61,6 +70,22 @@ public class AppADVDAOImpl implements AppADVDAO
 		else return null;
 		
 	
+	}
+	@Override
+	public List<ADV> imlogo()
+	{
+		Query query = entityManager.createQuery("select u from ADV u order by u.logotime desc");
+		return query.getResultList();
+		
+		
+	}
+	@Override
+	public List<ADV> type(String type)
+	{
+		Query query = entityManager.createQuery("select u from ADV u where u.type=:type order by u.logotime desc ");
+		query.setParameter("type", type);
+		return query.getResultList();
+		
 	}
 
 }

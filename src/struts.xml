@@ -13,7 +13,7 @@
     <include file="com/rainbow/struts/appforgotpassword.xml"></include><!-- app phone验证码 找回密码 -->
     <include file="com/rainbow/struts/appText.xml"></include><!-- 获取app信息测试-->
     <include file="com/rainbow/struts/applicationInformation.xml"></include><!-- 查询app信息 -->
-    
+    <include file="com/rainbow/struts/appForgot.xml"></include><!-- user密码修改 -->
 
     <include file="com/rainbow/struts/aDVPhotos.xml"></include><!-- 上传广告 -->
     <!-- Edit by gyn -->

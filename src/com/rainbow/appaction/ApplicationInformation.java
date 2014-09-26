@@ -37,6 +37,7 @@ public class ApplicationInformation
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
 		// สตภýปฏ
+		num=3;
 		Gson gson = new Gson();
 		List<App> appList = new ArrayList<App>();
 		for (AppInfo info : dao.Section(num))
