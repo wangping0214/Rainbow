@@ -29,7 +29,11 @@ public class ApplicationInformation
 	// 要返回app的类别
 	private String str;
 
-	// 根据下载量查询前num个app信息
+	/**
+	 *  gyn
+	 *  根据下载量查询前num个app信息
+	 * @throws IOException
+	 */
 	public void Downloads() throws IOException
 	{
 		HttpServletResponse response = ServletActionContext.getResponse();
@@ -66,7 +70,11 @@ public class ApplicationInformation
 		out.println(result);
 	}
 
-	// 根据类别查询app信息
+	/**
+	 *  gyn
+	 *  根据类别查询app信息
+	 * @throws IOException
+	 */
 	public void Category() throws IOException
 	{
 		HttpServletResponse response = ServletActionContext.getResponse();
@@ -102,7 +110,11 @@ public class ApplicationInformation
 		out.println(result);
 	}
 
-	// 根据是否收费返回app信息
+	/**
+	 * gyn
+	 *  根据是否收费返回app信息
+	 * @throws IOException
+	 */
 	public void Fee() throws IOException
 	{
 		HttpServletResponse response = ServletActionContext.getResponse();
@@ -178,6 +190,7 @@ public class ApplicationInformation
 			out.println(result);
 	}
 		/**
+		 * gyn
 		 * 按照推荐热度 排行app信息 返回前十行
 		 * @throws IOException 
 		 */

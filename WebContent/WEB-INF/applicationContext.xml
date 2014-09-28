@@ -216,23 +216,30 @@
 		<constructor-arg ref="userDAO"></constructor-arg>
 		<constructor-arg ref="ReceiptDAO"></constructor-arg>
 	</bean>
-	<!-- STerOTto end -->
-	 
-	<!-- Edit by gyn -->
+	
+	
+	
+	
+	
+	
+	
+	<!-- gyn -->
+	<!-- app用户登入 -->
 	<bean id="AppLoginaAction" class="com.rainbow.appaction.AppLoginAction" scope="prototype">
 		<constructor-arg ref="userDAO"></constructor-arg>
 	</bean>
 	
+	<!-- 通过手机号码修改app用户密码 -->
 	<bean id="AppFPwd" class="com.rainbow.appaction.AppForgotPassword" scope="prototype">
 		<constructor-arg ref="userDAO"></constructor-arg>
 	</bean>
 	
+	<!-- 通过Emailapp用户修改密码 -->
 	<bean id="appUserForgotEmail" class="com.rainbow.appaction.AppForgotEmail" scope="prototype">
 		<constructor-arg ref="userDAO"></constructor-arg>
 	</bean>
 
 	<!-- 获取app信息  测试用的 -->
-
 	<bean id="AppTextText" class="com.rainbow.appaction.AppText" scope="prototype">
 		<constructor-arg ref="AppAutDAO"></constructor-arg>
 		<constructor-arg ref="AppInfoDAO"></constructor-arg>
@@ -246,20 +253,20 @@
 		<constructor-arg ref="AppSouDAO"></constructor-arg>
 	</bean>
 
-	<!-- 上传与获取广告图片 -->
-	
+	<!-- 上传与获取广告图片 -->	
 	 <bean id="UploadAVPhotos" class="com.rainbow.appaction.UploadADVPhotos" scope="prototype">
 		<constructor-arg ref="AppADVDAO"></constructor-arg>
 		<constructor-arg ref="AppAutDAO"></constructor-arg>
 		<constructor-arg ref="AppInfoDAO"></constructor-arg>
 		<constructor-arg ref="AppSouDAO"></constructor-arg>
 	</bean> 
+	
 	<!-- 新用户注册 -->
 	 <bean id="AppRegiste" class="com.rainbow.appaction.AppRegister" scope="prototype">
 		<constructor-arg ref="userDAO"></constructor-arg>
 	</bean> 
-	<!-- app端密码修改 -->
 	
+	<!-- app端密码修改 -->
 	 <bean id="AppForgots" class="com.rainbow.appaction.AppForgot" scope="prototype">
 		<constructor-arg ref="userDAO"></constructor-arg>
 	</bean> 

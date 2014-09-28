@@ -17,7 +17,11 @@ public class AppLoginAction
 	private String password;
 	private UserDAO userdao;
 	
-	//app端的登入验证
+	/**
+	 * gyn
+	 * app端的登入验证
+	 * @throws IOException
+	 */
 	
 	public void AppLogin() throws IOException
 	{
@@ -41,7 +45,8 @@ public class AppLoginAction
 		 
 	}
 	/**
-	 * gyn   app端密码修改
+	 * gyn   、
+	 * app端密码修改
 	 * @throws IOException
 	 */
 	public void updatepwd() throws IOException{

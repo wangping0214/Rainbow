@@ -17,7 +17,8 @@ public class AppForgot
 	private String newpassword;
 	private UserDAO userdao;
 	/**
-	 * gyn app¶ËÃÜÂëĞŞ¸Ä
+	 * gyn 
+	 * app¶ËÃÜÂëĞŞ¸Ä
 	 * 
 	 */
 	public void udpwd() throws IOException{
@@ -30,25 +31,19 @@ public class AppForgot
 		System.out.println(username);
 		System.out.println(password);
 		System.out.println(newpassword);
-		
 		user=userdao.login(username, password);
-		
-		System.out.println(user);
-		
-		if(user!=null){
-			
+		System.out.println(user);	
+		if(user!=null){	
 			user.setPassword(newpassword);
 			userdao.updatepwd(user);
 			
 			user=userdao.find(user.getId());
 			out.print(true);
-			out.print("ĞÂÃÜÂëÊÇ:"+user.getPassword());
-			
+			out.print("ĞÂÃÜÂëÊÇ:"+user.getPassword());	
 		}else{
 			out.print(false);
 		}
-		
-		
+				
 	}
 	
 	public String getNewpassword()

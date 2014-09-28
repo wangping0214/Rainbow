@@ -99,8 +99,11 @@ public class UploadADVPhotos
 		out.print(this.getUpFileFileName());
 		out.print(this.getUpFileContentType());
 		String a=null;	
-		 a=OpeFunction.fileToServer(savePath, upFile, upFileFileName,upFileContentType,false);
-			out.print(a);
+		 img=OpeFunction.fileToServer(savePath, upFile, upFileFileName,upFileContentType,false);
+			out.print(img);
+			//获取本机ip
+			String ip = InetAddress.getLocalHost().getHostAddress();
+			System.out.println(ip);
 			//获取系统当前时间
 			Date d = new Date();
 			//这样格式
@@ -108,7 +111,7 @@ public class UploadADVPhotos
 			//d就是这样格式的时间
 			String logotime=sdf.format(d);
 			ADV adv=new ADV();
-			adv.setLogo(a);
+			adv.setLogo("http://"+ip+":8080/Rainbow"+img);
 			adv.setType(type);
 			adv.setLogotime(logotime);
 			dao.saveimlogo(adv);
@@ -191,7 +194,7 @@ public class UploadADVPhotos
 			   {
 				   
 				    v=dao.select(Integer.parseInt(values[i]) );
-				    v.setType("推荐");
+				    v.setType("推荐");//推荐
 				    dao.saveimlogo(v);
 				    
 			  
@@ -211,7 +214,7 @@ public class UploadADVPhotos
 			   {
 				   
 				    v=dao.select(Integer.parseInt(values[i]) );
-				    v.setType("人气");
+				    v.setType("人气");//人气
 				    dao.saveimlogo(v);
 				    
 			  
@@ -229,7 +232,7 @@ public class UploadADVPhotos
 			   {
 				   
 				    v=dao.select(Integer.parseInt(values[i]) );
-				    v.setType("杂志");
+				    v.setType("杂志");//杂志
 				    dao.saveimlogo(v);
 				    
 			  
@@ -265,7 +268,8 @@ public class UploadADVPhotos
 		}
 	}
 	/**
-	 * gyn 通过 广告类别获取广告
+	 * gyn 
+	 * 通过 广告类别获取广告
 	 * @throws IOException
 	 */
 	public void ADVType() throws IOException{
@@ -274,11 +278,11 @@ public class UploadADVPhotos
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
-		List<ADV> l=new ArrayList<ADV>();
+		List<ADV> img=new ArrayList<ADV>();
 		
 		for(ADV a:dao.type(type)){
 			
-			l.add(a);
+			img.add(a);
 		}
 	    
 		List<App> appList=new ArrayList<App>();
@@ -305,7 +309,7 @@ public class UploadADVPhotos
 		String result = "";
 		String app = "";
 		List st=new ArrayList();
-		st.add(l);
+		st.add(img);
 		st.add(appList);
 		
 		result = gson.toJson(st);

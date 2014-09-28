@@ -3,6 +3,7 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
  <struts>
  	<package name="AppForgotEmail" extends="struts-default">
+ 		  <!-- 通过邮箱修改密码 -->
           <action name="forgotEmail" class="appUserForgotEmail" method="forgotEmail">
     	</action>
     	

@@ -106,7 +106,7 @@ function pro() {
 			-->
 			<br>页面类型    :<%=a.getType()%></br>
 			<a href="DeleteImg?id=<%=a.getId() %>" onclick="return ck()">
-			<img src="http://192.168.3.15:8080/Rainbow<%=a.getLogo() %>"/>
+			<img src="<%=a.getLogo() %>"/>
 			<br></br>
 			 
 			</a>
