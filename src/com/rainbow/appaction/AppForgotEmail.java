@@ -22,7 +22,11 @@ public class AppForgotEmail
 	
 
 	private String Email;
-	
+	/**
+	 * gyn
+	 * 向电子邮件发送改密码网站
+	 * @throws IOException
+	 */
 	public void forgotEmail() throws IOException
 	{
 		  

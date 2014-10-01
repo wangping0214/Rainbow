@@ -197,7 +197,7 @@
     <li><a href="findAllUserJoint" target="main"><img src="images/bili.gif" />分成管理</a></li>
     <li><a href="adminReportInit" target="main"><img src="images/zc.gif" />账单查询</a></li>
     <li><a href="initAdminSetFinancial" target="main"><img src="images/zc.gif" />结算管理</a></li>
-    <li><a href="Search" target="main"><img src="images/zc.gif" />上传</a></li>
+    <li><a href="Search" target="main"><img src="images/zc.gif" />广告管理</a></li>
    </ul>
  </li>
 </ul>

@@ -3,6 +3,7 @@ package com.rainbow.server;
 import java.io.Serializable;
 import java.util.List;
 
+import com.rainbow.entity.ADV;
 import com.rainbow.entity.AppAuthority;
 import com.rainbow.entity.AppInfo;
 import com.rainbow.entity.AppSource;
@@ -36,6 +37,7 @@ public class App implements Serializable{
 	 */
 	public App(AppInfo appInfo, AppSource appSou, AppAuthority appAut) {
 		super();
+		
 		this.appInfo = appInfo;
 		this.appSou = appSou;
 		this.appAut = appAut;
@@ -50,7 +52,6 @@ public class App implements Serializable{
 		this.appAut = new AppAuthority();
 		this.taxRate = new TaxRate();
 	}
-	
 	public String getAppAut_recomLevel() {
 		return appAut_recomLevel;
 	}

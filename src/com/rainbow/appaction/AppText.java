@@ -42,7 +42,11 @@ public class AppText
     private String upFileFileName; 
     private String upFileContentType;
     private String savePath;  
-	
+	/**
+	 * gyn
+	 * 测试用的action 中的方法
+	 * @throws IOException
+	 */
 	public void Text() throws IOException{
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setContentType("application/json");

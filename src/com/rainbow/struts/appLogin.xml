@@ -3,7 +3,10 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
  <struts>
  	<package name="Apploginsa" extends="struts-default">
+ 		  <!-- app端密码登入 -->
           <action name="AppLoginAction" class="AppLoginaAction" method="AppLogin">
-    	</action>
+    	  </action>
+    	
+    	
     </package> 
  </struts>

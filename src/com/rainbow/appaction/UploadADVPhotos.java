@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
@@ -19,14 +20,23 @@ import javax.servlet.http.HttpServletRequest;
 import com.google.gson.Gson;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
 import com.rainbow.dao.AppADVDAO;
+import com.rainbow.dao.AppAutDAO;
 import com.rainbow.dao.AppInfoDAO;
+import com.rainbow.dao.AppSouDAO;
 import com.rainbow.entity.ADV;
+import com.rainbow.entity.AppAuthority;
+import com.rainbow.entity.AppInfo;
+import com.rainbow.entity.AppSource;
 import com.rainbow.server.App;
 import com.rainbow.util.OpeFunction;
 
 public class UploadADVPhotos
 {
+	private AppSouDAO sdao;
+	private AppAutDAO adao;
+	private AppInfoDAO idao;
 	private AppADVDAO dao;
 	private File   upFile;  
     private String upFileFileName; 
@@ -35,66 +45,46 @@ public class UploadADVPhotos
     private int id;
     private String type;
    public String img;
-    //根据id查询图片路径
-    public String Search() throws IOException{
-    	HttpServletResponse response = ServletActionContext.getResponse();
-		response.setContentType("application/json");
-		response.setCharacterEncoding("UTF-8");
-		PrintWriter out = response.getWriter();
-		Gson gson = new Gson();
-		//获取本地ip地址
-		String ip = InetAddress.getLocalHost().getHostAddress();
-		//获取系统当前时间
-		Date d = new Date();
-		//这样格式
-		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd  kk:mm:ss ");
-		//str就是这样格式的时间
-		String str=sdf.format(d);
-		// 声明和赋空值
-		String result = "";
+   private int currentPage=1;
+   private int pageSize=4;
+   private String[] cartCheckBox;
+   
+   
+	/**
+	 * gyn分页显示广告图片
+	 * @return
+	 * @throws IOException
+	 */
+    public String Search() throws IOException{	
+		ADV v=new ADV();
 		
 		List l=new ArrayList();
-	
-		System.out.println("进入action");
-		
-    	for(ADV a:dao.imlogo()){
-    		
-    		//out.print("http://192.168.3.15:8080/Rainbow"+a.getLogo());
-    		// 转换成Json
-    		//result = gson.toJson(a.getLogo());
-    		//l.add(a.getId());
-    		//l.add(result);
-    		//out.println(result);]
-    		l.add(a.getId());
-    		l.add("http://"+ip+":8080/Rainbow"+a.getLogo());
-    		
-    		
-        	
+		if(currentPage==0){
+			currentPage=1;
+		}
+		int n=dao.imlogo().size();
+		if(n%4==0){
+    		n=n/4;
+    	}else{
+    		n=(n/4)+1;
     	}
-    	
-    	Map request = (Map) ActionContext.getContext().get("request");
-    	request.put("l", l);
-    	request.put("c",l.size() );
-    	
-    	System.out.println("list长度"+l.size());
-    	/**
-    	request.put("img1", "http://localhost:8080/Rainbow"+l.get(1));
-    	request.put("img2", "http://localhost:8080/Rainbow"+l.get(2));
-    	request.put("img3", "http://localhost:8080/Rainbow"+l.get(3));
-    	File file = new File(ServletActionContext.getServletContext()
-				.getRealPath("l.get(1)"));
-			file.delete();
-    							System.out.println(l.get(1));
-    							System.out.println(ServletActionContext.getServletContext().getRealPath("123"));
-    	**/
-    	return Action.SUCCESS;
-    
-    	
-    	
-		
-    			
+		if(currentPage>=n){
+			currentPage=n;		
+		}
+    	for(int i=0;i<dao.imlogo(currentPage,pageSize).size();i++){
+    		v=dao.imlogo(currentPage,pageSize).get(i);
+    		l.add(v);	
+    	}   	
+    	Map session = (Map) ActionContext.getContext().get("session");
+    	session.put("l", l);
+    	session.put("currentPage", currentPage);
+    	session.put("n",n);
+    	return Action.SUCCESS;		
     }
-	//上传广告图片
+	/**
+	 * 上传广告图片
+	 * @throws IOException
+	 */
 	public void UploadPhotos() throws IOException{
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setContentType("application/json");
@@ -108,13 +98,12 @@ public class UploadADVPhotos
 		}
 		out.print(this.getUpFileFileName());
 		out.print(this.getUpFileContentType());
-		String a=null;
-		
-		 a=OpeFunction.fileToServer(savePath, upFile, upFileFileName,upFileContentType,false);
-		 
-		 
-		
-			out.print(a);
+		String a=null;	
+		 img=OpeFunction.fileToServer(savePath, upFile, upFileFileName,upFileContentType,false);
+			out.print(img);
+			//获取本机ip
+			String ip = InetAddress.getLocalHost().getHostAddress();
+			System.out.println(ip);
 			//获取系统当前时间
 			Date d = new Date();
 			//这样格式
@@ -122,11 +111,10 @@ public class UploadADVPhotos
 			//d就是这样格式的时间
 			String logotime=sdf.format(d);
 			ADV adv=new ADV();
-			adv.setLogo(a);
+			adv.setLogo("http://"+ip+":8080/Rainbow"+img);
 			adv.setType(type);
 			adv.setLogotime(logotime);
 			dao.saveimlogo(adv);
-
 			out.print("\n路径\n"+adv.getLogo());
 		
 	}
@@ -144,9 +132,6 @@ public class UploadADVPhotos
 		System.out.println(id);
 		ADV adv=dao.select(id);
 		dao.deleteimglogo(adv);
-		
-		
-		
 		File file = new File(ServletActionContext.getServletContext()
 				.getRealPath(adv.getLogo()));
 		file.delete();
@@ -156,10 +141,221 @@ public class UploadADVPhotos
 		
 		
 	}
+	/**
+	 * gyn广告管理
+	 * @SuppressWarnings("unchecked")
+	 * @throws IOException
+	 */
+	
+	public void ADVn() throws IOException{
+		HttpServletResponse response = ServletActionContext.getResponse();
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		//实例化
+		Gson gson = new Gson();
+		//声明和赋空值
+		String result = "";		
+		//获取request
+		HttpServletRequest request=ServletActionContext.getRequest();
+		//获取复选框的值
+		String[]   values   =   request.getParameterValues("cartCheckBox");
+		//获取提交按钮的值
+		String Submit=   request.getParameter("sc");
+		System.out.println(Submit);
+		List l=new ArrayList();
+		ADV v=new ADV(); 
+		//选择内容进行操作
+		switch (Submit)
+		{
+		case "删除":
+			if(values==null){
+				out.print("请选择");
+				return;
+				
+			}
+			 for(int i=0;i<values.length;i++)
+			   {
+				   
+				    v=dao.select(Integer.parseInt(values[i]) );
+				   dao.deleteimglogo(v);
+			  
+			   }
+			out.print("你删除了"+values.length+"条数据");
+			
+			break;
+		case "推荐":
+			if(values==null){
+				out.print("请选择");
+				return;
+				
+			}
+			 for(int i=0;i<values.length;i++)
+			   {
+				   
+				    v=dao.select(Integer.parseInt(values[i]) );
+				    v.setType("推荐");//推荐
+				    dao.saveimlogo(v);
+				    
+			  
+			   }
+			 out.print("推荐广告图");
+			 out.print("你修改了"+values.length+"条数据");
+			 
+			 
+			break;
+		case "人气":
+			if(values==null){
+				out.print("请选择");
+				return;
+				
+			}
+			 for(int i=0;i<values.length;i++)
+			   {
+				   
+				    v=dao.select(Integer.parseInt(values[i]) );
+				    v.setType("人气");//人气
+				    dao.saveimlogo(v);
+				    
+			  
+			   }
+			 out.print("人气广告图");
+			 out.print("你修改了"+values.length+"条数据");
+			break;
+		case "杂志":
+			if(values==null){
+				out.print("请选择");
+				return;
+				
+			}
+			 for(int i=0;i<values.length;i++)
+			   {
+				   
+				    v=dao.select(Integer.parseInt(values[i]) );
+				    v.setType("杂志");//杂志
+				    dao.saveimlogo(v);
+				    
+			  
+			   }
+			 
+			 out.print("杂志广告图");
+			 out.print("你修改了"+values.length+"条数据");
+		
+			break;
+
+		case "清空":
+			if(values==null){
+				out.print("请选择");
+				return;
+				
+			}
+			 for(int i=0;i<values.length;i++) {
+				   
+				    v=dao.select(Integer.parseInt(values[i]) );
+				    v.setType(" ");
+				    dao.saveimlogo(v);
+				    
+			  
+			   }
+			 
+			 out.print("杂志广告图");
+			 out.print("你修改了"+values.length+"条数据");
+		
+			break;
+		default:
+			out.println("异常");
+			break;
+		}
+	}
+	/**
+	 * gyn 
+	 * 通过 广告类别获取广告
+	 * @throws IOException
+	 */
+	public void ADVType() throws IOException{
+		System.out.println("进入ADVType");
+		HttpServletResponse response = ServletActionContext.getResponse();
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		List<ADV> img=new ArrayList<ADV>();
+		
+		for(ADV a:dao.type(type)){
+			
+			img.add(a);
+		}
+	    
+		List<App> appList=new ArrayList<App>();
+		int num=3;
+		
+		for (AppInfo info : idao.Section(num))
+		{
+			AppSource sou = sdao.findById(info.getId());
+			AppAuthority ay = adao.findById(info.getId());
+			
+			App app = new App();
+			app.setAppAut(ay);
+			app.setAppInfo(info);
+			app.setAppSou(sou);
+			appList.add(app);
+
+			
+
+		}
+		
+		//实例化
+		Gson gson = new Gson();
+		//声明和赋空值
+		String result = "";
+		String app = "";
+		List st=new ArrayList();
+		st.add(img);
+		st.add(appList);
+		
+		result = gson.toJson(st);
+		//app = gson.toJson("广告图片信息"+appList);
+		//out.println(app);
+		
+		out.println(result);
+	}
 	
 	
 
 
+	
+	public UploadADVPhotos(AppSouDAO sdao, AppAutDAO adao,AppInfoDAO idao,AppADVDAO dao)
+	{
+		super();
+		this.sdao = sdao;
+		this.adao = adao;
+		this.idao = idao;
+		this.dao=dao;
+	}
+
+	public String[] getCartCheckBox()
+	{
+		return cartCheckBox;
+	}
+	public void setCartCheckBox(String[] cartCheckBox)
+	{
+		this.cartCheckBox = cartCheckBox;
+	}
+	public int getCurrentPage()
+	{
+		return currentPage;
+	}
+	public void setCurrentPage(int currentPage)
+	{
+		this.currentPage = currentPage;
+	}
+	public int getPageSize()
+	{
+		return pageSize;
+	}
+	public void setPageSize(int pageSize)
+	{
+		this.pageSize = pageSize;
+	}
 	public String getImg()
 	{
 		return img;
@@ -184,11 +380,7 @@ public class UploadADVPhotos
 	{
 		this.id = id;
 	}
-	public UploadADVPhotos(AppADVDAO dao)
-	{
-		super();
-		this.dao = dao;
-	}
+	
 
 	public File getUpFile()
 	{
