@@ -1,15 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="UTF-8" lang="utf-8">
 <head>
- <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
  <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="css/style.css" rel="stylesheet" type="text/css" />
- <title>²ñÃ×ÓÎÑÔ</title>
+ <title>æŸ´ç±³æ¸¸è¨€</title>
  <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/nav.js"></script>
  <script language="javascript" type="text/javascript">
- // --- »ñÈ¡ClassName
+ // --- è·å–ClassName
  document.getElementsByClassName = function(cl) {
   var retnode = [];
   var myclass = new RegExp('\\b'+cl+'\\b');
@@ -21,17 +23,17 @@
   return retnode;
  }
  
- // --- Òş²ØËùÓĞ
+ // --- éšè—æ‰€æœ‰
  function HideAll() {
   var items = document.getElementsByClassName("optiton");
   for (var j=0; j<items.length; j++) {
    items[j].style.display = "none";
   }
  }
- // --- ÉèÖÃcookie
+ // --- è®¾ç½®cookie
  function setCookie(sName,sValue,expireHours) {
   var cookieString = sName + "=" + escape(sValue);
-  //;ÅĞ¶ÏÊÇ·ñÉèÖÃ¹ıÆÚÊ±¼ä
+  //;åˆ¤æ–­æ˜¯å¦è®¾ç½®è¿‡æœŸæ—¶é—´
   if (expireHours>0) {
     var date = new Date();
     date.setTime(date.getTime + expireHours * 3600 * 1000);
@@ -39,7 +41,7 @@
   }
   document.cookie = cookieString;
  }
- //--- »ñÈ¡cookie
+ //--- è·å–cookie
  function getCookie(sName) {
    var aCookie = document.cookie.split("; ");
    for (var j=0; j < aCookie.length; j++){
@@ -84,31 +86,31 @@
 </div>
 <!--touxiang-->
 <ul id="menu">
- <li class="item"><a href="appmanage.html" class="title nav2" name="1" target="main">ÎÒµÄÓ¦ÓÃ</a>
+ <li class="item"><a href="appmanage.html" class="title nav2" name="1" target="main">æˆ‘çš„åº”ç”¨</a>
    <ul id="opt_1" class="optiton">
-    <li><a href="appmanage.html" target="main"><img src="images/img16s.png" /><img src="images/img16.png" />Ó¦ÓÃ¹ÜÀí</a></li>
-    <li><a href="Add_app.html" target="main"><img src="images/ad2.png"/><img src="images/ad.png"/>·¢²¼Ó¦ÓÃ</a></li>
+    <li><a href="appmanage.html" target="main"><img src="images/img16s.png" /><img src="images/img16.png" />åº”ç”¨ç®¡ç†</a></li>
+    <li><a href="Add_app.html" target="main"><img src="images/ad2.png"/><img src="images/ad.png"/>å‘å¸ƒåº”ç”¨</a></li>
    </ul>
  </li>
- <li class="item"><a href="javascript:void(0);" class="title nav4" name="4" target="main">Êı¾İÍ³¼Æ</a>
+ <li class="item"><a href="javascript:void(0);" class="title nav4" name="4" target="main">æ•°æ®ç»Ÿè®¡</a>
    <ul id="opt_4" class="optiton">
-    <li><a href="data_analysis.html" target="main"><img src="images/data2.png" /><img src="images/data.png" />Êı¾İ·ÖÎö</a></li>
-    <li><a href="order_date.html" target="main"><img src="images/jl2.png" /><img src="images/jl.png" />Ö§¸¶¶©µ¥¼ÇÂ¼</a></li>
+    <li><a href="data_analysis.html" target="main"><img src="images/data2.png" /><img src="images/data.png" />æ•°æ®åˆ†æ</a></li>
+    <li><a href="order_date.html" target="main"><img src="images/jl2.png" /><img src="images/jl.png" />æ”¯ä»˜è®¢å•è®°å½•</a></li>
    </ul>
  </li>
- <li class="item"><a href="javascript:void(0);" target="main" class="title nav3" name="2">ÕË»§¹ÜÀí</a>
+ <li class="item"><a href="javascript:void(0);" target="main" class="title nav3" name="2">è´¦æˆ·ç®¡ç†</a>
    <ul id="opt_2" class="optiton">
-    <li><a href="company_developer.html" target="main"><img src="images/kf.png" /><img src="images/kf2.png" />¿ª·¢Õß×ÊÁÏ</a></li>
-    <li><a href="finance_company.html"target="main"><img src="images/xx2.png" /><img src="images/xx.png" />²ÆÎñĞÅÏ¢</a></li>
-    <li><a href="password_change.html" target="main"><img src="images/mm2.png" /><img src="images/mm.png" />ÕËºÅÃÜÂë</a></li>
+    <li><a href="company_developer.html" target="main"><img src="images/kf.png" /><img src="images/kf2.png" />å¼€å‘è€…èµ„æ–™</a></li>
+    <li><a href="finance_company.html"target="main"><img src="images/xx2.png" /><img src="images/xx.png" />è´¢åŠ¡ä¿¡æ¯</a></li>
+    <li><a href="password_change.html" target="main"><img src="images/mm2.png" /><img src="images/mm.png" />è´¦å·å¯†ç </a></li>
    </ul>
  </li>
-  <li class="item"><a href="javascript:void(0);" target="main" class="title nav5" name="5">ÍÆ¹ã</a>
+  <li class="item"><a href="javascript:void(0);" target="main" class="title nav5" name="5">æ¨å¹¿</a>
    <ul id="opt_5" class="optiton">
-    <li><a href="kaifaxinxi.html" target="main"><img src="images/kf.png" /><img src="images/kf2.png" />ÔİÎŞÍÆ¹ã</a></li>
+    <li><a href="kaifaxinxi.html" target="main"><img src="images/kf.png" /><img src="images/kf2.png" />æš‚æ— æ¨å¹¿</a></li>
    </ul>
  </li>
- <li class="item"><a href="javascript:void(0);" target="main" class="title nav6" name="6">°ïÖúÎÄµµ</a>
+ <li class="item"><a href="javascript:void(0);" target="main" class="title nav6" name="6">å¸®åŠ©æ–‡æ¡£</a>
 
  </li>
 </ul> 

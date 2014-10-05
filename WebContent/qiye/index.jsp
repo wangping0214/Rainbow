@@ -1,3 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="com.rainbow.entity.User"%>
+<%@ page import="com.rainbow.constant.*" %>
+<%
+	User user = (User)session.getAttribute("user");
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
 <head>
@@ -39,8 +46,10 @@
 
 <iframe src="head.html" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" width="100%" height="80"></iframe>
 <div class="middle">
-   <iframe id="menu" class="left" name="middle2" src="menu.html" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" width="100%" onload="this.height=100"></iframe>
-   <iframe class="cont2" id="main" name="main" src="main2.html" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" width="100%" onload="this.height=100"></iframe>
+<%if(Auditing.APPROVED.getValue() == user.getApproved()){ %>
+   <iframe id="menu" class="left" name="middle2" src="menu.jsp" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" width="100%" onload="this.height=100"></iframe>
+<%} %>
+   <iframe class="cont2" id="main" name="main" src="main2.jsp" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" width="100%" onload="this.height=100"></iframe>
 </div>
 
 

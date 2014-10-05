@@ -1,8 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>ÒÑ·¢²¼</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>å·²å‘å¸ƒ</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -10,18 +12,18 @@
 <div class="content">
      <div class="search">
                <div class="searchcont">
-                   <input type="text" value="ËÑË÷¹Ø¼ü´Ê" class="socont"/><input type="image" src="images/a1_04.jpg" value="" class="sobut"/>
+                   <input type="text" value="æœç´¢å…³é”®è¯" class="socont"/><input type="image" src="images/a1_04.jpg" value="" class="sobut"/>
                </div>
                <!--searchcont-->
       </div>
       <!--serach-->
       <div class="midcont">
              <div class="tit">
-                 <p class="headnav">²ñÃ×ÓÎÏ·</p>
+                 <p class="headnav">æŸ´ç±³æ¸¸æˆ</p>
              </div>
              <!--tit-->
              <div class="cont">
-                 <p class="wei"> Äú»¹Ã»ÓÐ×¢²á³ÉÎªÆóÒµ/¸öÈË¿ª·¢Õß£¬Çë<a href="register_information.html" class="zhuce">Á¢¼´×¢²á</a>£¡</p>
+                 <p class="wei"> æ‚¨è¿˜æ²¡æœ‰æ³¨å†Œæˆä¸ºä¼ä¸š/ä¸ªäººå¼€å‘è€…ï¼Œè¯·<a href="register_information.html" class="zhuce">ç«‹å³æ³¨å†Œ</a>ï¼</p>
              </div>
              <!--cont-->
        </div>

@@ -1,8 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>Ìí¼ÓÐÂÓ¦ÓÃ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>æ·»åŠ æ–°åº”ç”¨</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <script language="javascript" type="text/javascript"> 
 function fn_browse() 
@@ -18,50 +20,50 @@ document.form1.file.value = document.all.form1.browse.value;
 <div class="content">
      <div class="search">
                <div class="searchcont">
-                   <input type="text" value="ËÑË÷¹Ø¼ü´Ê" class="socont"/><input type="image" src="images/a1_04.jpg" value="" class="sobut"/>
+                   <input type="text" value="æœç´¢å…³é”®è¯" class="socont"/><input type="image" src="images/a1_04.jpg" value="" class="sobut"/>
                </div>
                <!--searchcont-->
       </div>
       <!--serach-->
       <div class="midcont">
              <div class="tit">
-                 <p class="headnav">ÍêÉÆAPPÐÅÏ¢</p>
+                 <p class="headnav">å®Œå–„APPä¿¡æ¯</p>
              </div>
              <!--tit-->
              <p></p>
              <form id="form1" name="form1" method="post" action="">
              <div class="cont">
-                 <p class="explain">*¹§Ï²ÄúÒÑ¾­³É¹¦´´½¨ÁË¡ºÓ¦ÓÃÃû³Æ¡»</p>
-                 <p class="explain2">»ñÈ¡SDK½ÓÈëÐÅÏ¢£¬²¢Íê³ÉSDK¼¯³É</p>
+                 <p class="explain">*æ­å–œæ‚¨å·²ç»æˆåŠŸåˆ›å»ºäº†ã€Žåº”ç”¨åç§°ã€</p>
+                 <p class="explain2">èŽ·å–SDKæŽ¥å…¥ä¿¡æ¯ï¼Œå¹¶å®ŒæˆSDKé›†æˆ</p>
                  <div class="appcont">
                     <dl>
                         <dt><img src="images/img22.png" /></dt>
                         <dd>
-                           <p>Ó¦ÓÃÃû³Æ £º xxxxxxxxxx</p>
-                           <p>APP ID   £º xxxxxxxxx</p>
-                           <p>MD5 Key£º xxxxxxxxx</p>
-                           <p>ÏÂÔØSDK°ü¼°¼¯³ÉÎÄµµ £º<a href="#"> xxxxxx</a></p>
-                           <p>SDK ²âÊÔÓÃÀýµØÖ·£º<a href="#"> xxxxxxxxxxxx</a></p>
-                           <p>SDK ¼¯³É¼¼Êõ¹ËÎÊ£ºxxxxxxxxxxxx</p>
+                           <p>åº”ç”¨åç§° ï¼š xxxxxxxxxx</p>
+                           <p>APP ID   ï¼š xxxxxxxxx</p>
+                           <p>MD5 Keyï¼š xxxxxxxxx</p>
+                           <p>ä¸‹è½½SDKåŒ…åŠé›†æˆæ–‡æ¡£ ï¼š<a href="#"> xxxxxx</a></p>
+                           <p>SDK æµ‹è¯•ç”¨ä¾‹åœ°å€ï¼š<a href="#"> xxxxxxxxxxxx</a></p>
+                           <p>SDK é›†æˆæŠ€æœ¯é¡¾é—®ï¼šxxxxxxxxxxxx</p>
                         </dd>
                     </dl>
                     <div class="xinxi">
-                        <span class="xuhao xuhao2">¢Ù</span><a href="sign_point.html" class="current3">×¢²á¼Æ·Ñµã</a>
+                        <span class="xuhao xuhao2">â‘ </span><a href="sign_point.jsp" class="current3">æ³¨å†Œè®¡è´¹ç‚¹</a>
                     </div>
                     <!--xinxi-->
                     <div class="jiantou"><img src="images/jiantou2.jpg" /></div>
                     <div class="xinxi">
-                        <span class="xuhao">¢Ú</span><a href="self_test.html">×Ô²â</a>
+                        <span class="xuhao">â‘¡</span><a href="self_test.jsp">è‡ªæµ‹</a>
                     </div>
                     <!--xinxi-->
                     <div class="jiantou"><img src="images/jiantou.jpg" /></div>
                     <div class="xinxi">
-                        <span class="xuhao">¢Û</span><a href="perfect_infoimation.html">ÍêÉÆÓ¦ÓÃÐÅÏ¢</a>
+                        <span class="xuhao">â‘¢</span><a href="perfect_infoimation.jsp">å®Œå–„åº”ç”¨ä¿¡æ¯</a>
                     </div>
                     <!--xinxi-->
                  </div>
                  <!--appcont-->
-                 <div class="uppage uppage3"><input type="submit" value="Ìá½»ÉóºË" class="tijiao" /></div>
+                 <div class="uppage uppage3"><input type="submit" value="æäº¤å®¡æ ¸" class="tijiao" /></div>
              </div>
              <!--cont-->
              </form>

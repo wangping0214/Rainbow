@@ -1,8 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>лМ╪сс╕сц</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Ф╥╩Е┼═Е╨■Г■╗</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -10,26 +12,26 @@
 <div class="content">
      <div class="search">
                <div class="searchcont">
-                   <input type="text" value="кякВ╧ь╪Э╢й" class="socont"/><input type="image" src="images/a1_04.jpg" value="" class="sobut"/>
+                   <input type="text" value="Ф░°Г╢╒Е┘ЁИ■╝Х╞█" class="socont"/><input type="image" src="images/a1_04.jpg" value="" class="sobut"/>
                </div>
                <!--searchcont-->
       </div>
       <!--serach-->
       <div class="midcont">
              <div class="tit">
-                 <p class="headnav">лМ╪сс╕сц</p>
+                 <p class="headnav">Ф╥╩Е┼═Е╨■Г■╗</p>
              </div>
              <!--tit-->
              <div class="cont">
-                 <h3 class="addtit">гКя║тЯ╥╒╡╪юЮпм</h3>
+                 <h3 class="addtit">Х╞╥И─┴Ф▀╘Е▐▒Е╦┐Г╠╩Е·▀</h3>
                  <div class="mold">
                      <dl class="meifht50">
-                         <dt><a href="appmanage_joint.html" target="main">а╙тксно╥</a></dt>
-                         <dd>пХ╫схК╡Яцвсно╥ф╫л╗╣дSDK</dd>
+                         <dt><a href="appmanage_joint.jsp" target="main">Х│■Х©░Ф╦╦Ф┬▐</a></dt>
+                         <dd>И°─Ф▌╔Е┘╔Ф÷╢Г╠ЁФ╦╦Ф┬▐Е╧ЁЕ▐╟Г └SDK</dd>
                      </dl>
                      <dl>
-                         <dt><a href="Add_newapp.html" target="main">лМ╪спбс╕сц</a></dt>
-                         <dd>тз╡Яцвсно╥ф╫л╗иоу╧й╬╦цвВф╥</dd>
+                         <dt><a href="Add_newapp.jsp" target="main">Ф╥╩Е┼═Ф√╟Е╨■Г■╗</a></dt>
+                         <dd>Е°╗Ф÷╢Г╠ЁФ╦╦Ф┬▐Е╧ЁЕ▐╟Д╦┼Е╠∙Г╓╨Х╞╔Д╫°Е⌠│</dd>
                      </dl>
                </div>
                <!--mold-->

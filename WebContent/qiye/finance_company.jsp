@@ -30,7 +30,7 @@ document.form1.file.value = document.all.form1.browse2.value;
       <!--serach-->
       <div class="midcont">
              <div class="tit">
-                 <p class="headnav">个人开发者-财务信息</p>
+                 <p class="headnav">企业开发者-财务信息</p>
              </div>
              <!--tit-->
              <form id="form1" name="form1" method="post" action="">
@@ -38,7 +38,10 @@ document.form1.file.value = document.all.form1.browse2.value;
              <div class="contauto">
                  <div class="xinxicont">
                       <div><label>收款方账户名:</label>
-                         <p class="pp shoukuan"><input type="text" class="inputs2" /></p>
+                         <p class="pp shoukuan">北京五彩时空科技有限公司</p>
+                      </div>
+                      <div class="fpmold"><label><span class="red">*</span>类型:</label>
+                         <p class="pp"><input name="0" type="radio" checked="checked" />一般纳税人（可开增值税专用票）<input name="0" type="radio" />小规模纳税人（可开增值税普通发票）</p>
                       </div>
                       <div><label>开户银行:</label>
                          <p class="pp"><select><option>请选择</option><option>工商</option><option>农业银行</option></select></p>
@@ -66,7 +69,6 @@ document.form1.file.value = document.all.form1.browse2.value;
                       <div class="red"><label>&nbsp;</label>* 财务信息保存后不可修改，请您正确填写。 </div>
                     </div>
                     <!--xinxicont-->
-                    
                     <div class="uppage"><input type="submit" value="保存信息并返回" class="tijiao" /></div>
              </div>
              <!--cont-->
