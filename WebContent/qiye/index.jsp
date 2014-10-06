@@ -44,7 +44,7 @@
 
 <body>
 
-<iframe src="head.html" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" width="100%" height="80"></iframe>
+<iframe src="head.jsp" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" width="100%" height="80"></iframe>
 <div class="middle">
 <%if(Auditing.APPROVED.getValue() == user.getApproved()){ %>
    <iframe id="menu" class="left" name="middle2" src="menu.jsp" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" width="100%" onload="this.height=100"></iframe>

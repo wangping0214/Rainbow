@@ -1,8 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>Ìí¼ÓÐÂÓ¦ÓÃ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>æ·»åŠ æ–°åº”ç”¨</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <script language="javascript" type="text/javascript"> 
 function fn_browse() 
@@ -21,7 +23,7 @@ document.form1.file.value = document.all.form1.browse2.value;
 <div class="content">
      <div class="search">
                <div class="searchcont">
-                   <input type="text" value="ËÑË÷¹Ø¼ü´Ê" class="socont"/><input type="image" src="images/a1_04.jpg" value="" class="sobut"/>
+                   <input type="text" value="æœç´¢å…³é”®è¯" class="socont"/><input type="image" src="images/a1_04.jpg" value="" class="sobut"/>
                </div>
                <!--searchcont-->
       </div>
@@ -29,14 +31,14 @@ document.form1.file.value = document.all.form1.browse2.value;
       <div class="midcont">
           
              <div class="tit">
-                 <p class="headnav">×¢²á</p>
+                 <p class="headnav">æ³¨å†Œ</p>
              </div>
              <!--tit-->
              <div class="cont">
                   <div class="yidao"><img src="images/nav3.jpg" /></div>
                   <div class="waittishi">
-                     <p class="size24">ÄúµÄÕË»§ÒÑÍê³ÉÑéÖ¤¡£</p>
-                     <p>×ÊÁÏÒÑ¾­Í¨¹ýÉóºË£¬ÇëµÈ´ýÎÒÃÇµÄÍ¨Öª</p>
+                     <p class="size24">æ‚¨çš„è´¦æˆ·å·²å®ŒæˆéªŒè¯ã€‚</p>
+                     <p>èµ„æ–™å·²ç»é€šè¿‡å®¡æ ¸ï¼Œè¯·ç­‰å¾…æˆ‘ä»¬çš„é€šçŸ¥</p>
                   </div> 
                     
               </div>

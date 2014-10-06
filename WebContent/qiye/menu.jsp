@@ -86,28 +86,28 @@
 </div>
 <!--touxiang-->
 <ul id="menu">
- <li class="item"><a href="appmanage.html" class="title nav2" name="1" target="main">我的应用</a>
+ <li class="item"><a href="appmanage.jsp" class="title nav2" name="1" target="main">我的应用</a>
    <ul id="opt_1" class="optiton">
-    <li><a href="appmanage.html" target="main"><img src="images/img16s.png" /><img src="images/img16.png" />应用管理</a></li>
-    <li><a href="Add_app.html" target="main"><img src="images/ad2.png"/><img src="images/ad.png"/>发布应用</a></li>
+    <li><a href="appmanage.jsp" target="main"><img src="images/img16s.png" /><img src="images/img16.png" />应用管理</a></li>
+    <li><a href="Add_app.jsp" target="main"><img src="images/ad2.png"/><img src="images/ad.png"/>发布应用</a></li>
    </ul>
  </li>
  <li class="item"><a href="javascript:void(0);" class="title nav4" name="4" target="main">数据统计</a>
    <ul id="opt_4" class="optiton">
-    <li><a href="data_analysis.html" target="main"><img src="images/data2.png" /><img src="images/data.png" />数据分析</a></li>
-    <li><a href="order_date.html" target="main"><img src="images/jl2.png" /><img src="images/jl.png" />支付订单记录</a></li>
+    <li><a href="data_analysis.jsp" target="main"><img src="images/data2.png" /><img src="images/data.png" />数据分析</a></li>
+    <li><a href="order_date.jsp" target="main"><img src="images/jl2.png" /><img src="images/jl.png" />支付订单记录</a></li>
    </ul>
  </li>
  <li class="item"><a href="javascript:void(0);" target="main" class="title nav3" name="2">账户管理</a>
    <ul id="opt_2" class="optiton">
-    <li><a href="company_developer.html" target="main"><img src="images/kf.png" /><img src="images/kf2.png" />开发者资料</a></li>
-    <li><a href="finance_company.html"target="main"><img src="images/xx2.png" /><img src="images/xx.png" />财务信息</a></li>
-    <li><a href="password_change.html" target="main"><img src="images/mm2.png" /><img src="images/mm.png" />账号密码</a></li>
+    <li><a href="company_developer.jsp" target="main"><img src="images/kf.png" /><img src="images/kf2.png" />开发者资料</a></li>
+    <li><a href="finance_company.jsp"target="main"><img src="images/xx2.png" /><img src="images/xx.png" />财务信息</a></li>
+    <li><a href="password_change.jsp" target="main"><img src="images/mm2.png" /><img src="images/mm.png" />账号密码</a></li>
    </ul>
  </li>
   <li class="item"><a href="javascript:void(0);" target="main" class="title nav5" name="5">推广</a>
    <ul id="opt_5" class="optiton">
-    <li><a href="kaifaxinxi.html" target="main"><img src="images/kf.png" /><img src="images/kf2.png" />暂无推广</a></li>
+    <li><a href="kaifaxinxi.jsp" target="main"><img src="images/kf.png" /><img src="images/kf2.png" />暂无推广</a></li>
    </ul>
  </li>
  <li class="item"><a href="javascript:void(0);" target="main" class="title nav6" name="6">帮助文档</a>
