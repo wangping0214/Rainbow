@@ -379,8 +379,11 @@ $(document).ready(function(){
 
 <body>
 <div class="cont">
-<img src="image/dtbg_02.jpg" width="100%"/>
+<img src="image/dtbg_02_01.jpg" width="100%"/>
 <div class="infor">
+<img src="image/dtbg_02_02.jpg" width="100%"/>
+<!--   <h2 class="inttit">恭喜您！回答正确！</h2>-->  
+  <div class="con"> 
    <p class="zhu">为保证实物奖励能准确邮寄，请仔细填写以下信息！</p>
    <form id="form" name="form" method="post" action="prizeInfoSub.action"   enctype="multipart/form-data">
    <div class="incont">
@@ -402,6 +405,7 @@ first("selectp","selectc","form",0,0);
 
 </div>
 
+</div>
 </div>
 <%@ include file="cs.jsp" %>
 <%CS cs = new CS(1252900022);cs.setHttpServlet(request,response);

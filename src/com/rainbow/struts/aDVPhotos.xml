@@ -8,12 +8,21 @@
     	<action name="UploadPhotos" class="UploadAVPhotos" method="UploadPhotos">
     	
     	</action>
-    	<!-- 获取广告图片路径 -->
+    	<!-- 分页显示广告图片 -->
     	<action name="Search" class="UploadAVPhotos" method="Search">
-    	<result>UploadPhotos.jsp</result>
+    	<result>uploadPhotos.jsp</result>
     	</action>
+    	<!-- 删除广告图 -->
     	<action name="DeleteImg" class="UploadAVPhotos" method="DeleteImg">
-    	<result>UploadPhotos.jsp</result>
+    	<result>uploadPhotos.jsp</result>
+    	</action>
+    	<!-- 管理广告图 -->
+    	<action name="ADVn" class="UploadAVPhotos" method="ADVn">
+    	<result>uploadPhotos.jsp</result>
+    	</action>
+    	<!-- 客户端通过type获取广告图 -->
+    	<action name="ADVType" class="UploadAVPhotos" method="ADVType">
+    	
     	</action>
     	
         </package>

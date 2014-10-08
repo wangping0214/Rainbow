@@ -35,7 +35,11 @@ public class AppForgotPassword
 	String postUrl = "http://106.ihuyi.cn/webservice/sms.php?method=Submit";
 	private HttpSession session;
 
-	// 生成并发送验证码
+	/**
+	 * gyn
+	 * 生成并发送验证码
+	 * @throws IOException
+	 */
 
 	public void appSendCode() throws IOException
 	{
@@ -105,7 +109,11 @@ public class AppForgotPassword
 
 	}
 
-	// 判断验证码是否正确
+	/**
+	 * gyn
+	 *  判断验证码是否正确
+	 * @throws IOException
+	 */
 
 	public void appCheckCode() throws IOException
 	{

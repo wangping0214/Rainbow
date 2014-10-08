@@ -10,7 +10,7 @@
 
 //跳转语句，如果电脑访问页面自动跳到login/index.jsp,如果是手机访问就自动跳转到mobile/index.jsp页面
 if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i) ) {
-	window.location.href = "wap/showByRecomLevel?appTmp.showByRecomLevelCurrentPage=1";
+	window.location.href = "wap/cmyy.jsp";
 } 
 else {
 

@@ -317,6 +317,30 @@ public class UserDAOImpl implements UserDAO
 		query.setParameter("companyOrName", "%"+companyOrName+"%");
 		return query.getResultList().size();
 	}
+/**
+ * gyn app¶ËÃÜÂëÐÞ¸Ä
+ */
+	@Override
+	public void updatepwd(User user)
+	{
+		User pwdUser = find(user.getId());
+		if(pwdUser.getPassword()!=null||pwdUser.getPassword()!=""){
+			user.setPassword(pwdUser.getPassword());
+		}
+		entityManager.merge(user);
+	}
+
+@Override
+public User findByEmailOrPhoneAndPassword(String emailOrPhone, String password)
+{
+	Query query = entityManager.createQuery("select u from User u where (u.email = :emailOrPhone or u.telephone = :emailOrPhone) and u.password = :password");
+	query.setParameter("emailOrPhone", emailOrPhone);
+	query.setParameter("password", password);
+	if(query.getResultList().size()>0)
+		return (User) query.getResultList().get(0);
+	else
+		return null;
+}
 
 	
 

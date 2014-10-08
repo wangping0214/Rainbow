@@ -21,6 +21,7 @@ public interface UserDAO
 	/*
 	 * Edit by STerOTto
 	 */
+	public User findByEmailOrPhoneAndPassword(String emailOrPhone,String password);
 	public List<User> findByUserType(String userType,int currentPage,int pageSize);
 	public int findByUserTypeNum(String userType);
 	public List<User> findDiviedUserApproved(int approved,int currentPage,int pageSize);//找到所有可以分成的用户
@@ -40,5 +41,6 @@ public interface UserDAO
 	public void save(User user);
 	public void update(User user);
 	public void remove(Integer id);
+	public void updatepwd(User user);//app端密码修改
 
 }
