@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+ <struts>
+ 	<package name="AppUsers" extends="struts-default">
+ 	
+ 		<!-- APP用户个人资料 -->
+        <action name="Pin" class="AppUsers" method="Pin">
+    	</action>
+    	
+    	<!-- APP用户修改密码 -->
+    	<action name="udpwd" class="AppUsers" method="udpwd">
+    	</action>
+    	
+    	<!-- APP用户登入-->
+    	<action name="AppLogin" class="AppUsers" method="AppLogin">
+    	</action>
+    	
+    	<!-- APP用户注册-->
+    	<action name="Signup" class="AppUsers" method="Signup">
+    	</action>
+    	
+    	<!-- APP用户通过邮箱找回密码-->
+    	<action name="forgotEmail" class="AppUsers" method="forgotEmail">
+    	</action>
+    	
+    	<!-- 判断验证码是否正确-->
+    	<action name="appCheckCode" class="AppUsers" method="appCheckCode">
+    	</action>
+    	
+    	<!-- 生成并发送验证码-->
+    	<action name="appSendCode" class="AppUsers" method="appSendCode">
+    	</action>
+    	
+    	<!-- app用户修改个人资料-->
+    	<action name="Mpi" class="AppUsers" method="Mpi">
+    	</action>
+    	
+    </package> 
+ </struts>

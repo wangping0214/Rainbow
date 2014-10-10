@@ -3,12 +3,14 @@ package com.rainbow.appaction;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+
 import java.net.InetAddress;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.io.Serializable;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,8 +31,10 @@ import com.rainbow.entity.ADV;
 import com.rainbow.entity.AppAuthority;
 import com.rainbow.entity.AppInfo;
 import com.rainbow.entity.AppSource;
+import com.rainbow.entity.TaxRate;
 import com.rainbow.server.App;
 import com.rainbow.util.OpeFunction;
+import com.sun.org.apache.xml.internal.utils.SerializableLocatorImpl;
 
 public class UploadADVPhotos
 {
@@ -38,16 +42,19 @@ public class UploadADVPhotos
 	private AppAutDAO adao;
 	private AppInfoDAO idao;
 	private AppADVDAO dao;
-	private File   upFile;  
-    private String upFileFileName; 
-    private String upFileContentType;
-    private String savePath;
-    private int id;
-    private String type;
-   public String img;
-   private int currentPage=1;
-   private int pageSize=4;
-   private String[] cartCheckBox;
+	
+	
+	
+	private File   upFile; //文件 
+    private String upFileFileName; //文件名
+    private String upFileContentType;//文件类别
+    private String savePath;//目录
+    private int id;//文件id
+    private String type;//文件类别
+   public String img;//文件目录
+   private int currentPage=1;//页数
+   private int pageSize=4;//行数
+  
    
    
 	/**
@@ -57,6 +64,9 @@ public class UploadADVPhotos
 	 */
     public String Search() throws IOException{	
 		ADV v=new ADV();
+		
+		String ip = InetAddress.getLocalHost().getHostAddress();
+		System.out.println(ip);
 		
 		List l=new ArrayList();
 		if(currentPage==0){
@@ -81,6 +91,8 @@ public class UploadADVPhotos
     	session.put("n",n);
     	return Action.SUCCESS;		
     }
+    
+    
 	/**
 	 * 上传广告图片
 	 * @throws IOException
@@ -90,34 +102,32 @@ public class UploadADVPhotos
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
-		savePath="/adv/";
+		savePath="/adv";
 		if(upFile==null)
 		{
-			out.print(Action.NONE);
+			out.print("NULL");
 			return;
 		}
 		out.print(this.getUpFileFileName());
 		out.print(this.getUpFileContentType());
 		String a=null;	
-		 img=OpeFunction.fileToServer(savePath, upFile, upFileFileName,upFileContentType,false);
-			out.print(img);
-			//获取本机ip
-			String ip = InetAddress.getLocalHost().getHostAddress();
-			System.out.println(ip);
-			//获取系统当前时间
-			Date d = new Date();
-			//这样格式
-			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd  kk:mm:ss ");
-			//d就是这样格式的时间
-			String logotime=sdf.format(d);
-			ADV adv=new ADV();
-			adv.setLogo("http://"+ip+":8080/Rainbow"+img);
-			adv.setType(type);
-			adv.setLogotime(logotime);
-			dao.saveimlogo(adv);
-			out.print("\n路径\n"+adv.getLogo());
+		img=OpeFunction.fileToServer(savePath, upFile, upFileFileName,upFileContentType,false);
+		//获取系统当前时间
+		Date d = new Date();
+		//这样格式
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd  kk:mm:ss ");
+		//d就是这样格式的时间
+		String logotime=sdf.format(d);
+		ADV adv=new ADV();
+		adv.setLogo(img);
+		adv.setType(type);
+		adv.setLogotime(logotime);
+		dao.saveimlogo(adv);
+		out.print("\n路径\n"+adv.getLogo());
 		
 	}
+	
+	
 	/**
 	 * gyn删除图片
 	 * @throws IOException 
@@ -141,6 +151,8 @@ public class UploadADVPhotos
 		
 		
 	}
+	
+	
 	/**
 	 * gyn广告管理
 	 * @SuppressWarnings("unchecked")
@@ -267,23 +279,53 @@ public class UploadADVPhotos
 			break;
 		}
 	}
+	
+	
 	/**
 	 * gyn 
 	 * 通过 广告类别获取广告
 	 * @throws IOException
 	 */
 	public void ADVType() throws IOException{
+		@SuppressWarnings("unused")
+		class AppAndAdv implements Serializable
+		{
+			private ADV Adv;
+			public AppAndAdv(ADV Adv)
+			{
+				super();
+				this.Adv=Adv;
+			}
+			public AppAndAdv()
+			{
+				super();
+				this.Adv=new ADV();
+			}
+			public ADV getAdv()
+			{
+				return Adv;
+			}
+			public void setAdv(ADV adv)
+			{
+				Adv = adv;
+			}
+		
+			
+			
+		}
 		System.out.println("进入ADVType");
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
-		List<ADV> img=new ArrayList<ADV>();
+		List<AppAndAdv> advList=new ArrayList<AppAndAdv>();
 		
-		for(ADV a:dao.type(type)){
-			
-			img.add(a);
+		for(ADV adv:dao.type(type)){
+			AppAndAdv a=new AppAndAdv(adv);
+			System.out.println(a.getAdv().getId());
+			advList.add(a);
 		}
+		System.out.println("ADV"+advList.get(1).getAdv().getId());
 	    
 		List<App> appList=new ArrayList<App>();
 		int num=3;
@@ -302,21 +344,14 @@ public class UploadADVPhotos
 			
 
 		}
-		
 		//实例化
 		Gson gson = new Gson();
 		//声明和赋空值
 		String result = "";
-		String app = "";
-		List st=new ArrayList();
-		st.add(img);
-		st.add(appList);
-		
-		result = gson.toJson(st);
-		//app = gson.toJson("广告图片信息"+appList);
-		//out.println(app);
-		
+		result = gson.toJson(advList.get(2));
+		System.out.println("result"+result);
 		out.println(result);
+
 	}
 	
 	
@@ -332,14 +367,7 @@ public class UploadADVPhotos
 		this.dao=dao;
 	}
 
-	public String[] getCartCheckBox()
-	{
-		return cartCheckBox;
-	}
-	public void setCartCheckBox(String[] cartCheckBox)
-	{
-		this.cartCheckBox = cartCheckBox;
-	}
+	
 	public int getCurrentPage()
 	{
 		return currentPage;

@@ -106,7 +106,7 @@ function pro() {
 			-->
 			<br>页面类型    :<%=a.getType()%></br>
 			<a href="DeleteImg?id=<%=a.getId() %>" onclick="return ck()">
-			<img src="<%=a.getLogo() %>"/>
+			<img src="<%=request.getContextPath()+a.getLogo() %>"/>
 			<br></br>
 			 
 			</a>

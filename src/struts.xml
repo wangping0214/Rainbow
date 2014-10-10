@@ -11,14 +11,13 @@
     
     
     
-    <include file="com/rainbow/struts/AppRegiste.xml"></include><!-- 新用户注册 -->
-    <include file="com/rainbow/struts/appForgotEmail.xml"></include><!-- appEmail验证码 找回密码 -->
-    <include file="com/rainbow/struts/appforgotpassword.xml"></include><!-- app phone验证码 找回密码 -->
-    <include file="com/rainbow/struts/appText.xml"></include><!-- 获取app信息测试-->
-    <include file="com/rainbow/struts/applicationInformation.xml"></include><!-- 各种查询app信息 -->
-    <include file="com/rainbow/struts/appForgot.xml"></include><!-- 客户端密码修改 -->
-    <include file="com/rainbow/struts/aDVPhotos.xml"></include><!-- 广告管理与 -->
-    <include file="com/rainbow/struts/appLogin.xml"></include><!-- 用户登入 -->
+    <include file="com/rainbow/struts/appUsers.xml"></include><!-- 关于用户的一切 -->
+    <include file="com/rainbow/struts/applicationInformation.xml"></include><!-- 查询app信息 -->
+    <include file="com/rainbow/struts/appADVPhotos.xml"></include><!-- 广告管理 -->
+    
+    
+    
+    
     <!-- gyn end -->
     <!-- Edit by STerOTto -->
     <include file="com/rainbow/struts/userManager.xml"></include><!-- 普通用户管理 -->
