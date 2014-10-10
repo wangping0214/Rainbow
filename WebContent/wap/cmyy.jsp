@@ -92,7 +92,7 @@ img{ vertical-align:middle;}
   </tr>
 </table>
 </div>
-<div class="fc"><a href="zazhi/1419/mulu.html"><img src="image/z-21.jpg" alt="" width="100%" usemap="#Map" border="0"/></a>
+<div class="fc"><a href="mulu.jsp"><img src="image/z-22.jpg" alt="" width="100%" usemap="#Map" border="0"/></a>
  
 </div>
 </div>

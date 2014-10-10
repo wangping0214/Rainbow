@@ -216,6 +216,9 @@
 		<constructor-arg ref="userDAO"></constructor-arg>
 		<constructor-arg ref="ReceiptDAO"></constructor-arg>
 	</bean>
+	<bean id="devLoginAction" class="com.rainbow.version1.action.DevLoginAction" scope="prototype">
+		<constructor-arg ref="userDAO"></constructor-arg>
+	</bean>
 	
 	
 	

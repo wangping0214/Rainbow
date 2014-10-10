@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+ <script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/nav.js"></script>
+ <script language="javascript" type="text/javascript">
+ // --- 获取ClassName
+ document.getElementsByClassName = function(cl) {
+  var retnode = [];
+  var myclass = new RegExp('\\b'+cl+'\\b');
+  var elem = this.getElementsByTagName('*');
+  for (var j = 0; j < elem.length; j++) {
+   var classes = elem[j].className;
+   if (myclass.test(classes)) retnode.push(elem[j]);
+  }
+  return retnode;
+ }
+ 
+ // --- 隐藏所有
+ function HideAll() {
+  var items = document.getElementsByClassName("optiton");
+  for (var j=0; j<items.length; j++) {
+   items[j].style.display = "none";
+  }
+ }
+ // --- 设置cookie
+ function setCookie(sName,sValue,expireHours) {
+  var cookieString = sName + "=" + escape(sValue);
+  //;判断是否设置过期时间
+  if (expireHours>0) {
+    var date = new Date();
+    date.setTime(date.getTime + expireHours * 3600 * 1000);
+    cookieString = cookieString + "; expire=" + date.toGMTString();
+  }
+  document.cookie = cookieString;
+ }
+ //--- 获取cookie
+ function getCookie(sName) {
+   var aCookie = document.cookie.split("; ");
+   for (var j=0; j < aCookie.length; j++){
+  var aCrumb = aCookie[j].split("=");
+  if (escape(sName) == aCrumb[0])
+    return unescape(aCrumb[1]);
+   }
+   return null;
+ }
+ 
+ window.onload = function() {
+  var show_item = "opt_1";
+  if (getCookie("show_item") != null) {
+    show_item= "opt_" + getCookie("show_item");
+  }
+  document.getElementById(show_item).style.display = "block";
+  var items = document.getElementsByClassName("title");
+  for (var j=0; j<items.length; j++) {
+   items[j].onclick = function() {
+    var o = document.getElementById("opt_" + this.name);
+    if (o.style.display != "block") {
+     HideAll();
+     o.style.display = "block";
+     setCookie("show_item",this.name);
+    }
+    else {
+     o.style.display = "none";
+    }
+   }
+  }
+ } 
+ </script>
+</head>
+
+<body>
+<div class="wrapper">
+<div class="sidenav">
+<div class="touxiang">
+    <p class="photo"><img src="images/a1_07.jpg" width="85" height="86" /></p>
+    <p>Newtorl manen</p>
+</div>
+<!--touxiang-->
+<ul id="menu">
+ <li class="item"><a href="sdkfabu.html" class="title nav2" name="1" target="main">应用&amp;游戏</a>
+   <ul id="opt_1" class="optiton">
+    <li><a href="IDmessage.html" target="main"><img src="images/ID2.png" /><img src="images/ID.png" />ID 信息</a></li>
+    <li><a href="Joint operation.html" target="main"><img src="images/lianyun.png" /><img src="images/lianyun2.png" />联运应用管理</a></li>
+    <li><a href="yyindex2.html" target="main"><img src="images/img16s.png" /><img src="images/img16.png" />管理游戏&amp;应用</a></li>
+    <li><a href="yxshangchuan2.html" target="main"><img src="images/ad2.png"/><img src="images/ad.png"/>添加新应用</a></li>
+    <li class="gl"><a href="shenhe2.html" target="main"><img src="images/sh.png"/><img src="images/sh2.png"/>审核管理</a></li>
+    <li><a href="tongjiliebiao.html" target="main"><img src="images/img29.png" /><img src="images/img29s.png" />统计列表</a></li>
+
+   </ul>
+ </li>
+ <li class="item"><a href="javascript:void(0);" target="main" class="title nav3" name="2">开发者信息</a>
+   <ul id="opt_2" class="optiton">
+	<li><a href="guanggaogl.html" target="main"><img src="images/gg2.png" /><img src="images/gg.png" />广告位申请</a></li>
+    <li><a href="kaifaxinxi.html" target="main"><img src="images/kf.png" /><img src="images/kf2.png" />开发者信息</a></li>
+    <li><a href="xiugaimima.html" target="main"><img src="images/mm2.png" /><img src="images/mm.png" />修改密码</a></li>
+    <li><a href="message2.html" target="main"><img src="images/xx2.png" /><img src="images/xx.png" />消息管理</a></li>
+   </ul>
+ </li>
+</ul> 
+
+</div>
+<!--sidenav-->
+<div class="content" name="main">
+     <div class="search">
+               <div class="searchcont">
+                   <input type="text" value="搜索关键词" class="socont"/><input type="image" src="images/a1_04.jpg" value="" class="sobut"/>
+               </div>
+               <!--searchcont-->
+      </div>
+      <!--serach-->
+      <div class="midcont">
+             <div class="tit">
+                 <ul class="nav">
+                    <li><a href="#" class="current"><span>已上架</span></a></li>
+                    <li><a href="#"><span>待上架</span></a></li>
+                    <li><a href="#"><span>已下架</span></a></li>
+                 </ul>
+                 <!--nav-->
+             </div>
+             <!--tit-->
+             <div class="cont">
+                <div class="select">
+                   <select>
+                          <option>--选择分类--</option>
+                          <option>--应用--</option>
+                          <option>--游戏--</option>
+                   </select>
+                </div>
+                <!--select-->
+                <div class="chalist">
+                    <div class="every">
+                       <dl>
+                           <dt><img src="images/img21.png" /></dt>
+                           <dd class="liname">水果忍者</dd>
+                           <dd class="date">发布时间：2012-10-10</dd>
+                       </dl>
+                       <p class="operate"><a href="#">编辑</a>|<a href="#">修改</a></p>
+                    </div>
+                    <!--every-->
+                    <div class="every">
+                       <dl>
+                           <dt><img src="images/img21.png" /></dt>
+                           <dd class="liname">水果忍者</dd>
+                           <dd class="date">发布时间：2012-10-10</dd>
+                       </dl>
+                       <p class="operate"><a href="#">编辑</a>|<a href="#">修改</a></p>
+                    </div>
+                    <!--every-->
+                    <div class="every">
+                       <dl>
+                           <dt><img src="images/img21.png" /></dt>
+                           <dd class="liname">水果忍者</dd>
+                           <dd class="date">发布时间：2012-10-10</dd>
+                       </dl>
+                       <p class="operate"><a href="#">编辑</a>|<a href="#">修改</a></p>
+                    </div>
+                    <!--every-->
+                    <div class="every">
+                       <dl>
+                           <dt><img src="images/img21.png" /></dt>
+                           <dd class="liname">水果忍者</dd>
+                           <dd class="date">发布时间：2012-10-10</dd>
+                       </dl>
+                       <p class="operate"><a href="#">编辑</a>|<a href="#">修改</a></p>
+                    </div>
+                    <!--every-->
+                    <div class="every">
+                       <dl>
+                           <dt><img src="images/img21.png" /></dt>
+                           <dd class="liname">水果忍者</dd>
+                           <dd class="date">发布时间：2012-10-10</dd>
+                       </dl>
+                       <p class="operate"><a href="#">编辑</a>|<a href="#">修改</a></p>
+                    </div>
+                    <!--every-->
+                    <div class="every">
+                       <dl>
+                           <dt><img src="images/img21.png" /></dt>
+                           <dd class="liname">水果忍者</dd>
+                           <dd class="date">发布时间：2012-10-10</dd>
+                       </dl>
+                       <p class="operate"><a href="#">编辑</a>|<a href="#">修改</a></p>
+                    </div>
+                    <!--every-->
+                    <ul class="page">
+                       <li><a href="#"><span>首页</span></a></li>
+                       <li><a href="#"><span>上一页</span></a></li>
+                       <li><a href="#"><span>1</span></a></li>
+                       <li><a href="#"><span>2</span></a></li>
+                       <li><a href="#"><span>3</span></a></li>
+                       <li><a href="#"><span>4</span></a></li>
+                       <li><a href="#"><span>下一页</span></a></li>
+                       <li><a href="#"><span>尾页</span></a></li>
+                    </ul>
+                    <!--page-->
+                </div>
+                <!--chalist-->
+             </div>
+             <!--cont-->
+       </div>
+       <!--midcont-->
+ </div>
+</div>
+<!--wrapper-->
+</body>
+</html>

@@ -21,6 +21,7 @@ public interface UserDAO
 	/*
 	 * Edit by STerOTto
 	 */
+	public User findByEmailOrPhoneAndPassword(String emailOrPhone,String password);
 	public List<User> findByUserType(String userType,int currentPage,int pageSize);
 	public int findByUserTypeNum(String userType);
 	public List<User> findDiviedUserApproved(int approved,int currentPage,int pageSize);//找到所有可以分成的用户
