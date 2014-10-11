@@ -318,14 +318,15 @@ public class UploadADVPhotos
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
-		List<AppAndAdv> advList=new ArrayList<AppAndAdv>();
+		List advList=new ArrayList();
 		
 		for(ADV adv:dao.type(type)){
 			AppAndAdv a=new AppAndAdv(adv);
 			System.out.println(a.getAdv().getId());
+			advList.add(a.getAdv().getId());
 			advList.add(a);
 		}
-		System.out.println("ADV"+advList.get(1).getAdv().getId());
+		System.out.println(advList.get(2));
 	    
 		List<App> appList=new ArrayList<App>();
 		int num=3;
@@ -348,8 +349,8 @@ public class UploadADVPhotos
 		Gson gson = new Gson();
 		//ÉùÃ÷ºÍ¸³¿ÕÖµ
 		String result = "";
-		result = gson.toJson(advList.get(2));
-		System.out.println("result"+result);
+		result = gson.toJson(advList);
+		
 		out.println(result);
 
 	}
