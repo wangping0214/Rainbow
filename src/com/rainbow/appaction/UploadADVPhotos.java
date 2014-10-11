@@ -3,7 +3,6 @@ package com.rainbow.appaction;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-
 import java.net.InetAddress;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -32,9 +31,9 @@ import com.rainbow.entity.AppAuthority;
 import com.rainbow.entity.AppInfo;
 import com.rainbow.entity.AppSource;
 import com.rainbow.entity.TaxRate;
+import com.rainbow.server.AdvAndApp;
 import com.rainbow.server.App;
 import com.rainbow.util.OpeFunction;
-import com.sun.org.apache.xml.internal.utils.SerializableLocatorImpl;
 
 public class UploadADVPhotos
 {
@@ -287,37 +286,12 @@ public class UploadADVPhotos
 	 * @throws IOException
 	 */
 	public void ADVType() throws IOException{
-		@SuppressWarnings("unused")
-		class AppAndAdv implements Serializable
-		{
-			private ADV Adv;
-			public AppAndAdv(ADV Adv)
-			{
-				super();
-				this.Adv=Adv;
-			}
-			public AppAndAdv()
-			{
-				super();
-				this.Adv=new ADV();
-			}
-			public ADV getAdv()
-			{
-				return Adv;
-			}
-			public void setAdv(ADV adv)
-			{
-				Adv = adv;
-			}
-		
-			
-			
-		}
 		System.out.println("进入ADVType");
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
+<<<<<<< HEAD
 		List advList=new ArrayList();
 		
 		for(ADV adv:dao.type(type)){
@@ -327,6 +301,13 @@ public class UploadADVPhotos
 			advList.add(a);
 		}
 		System.out.println(advList.get(2));
+=======
+		List<ADV> advList=new ArrayList<ADV>();
+		
+		for(ADV adv:dao.type(type)){
+			advList.add(adv);
+		}
+>>>>>>> 955e09a1eaf3ae9f1e5339b7db5f323b97b89bd8
 	    
 		List<App> appList=new ArrayList<App>();
 		int num=3;
@@ -342,15 +323,19 @@ public class UploadADVPhotos
 			app.setAppSou(sou);
 			appList.add(app);
 
-			
-
 		}
+		AdvAndApp advAndApp = new AdvAndApp(advList, appList);
 		//实例化
 		Gson gson = new Gson();
 		//声明和赋空值
 		String result = "";
+<<<<<<< HEAD
 		result = gson.toJson(advList);
 		
+=======
+		result = gson.toJson(advAndApp);
+		System.out.println("result"+result);
+>>>>>>> 955e09a1eaf3ae9f1e5339b7db5f323b97b89bd8
 		out.println(result);
 
 	}
