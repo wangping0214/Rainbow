@@ -7,6 +7,13 @@ import com.rainbow.entity.AppInfo;
 import com.rainbow.entity.ADV;
 
 public interface AppInfoDAO {
+	
+	/**
+	 * gyn
+	 * 查询本周本周app信息按下载量排序
+	 * @return
+	 */
+	public List<AppInfo> Thisweek();
 	/**
 	 * gyn模糊查询  根据app name按下载量查询
 	 * @param str

@@ -34,6 +34,7 @@ import com.rainbow.entity.TaxRate;
 import com.rainbow.server.AdvAndApp;
 import com.rainbow.server.App;
 import com.rainbow.util.OpeFunction;
+import com.rainbow.constant.AdvType;
 
 public class UploadADVPhotos
 {
@@ -52,7 +53,7 @@ public class UploadADVPhotos
     private String type;//文件类别
    public String img;//文件目录
    private int currentPage=1;//页数
-   private int pageSize=4;//行数
+   private int pageSize=1;//行数
   
    
    
@@ -72,10 +73,11 @@ public class UploadADVPhotos
 			currentPage=1;
 		}
 		int n=dao.imlogo().size();
-		if(n%4==0){
-    		n=n/4;
+		//由于浏览器显示问题只能够一张图显示的空间 所以多加个true 以前是每页4个图 现在是1图
+		if(n%2==0||true){
+    		n=n/1;
     	}else{
-    		n=(n/4)+1;
+    		n=(n/1)+1;
     	}
 		if(currentPage>=n){
 			currentPage=n;		
@@ -119,6 +121,7 @@ public class UploadADVPhotos
 		String logotime=sdf.format(d);
 		ADV adv=new ADV();
 		adv.setLogo(img);
+		//这个你的等会改一下
 		adv.setType(type);
 		adv.setLogotime(logotime);
 		dao.saveimlogo(adv);
@@ -283,6 +286,7 @@ public class UploadADVPhotos
 	/**
 	 * gyn 
 	 * 通过 广告类别获取广告
+	 * 
 	 * @throws IOException
 	 */
 	public void ADVType() throws IOException{
@@ -291,26 +295,32 @@ public class UploadADVPhotos
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
-<<<<<<< HEAD
-		List advList=new ArrayList();
+		switch(type)
+		{
+		case "A":
+			type="推荐";
+			break;
+		case "B":
+			type="杂志";
+			break;
+		case "C":
+			type="人气";
+			break;
+			default:
+				type="";
+				
 		
-		for(ADV adv:dao.type(type)){
-			AppAndAdv a=new AppAndAdv(adv);
-			System.out.println(a.getAdv().getId());
-			advList.add(a.getAdv().getId());
-			advList.add(a);
 		}
-		System.out.println(advList.get(2));
-=======
 		List<ADV> advList=new ArrayList<ADV>();
-		
+		if(type==""){
+			System.out.println("请传 A B C");
+		}
 		for(ADV adv:dao.type(type)){
 			advList.add(adv);
 		}
->>>>>>> 955e09a1eaf3ae9f1e5339b7db5f323b97b89bd8
-	    
+		System.out.println(advList.size());
 		List<App> appList=new ArrayList<App>();
-		int num=3;
+		int num=4;
 		
 		for (AppInfo info : idao.Section(num))
 		{
@@ -324,19 +334,15 @@ public class UploadADVPhotos
 			appList.add(app);
 
 		}
+		System.out.println("appList"+appList.size());
 		AdvAndApp advAndApp = new AdvAndApp(advList, appList);
 		//实例化
 		Gson gson = new Gson();
 		//声明和赋空值
 		String result = "";
-<<<<<<< HEAD
-		result = gson.toJson(advList);
-		
-=======
 		result = gson.toJson(advAndApp);
-		System.out.println("result"+result);
->>>>>>> 955e09a1eaf3ae9f1e5339b7db5f323b97b89bd8
 		out.println(result);
+		//System.out.println(result);
 
 	}
 	
@@ -378,14 +384,22 @@ public class UploadADVPhotos
 	{
 		this.img = img;
 	}
+	
+	
+
+
 	public String getType()
 	{
 		return type;
 	}
+
+
 	public void setType(String type)
 	{
 		this.type = type;
 	}
+
+
 	public int getId()
 	{
 		return id;

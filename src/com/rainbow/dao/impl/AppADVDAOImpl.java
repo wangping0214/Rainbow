@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.rainbow.dao.AppADVDAO;
 import com.rainbow.entity.ADV;
-import com.rainbow.entity.AppInfo;
+
 
 @Transactional
 public class AppADVDAOImpl implements AppADVDAO
@@ -74,7 +74,7 @@ public class AppADVDAOImpl implements AppADVDAO
 	@Override
 	public List<ADV> imlogo()
 	{
-		Query query = entityManager.createQuery("select u from ADV u order by u.logotime desc");
+		Query query = entityManager.createQuery("select b from ADV b order by b.logotime desc ");
 		return query.getResultList();
 		
 		

@@ -11,6 +11,8 @@
     
     
     
+     <include file="com/rainbow/struts/appMagazine.xml"></include><!--杂志管理-->
+    <include file="com/rainbow/struts/appCategoriesShow.xml"></include><!--获取主页信息-->
     <include file="com/rainbow/struts/appUsers.xml"></include><!-- 关于用户的一切 -->
     <include file="com/rainbow/struts/applicationInformation.xml"></include><!-- 查询app信息 -->
     <include file="com/rainbow/struts/appADVPhotos.xml"></include><!-- 广告管理 -->
@@ -25,8 +27,7 @@
     <include file="com/rainbow/struts/adminManager.xml"></include><!-- 超级管理员管理用户 -->
 	<include file="com/rainbow/struts/appManager.xml"></include><!-- 超级管理员管理应用 -->
     <include file="com/rainbow/struts/dev.xml"></include><!-- 开发者管理应用 -->
-    <include file="com/rainbow/struts/mob.xml"></include><!-- 手机前台 -->
-   	<include file="com/rainbow/struts/magazine.xml"></include><!-- 杂志后台 -->   
+    <include file="com/rainbow/struts/mob.xml"></include><!-- 手机前台 -->  
     <include file="com/rainbow/struts/web.xml"></include><!-- 电脑前台 -->
     <include file="com/rainbow/struts/apkDownLoad.xml"></include><!-- 应用下载 -->
     <include file="com/rainbow/struts/verfication.xml"></include><!-- 验证码 -->

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+ <struts>
+<!--********************************获取主页信息******************************************* -->
+    <package name="AppCategoriesSh" extends="struts-default">
+    	<!-- 获取不同主页数据 -->
+    	<action name="Rmded" class="AppCategoriesShow" method="Rmded">
+    	
+    	</action>
+    	
+    	
+        </package>
+</struts>

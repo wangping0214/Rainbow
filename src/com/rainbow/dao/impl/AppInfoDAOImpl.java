@@ -534,7 +534,7 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 	public List<AppInfo> fee(String str)
 	{
 		Query query = entityManager.createQuery("select u from AppInfo u,"
-				+ "AppAuthority y  where  u.id=y.id and u.fee=:str"
+				+ "AppAuthority y  where  u.id=y.id and u.isThrough=1 and u.shelf=1 and u.fee=:str"
 						+ " order by y.amountOfDown desc");
 		query.setParameter("str", str);
 		return query.getResultList();
@@ -546,12 +546,26 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 	{
 		Query query = entityManager.createQuery("select u "
 				+ "from AppInfo u, AppAuthority b  where  u.id=b.id "
-				+ "and u.appName like :str order by b.amountOfDown desc ");
+				+ "and u.isThrough=1 and u.shelf=1 and u.appName like :str order by b.amountOfDown desc ");
 		query.setParameter("str", "%"+str+"%");
 		
 		query.setMaxResults(10);
 		return query.getResultList();
 		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public List<AppInfo> Thisweek()
+	{
+		Query query = entityManager.createQuery("select a from AppInfo a, AppAuthority"
+				+ " y where  a.id=y.id and "
+				+ "a.isThrough=1 and a.shelf=1 and"
+				+ "WEEKOFYE"
+				+ "AR(a.upTime)=WEEKOFYEAR(NOW())  order by"
+				+ " y.amountOfDown desc ");
+		
+		query.setMaxResults(3);
+		return query.getResultList();
 	}
 	
 	

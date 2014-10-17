@@ -9,13 +9,15 @@ public interface AppAutDAO {
 	public List<AppAuthority> findAll();
 	public AppAuthority findById(int id);
 	
-	public List<AppAuthority> RecomLevel();
-	/**前台查询应用是否推荐
-	 * @param recomLevel
-	 * @param currentPage
-	 * @param pageSize
+	/**
+	 * gyn
+	 * 按照推荐级别排行app信息
+	 * num 指返回多少app信息
+	 * 已上架 &&通过审核
 	 * @return
 	 */
+	public List<AppAuthority> RecomLevel(int num);
+	
 	public List<AppAuthority> findByRecomLevel(int recomLevel,int currentPage,int pageSize);
 	public int findByRecomLevelNum(int recomLevel);
 	

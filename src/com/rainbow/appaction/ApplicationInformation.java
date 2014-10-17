@@ -163,7 +163,7 @@ public class ApplicationInformation
 	
 		/**
 		 * gyn
-		 * 按照推荐热度 排行app信息 返回前十行
+		 * 按照推荐级别 排行app信息 返回前num行
 		 *  
 		 */
 	public void RecomLevel() throws IOException
@@ -172,13 +172,14 @@ public class ApplicationInformation
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
+		num=3;
 		// 实例化
 		Gson gson = new Gson();
 		List<App> appList = new ArrayList<App>();
-		if(adao.RecomLevel()==null){
+		if(adao.RecomLevel(num)==null){
 			out.print("NULL");
 		}
-		for (AppAuthority a : adao.RecomLevel())
+		for (AppAuthority a : adao.RecomLevel(num))
 		{	
 			AppInfo af=dao.findById(a.getId());
 			AppSource sou = sdao.findById(a.getId());

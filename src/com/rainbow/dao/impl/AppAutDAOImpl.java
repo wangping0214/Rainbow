@@ -191,15 +191,18 @@ public class AppAutDAOImpl implements AppAutDAO{
 		return query.getResultList();
 		// TODO Auto-generated method stub
 	}
-	//按照推荐度排行app信息 前10行
+	//按照推荐级别排行app信息 前num行
+	//已上架
+	//通过审核
 	@Override
-	public List<AppAuthority> RecomLevel()
+	public List<AppAuthority> RecomLevel(int num)
 	{
 		
-		Query query = entityManager.createQuery("select u from AppAuthority u order by  u.recomLevel desc");
-		query.setMaxResults(10);
+		Query query = entityManager.createQuery("select u from AppAuthority u,AppInfo a where a.id=u.id and isThrough=1 and shelf=1 order by  u.recomLevel desc");
+		query.setMaxResults(num);
 		return query.getResultList();
 		
 	}
+	
 
 }
