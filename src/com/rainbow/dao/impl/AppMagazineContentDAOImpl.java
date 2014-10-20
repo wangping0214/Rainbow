@@ -18,6 +18,7 @@ public class AppMagazineContentDAOImpl implements AppMagazineContentDAO
 	private EntityManager entityManager;
 
 	//根据期数和页数查询杂志
+	@Override
 	public MagazineContent Pagesperiod(String period, int Pages)
 	{
 		Query query = entityManager.createQuery("select m from MagazineContent m where period=:period and pages=:Pages");	
@@ -27,6 +28,7 @@ public class AppMagazineContentDAOImpl implements AppMagazineContentDAO
 		
 	}
 	//根据期数查询杂志
+	@Override
 	public List<MagazineContent> Pagesperiod(String period)
 	{
 		Query query = entityManager.createQuery("select n from MagazineContent n where n.period=:period order by n.pages asc");	
