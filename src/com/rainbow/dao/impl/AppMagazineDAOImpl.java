@@ -6,9 +6,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.rainbow.dao.AppMagazineDAO;
 import com.rainbow.entity.Magazine;
-
+@Transactional
 public class AppMagazineDAOImpl implements AppMagazineDAO
 {
 	@PersistenceContext

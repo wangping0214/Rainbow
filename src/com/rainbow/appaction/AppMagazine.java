@@ -40,7 +40,7 @@ public class AppMagazine
 			mge.add(m);
 		}
 		period="20";
-		System.out.println("进入AllMagazine"+AMCD.All().size());
+//		System.out.println("进入AllMagazine"+AMCD.All().size());
 		for(MagazineContent mc:AMCD.All()){
 			mg.add(mc);
 		}

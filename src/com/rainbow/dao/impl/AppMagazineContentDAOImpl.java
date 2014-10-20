@@ -40,7 +40,7 @@ public class AppMagazineContentDAOImpl implements AppMagazineContentDAO
 	@Override
 	public List<MagazineContent> All()
 	{
-		Query query = entityManager.createQuery("select m from MagazineContent m");	
+		Query query = entityManager.createQuery("select u from MagazineContent u");	
 		
 		return query.getResultList();
 	}
