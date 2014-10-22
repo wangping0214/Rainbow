@@ -213,7 +213,6 @@ a:active {text-decoration:none ; color:#339900 ;}
 .tingwenlist a{ float:left; color:#4f4949; width:270px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
 .tingwenlist span{ float:right;}
 .ylist{ clear:both; overflow:hidden;}
-.mt5 td{ padding-bottom:10px;}
 .picon{ margin-bottom:5px;}
 .picon img{ width:48px; height:48px;}
 .pname{ width:48px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }

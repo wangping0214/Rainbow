@@ -381,10 +381,8 @@ $(document).ready(function(){
 <div class="cont">
 <img src="image/dtbg_02_01.jpg" width="100%"/>
 <div class="infor">
-<img src="image/dtbg_02_02.jpg" width="100%"/>
 <!--   <h2 class="inttit">恭喜您！回答正确！</h2>-->  
-  <div class="con"> 
-   <p class="zhu">为保证实物奖励能准确邮寄，请仔细填写以下信息！</p>
+  <div class="cont"> 
    <form id="form" name="form" method="post" action="prizeInfoSub.action"   enctype="multipart/form-data">
    <div class="incont">
        <div><label><span><b>*</b>姓名：</span><input type="text" name="prize.name" id="name" /></label></div>
