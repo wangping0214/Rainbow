@@ -66,7 +66,7 @@
   <tr>
     <td><a href="cmyy.jsp">柴米游言</a></td>
     <td width="1">│</td>
-    <td><div align="center"style="background:url(newpic/ssbg.png) no-repeat center bottom; margin-top:1px; height:42px; line-height:42px;"><a href="mulu.html">目录</a></div></td>
+    <td><div align="center"style="background:url(newpic/ssbg.png) no-repeat center bottom; margin-top:1px; height:42px; line-height:42px;"><a href="mulu.jsp">目录</a></div></td>
     <td width="1">│</td>
     <td><div align="center"><a href="wangqi.jsp">往期 </a></div></td>
     <td width="1">│</td>
@@ -78,12 +78,12 @@
 </table></div>
  <div class="container">
     <div id="slides">
-      <a href="zazhi/1420/17.html"><img src="zazhi/1420/img/banner1.jpg" width="100%"/></a>
-      <a href="zazhi/1420/6.html"><img src="zazhi/1420/img/banner2.jpg" width="100%"/></a>
-      <a href="zazhi/1420/11.html"><img src="zazhi/1420/img/banner3.jpg" width="100%"/></a>
-      <a href="zazhi/1420/17.html" class="slidesjs-previous slidesjs-navigation"></a>
-      <a href="zazhi/1420/6.html" class="slidesjs-next slidesjs-navigation"></a>
-      <a href="zazhi/1420/11.html" class="slidesjs-next slidesjs-navigation"></a>
+      <a href="zazhi/1422/14.html"><img src="zazhi/1422/img/banner1.jpg" width="100%"/></a>
+      <a href="zazhi/1422/12.html"><img src="zazhi/1422/img/banner2.jpg" width="100%"/></a>
+      <a href="zazhi/1422/15.html"><img src="zazhi/1422/img/banner3.jpg" width="100%"/></a>
+      <a href="zazhi/1422/14.html" class="slidesjs-previous slidesjs-navigation"></a>
+      <a href="zazhi/1422/12.html" class="slidesjs-next slidesjs-navigation"></a>
+      <a href="zazhi/1422/15.html" class="slidesjs-next slidesjs-navigation"></a>
     </div>
   </div>
   <!-- End SlidesJS Required: Start Slides -->
@@ -115,15 +115,15 @@
        <p class="headtit"><img src="image/mulu_03.jpg" /><span>本期推荐</span></p>
        <div class="label"><b>标签：</b>
           <ul>
-             <li><a href="javascript:void(0);"><span>动作</span></a></li>
-             <li><a href="javascript:void(0);"><span>金属乐队</span></a></li>
-             <li><a href="javascript:void(0);"><span>极限蜘蛛</span></a></li>
+             <li><a href="javascript:void(0);"><span>不机械城</span></a></li>
+             <li><a href="javascript:void(0);"><span>乐高</span></a></li>
+             <li><a href="javascript:void(0);"><span>地狱突袭</span></a></li>
           </ul>       
        </div>
        <!--label-->
    </div>
    <!--mtit-->
-   <p class="jianjie">本期热门推荐：3D策略战棋新作！团队协作《反抗小队》与毒枭斗智斗勇的故事；三国战天下，乱世何安家《主公莫慌》穿越大戏回到过去当主公！；惊险刺激的逃亡游戏《神庙逃亡2》游戏完美够惊喜！；不能错过的塔防精品 《王国保卫战》经典塔防游戏的完美移植！；还你一个轻净的手机《百度手机卫士》，防吸费能力用户急需！</p>
+   <p class="jianjie">本期热门推荐：农民的华丽逆袭！有创意又耐玩《臣民之塔》秘密武器火鸡雨！；《汽车总动员:急速闪电》只有多赚钱,才能开好车！；经典策略的良心续作，《百战天虫3》节操虫子又回来了！；城市大玩家，做平凡的英雄《乐高:我的城市》画面清新玩法丰富！；虾米音乐是量身订做的免费音乐应用。它将为您提供流畅且近乎完美的无线音乐解决方案，让您将百万高品质音乐装进口袋。</p>
    <!--jianjie-->
 </div>
 <!--model1-->
@@ -133,11 +133,11 @@
    </div>
    <!--mtit-->
    <ul class="tingwenlist">
-      <li><a href="zazhi/1420/1.html">● XLMedia1900万美元收购手游用户获取平台</a><span>8-12</span></li>
-      <li><a href="zazhi/1420/2.html">● 2017年全球手游市场规模或达354亿美元</a><span>8-12</span></li>
-      <li><a href="zazhi/1420/3.html">● 砖家也是蛮拼的：青少年沉迷网游 竟因体育场太小？</a><span>8-12</span></li>
-      <li><a href="zazhi/1420/4.html">● TSM教练Locodoco：我认为我们可以轻松击败皇族</a><span>8-12</span></li>
-      <li><a href="zazhi/1420/5.html">● 诺基亚Lumia930测评体验</a><span>8-12</span></li>
+      <li><a href="zazhi/1422/1.html">● 应用汇Q3报告：女性玩家消费力增强</a><span>10-22</span></li>
+      <li><a href="zazhi/1422/2.html">● 刀塔传奇山寨[Heroes Charge]月入近千万</a><span>10-22</span></li>
+      <li><a href="zazhi/1422/3.html">● 芬兰总理游戏初创公司是新的经济增长点</a><span>10-22</span></li>
+      <li><a href="zazhi/1422/4.html">● 纽约时报：英雄联盟活跃用户是DOTA2的8倍</a><span>10-22</span></li>
+      <li><a href="zazhi/1422/5.html">● AppleWatch前辈 Moto360智能手表评测</a><span>10-22</span></li>
    </ul>
    <!--jianjie-->
 </div>
@@ -150,11 +150,11 @@
    <div class="ylist">
       <table border="0" cellpadding="0" cellspacing="0" width="100%">
           <tr>
-             <td width="20%" align="center"><p class="picon"><a href="zazhi/1420/6.html"><img src="zazhi/1420/img/i01.png" /></a></p><p class="pname"><a href="6.html">反抗小队</a></p></td>
-             <td width="20%" align="center"><p class="picon"><a href="zazhi/1420/7.html"><img src="zazhi/1420/img/i02.png" /></a></p><p class="pname"><a href="7.html">勇者斗恶龙</a></p></td>
-             <td width="20%" align="center"><p class="picon"><a href="zazhi/1420/8.html"><img src="zazhi/1420/img/i03.png" /></a></p><p class="pname"><a href="8.html">主公莫慌</a></p></td>
-             <td width="20%" align="center"><p class="picon"><a href="zazhi/1420/9.html"><img src="zazhi/1420/img/i04.png" /></a></p><p class="pname"><a href="9.html">奇怪的任意球</a></p></td>
-             <td width="20%" align="center"><p class="picon"><a href="zazhi/1420/10.html"><img src="zazhi/1420/img/i05.png" /></a></p><p class="pname"><a href="10.html">进击的巨人</a></p></td>
+             <td width="20%" align="center"><p class="picon"><a href="zazhi/1422/6.html"><img src="zazhi/1422/img/i01.png" /></a></p><p class="pname"><a href="zazhi/1422/6.html">臣民之塔</a></p></td>
+             <td width="20%" align="center"><p class="picon"><a href="zazhi/1422/7.html"><img src="zazhi/1422/img/i02.png" /></a></p><p class="pname"><a href="zazhi/1422/7.html">超级汉堡店3</a></p></td>
+             <td width="20%" align="center"><p class="picon"><a href="zazhi/1422/8.html"><img src="zazhi/1422/img/i03.png" /></a></p><p class="pname"><a href="zazhi/1422/8.html">熊猫屁王</a></p></td>
+             <td width="20%" align="center"><p class="picon"><a href="zazhi/1422/9.html"><img src="zazhi/1422/img/i04.png" /></a></p><p class="pname"><a href="zazhi/1422/9.html">英雄围城</a></p></td>
+             <td width="20%" align="center"><p class="picon"><a href="zazhi/1422/10.html"><img src="zazhi/1422/img/i05.png" /></a></p><p class="pname"><a href="zazhi/1422/10.html">汽车总动员：闪电赛</a></p></td>
           </tr>
       </table>
    </div>
@@ -169,11 +169,11 @@
    <div class="ylist">
       <table border="0" cellpadding="0" cellspacing="0" width="100%">
           <tr>
-             <td width="20%" align="center"><p class="picon"><a href="zazhi/1420/11.html"><img src="zazhi/1420/img/i06.png" /></a></p><p class="pname"><a href="11.html">王国保卫战</a></p></td>
-             <td width="20%" align="center"><p class="picon"><a href="zazhi/1420/12.html"><img src="zazhi/1420/img/i07.png" /></a></p><p class="pname"><a href="12.html">机械迷城</a></p></td>
-             <td width="20%" align="center"><p class="picon"><a href="zazhi/1420/13.html"><img src="zazhi/1420/img/i08.png" /></a></p><p class="pname"><a href="13.html">合金弹头X</a></p></td>
-             <td width="20%" align="center"><p class="picon"><a href="zazhi/1420/14.html"><img src="zazhi/1420/img/i09.png" /></a></p><p class="pname"><a href="14.html">钓大鱼</a></p></td>
-             <td width="20%" align="center"><p class="picon"><a href="zazhi/1420/15.html"><img src="zazhi/1420/img/i10.png" /></a></p><p class="pname"><a href="15.html">神庙逃亡2</a></p></td>
+             <td width="20%" align="center"><p class="picon"><a href="zazhi/1422/11.html"><img src="zazhi/1422/img/i06.png" /></a></p><p class="pname"><a href="zazhi/1422/11.html">火箭飞人</a></p></td>
+             <td width="20%" align="center"><p class="picon"><a href="zazhi/1422/12.html"><img src="zazhi/1422/img/i07.png" /></a></p><p class="pname"><a href="zazhi/1422/12.html">空中打击高清</a></p></td>
+             <td width="20%" align="center"><p class="picon"><a href="zazhi/1422/13.html"><img src="zazhi/1422/img/i08.png" /></a></p><p class="pname"><a href="zazhi/1422/13.html">速度与激情6</a></p></td>
+             <td width="20%" align="center"><p class="picon"><a href="zazhi/1422/14.html"><img src="zazhi/1422/img/i09.png" /></a></p><p class="pname"><a href="zazhi/1422/14.html">百战天虫3</a></p></td>
+             <td width="20%" align="center"><p class="picon"><a href="zazhi/1422/15.html"><img src="zazhi/1422/img/i10.png" /></a></p><p class="pname"><a href="zazhi/1422/15.html">乐高 我的城市</a></p></td>
           </tr>
       </table>
    </div>
@@ -188,8 +188,8 @@
    <div class="ylist">
       <table border="0" cellpadding="0" cellspacing="0" width="100%">
           <tr>
-             <td width="50%" align="center"><p class="picon2"><a href="zazhi/1420/16.html"><img src="zazhi/1420/img/i12.jpg" /></a></p><p class="pname2"><a href="16.html">蜘蛛侠：极限</a></p></td>
-             <td width="50%" align="center"><p class="picon2"><a href="zazhi/1420/17.html"><img src="zazhi/1420/img/i13.jpg" /></a></p><p class="pname2"><a href="17.html">反击间谍</a></p></td>
+             <td width="50%" align="center"><p class="picon2"><a href="zazhi/1422/16.html"><img src="zazhi/1422/img/i12.jpg" /></a></p><p class="pname2"><a href="zazhi/1422/16.html">不机械城</a></p></td>
+             <td width="50%" align="center"><p class="picon2"><a href="zazhi/1422/17.html"><img src="zazhi/1422/img/i13.jpg" /></a></p><p class="pname2"><a href="zazhi/1422/17.html">地狱突袭逃亡</a></p></td>
           </tr>
       </table>
    </div>
@@ -202,11 +202,11 @@
    </div>
    <!--mtit-->
    <ul class="tingwenlist">
-      <li><a href="zazhi/1420/18.html">● 更令人期待了！《纪念碑谷》新关卡首张截图唯美降临</a><span>8-12</span></li>
-      <li><a href="zazhi/1420/19.html">● 终于等到你！PC大热解谜游戏《不机械城》终定9月22日登陆安卓</a><span>8-12</span></li>
-      <li><a href="zazhi/1420/20.html">● 《山》与《我的世界》在一起？ 极简唯美独立新游《大千世界》明年问世</a><span>8-12</span></li>
-      <li><a href="zazhi/1420/21.html">● 重金属乐队打造 暗黑风ARPG《国王万岁：死亡蝙蝠》</a><span>8-12</span></li>
-      <li><a href="zazhi/1420/22.html">● 声控交互新玩法 艺术解谜新作《洛伊历险记》首曝试玩片段</a><span>8-12</span></li>
+      <li><a href="zazhi/1422/18.html">● 《愤怒的小鸟：变形金刚》10月30日盛大亮相安卓</a><span>10-22</span></li>
+      <li><a href="zazhi/1422/19.html">● 英雄换着更好玩 回合策略新游《英雄互换》</a><span>10-22</span></li>
+      <li><a href="zazhi/1422/20.html">● 《我叫MT2》封测将启 游戏特色抢先看</a><span>10-22</span></li>
+      <li><a href="zazhi/1422/21.html">● 畅游公布武侠MMORPG新作《天龙八部3D》 端游原班人马打造</a><span>10-22</span></li>
+      <li><a href="zazhi/1422/22.html">● 快节奏休闲游戏大合辑 《微观战争》首批截图曝光</a><span>10-22</span></li>
    </ul>
    <!--jianjie-->
 </div>
@@ -219,8 +219,8 @@
    <div class="ylist">
       <table border="0" cellpadding="0" cellspacing="0" width="100%">
           <tr>
-             <td width="30%" align="center"><a href="zazhi/1420/23.html"><img src="zazhi/1420/img/i11.png" width="70" height="70" /></a></td>
-             <td width="70%"><p>应用名称：百度手机卫士</p><p>百度手机卫士（shoujiweishi.baidu.com）-老牌系统管理和优化工具，拥有垃圾短信及电话拦截功能，支持黑白名单，帮你远离骚扰。</p></td>
+             <td width="30%" align="center"><a href="zazhi/1422/23.html"><img src="zazhi/1422/img/i11.png" width="70" height="70" /></a></td>
+             <td width="70%"><p>应用名称：虾米音乐</p><p>虾米音乐（www.xiami.com）-虾米音乐是虾米网为Android量身订做的免费音乐应用。它将为您提供流畅且近乎完美的无线音乐解决方案。将百万高品质音乐装进口袋。</p></td>
           </tr>
       </table>
    </div>
@@ -233,8 +233,8 @@
    </div>
    <!--mtit-->
    <ul class="xiaolist">
-      <li><a href="zazhi/1420/24.html"><img src="image/mulu_32.jpg" />老板这件夹克多少钱！</a></li>
-      <li><a href="zazhi/1420/25.html"><img src="image/mulu_32.jpg" />会做生意的犹太人！</a></li>
+      <li><a href="zazhi/1422/24.html"><img src="image/mulu_32.jpg" />跟着前面那辆车！</a></li>
+      <li><a href="zazhi/1422/25.html"><img src="image/mulu_32.jpg" />上天最好的礼物！</a></li>
    </ul>
    <!--jianjie-->
 </div>
