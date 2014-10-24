@@ -26,9 +26,12 @@ public class Magazine implements Serializable
 		@Column(name="Introduction")
 		private String Introduction;//杂志简介
 		@Column(name="img")
-		private String img;//杂志图片
+		private String img;//封面图片
 		@Column(name="time")
 		private String time;//杂志上传时间
+		
+		@Column(name="Physicalpath")
+		private String Physicalpath;//杂志上传物理地址
 		public int getId()
 		{
 			return id;
@@ -76,6 +79,14 @@ public class Magazine implements Serializable
 		public void setTime(String time)
 		{
 			this.time = time;
+		}
+		public String getPhysicalpath()
+		{
+			return Physicalpath;
+		}
+		public void setPhysicalpath(String physicalpath)
+		{
+			Physicalpath = physicalpath;
 		}
 		
 

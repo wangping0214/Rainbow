@@ -44,5 +44,15 @@ public class AppMagazineContentDAOImpl implements AppMagazineContentDAO
 		
 		return query.getResultList();
 	}
+	@Override
+	public void save(MagazineContent magazineContent)
+	{
+		entityManager.persist(magazineContent);
+	}
+	@Override
+	public void delete(MagazineContent magazineContent)
+	{
+		entityManager.remove(magazineContent);
+	}
 
 }

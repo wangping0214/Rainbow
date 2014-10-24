@@ -107,7 +107,7 @@ public class UploadADVPhotos
 		if(upFile==null)
 		{
 			out.print("NULL");
-			return;
+			return ;
 		}
 		out.print(this.getUpFileFileName());
 		out.print(this.getUpFileContentType());
@@ -125,8 +125,7 @@ public class UploadADVPhotos
 		adv.setType(type);
 		adv.setLogotime(logotime);
 		dao.saveimlogo(adv);
-		out.print("\nÂ·¾¶\n"+adv.getLogo());
-		
+		out.print("\nÂ·¾¶\n"+adv.getLogo());		
 	}
 	
 	

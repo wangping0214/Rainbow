@@ -13,4 +13,8 @@ public interface AppMagazineContentDAO
 	public List<MagazineContent> Pagesperiod(String period);
 	//查询全部
 	public List<MagazineContent> All();
+	//添加杂志
+	public void save(MagazineContent magazineContent);
+	//删除杂志
+	public void delete(MagazineContent magazineContent);
 }
