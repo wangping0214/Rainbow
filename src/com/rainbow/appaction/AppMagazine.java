@@ -145,6 +145,12 @@ public class AppMagazine
 		
     		//上传zip包存放位置
     		savePath="/AppMagazinezip";
+    		//设置文件目录
+    		File pe = new File(savePath);
+    		//目录不存在时自动创建
+    		if(!pe.exists()){  
+    			pe.mkdirs();  
+    		} 
 		
     		if(upFile==null)
     		{
