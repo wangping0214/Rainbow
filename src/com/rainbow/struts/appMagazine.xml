@@ -14,5 +14,21 @@
     	
     	</action>
     	
+    	<!-- 分页查看 -->
+    	<action name="Earch" class="AppMagazine" method="Earch">
+        <result>magazine.jsp</result>
+    	</action>
+    	
+   		<!-- 上传杂志 -->
+    	<action name="Uploaddecompression" class="AppMagazine" method="Uploaddecompression">
+    	
+    	</action>
+    	<!-- 删除杂志 -->
+    	<action name="AppMagazinedelete" class="AppMagazine" method="delete">
+    	
+    	</action>
+    	
+    	
+    	
         </package>
 </struts>

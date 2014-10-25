@@ -6,7 +6,7 @@
     <package name="UploadAVPhotosa" extends="struts-default">
     	<!-- 管理员上传广告图片 -->
     	<action name="UploadPhotos" class="UploadAVPhotos" method="UploadPhotos">
-    	
+    	<result>uploadPhotos.jsp</result>
     	</action>
     	<!-- 分页显示广告图片 -->
     	<action name="Search" class="UploadAVPhotos" method="Search">

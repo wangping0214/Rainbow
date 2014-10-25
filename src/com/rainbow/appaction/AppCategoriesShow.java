@@ -13,11 +13,13 @@ import com.google.gson.Gson;
 import com.rainbow.dao.AppADVDAO;
 import com.rainbow.dao.AppAutDAO;
 import com.rainbow.dao.AppInfoDAO;
+import com.rainbow.dao.AppMagazineDAO;
 import com.rainbow.dao.AppSouDAO;
 import com.rainbow.entity.ADV;
 import com.rainbow.entity.AppAuthority;
 import com.rainbow.entity.AppInfo;
 import com.rainbow.entity.AppSource;
+import com.rainbow.entity.Magazine;
 import com.rainbow.server.AdvAndApp;
 import com.rainbow.server.App;
 
@@ -27,6 +29,7 @@ public class AppCategoriesShow
 	private AppAutDAO adao;
 	private AppInfoDAO idao;
 	private AppADVDAO dao;
+	private AppMagazineDAO Amo;
 	
 	private String type;//文件类别
 	 
@@ -35,7 +38,7 @@ public class AppCategoriesShow
 	 * gyn
 	 * 主页显示的内容
 	 * 4个广告图
-	 * app信息
+	 * 7个app信息
 	 * @throws IOException 
 	 */
 	public void Rmded() throws IOException{
@@ -48,14 +51,16 @@ public class AppCategoriesShow
 		List<ADV> advList=new ArrayList<ADV>();
 		//推荐本周热门app信息
 		List<App> appList=new ArrayList<App>();
+		List<Magazine> me=new ArrayList<Magazine>();
 		//设置获取app的个数
-		int num=7;
+		int num=0;
 		//测试默认选择A
-		type="A";
+		//type="A";
 		switch(type)
 		{
 		case "A":
 			type="推荐";
+			num=7;
 			for(ADV adv:dao.type(type)){
 				advList.add(adv);
 			}
@@ -73,9 +78,31 @@ public class AppCategoriesShow
 			break;
 		case "B":
 			type="杂志";
+			
+			for(ADV adv:dao.type(type)){
+				advList.add(adv);
+			}
+			
+			me=Amo.All();
+			
 			break;
 		case "C":
 			type="人气";
+			num=6;
+			for(ADV adv:dao.type(type)){
+				advList.add(adv);
+			}
+			//本周人气	
+			for (AppAuthority ay : adao.RecomLevel(num))
+			{
+				AppSource sou = sdao.findById(ay.getId());
+				AppInfo info = idao.findById(ay.getId());			
+				App app = new App();
+				app.setAppAut(ay);
+				app.setAppInfo(info);
+				app.setAppSou(sou);
+				appList.add(app);
+			}	
 			break;
 			default:
 				type="";
@@ -92,19 +119,24 @@ public class AppCategoriesShow
 		String result = "";
 		//拼接json串
 		//advAndApp推荐4个广告图和7个本周热门app
-		//result ="{\"标识名\":"+gson.toJson(advAndApp)+"}" ;
+		if(me.size()>0){
+		result ="{\"Magazine\":"+gson.toJson(me)+"\"img\":"+gson.toJson(advList)+"}" ;
+		}else{
 		result=gson.toJson(advAndApp);
+		System.out.println("有"+appList.size()+"条数据");}
 		out.print(result);
-		System.out.println("有"+appList.size()+"条数据");
+		
 	}
 	public AppCategoriesShow(AppSouDAO sdao, AppAutDAO adao, AppInfoDAO idao,
-			AppADVDAO dao)
+			AppADVDAO dao,AppMagazineDAO Amo)
 	{
 		super();
 		this.sdao = sdao;
 		this.adao = adao;
 		this.idao = idao;
 		this.dao = dao;
+		this.Amo=Amo;
+		
 	}
 	public String getType()
 	{

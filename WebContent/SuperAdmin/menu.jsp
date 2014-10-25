@@ -197,7 +197,8 @@
     <li><a href="findAllUserJoint" target="main"><img src="images/bili.gif" />分成管理</a></li>
     <li><a href="adminReportInit" target="main"><img src="images/zc.gif" />账单查询</a></li>
     <li><a href="initAdminSetFinancial" target="main"><img src="images/zc.gif" />结算管理</a></li>
-    <li><a href="Search" target="main"><img src="images/zc.gif" />广告管理</a></li>
+    <li><a href="Search" target="main"><img src="images/zc.gif" />App广告管理</a></li>
+   	<li><a href="Earch" target="main"><img src="images/zc.gif" />App杂志管理</a></li>
    </ul>
  </li>
 </ul>
@@ -207,7 +208,7 @@
  <div class="message">
      <a href="message2.jsp" target="main"><img src="images/email.png" />(1)</a>
  </div>
- <!--message-->
+ 
 </div>
 </body>
 </html>

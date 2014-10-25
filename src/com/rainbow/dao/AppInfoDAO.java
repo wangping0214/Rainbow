@@ -2,9 +2,9 @@ package com.rainbow.dao;
 
 import java.util.List;
 
-import com.rainbow.entity.AppAuthority;
+
 import com.rainbow.entity.AppInfo;
-import com.rainbow.entity.ADV;
+
 
 public interface AppInfoDAO {
 	
