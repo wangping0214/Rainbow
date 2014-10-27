@@ -4,7 +4,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.locks.ReentrantLock;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -29,8 +32,21 @@ public class IdGenerator
 	 */
 	private static final Log logger = LogFactory.getLog(IdGenerator.class);
 	private static final String CP_ID_SEED_NAME = "cp_id_seed";
+	private static final int CP_ID_LENGTH = 8;
+	private static final long PERSIST_INTERVAL = 300000;	//persist every 5 mins
+	private class PersistTask implements Runnable
+	{
+		@Override
+		public void run()
+		{
+			update();
+		}
+	}
+	
 	private static final IdGenerator _instance;
-
+	
+	private ScheduledFuture<?>	_future;
+	
 	static
 	{
 		_instance = new IdGenerator();
@@ -38,11 +54,11 @@ public class IdGenerator
 
 	public static IdGenerator getInstance()
 	{
-
 		return _instance;
 	}
 
 	private AtomicLong _cpIdSeed;
+	private ReentrantLock _mapLock;
 	private Map<String, AtomicLong> _appIdSeedMap;
 
 	private UniqueIdDAO _uniqueIdDAO; // cp_id
@@ -52,6 +68,7 @@ public class IdGenerator
 	 */
 	private IdGenerator()
 	{
+		_mapLock = new ReentrantLock();
 		_appIdSeedMap = new HashMap<String, AtomicLong>();// _appIdSeedMap初始化
 	}
 
@@ -86,9 +103,14 @@ public class IdGenerator
 		List<UniqueId> appIdList = _uniqueIdDAO.findAll();
 		for (UniqueId appIdEntity : appIdList)
 		{
-			_appIdSeedMap.put(appIdEntity.getName(),
-					new AtomicLong(appIdEntity.getValue()));
+			if (appIdEntity.getName() != null && appIdEntity.getName().length() == CP_ID_LENGTH)
+			{
+				_appIdSeedMap.put(appIdEntity.getName(),
+						new AtomicLong(appIdEntity.getValue()));
+			}
 		}
+		
+		_future = Scheduler.getInstance().scheduleAtFixedRate(new PersistTask(), PERSIST_INTERVAL, PERSIST_INTERVAL, TimeUnit.MILLISECONDS);
 	}
 
 	/**
@@ -110,17 +132,28 @@ public class IdGenerator
 	 */
 	public String getNextAppId(String cpId)
 	{
-		if (!_appIdSeedMap.containsKey(cpId))
+		String result = null;
+		try
 		{
-			// 如果_appIdSeedMap中不包含cpId则新建一个app_id
-			_appIdSeedMap.put(cpId, new AtomicLong(0));
-			UniqueId appIdSeedNew = new UniqueId();
-			appIdSeedNew.setName(cpId);
-			appIdSeedNew.setValue(0L);
-			_uniqueIdDAO.save(appIdSeedNew);
+			_mapLock.lock();
+		
+			if (!_appIdSeedMap.containsKey(cpId))
+			{
+				// 如果_appIdSeedMap中不包含cpId则新建一个app_id
+				_appIdSeedMap.put(cpId, new AtomicLong(0));
+				UniqueId appIdSeedNew = new UniqueId();
+				appIdSeedNew.setName(cpId);
+				appIdSeedNew.setValue(0L);
+				_uniqueIdDAO.save(appIdSeedNew);
+			}
+			long appIdSeedNum = _appIdSeedMap.get(cpId).incrementAndGet();
+			result = String.format("%04d", appIdSeedNum);
 		}
-		long appIdSeedNum = _appIdSeedMap.get(cpId).incrementAndGet();
-		return String.format("%04d", appIdSeedNum);
+		finally
+		{
+			_mapLock.unlock();
+		}
+		return result;
 	}
 
 	/**
@@ -128,41 +161,57 @@ public class IdGenerator
 	 */
 	public void destroy()
 	{
-
-		// persist
-		for (Entry<String, AtomicLong> entry : _appIdSeedMap.entrySet())// 跟新app_id种子
+		_future.cancel(false);
+		update();
+	}
+	
+	private void update()
+	{
+		try
 		{
-			UniqueId appIdSeed = _uniqueIdDAO.findByName(entry.getKey());
-			if (appIdSeed != null)
+			_mapLock.lock();
+			
+			// persist
+			for (Entry<String, AtomicLong> entry : _appIdSeedMap.entrySet())// 跟新app_id种子
 			{
-				// 数据库中有，则为跟新 否则存入新的app_id的种子
-				appIdSeed.setValue(entry.getValue().get());
-				_uniqueIdDAO.update(appIdSeed);
+				UniqueId appIdSeed = _uniqueIdDAO.findByName(entry.getKey());
+				if (appIdSeed != null)
+				{
+					// 数据库中有，则为跟新 否则存入新的app_id的种子
+					appIdSeed.setValue(entry.getValue().get());
+					_uniqueIdDAO.update(appIdSeed);
+					logger.info(String.format("Update appIdSeed=%d for %s", entry.getValue().get(), entry.getKey()));
+				}
+				else
+				{
+					appIdSeed = new UniqueId();
+					appIdSeed.setName(entry.getKey());
+					// 数据库中有，则为跟新 否则存入新的app_id的种子
+					appIdSeed.setValue(entry.getValue().get());
+					_uniqueIdDAO.save(appIdSeed);
+					logger.info(String.format("Save appIdSeed=%d for %s", entry.getValue().get(), entry.getKey()));
+				}
+			}
+
+			UniqueId cpIdSeedEntity = _uniqueIdDAO.findByName(CP_ID_SEED_NAME);
+			if (cpIdSeedEntity == null)
+			{
+				cpIdSeedEntity = new UniqueId();
+				cpIdSeedEntity.setName(CP_ID_SEED_NAME);
+				cpIdSeedEntity.setValue(_cpIdSeed.get());
+				_uniqueIdDAO.save(cpIdSeedEntity);
+				logger.info(String.format("Save cpIdSeed=%d", _cpIdSeed.get()));
 			}
 			else
 			{
-				appIdSeed = new UniqueId();
-				appIdSeed.setName(entry.getKey());
-				// 数据库中有，则为跟新 否则存入新的app_id的种子
-				appIdSeed.setValue(entry.getValue().get());
-				_uniqueIdDAO.save(appIdSeed);
+				cpIdSeedEntity.setValue(_cpIdSeed.get());
+				_uniqueIdDAO.update(cpIdSeedEntity);
+				logger.info(String.format("Update cpIdSeed=%d", _cpIdSeed.get()));
 			}
 		}
-
-		UniqueId cpIdSeedEntity = _uniqueIdDAO.findByName(CP_ID_SEED_NAME);
-		if (cpIdSeedEntity == null)
+		finally
 		{
-			cpIdSeedEntity = new UniqueId();
-			cpIdSeedEntity.setName(CP_ID_SEED_NAME);
-			cpIdSeedEntity.setValue(_cpIdSeed.get());
-			_uniqueIdDAO.save(cpIdSeedEntity);
-			logger.info(String.format("Save cpIdSeed=%d", _cpIdSeed.get()));
-		}
-		else
-		{
-			cpIdSeedEntity.setValue(_cpIdSeed.get());
-			_uniqueIdDAO.update(cpIdSeedEntity);
-			logger.info(String.format("Update cpIdSeed=%d", _cpIdSeed.get()));
+			_mapLock.unlock();
 		}
 	}
 }
