@@ -78,6 +78,29 @@ public class AppMagazine
 	private int pageSize=4;//行数
 	/**
 	 * gyn
+	 * 根据期数查询杂志 详情
+	 * @throws IOException 
+	 */
+	public void periodMagazine() throws IOException{
+		HttpServletResponse response = ServletActionContext.getResponse();
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		period="1";
+		for(MagazineContent m:AMCD.Pagesperiod(period)){
+			mg.add(m);
+		}
+		
+		//实例化
+		Gson gson = new Gson();
+		//声明和赋空值
+		//String result = "{\"mct\":"+gson.toJson(mct)+",\"mct\":"+gson.toJson(mct)+"}";
+		String result = "";
+		result = gson.toJson(mg);
+		out.println(result);
+	}
+	/**
+	 * gyn
 	 * 查询全部杂志
 	 * @throws IOException 
 	 */
@@ -90,34 +113,10 @@ public class AppMagazine
 			mge.add(m);
 		}
 		period="20";
-//		System.out.println("进入AllMagazine"+AMCD.All().size());
-		for(MagazineContent mc:AMCD.All()){
-			mg.add(mc);
-		}
-		//System.out.println("mct等于"+mct.size());
 		//实例化
 		Gson gson = new Gson();
 		//声明和赋空值
 		//String result = "{\"mct\":"+gson.toJson(mct)+",\"mct\":"+gson.toJson(mct)+"}";
-		String result = "";
-		result = gson.toJson(mge);
-		out.println(result);
-	}
-	/**
-	 * gyn
-	 * 根据id查询杂志
-	 * @throws IOException 
-	 */
-	public void Accordingid() throws IOException{
-		HttpServletResponse response = ServletActionContext.getResponse();
-		response.setContentType("application/json");
-		response.setCharacterEncoding("UTF-8");
-		PrintWriter out = response.getWriter();
-		id=1;
-		
-		//实例化
-		Gson gson = new Gson();
-		//声明和赋空值
 		String result = "";
 		result = gson.toJson(mge);
 		out.println(result);
@@ -191,25 +190,7 @@ public class AppMagazine
     		//这样格式
     		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd  kk:mm:ss ");
     		//d就是这样格式的时间
-    		String newtime=sdf.format(time);
-    	
-    	
-    	
-    		/**
-    		 * 暂时把  添加杂志信息写在这  写在下面 添加不进去 
-    		 */
-    	
-    		Magazine m=new Magazine();
-    		m.setImg(null);
-    		m.setIntroduction(Introduction);
-    		m.setName(name);
-    		m.setPeriod(period);
-    		m.setPhysicalpath(Path);
-    		m.setTime(newtime);       
-    		AMD.save(m); 
-        
-        
-    	
+    		String newtime=sdf.format(time);  	
     		//压缩文件目录	
     	  	File file = new File(Path);  
     	  	//实例化ZipFile，每一个zip压缩文件都可以表示为一个ZipFile
@@ -239,15 +220,16 @@ public class AppMagazine
     	              			os.close();   	  
     	              			is.close();   	  
     	    		}
+    	    zipFile.close();
     	          
-    	          	zipInputStream.close();
+    	    zipInputStream.close();
     	          	
     	          	
     	          	
     	          	
     	          	/**
     	          	 * 读取zip包中的文件
-    	          	 */
+    	          	 
     	          	java.util.zip.ZipFile zf = new java.util.zip.ZipFile(Path);
     	          
     	          	Enumeration e = zf.entries();
@@ -259,16 +241,16 @@ public class AppMagazine
     	          			out.println("zip包里文件"+new String(ze.getName().getBytes("ISO-8859-1"), "GB2312"));
     	           
     	          }
+    	          */
     	          
     	         
    
     	          //编码
     	          String encoding="GBK";
-	        	 
     	          //获取 txt文件
-                  File fle=new File(newdPath+"ADC.txt");
+                  File fle=new File(newdPath+"Configuration.txt");
                   //判断文件是否存在
-                  if(fle.isFile() && fle.exists()){ 
+                  if(fle.isFile()&& fle.exists()){ 
                 	  //考虑到编码格式
                       InputStreamReader read = new InputStreamReader(new FileInputStream(fle),encoding);
                       
@@ -342,45 +324,56 @@ public class AppMagazine
                     	  
                           }
                       
+                      read.close();
                       
                       
                       
                       
-                      	/**
-                      	 * 我想在这添加向Magazine添加  全部数据  可是  不好用
-                      	 * 
-                      	 * 问题是  这个在这写添加不进去  值都是有的
-                       
-                      	//获取到  第 n 的  第一个  数据
-                      	MagazineContent mt=AMCD.Pagesperiod(period,0);
-                      	//为什么添加不进去 
-                  	  	Magazine m1=new Magazine();
-                  	  	//杂志主页logo   mt.getImg()是在MagazineContent的图片地址  第一个  就是主页 所以添加在杂志 信息表里的 img列中 作为杂志logo
-                  	  	m1.setImg(mt.getImg());
-                  	  	//杂志简介
-                      	m1.setIntroduction(Introduction);
-                      	//杂志名字
-                      	m1.setName(name);
-                      	//杂志期数
-                      	m1.setPeriod(period);
-                      	//杂志zip包物理路径
-                      	m1.setPhysicalpath(Path);
-                      	//杂志上传时间
-                      	m1.setTime(newtime);       
-                      	AMD.save(m);   
-                      	 */
                       
-                      	read.close();
+                      	
                       
                       
 		}
+                  
+           if(AMCD.Pagesperiod(period,0)!=null){
+			/**
+          	 * 我想在这添加向Magazine添加  全部数据  可是  不好用
+          	 * 
+          	 * 问题是  这个在这写添加不进去  值都是有的
+          	 */
+            out.print("添加进去了");
+          	//获取到  第 n 的  第一个  数据
+          	MagazineContent mt=AMCD.Pagesperiod(period,0);
+          	//创建杂志对象
+      	  	Magazine m1=new Magazine();
+      	  	//杂志主页logo   mt.getImg()是在MagazineContent的图片地址  第一个  就是主页 所以添加在杂志 信息表里的 img列中 作为杂志logo
+      	  	m1.setImg(mt.getImg());
+      	  	//杂志简介
+          	m1.setIntroduction(Introduction);
+          	//杂志名字
+          	m1.setName(name);
+          	//杂志期数
+          	m1.setPeriod(period);
+          	//杂志zip包物理路径
+          	m1.setPhysicalpath(Path);
+          	//杂志上传时间
+          	m1.setTime(newtime);       
+          	AMD.save(m1);   
+          	 
+			
+		}
+                  
                   
 		}
 		catch (Exception e)
 		{
 			System.out.println("异常"+e);
 		}          
-                 
+        finally
+        {
+          
+        	
+         }     
 	    }  
     
     
@@ -462,20 +455,13 @@ public class AppMagazine
     	//再将杂志主表删除掉
     	AMD.delete(magazine);
     	out.println("1  Magazine删除成功");
-
-    	
-    	/**
-    	 * 问题
-    	 * 文件删除不掉
-    	 */
     	//删除掉Magazine表中的  zip包
     	File file2 = new File(Physicalpath);
-		out.println("文件名"+file2.getName()+"执行了删除zip的方法"+Physicalpath+"__");
-		//删除杂志文件zip
-		file2.delete();
-		
-		
-		
+    	if(file2.exists()==true){
+    		//删除杂志文件zip
+    		file2.delete();
+    		out.println("文件名"+file2.getName()+"执行了删除zip的方法"+Physicalpath+"__");
+		}
     	//查询需要删除的 期的数据
     	mg=AMCD.Pagesperiod(Period);
     	//将他们 循环删除掉

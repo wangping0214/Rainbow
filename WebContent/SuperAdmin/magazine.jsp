@@ -9,7 +9,27 @@
 <title>杂志上传</title>
 </head>
 <script type = "text/javascript" language = "javascript">
-
+function check() {
+    var oInput = document.getElementsByName("cartCheckBox");
+    for (var i = 0; i < oInput.length; i++) {
+        oInput[i].checked = document.getElementById("allCheckBox").checked;
+    }
+}
+function pro() {
+    var oInput = document.getElementsByName("cartCheckBox");
+    var c = 0;
+    for (var i = 0; i < oInput.length; i++) {
+        if (oInput[i].checked) {
+            c++;
+        }
+    }
+    if (c == oInput.length) {
+        document.getElementById("allCheckBox").checked = true;
+    }
+    else {
+        document.getElementById("allCheckBox").checked = false;
+    }
+}
 
   function ck()
   {
@@ -94,7 +114,7 @@
 			<a href="AppMagazinedelete?id=<%=a.getId() %>" onclick="return ck()">
 			<img src="<%=request.getContextPath()+a.getImg() %>">
 			</a>
-			
+		
 		<%
 		
 		
@@ -103,6 +123,7 @@
 		
 	
 		%>
+
 	
 <ul>
 		

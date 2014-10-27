@@ -9,11 +9,6 @@
     	
     	</action>
     	
-    	<!-- 根据id查询杂志 -->
-    	<action name="Accordingid" class="AppMagazine" method="Accordingid">
-    	
-    	</action>
-    	
     	<!-- 分页查看 -->
     	<action name="Earch" class="AppMagazine" method="Earch">
         <result>magazine.jsp</result>
@@ -28,6 +23,10 @@
     	
     	</action>
     	
+    	<!-- 根据期数查询杂志详情 -->
+    	<action name="periodMagazine" class="AppMagazine" method="periodMagazine">
+    	
+    	</action>
     	
     	
         </package>
