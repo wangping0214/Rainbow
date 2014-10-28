@@ -33,7 +33,7 @@ public class IdGenerator
 	private static final Log logger = LogFactory.getLog(IdGenerator.class);
 	private static final String CP_ID_SEED_NAME = "cp_id_seed";
 	private static final int CP_ID_LENGTH = 8;
-	private static final long PERSIST_INTERVAL = 300000;	//persist every 5 mins
+	private static final long PERSIST_INTERVAL = 600000;	//persist every 10 mins
 	private class PersistTask implements Runnable
 	{
 		@Override
@@ -44,8 +44,6 @@ public class IdGenerator
 	}
 	
 	private static final IdGenerator _instance;
-	
-	private ScheduledFuture<?>	_future;
 	
 	static
 	{
@@ -62,6 +60,7 @@ public class IdGenerator
 	private Map<String, AtomicLong> _appIdSeedMap;
 
 	private UniqueIdDAO _uniqueIdDAO; // cp_id
+	private ScheduledFuture<?>	_future;
 
 	/**
 	 * 构造函数
@@ -177,7 +176,7 @@ public class IdGenerator
 				UniqueId appIdSeed = _uniqueIdDAO.findByName(entry.getKey());
 				if (appIdSeed != null)
 				{
-					// 数据库中有，则为跟新 否则存入新的app_id的种子
+					// 数据库中有，更新app_id的种子
 					appIdSeed.setValue(entry.getValue().get());
 					_uniqueIdDAO.update(appIdSeed);
 					logger.info(String.format("Update appIdSeed=%d for %s", entry.getValue().get(), entry.getKey()));
@@ -186,7 +185,7 @@ public class IdGenerator
 				{
 					appIdSeed = new UniqueId();
 					appIdSeed.setName(entry.getKey());
-					// 数据库中有，则为跟新 否则存入新的app_id的种子
+					// 数据库中没有，保存新的app_id的种子
 					appIdSeed.setValue(entry.getValue().get());
 					_uniqueIdDAO.save(appIdSeed);
 					logger.info(String.format("Save appIdSeed=%d for %s", entry.getValue().get(), entry.getKey()));

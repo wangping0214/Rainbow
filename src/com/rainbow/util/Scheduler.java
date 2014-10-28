@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Scheduler
 {
-	private static final int SCHEDULER_CORE_THREAD_SIZE = 16;
+	private static final int SCHEDULER_CORE_THREAD_SIZE = 4;
 	private static final Scheduler _instance;
 	
 	static
