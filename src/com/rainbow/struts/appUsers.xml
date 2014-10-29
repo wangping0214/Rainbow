@@ -36,5 +36,10 @@
     	<action name="Mpi" class="AppUsers" method="Mpi">
     	</action>
     	
+    	
+    	<!-- app用户通过手机注册账号 -->
+    	<action name="fuk" class="AppUsers" method="fuk">
+    	</action>
+    	
     </package> 
  </struts>

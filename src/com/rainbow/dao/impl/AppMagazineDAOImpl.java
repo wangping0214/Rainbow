@@ -21,6 +21,8 @@ public class AppMagazineDAOImpl implements AppMagazineDAO
 	public List<Magazine> All()
 	{
 		Query query = entityManager.createQuery("select u from Magazine u");
+		//每页显示几6条数据
+		query.setMaxResults(6);
 		return query.getResultList();
 	}
 

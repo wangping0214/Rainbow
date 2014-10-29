@@ -323,6 +323,82 @@ public class AppUsers
 	}
 	
 	
+	
+	
+	/**
+	 * gyn通过手机注册账号
+	 * @throws IOException 
+	 */
+	
+	
+	
+	
+	public void fuk() throws IOException{
+		HttpServletResponse response = ServletActionContext.getResponse();
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		if(phone==null)
+		{
+			out.print("NULL"); 
+			return;
+		}
+		
+		User user=userdao.findByPhone(phone);
+		//判断手机号手否注册过
+		if(user==null)
+		{
+		try
+		{
+			
+			session = ServletActionContext.getRequest().getSession();
+			// 随机生成6位随机数
+			int num = (int) ((Math.random() * 9 + 1) * 100000);
+			// 保存num
+			session.setAttribute("app_code", String.valueOf(num));
+
+			String content = new String("您的验证码是：" + num
+					+ "。请不要把验证码泄露给其他人。如非本人操作，可不用理会！");
+			URL url = new URL(postUrl);
+			HttpURLConnection connection = (HttpURLConnection) url
+					.openConnection();
+			connection.setDoOutput(true);// 允许连接提交信息
+			connection.setRequestMethod("POST");// 网页提交方式“GET”、“POST”
+			connection.setRequestProperty("Content-Type",
+					"application/x-www-form-urlencoded");
+			connection.setRequestProperty("Connection", "Keep-Alive");
+			StringBuffer sb = new StringBuffer();
+			sb.append("&account=" + account);
+			sb.append("&password=" + pwd);
+			sb.append("&content=" + content);
+			sb.append("&mobile=" + phone);
+			OutputStream os = connection.getOutputStream();
+			os.write(sb.toString().getBytes());
+			os.close();
+			out.println(true); 
+			String line, result = "";
+			BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "utf-8"));
+			while ((line = in.readLine()) != null) {
+				result += line + "\n";
+			}
+			in.close();
+			out.println(result);
+
+		}
+		catch (Exception e)
+		{
+			// TODO: handle exception
+			e.printStackTrace(System.out);
+		}
+		}
+		else
+		{
+			System.out.println("已注册过");
+			out.println(false); 
+		}
+		
+	}
+	
 	/**
 	 * gyn
 	 *  判断验证码是否正确

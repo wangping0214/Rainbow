@@ -31,7 +31,7 @@ public class AppMagazineContentDAOImpl implements AppMagazineContentDAO
 	@Override
 	public List<MagazineContent> Pagesperiod(String period)
 	{
-		Query query = entityManager.createQuery("select n from MagazineContent n where n.period=:period order by n.pages asc");	
+		Query query = entityManager.createQuery("select n from MagazineContent n where n.period=:period order by n.period asc");	
 		query.setParameter("period", period);
 		return query.getResultList();
 		

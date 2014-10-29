@@ -31,6 +31,14 @@ function pro() {
     }
 }
 
+function checka(){
+	   var len = document.all.filepath.value.length;
+	   var str = document.all.filepath.value;
+	   var zip = str.substr(str.lastIndexOf("."),len);
+	   alert(zip);
+	}
+
+
   function ck()
   {
    if(confirm("确定要删除杂志么？"))
@@ -85,7 +93,7 @@ function pro() {
                            选择杂志：  
                         </td>  
                         <td>  
-                            <input type="file" name="upFile"  />  
+                            <input type="file" name="upFile" onclick="checka()"  />  
                         </td>  
                     </tr>  
                

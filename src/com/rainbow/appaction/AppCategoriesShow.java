@@ -120,7 +120,7 @@ public class AppCategoriesShow
 		//拼接json串
 		//advAndApp推荐4个广告图和7个本周热门app
 		if(me.size()>0){
-		result ="{\"Magazine\":"+gson.toJson(me)+"\"img\":"+gson.toJson(advList)+"}" ;
+		result ="{\"Magazine\":"+gson.toJson(me)+",\"img\":"+gson.toJson(advList)+"}" ;
 		}else{
 		result=gson.toJson(advAndApp);
 		System.out.println("有"+appList.size()+"条数据");}

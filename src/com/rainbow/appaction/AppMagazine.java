@@ -191,7 +191,7 @@ public class AppMagazine
     		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd  kk:mm:ss ");
     		//d就是这样格式的时间
     		String newtime=sdf.format(time);  	
-    		//压缩文件目录	
+    		//压缩文件目录	 
     	  	File file = new File(Path);  
     	  	//实例化ZipFile，每一个zip压缩文件都可以表示为一个ZipFile
     	    ZipFile zipFile = new ZipFile(file);
@@ -359,6 +359,7 @@ public class AppMagazine
           	//杂志上传时间
           	m1.setTime(newtime);       
           	AMD.save(m1);   
+          	AMCD.delete(mt);
           	 
 			
 		}
