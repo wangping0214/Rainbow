@@ -116,7 +116,6 @@ function rankByKeyword(keyword){
              <!--classnav-->
         </div>
        <!--ranksou-->
-       <div class="classlist">
             <!--classlist-->
        <div class="classlist">
           <s:iterator value="#request['app']" id="app">
@@ -178,8 +177,8 @@ function rankByKeyword(keyword){
            <!--page-->
        </div>
        <!--classlist-->
-   </div>
    <!--allclass-->
+	</div>
 </div>
 <!--midddle--> 
 <div class="icon2"><img src="images/ic_03.jpg" /></div>
@@ -199,12 +198,13 @@ function rankByKeyword(keyword){
                    <dd><a href="developer_center.jsp">开发者中心</a></dd>
                  </dl>
                  <dl>
+                 
                    <dt>帮助与支持</dt>
                    <dd><a href="use_item.jsp">使用条款</a></dd>
                    <dd><a href="users_privacy.jsp">用户隐私</a></dd>
                    <dd><a href="knowledge_equity.jsp">知识产权保护声明</a></dd>
                  </dl>
-                 <p class="logo2 fl"><a href="index.jsp"><img src="images/im_14.jpg" /></a></p>
+                 <p class="logo2 fl"><a href="#"><img src="images/im_14.jpg" /></a></p>
                </div>
                <!--footmain-->
            </div>

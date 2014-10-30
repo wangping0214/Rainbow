@@ -214,16 +214,16 @@ a,a:hover{text-decoration: none;}
     <td width="108">&nbsp;</td>
     </tr>
     <tr>
-    	<td height="135" valign="top"><div align="center"><a href="zazhi/1422/mulu.html"><img src="image/z-24.jpg" width="99" height="130" border="0" /></a></div></td>
+    	<td height="135" valign="top"><div align="center"><a href="zazhi/1423/mulu.html"><img src="image/z-25.jpg" width="99" height="130" border="0" /></a></div></td>
   		<td>&nbsp;</td>
-  		<td valign="top"><div align="center"></div></td>
+  		<td valign="top"><div align="center"><a href="zazhi/1422/mulu.html"><img src="image/z-24.jpg" width="99" height="130" border="0" /></a></div></td>
   		<td>&nbsp;</td>
   		<td valign="top"><div align="center"></div></td>
     </tr>
     <tr>
-    	<td height="37" valign="top"><div align="center">第二十四期</div></td>
+    	<td height="37" valign="top"><div align="center">第二十五期</div></td>
     	<td></td>
-    	<td valign="top"><div align="center"></div></td>
+    	<td valign="top"><div align="center">第二十四期</div></td>
     	<td></td>
     	<td valign="top"><div align="center"></div></td>
     	<td></td>

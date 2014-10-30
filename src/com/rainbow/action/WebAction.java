@@ -710,7 +710,7 @@ public class WebAction
 		/************************* 游戏更多排名 *******************************/
 		else
 		{
-			total = appAutDAO.findByTypeRankNum("应用", 0, 0);
+			total = appAutDAO.findByTypeRankNum("游戏", 0, 0);
 			page = new PageUtil(rankMoreCurrentPage, total);
 			page.setPageSize(16);
 			appAut = appAutDAO.findByTypeRank("游戏", 0, 0, rankMoreCurrentPage,
