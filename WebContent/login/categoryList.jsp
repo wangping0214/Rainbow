@@ -130,6 +130,7 @@ $(document).ready(function(){
 		</div>
    <!--allclass-->
 </div>
+</div>
 <!--midddle--> 
 <div class="icon2"><img src="images/ic_03.jpg" /></div>
      <div class="fotter fotter2"> 
