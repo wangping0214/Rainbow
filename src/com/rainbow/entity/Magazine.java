@@ -32,6 +32,9 @@ public class Magazine implements Serializable
 		
 		@Column(name="Physicalpath")
 		private String Physicalpath;//杂志上传物理地址
+		
+		@Column(name="Relativepath")
+		private String Relativepath;//杂志上传相对地址
 		public int getId()
 		{
 			return id;
@@ -87,6 +90,14 @@ public class Magazine implements Serializable
 		public void setPhysicalpath(String physicalpath)
 		{
 			Physicalpath = physicalpath;
+		}
+		public String getRelativepath()
+		{
+			return Relativepath;
+		}
+		public void setRelativepath(String relativepath)
+		{
+			Relativepath = relativepath;
 		}
 		
 

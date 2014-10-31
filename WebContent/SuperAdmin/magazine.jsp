@@ -120,8 +120,11 @@ function checka(){
 			<br>杂志名字：<%=a.getName() %></br>
 			<br>第-<%=a.getPeriod() %>-期</br>
 			<a href="AppMagazinedelete?id=<%=a.getId() %>" onclick="return ck()">
-			<img src="<%=request.getContextPath()+a.getImg() %>">
+			<img height="80" width="80" src="<%=request.getContextPath()+a.getImg() %>">
 			</a>
+			<form method="post" action="ADVn">
+			请选择:
+			<input name="cartCheckBox" type="checkbox"  value="<%=a.getId() %>" onclick="return  pro()"/>	
 		
 		<%
 		
@@ -147,6 +150,7 @@ function checka(){
    
      
   </ul>
+  </form>
   <p>
 
 

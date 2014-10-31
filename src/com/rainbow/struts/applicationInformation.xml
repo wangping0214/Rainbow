@@ -4,20 +4,34 @@
  <struts>
 <!--********************************查询app信息******************************************* -->
     <package name="AppDownloadsDownloads" extends="struts-default">
+    
     	<!--根据下载量查询前num个app信息-->
     	<action name="Downloads" class="applicationInformation" method="Downloads">
     	</action>
+    	
     	 <!--根据类别查询app信息-->
     	<action name="Category" class="applicationInformation" method="Category">
     	</action>
+    	
     	 <!--根据是否收费返回app信息-->
     	<action name="Fee" class="applicationInformation" method="Fee">
     	</action>
+    	
     	 <!--模糊查询根据 app name  按下载量查询-->
     	<action name="Fuzzy" class="applicationInformation" method="Fuzzy">
     	</action>
+    	
     	 <!--按照推荐热度 排行app信息 返回前十行-->
     	<action name="RecomLevel" class="applicationInformation" method="RecomLevel">
     	</action>
+    	
+    	 <!--根据id查询app信息及评论信息-->
+    	<action name="ApplicationDetails" class="applicationInformation" method="ApplicationDetails">
+    	</action>
+    	
+    	 <!--添加评论信息-->
+    	<action name="AddComment" class="applicationInformation" method="AddComment">
+    	</action>
+    	
         </package>
 </struts>

@@ -73,6 +73,10 @@ public class AppMagazine
     private String savePath;//目录
     private String name;//杂志名称
     private String Introduction;//杂志简介
+    
+    private String relativepath;//相对目录
+    
+    
 	public int id;
 	private int currentPage;//页数
 	private int pageSize=4;//行数
@@ -80,6 +84,7 @@ public class AppMagazine
 	 * gyn
 	 * 根据期数查询杂志 详情
 	 * @throws IOException 
+	 * period 期数
 	 */
 	public void periodMagazine() throws IOException{
 		HttpServletResponse response = ServletActionContext.getResponse();
@@ -159,12 +164,11 @@ public class AppMagazine
     		//out.print(this.getUpFileFileName());
     		//out.print(this.getUpFileContentType());
 		
-    		String str="";
 		
-    		str=OpeFunction.fileToServer(savePath, upFile, upFileFileName,upFileContentType, false);
+    		relativepath=OpeFunction.fileToServer(savePath, upFile, upFileFileName,upFileContentType, false);
 		
-    		out.println("zip包的相对路径"+str);
-    		out.println("zip物理位置上传在"+ServletActionContext.getServletContext().getRealPath(str));
+    		out.println("zip包的相对路径"+relativepath);
+    		out.println("zip物理位置上传在"+ServletActionContext.getServletContext().getRealPath(relativepath));
     		out.println("新建"+period+"文件夹");
 		
     		//新建文件夹
@@ -174,7 +178,7 @@ public class AppMagazine
     	
     		out.println("zip包解压在"+newdPath);
     		//zip包的物理位置
-    		String Path=ServletActionContext.getServletContext().getRealPath(str);
+    		String Path=ServletActionContext.getServletContext().getRealPath(relativepath);
     	
     	
         
@@ -357,7 +361,9 @@ public class AppMagazine
           	//杂志zip包物理路径
           	m1.setPhysicalpath(Path);
           	//杂志上传时间
-          	m1.setTime(newtime);       
+          	m1.setTime(newtime); 
+          	//相对目录
+          	m1.setRelativepath(relativepath);
           	AMD.save(m1);   
           	AMCD.delete(mt);
           	 
@@ -611,6 +617,14 @@ public class AppMagazine
 	public void setPageSize(int pageSize)
 	{
 		this.pageSize = pageSize;
+	}
+	public String getRelativepath()
+	{
+		return relativepath;
+	}
+	public void setRelativepath(String relativepath)
+	{
+		this.relativepath = relativepath;
 	}
 
 	

@@ -320,7 +320,7 @@ $(document).ready(function(){
 			alert("邮政编码不能为空！");
 			return false;
 		}
-		var reg=/^0?(13[0-9]|15[012356789]|18[0236789]|14[57])[0-9]{8}$/;
+		var reg=/^0?(13[0-9]|15[012356789]|18[02356789]|14[57])[0-9]{8}$/;
 		if(!reg.test(phone)){
 			alert("请输入正确的手机号码！");
 			return false;

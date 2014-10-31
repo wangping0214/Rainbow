@@ -24,6 +24,7 @@
 		     
 		<property name="url" value="jdbc:mysql://localhost:3306/rainbow"></property>
 		<property name="username" value="root"></property>
+		<!-- <property name="password" value="admin"></property> -->
 		<property name="password" value="root"></property>
 		<!--
 		<property name="url" value="jdbc:mysql://rdsjfiaiajfiaia.mysql.rds.aliyuncs.com:3306/rainbow"></property>
@@ -232,6 +233,7 @@
 		<constructor-arg ref="AppAutDAO"></constructor-arg>
 		<constructor-arg ref="AppInfoDAO"></constructor-arg>
 		<constructor-arg ref="AppSouDAO"></constructor-arg>
+		<constructor-arg ref="ReviewDAO"></constructor-arg>
 	</bean>
 
 	<!-- 管理广告图片 -->	

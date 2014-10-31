@@ -52,8 +52,8 @@ public class UploadADVPhotos
     private int id;//文件id
     private String type;//文件类别
    public String img;//文件目录
-   private int currentPage=1;//页数
-   private int pageSize=1;//行数
+   private int currentPage;//页数
+   private int pageSize=4;//行数
   
    
    
@@ -74,10 +74,10 @@ public class UploadADVPhotos
 		}
 		int n=dao.imlogo().size();
 		//由于浏览器显示问题只能够一张图显示的空间 所以多加个true 以前是每页4个图 现在是1图
-		if(n%2==0||true){
-    		n=n/1;
+		if(n%4==0){
+    		n=n/4;
     	}else{
-    		n=(n/1)+1;
+    		n=(n/4)+1;
     	}
 		if(currentPage>=n){
 			currentPage=n;		
