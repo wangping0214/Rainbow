@@ -90,7 +90,7 @@ $(document).ready(function(){
  <div class="content">
      <div class="contleft">
         <div class="jujiao">
-            <h3 class="tjtit1"><p><img src="<%=request.getContextPath()%>/login/images/icon_03.jpg" />安卓精品</p></h3>
+            <h3 class="tjtit1"><p class="fl"><img src="images/icon_03.jpg" />安卓精品</p><a href="rankMore.action?rankMoreType=2&rankMoreCurrentPage=1" class="fr">更多>></a></h3>
             <!-- ********************精品推荐***************************** -->
             <div class="jujiaolist">
             <s:iterator value="#request['appBoutique']" id="appBoutique">
