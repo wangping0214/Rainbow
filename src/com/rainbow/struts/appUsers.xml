@@ -41,5 +41,9 @@
     	<action name="fuk" class="AppUsers" method="fuk">
     	</action>
     	
+    	<!-- app用户通过手机号修改密码 -->
+    	<action name="PwdPhone" class="AppUsers" method="PwdPhone">
+    	</action>
+    	
     </package> 
  </struts>

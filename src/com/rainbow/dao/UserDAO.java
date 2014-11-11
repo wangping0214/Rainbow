@@ -5,7 +5,9 @@ import java.util.List;
 import com.rainbow.entity.User;
 
 public interface UserDAO
+
 {
+	
 	public List<User> findAll();
 	public User find(Integer id);
 	public User findByUser(String username);

@@ -107,7 +107,9 @@ function checka(){
             </form>  
 </div>
 <div style="background:#adc;width:690px; height:900px;Float:left">                                                                                                                                                                                                                                                                                                                                                                                                                                                      
-	<h3>点击删除杂志</h3>
+	<br></br>
+	全部选择：<input id="allCheckBox" type="CheckBox" onclick="return check()" / > 
+	
 	<%
 	List<List> l=(List)session.getAttribute("l");
 	
@@ -117,12 +119,13 @@ function checka(){
 				
 		
 	%>
+			
 			<br>杂志名字：<%=a.getName() %></br>
 			<br>第-<%=a.getPeriod() %>-期</br>
-			<a href="AppMagazinedelete?id=<%=a.getId() %>" onclick="return ck()">
-			<img height="80" width="80" src="<%=request.getContextPath()+a.getImg() %>">
-			</a>
-			<form method="post" action="ADVn">
+			<br><img height="60" width="80" src="<%=request.getContextPath()+a.getImg() %>"></br>
+			
+			<form method="post" action="AppMagazinedelete">
+			
 			请选择:
 			<input name="cartCheckBox" type="checkbox"  value="<%=a.getId() %>" onclick="return  pro()"/>	
 		
@@ -133,11 +136,7 @@ function checka(){
 	
 		
 	
-		%>
-
-	
-<ul>
-		
+		%>		
     <%
     	int currentPage=0;
     	int n=0;
@@ -145,11 +144,7 @@ function checka(){
     	n=Integer.parseInt(session.getAttribute("n").toString());//获取 共有多少页
     	
      %>
-   
-  	
-   
-     
-  </ul>
+    <input type="submit" name="sc" value="删除"/>
   </form>
   <p>
 

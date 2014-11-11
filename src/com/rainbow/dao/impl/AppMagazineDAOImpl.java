@@ -15,12 +15,13 @@ public class AppMagazineDAOImpl implements AppMagazineDAO
 {
 	@PersistenceContext
 	private EntityManager entityManager;
-
+	//按照期数排序
 	//查询全部杂志
 	@Override
 	public List<Magazine> All()
 	{
-		Query query = entityManager.createQuery("select u from Magazine u");
+		Query query = entityManager.createQuery("select u from Magazine u  order"
+				+ " by u.Period desc");
 		//每页显示几6条数据
 		query.setMaxResults(6);
 		return query.getResultList();
@@ -45,7 +46,8 @@ public class AppMagazineDAOImpl implements AppMagazineDAO
 	@Override
 	public List<Magazine> Fenye(int currentPage,int pageSize)
 	{
-		Query query = entityManager.createQuery("select u from Magazine u");
+		Query query = entityManager.createQuery("select u from Magazine u order"
+				+ " by u.Period desc");
 		int startRow = (currentPage-1)*pageSize;
 		if(startRow<0){
 			startRow=0;

@@ -44,6 +44,15 @@ public class ReviewDAOImpl implements ReviewDAO{
 		// TODO Auto-generated method stub
 		entityManager.remove(review);
 	}
+
+	@Override
+	public List<Review> findByUserId(int user_id)
+	{
+		// TODO Auto-generated method stub
+				Query query = entityManager.createQuery("select u from Review u where u.user_id = :user_id order by u.time desc,u.id desc");
+				query.setParameter("user_id",user_id);
+				return query.getResultList();
+	}
 	
 	
 

@@ -7,6 +7,11 @@ import com.rainbow.entity.AppInfo;
 
 
 public interface AppInfoDAO {
+	/**
+	 * gyn
+	 * 按app分类查询
+	 */
+	public List<AppInfo>category(String str);
 	
 	/**
 	 * gyn

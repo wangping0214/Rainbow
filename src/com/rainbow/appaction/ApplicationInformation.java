@@ -30,21 +30,69 @@ public class ApplicationInformation
 	private AppSouDAO sdao;
 	private AppAutDAO adao;
 	
-	private int num;// 要返回app的个数
+	private int num;// 要返回asp的个数
 	private String str;// 字符串
-	private int  id;//id
+	private int  id=-1;//id
 	
 	
 	
 	private int app_id;//appid
 	private String content;//评论内容
-	private int user_id;//用户id
+	private int user_id=-1;//用户id
 	private String userName;//用户名
 	private String terminal;//终端类型
 	
+	/**
+	 * gyn
+	 * 评论管理
+	 * @throws IOException
+	 */
 	
+	public void CommentsManagement() throws IOException{
+		Gson gson = new Gson();	
+		HttpServletResponse response = ServletActionContext.getResponse();
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		System.out.println("进入app评论管理");
+		if(id!=-1){
+			Review r=rdao.findById(id);
+			rdao.delete(r);
+			System.out.println("删除id为  "+id+"  成功");
+			}
+		
+		if(user_id!=-1){
+			System.out.println("用户登入id为"+user_id);
+		List<Review> Reviewlist=rdao.findByUserId(user_id);
+		List<App> appList = new ArrayList<App>();
+		int a =-1;
+		for(int i=0;i<Reviewlist.size();i++){
+		if(a==Reviewlist.get(i).getApp_id()){
+			continue;
+		}
+		AppInfo info=dao.findById(Reviewlist.get(i).getApp_id());
+		a=Reviewlist.get(i).getApp_id();
+		AppSource sou = sdao.findById(info.getId());
+		AppAuthority ay = adao.findById(info.getId());
+		App app = new App();
+		app.setAppAut(ay);
+		app.setAppInfo(info);
+		app.setAppSou(sou);
+		appList.add(app);
+		}
+		// 声明和赋空值
+		String result = "";
+		// 转换成Json
+		result = "{\"applist\":"+gson.toJson(appList)+",\"Review\":"+gson.toJson(Reviewlist)+"}";
+		out.println(result);
+		
+		}
+		
 	
+		
 	
+		
+	}
 	/**
 	 * gyn
 	 * 添加评论
@@ -52,10 +100,13 @@ public class ApplicationInformation
 	 */
 	
 	public void AddComment() throws IOException{
+		Gson gson = new Gson();	
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
+		System.out.println("进入app评论");
+		System.out.println("1"+id+"2"+content+"3"+user_id+"4"+userName+"5"+terminal);
 		Review review=new Review();
 		//获取系统当前时间
 		Date d = new Date();
@@ -64,7 +115,7 @@ public class ApplicationInformation
 		//d就是这样格式的时间
 		String time=sdf.format(d);
 		//appid
-		review.setApp_id(app_id);
+		review.setApp_id(id);
 		//app的评论信息
 		review.setContent(content);
 		//评论时间
@@ -75,8 +126,26 @@ public class ApplicationInformation
 		review.setUserName(userName);
 		//终端类型：用户通过哪种终端进行的评论
 		review.setTerminal(terminal);
+		
 		rdao.sava(review);
-		out.print(true);
+		System.out.println("评论成功");
+		List<App> appList = new ArrayList<App>();
+		AppInfo info=dao.findById(id);
+		AppSource sou = sdao.findById(info.getId());
+		AppAuthority ay = adao.findById(info.getId());
+		App app = new App();
+		app.setAppAut(ay);
+		app.setAppInfo(info);
+		app.setAppSou(sou);
+		appList.add(app);
+		
+		List<Review> Reviewlist=rdao.findByAppId(id);
+		// 声明和赋空值
+		String result = "";
+		// 转换成Json
+		result = "{\"applist\":"+gson.toJson(appList)+",\"Review\":"+gson.toJson(Reviewlist)+"}";
+		out.println(result);
+		
 		
 	}
 	/**
@@ -86,11 +155,13 @@ public class ApplicationInformation
 	 * @throws IOException 
 	 */
 	public void ApplicationDetails() throws IOException{
+		System.out.println("进入查询评论");
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");
 			PrintWriter out = response.getWriter();
 			Gson gson = new Gson();	
+			System.out.println("id："+id);
 			List<App> appList = new ArrayList<App>();
 			AppInfo info=dao.findById(id);
 			AppSource sou = sdao.findById(info.getId());
@@ -121,7 +192,6 @@ public class ApplicationInformation
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
 		// 实例化
-		num=3;
 		Gson gson = new Gson();
 		List<App> appList = new ArrayList<App>();
 		for (AppInfo info : dao.Section(num))
@@ -157,7 +227,48 @@ public class ApplicationInformation
 		// 实例化
 		Gson gson = new Gson();
 		List<App> appList = new ArrayList<App>();
-		for (AppInfo info : dao.classification(str))
+		switch (str)
+		{
+		case "yz":
+			str="益智休闲";
+			break;
+		case "js":
+			str="角色扮演";
+			break;
+		case "qp":
+			str="棋牌策略";
+			break;
+		case "ty":
+			str="体育竞技";
+			break;
+		case "yc":
+			str="养成经营";
+			break;
+		case "fx":
+			str="飞行射击";
+			break;
+		case "yy":
+			str="音乐游戏";
+			break;
+		case "sc":
+			str="赛车游戏";
+			break;
+		case "mn":
+			str="模拟游戏";
+			break;
+		case "qt":
+			str="其他游戏";
+			break;
+
+		default:
+			str="请你输入正确代码";
+			break;
+		}
+		if(str.equals("请你输入正确代码")){
+			out.print(false);
+			return;
+		}
+		for (AppInfo info : dao.category(str))
 		{
 			AppSource sou = sdao.findById(info.getId());
 			AppAuthority ay = adao.findById(info.getId());
@@ -167,6 +278,10 @@ public class ApplicationInformation
 			app.setAppInfo(info);
 			app.setAppSou(sou);
 			appList.add(app);
+		}
+		if(appList.size()==0){
+			out.print("没有该类型游戏");
+			return;
 		}
 		// 声明和赋空值
 		String result = "";
@@ -224,6 +339,7 @@ public class ApplicationInformation
 		if(dao.Fuzzy(str)==null){
 			out.print("NULL");
 		}
+		System.out.println("搜索内容:"+str);
 		for (AppInfo a : dao.Fuzzy(str))
 		{
 			AppAuthority af=adao.findById(a.getId());

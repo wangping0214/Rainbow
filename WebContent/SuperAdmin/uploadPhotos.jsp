@@ -107,9 +107,10 @@ function pro() {
 			<br>页面类型    :<%=a.getType()%></br>
 			<a href="DeleteImg?id=<%=a.getId() %>" onclick="return ck()">
 			<img height="70" width="100" src="<%=request.getContextPath()+a.getLogo() %>"/>
+			</a>
 			<br></br>
 			 
-			</a>
+		
 			
 			<form method="post" action="ADVn">
 			请选择:

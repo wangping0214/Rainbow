@@ -45,6 +45,28 @@ public class AppUsers
 	
 	private String realname;//用户实名
 	private String  address;//地址
+	
+	/**
+	 * gyn
+	 * 通过手机号修改密码
+	 * 需要手机号  新密码
+	 * @throws IOException 
+	 * 
+	 */
+	public void PwdPhone() throws IOException{
+		HttpServletResponse response = ServletActionContext.getResponse();
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		User user=userdao.findByPhone(phone);
+		user.setPassword(newpassword);
+		userdao.updatepwd(user);
+		out.print(true);
+		
+	}
+	
+	
+	
 	/**
 	 * gyn
 	 * app用户修改个人资料
@@ -143,12 +165,14 @@ public class AppUsers
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
-		
+		Gson gosn=new Gson();
 	    u=userdao.login(username, password);
+	    String result="";
+	    System.out.println("进入登入用户名 "+username+"密码"+password);
 		if(u!=null)
 		{
-			
-			out.print(true);
+			result =gosn.toJson(u);
+			out.println(result);
 			
 		}
 		else
@@ -191,7 +215,7 @@ public class AppUsers
 	
 	/**
 	 * gyn
-	 * 向电子邮件发送改密码网站
+	 * 向电子邮件发随机密码
 	 * 需要Email 已经绑定的Email
 	 */
 	public void forgotEmail() throws IOException
@@ -225,10 +249,15 @@ public class AppUsers
 	      //时间
 	      SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	      String nowTime = df.format(new Date());
+	      // 随机生成8位随机数
+	   	  
+	   	  String str = String.valueOf((int) ((Math.random() * 9 + 1) * 10000000));
+	      User user=userdao.findByEmail(Email);
+	      user.setPassword(str);
+	      userdao.updatepwd(user);
+	      
 	      mailInfo.setContent(""
-	      		+ "请点击以下链接来修改密码"
-	      		+"http://localhost:8080/Rainbow/forgotEmail"
-	    		  );    
+	      		+ "你的新密码是:"+str);    
 	         //这个类主要来发送邮件   
 	      SimpleMailSender sms = new SimpleMailSender();   
 	          //sms.sendTextMail(mailInfo);//发送文体格式    
@@ -261,6 +290,7 @@ public class AppUsers
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
+		System.out.println("appSendCode"+phone);
 		if(phone==null)
 		{
 			out.print("NULL"); 
@@ -414,17 +444,21 @@ public class AppUsers
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
+		System.out.println("验证码为"+code);
 		if (codes == null)
 		{
+			System.out.println("验证码空");
 			out.print("NULL"); // "none"
 			return;
 		}
 		if (codes.equalsIgnoreCase(code))
 		{
+			System.out.println("正确"+code);
 			out.println(true);
 		}
 		else
 		{
+			System.out.println("错误"+code);
 			out.println(false);
 		}
 		session.removeAttribute("app_code");

@@ -33,5 +33,9 @@
     	<action name="AddComment" class="applicationInformation" method="AddComment">
     	</action>
     	
+    	 <!--管理评论信息-->
+    	<action name="CMmt" class="applicationInformation" method="CommentsManagement">
+    	</action>
+    	
         </package>
 </struts>

@@ -22,6 +22,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.jasper.tagplugins.jstl.core.Out;
@@ -91,7 +92,7 @@ public class AppMagazine
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
-		period="1";
+		
 		for(MagazineContent m:AMCD.Pagesperiod(period)){
 			mg.add(m);
 		}
@@ -172,14 +173,15 @@ public class AppMagazine
     		out.println("新建"+period+"文件夹");
 		
     		//新建文件夹
-    		String dPath=period+"\\";
-    		//解压文件存放目录
+    		String dPath=period+"/";
+    		//传到服务器时 需要改
+    		//解压文件存放目录 
     		String newdPath="C:\\Users\\Administrator\\workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Rainbow\\AppMagazine\\"+dPath;
-    	
+    		//String newdPath="/root/softwares/apache-tomcat-7.0.54/webapps/Rainbow/AppMagazine/"+dPath;
     		out.println("zip包解压在"+newdPath);
     		//zip包的物理位置
     		String Path=ServletActionContext.getServletContext().getRealPath(relativepath);
-    	
+    		out.println("zip物理路径"+Path);
     	
         
     		//需要解压文件目录
@@ -452,9 +454,22 @@ public class AppMagazine
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
-    	
+		String result = "";		
+		//获取request
+		HttpServletRequest request=ServletActionContext.getRequest();
+		//获取复选框的值
+		String[]   values   =   request.getParameterValues("cartCheckBox");
+		//获取提交按钮的值
+		String Submit=   request.getParameter("sc");
+		if(values==null){
+			out.print("对不起！您没有选择杂志");
+			return;
+		}
+		if(Submit.equals("删除")){
+		for(int a=0;a<values.length;a++){
+		System.out.println(Integer.parseInt(values[a]));
     	//根据id查询出要删除的杂志 Magazine表
-    	Magazine magazine=AMD.Accordingid(id);
+    	Magazine magazine=AMD.Accordingid(Integer.parseInt(values[a]));
     	//需要删除的期数
     	String Period=magazine.getPeriod();
     	//需要删除的zip包物理路径
@@ -511,12 +526,16 @@ public class AppMagazine
     		out.println("Period==null");
     		
     	}
-		
+		}
+		}
+		else{
+			out.print("不删除");
+		}
 		}
     	
 		catch (Exception e)
 		{
-			System.out.println("异常"+e);
+			System.out.println("删除异常"+e);
 		}
     	
     }

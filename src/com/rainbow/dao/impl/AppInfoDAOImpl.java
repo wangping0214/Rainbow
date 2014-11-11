@@ -505,7 +505,7 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 	public List<AppInfo> Section(int num)
 	{
 		Query query = entityManager.createQuery("select u from AppInfo u,AppAuthority y "
-				+ "  where  u.id=y.id order by "
+				+ "  where  u.id=y.id  and u.isThrough=1 and u.shelf=1 order by "
 				+ "y.amountOfDown desc");
 		//从第几行 开始查询
 		//query.setFirstResult(2);
@@ -565,6 +565,16 @@ public class AppInfoDAOImpl implements AppInfoDAO{
 				+ " y.amountOfDown desc ");
 		
 		query.setMaxResults(3);
+		return query.getResultList();
+	}
+
+	@Override
+	public List<AppInfo> category(String str)
+	{
+		Query query = entityManager.createQuery("select u from AppInfo u,"
+				+ "AppAuthority y  where  u.id=y.id and isThrough=1 and shelf=1 and u.category=:str"
+						+ " order by y.amountOfDown desc");
+		query.setParameter("str", str);
 		return query.getResultList();
 	}
 	

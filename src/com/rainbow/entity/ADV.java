@@ -26,6 +26,9 @@ public class ADV implements Serializable
 	//存图片的时间
 	@Column(name="logotime")
 	private String logotime;
+	//对应appid
+	@Column(name="appid")
+	private int appid;
 	
 	public String getType()
 	{
@@ -58,6 +61,15 @@ public class ADV implements Serializable
 	public void setLogo(String logo)
 	{
 		this.logo = logo;
+	}
+	
+	public int getAppid()
+	{
+		return appid;
+	}
+	public void setAppid(int appid)
+	{
+		this.appid = appid;
 	}
 	public static long getSerialversionuid()
 	{

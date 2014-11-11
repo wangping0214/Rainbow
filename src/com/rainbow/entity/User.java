@@ -23,39 +23,39 @@ public class User implements Serializable
 	@Column(name="id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	@Column(name="username")
+	@Column(name="username")//用户名
 	private String username;
-	@Column(name="password")
+	@Column(name="password")//密码
 	private String password;
-	@Column(name="email")
+	@Column(name="email")//邮箱
 	private String email;
-	@Column(name="telephone")
+	@Column(name="telephone")//关联手机号
 	private String telephone;
-	@Column(name="realname")
+	@Column(name="realname")//真实姓名
 	private String realname;
-	@Column(name="duty")
+	@Column(name="duty")//职位
 	private String duty;
-	@Column(name="corporatename")
+	@Column(name="corporatename")//cp名字
 	private String corporatename;
-	@Column(name="website")
+	@Column(name="website")//开发商主页
 	private String website;
-	@Column(name="address")
+	@Column(name="address")//地址
 	private String address;
-	@Column(name="qqname")
+	@Column(name="qqname")//关联qq号
 	private String qqname;
-	@Column(name="photo1")
+	@Column(name="photo1")//头像1
 	private String photo1;
-	@Column(name="photo2")
+	@Column(name="photo2")//头像2
 	private String photo2;
-	@Column(name="ad")
+	@Column(name="ad")//没用
 	private String ad;
-	@Column(name="userType")
+	@Column(name="userType")//用户类型
 	private String userType;
-	@Column(name="approved")
+	@Column(name="approved")//是否通过审核
 	private int approved;
-	@Column(name="nowtime")
+	@Column(name="nowtime")//注册时间
 	private String nowtime;
-	@Column(name="cp_id")
+	@Column(name="cp_id")//cpid
 	private String cp_id;
 	@Transient
 	File cardphoto1;

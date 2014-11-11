@@ -31,7 +31,7 @@ public class AppCategoriesShow
 	private AppADVDAO dao;
 	private AppMagazineDAO Amo;
 	
-	private String type;//文件类别
+	private String type;//主页类别
 	 
 	 
 	/**
@@ -75,6 +75,7 @@ public class AppCategoriesShow
 				app.setAppSou(sou);
 				appList.add(app);
 			}	
+			System.out.println("进入推荐主页");
 			break;
 		case "B":
 			type="杂志";
@@ -84,6 +85,7 @@ public class AppCategoriesShow
 			}
 			
 			me=Amo.All();
+			System.out.println("进入杂志主页");
 			
 			break;
 		case "C":
@@ -102,7 +104,8 @@ public class AppCategoriesShow
 				app.setAppInfo(info);
 				app.setAppSou(sou);
 				appList.add(app);
-			}	
+			}
+			System.out.println("进入人气主页");
 			break;
 			default:
 				type="";
