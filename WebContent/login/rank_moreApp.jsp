@@ -1,6 +1,7 @@
 <%@ page language="java" import="java.util.*" import="com.rainbow.entity.User" import="com.rainbow.server.App" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@ taglib prefix="s" uri="/struts-tags" %>
+	<%@ page import="com.rainbow.util.PageUtil"%>
 	<%
 	String keyword = new String();
 	if(request.getParameter("keyword")!=null)
@@ -279,42 +280,64 @@ function rankByKeyword(keyword){
            </div>
            <!--one-->
            </s:iterator>
-           <div class="page">
-           <s:set name="page" value="#request.page"/>
-           <s:if test="#page.hasFirst">
-           <a href="rankMore.action?rankMoreType=1&rankMoreCurrentPage=1" class="mo">首页</a>
-           </s:if>
-           <s:if test="#page.hasPrevious">
-           <a href="rankMore.action?rankMoreType=1&rankMoreCurrentPage=<s:property value="#page.currentPage-1"/>" class="mo">上一页</a>
-           </s:if>
-           <s:if test="#page.totalPage>1">
-           <a href="rankMore.action?rankMoreType=1&rankMoreCurrentPage=1">1</a>
-           </s:if>
-           <s:if test="#page.totalPage>2">
-           <a href="rankMore.action?rankMoreType=1&rankMoreCurrentPage=2">2</a>
-           </s:if>
-           <s:if test="#page.totalPage>3">
-           <a href="rankMore.action?rankMoreType=1&rankMoreCurrentPage=3">3</a>
-           </s:if>
-           <s:if test="#page.totalPage>4">
-           <a href="rankMore.action?rankMoreType=1&rankMoreCurrentPage=4">4</a>
-           </s:if>
-           <s:if test="#page.totalPage>5">
-           <a href="rankMore.action?rankMoreType=1&rankMoreCurrentPage=5">5</a>
-           </s:if>
-           <s:if test="#page.totalPage>6">
-           <a href="rankMore.action?rankMoreType=1&rankMoreCurrentPage=6">6</a>
-           </s:if>
-           <s:if test="#page.totalPage>7">
-           <a href="rankMore.action?rankMoreType=1&rankMoreCurrentPage=7">7</a>
-           </s:if>
-           <s:if test="#page.hasNext">
-           <a href="rankMore.action?rankMoreType=1&rankMoreCurrentPage=<s:property value="#page.currentPage+1"/>" class="mo">下一页</a>
-           </s:if>
-           <s:if test="#page.hasLast">
-           <a href="rankMore.action?rankMoreType=1&rankMoreCurrentPage=<s:property value="#page.totalPage"/>" class="mo">末页</a>
-           </s:if>
-           </div>
+           <%
+					/*
+						计算页数，每次显示区间为本页的5页
+					 */
+					PageUtil pageUtil = (PageUtil) request.getAttribute("page");
+					int currentPage = pageUtil.getCurrentPage();
+					int totalPage = pageUtil.getTotalPage();
+					int startPage = 1;
+					int endPage = 1;
+					if (currentPage + 3 > totalPage) {
+						startPage = totalPage - 4 > 0 ? totalPage - 4 : 1;
+						endPage = totalPage + 1;
+					} else {
+						startPage = currentPage - 2 > 0 ? currentPage - 2 : 1;
+						endPage = startPage + 5 < totalPage ? startPage + 5 : totalPage;
+					}
+				%>
+				<div class="page">
+					<%
+						if (pageUtil.isHasFirst()) {
+					%>
+					<a href="rankMore.action?rankMoreType=1&rankMoreCurrentPage=1">首页</a>
+					<%
+						}
+					%>
+					<%
+						if (pageUtil.isHasPrevious()) {
+					%>
+					<a href="rankMore.action?rankMoreType=1&rankMoreCurrentPage=<%=pageUtil.getCurrentPage() - 1%>">上一页</a>
+					<%
+						}
+					%>
+					<%
+						for (int iPage = startPage; iPage < endPage; iPage++) {
+							if (pageUtil.getTotalPage() >= iPage) {
+					%>
+					<%
+						//if (currentPage == iPage) {
+						//}
+					%><a href="rankMore.action?rankMoreType=1&rankMoreCurrentPage=<%=iPage%>"><%=iPage%></a>
+					<%
+						}
+						}
+						if (pageUtil.isHasNext()) {
+					%>
+					<a href="rankMore.action?rankMoreType=1&rankMoreCurrentPage=<%=pageUtil.getCurrentPage() + 1%>">下一页</a>
+					<%
+						}
+					%>
+					<%
+						if (pageUtil.isHasLast()) {
+					%>
+					<a href="rankMore.action?rankMoreType=1&rankMoreCurrentPage=<%=pageUtil.getTotalPage()%>">尾页</a>
+					<%
+						}
+					%>
+
+				</div>
            <!--page-->
        </div>
        <!--classlist-->
