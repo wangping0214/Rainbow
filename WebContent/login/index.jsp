@@ -108,22 +108,22 @@ $(function()
             <div class="lunbo1">
                    <div class="picList">
                       <div class="big">
+                      	  <a href="Elist/ml14-25.jsp"><img src="images/zazhi/cover14-25.jpg" width="220" height="297" /></a>
+                          <a href="Elist/ml14-24.jsp"><img src="images/zazhi/cover14-24.jpg" width="220" height="297" /></a>
+                      	  <a href="Elist/ml14-23.jsp"><img src="images/zazhi/cover14-23.jpg" width="220" height="297" /></a>
                           <a href="Elist/ml14-22.jsp"><img src="images/zazhi/cover14-22.jpg" width="220" height="297" /></a>
                           <a href="Elist/ml14-21.jsp"><img src="images/zazhi/cover14-21.jpg" width="220" height="297" /></a>
                           <a href="Elist/ml14-20.jsp"><img src="images/zazhi/cover14-20.jpg" width="220" height="297" /></a>
                           <a href="Elist/ml14-19.jsp"><img src="images/zazhi/cover14-19.jpg" width="220" height="297" /></a>
-                          <a href="Elist/ml14-18.jsp"><img src="images/zazhi/cover14-18.jpg" width="220" height="297" /></a>
-                          <a href="Elist/ml14-17.jsp"><img src="images/zazhi/cover14-17.jpg" width="220" height="297" /></a>
-                          <a href="Elist/ml14-16.jsp"><img src="images/zazhi/cover14-16.jpg" width="220" height="297" /></a>
                       </div>
                      <ul class="smallList">
-                        <li><img src="images/zazhi/cover14-10.jpg" width="52" height="72" /><div class="redLine"></div></li>
-                        <li><img src="images/zazhi/cover14-09.jpg" width="52" height="72" /></li>
-                        <li><img src="images/zazhi/cover14-08.jpg" width="52" height="72" /></li>
-                        <li><img src="images/zazhi/cover14-07.jpg" width="52" height="72" /></li>
-                        <li><img src="images/zazhi/cover14-06.jpg" width="52" height="72" /></li>
-                        <li><img src="images/zazhi/cover14-05.jpg" width="52" height="72" /></li>
-                        <li><img src="images/zazhi/cover14-04.jpg" width="52" height="72" /></li>
+                     	<li><img src="images/zazhi/cover14-25.jpg" width="52" height="72" /><div class="redLine"></div></li>
+                        <li><img src="images/zazhi/cover14-24.jpg" width="52" height="72" /></li>
+                        <li><img src="images/zazhi/cover14-23.jpg" width="52" height="72" /></li>
+                        <li><img src="images/zazhi/cover14-22.jpg" width="52" height="72" /></li>
+                        <li><img src="images/zazhi/cover14-21.jpg" width="52" height="72" /></li>
+                        <li><img src="images/zazhi/cover14-20.jpg" width="52" height="72" /></li>
+                        <li><img src="images/zazhi/cover14-19.jpg" width="52" height="72" /></li>
                      </ul> 
                      <div class="clear"></div>
                   </div>

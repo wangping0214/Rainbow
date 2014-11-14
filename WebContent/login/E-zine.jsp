@@ -72,6 +72,9 @@ $(document).ready(function(){
 		<a href="javascript:void(0);" class="prev" id="prev-04">&nbsp </a>
 		<div class="jCarouselLite" id="demo-04">
 			<ul>
+				<li><a href="Elist/ml14-23.jsp" ><img src="images/zazhi/cover14-25.jpg" width="189" height="250" /></a></li>
+				<li><a href="Elist/ml14-22.jsp" ><img src="images/zazhi/cover14-24.jpg" width="189" height="250" /></a></li>
+				<li><a href="Elist/ml14-23.jsp" ><img src="images/zazhi/cover14-23.jpg" width="189" height="250" /></a></li>
 				<li><a href="Elist/ml14-22.jsp" ><img src="images/zazhi/cover14-22.jpg" width="189" height="250" /></a></li>
 				<li><a href="Elist/ml14-21.jsp" ><img src="images/zazhi/cover14-21.jpg" width="189" height="250" /></a></li>
                 <li><a href="Elist/ml14-20.jsp" ><img src="images/zazhi/cover14-20.jpg" width="189" height="250" /></a></li>
