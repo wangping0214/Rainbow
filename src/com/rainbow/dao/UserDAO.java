@@ -30,6 +30,7 @@ public interface UserDAO
 	public List<User> findDiviedUserApproved(int approved);//≤ª∑÷“≥
 	public List<User> findByUserCompanyOrName(int approved,String companyOrName,int currentPage,int pageSize);
 	public List<User> findByUserCompanyOrNameVisitable(int approved,String companyOrName,int visitable,int currentPage,int pageSize);
+	public List<User> findByUserCompanyOrNameVisitableAll(int approved,String companyOrName,int visitable);
 	public List<User> findByUserCompanyOrName(int approved,String companyOrName);
 	public User findByCp_id(String cp_id);
 	public int findByUserCompanyOrNameNum(int approved,String companyOrName);
@@ -39,6 +40,7 @@ public interface UserDAO
 	public int findDeveloperHasJointAppSize(int approved);
 	public List<User> findFinancialVisitableUsers(int approved,int visitable);
 	public List<User> findFinancialVisitableUsers(int approved,int visitable,int currentPage,int pageSize);
+	public List<User> findFinancialVisitableUsersAll(int approved,int visitable);
 	public int findFinancialVisitableUsersSize(int approved,int visitable);
 	public void save(User user);
 	public void update(User user);

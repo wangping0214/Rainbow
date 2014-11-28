@@ -70,6 +70,12 @@ window.onload=function(){
 				+ $("#status").val() + "&year=" + $("#year").val() + "&month="
 				+ $("#month").val()+"&userOrAppName="+$("#userOrAppName").val();
 	}
+	function exportFinancial()
+	{
+		location.href = "exportFinancial?status="
+		+ $("#status").val() + "&year=" + $("#year").val() + "&month="
+		+ $("#month").val()+"&userOrAppName="+$("#userOrAppName").val();
+	}
 	function checkOutAppFinancial(i,appId, appName, paySum) {
 		var year = $("#year").val();
 		var month = $("#month").val();
@@ -93,6 +99,8 @@ window.onload=function(){
 			});
 		}
 	}
+	
+	
 	
 	$(document).ready(function(){
 		$("#userOrAppName").focus(function(){
@@ -160,6 +168,10 @@ window.onload=function(){
 					<div class="fl">
 						<input type="image" onclick="initFinancial(1)"
 							src="images/cha_03.jpg" />
+					</div>
+					<div class="fl">
+						<input type="image" onclick="exportFinancial()"
+							src="images/daochu.jpg" />
 					</div>
 				</div>
 				<!--chaxun-->

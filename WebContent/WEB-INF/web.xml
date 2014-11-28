@@ -35,8 +35,8 @@
     </init-param> 
   </filter>
   <filter-mapping>
-  	<filter-name>userError</filter-name>
-  	<url-pattern>/developer/*</url-pattern>
+  	<filter-name>financialError</filter-name>
+  	<url-pattern>/financial/*</url-pattern>
   </filter-mapping>
 <!-- *****************************financialError end***************************** -->
 

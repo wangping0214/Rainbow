@@ -78,12 +78,12 @@
 </table></div>
  <div class="container">
     <div id="slides">
-      <a href="zazhi/1425/8.html"><img src="zazhi/1425/img/banner1.jpg" width="100%"></a>
-      <a href="zazhi/1425/9.html"><img src="zazhi/1425/img/banner2.jpg" width="100%"></a>
-      <a href="zazhi/1425/10.html"><img src="zazhi/1425/img/banner3.jpg" width="100%"></a>
-      <a href="zazhi/1425/8.html" class="slidesjs-previous slidesjs-navigation"></a>
-      <a href="zazhi/1425/9.html" class="slidesjs-next slidesjs-navigation"></a>
-      <a href="zazhi/1425/10.html" class="slidesjs-next slidesjs-navigation"></a>
+      <a href="zazhi/1427/9.html"><img src="zazhi/1427/img/banner1.jpg" width="100%"></a>
+      <a href="zazhi/1427/10.html"><img src="zazhi/1427/img/banner2.jpg" width="100%"></a>
+      <a href="zazhi/1427/16.html"><img src="zazhi/1427/img/banner3.jpg" width="100%"></a>
+      <a href="zazhi/1427/9.html" class="slidesjs-previous slidesjs-navigation"></a>
+      <a href="zazhi/1427/10.html" class="slidesjs-next slidesjs-navigation"></a>
+      <a href="zazhi/1427/16.html" class="slidesjs-next slidesjs-navigation"></a>
     </div>
   </div>
   <!-- End SlidesJS Required: Start Slides -->
@@ -115,15 +115,15 @@
        <p class="headtit"><img src="image/mulu_03.jpg" /><span>本期推荐</span></p>
        <div class="label"><b>标签：</b>
           <ul>
-             <li><a href="javascript:void(0);"><span>文明</span></a></li>
-             <li><a href="javascript:void(0);"><span>熊猫</span></a></li>
-             <li><a href="javascript:void(0);"><span>天龙八部</span></a></li>
+             <li><a href="javascript:void(0);"><span>暗黑复仇</span></a></li>
+             <li><a href="javascript:void(0);"><span>节奏</span></a></li>
+             <li><a href="javascript:void(0);"><span>世界</span></a></li>
           </ul>       
        </div>
        <!--label-->
    </div>
    <!--mtit-->
-   <p class="jianjie">本期热门推荐：稍不留神就挂了！逃脱恶魔的世界《黑暗领地》想死都得死半天的&amp;quot;恐怖&amp;quot;跑酷！；《太极熊猫》感觉熊猫依然萌萌哒，让你一分钟爱上战斗的动作游戏！；重现江湖盛宴 新游《天龙八部3D》指尖上100%天龙八部的世界！；当MOBA对战撞上RPG，《乱斗西游》适合碎片时间的掌上MOBA ！；有妖气漫画是汇聚中国原创漫画和漫画人的造梦工厂。任何人都可以在这里展示自己的漫画和创作才能！</p>
+   <p class="jianjie">本期热门推荐：能旋转的塔防游戏！我的地盘我做主，《睡意侵袭》充满新意，可玩性极高的策略塔防游戏；践踏少女心的男人都该给一锤子《节奏大锤》，随着音乐击飞一切！；绝地武士的复仇之路，《暗黑复仇者2》华丽的暗黑调调，屠龙武士的鲜血之路！；不负众望的王者级大作《世界2》，进击吧！巨兽！做个Boss终结者！；百度贴吧，更为兴趣而生，选择你喜欢的兴趣星球，找到精彩兴趣吧，轻松定制专属你的首页内容。</p>
    <!--jianjie-->
 </div>
 <!--model1-->
@@ -133,11 +133,11 @@
    </div>
    <!--mtit-->
    <ul class="tingwenlist">
-      <li><a href="zazhi/1425/1.html">● Gameloft 14Q3收入4.2亿元 同比减10%</a><span>11-12</span></li>
-      <li><a href="zazhi/1425/2.html">● 2014手游风向标 重度手游引领"井喷之年"</a><span>11-12</span></li>
-      <li><a href="zazhi/1425/3.html">● [炉石传说]将登安卓 亚洲市场或为首选</a><span>11-12</span></li>
-      <li><a href="zazhi/1425/4.html">● S4冠军队分崩离析 近百万年薪仍无人续约</a><span>11-12</span></li>
-      <li><a href="zazhi/1425/5.html">● 大屏旗舰风 NOTE4评测</a><span>11-12</span></li>
+      <li><a href="zazhi/1427/1.html">● Rovio[愤怒的小鸟Go]累计下载破1.07亿次</a><span>11-26</span></li>
+      <li><a href="zazhi/1427/2.html">● 360与浙江卫视合作 推[奔跑吧兄弟]IP手游</a><span>11-26</span></li>
+      <li><a href="zazhi/1427/3.html">● 新浪游戏分拆：研发运营一体 自负盈亏</a><span>11-26</span></li>
+      <li><a href="zazhi/1427/4.html">● 《全球使命2》今日星际公测 星海激斗机械神龟</a><span>11-26</span></li>
+      <li><a href="zazhi/1427/5.html">● 华为群嘲：世界上只有荣耀6 Plus和其他手机</a><span>11-26</span></li>
    </ul>
    <!--jianjie-->
 </div>
@@ -150,11 +150,11 @@
    <div class="ylist">
       <table border="0" cellpadding="0" cellspacing="0" width="100%">
           <tr>
-             <td width="20%" align="center"><p class="picon"><a href="zazhi/1425/6.html"><img src="zazhi/1425/img/i01.png" /></a></p><p class="pname"><a href="zazhi/1425/6.html">暴击坦克</a></p></td>
-             <td width="20%" align="center"><p class="picon"><a href="zazhi/1425/7.html"><img src="zazhi/1425/img/i02.png" /></a></p><p class="pname"><a href="zazhi/1425/7.html">黑暗领地</a></p></td>
-             <td width="20%" align="center"><p class="picon"><a href="zazhi/1425/8.html"><img src="zazhi/1425/img/i03.png" /></a></p><p class="pname"><a href="zazhi/1425/8.html">杀手狙击之神</a></p></td>
-             <td width="20%" align="center"><p class="picon"><a href="zazhi/1425/9.html"><img src="zazhi/1425/img/i04.png" /></a></p><p class="pname"><a href="zazhi/1425/9.html">太极熊猫</a></p></td>
-             <td width="20%" align="center"><p class="picon"><a href="zazhi/1425/10.html"><img src="zazhi/1425/img/i05.png" /></a></p><p class="pname"><a href="zazhi/1425/10.html">天龙八部3D</a></p></td>
+             <td width="20%" align="center"><p class="picon"><a href="zazhi/1427/6.html"><img src="zazhi/1427/img/i01.png" /></a></p><p class="pname"><a href="zazhi/1427/6.html">睡意侵袭</a></p></td>
+             <td width="20%" align="center"><p class="picon"><a href="zazhi/1427/7.html"><img src="zazhi/1427/img/i02.png" /></a></p><p class="pname"><a href="zazhi/1427/7.html">绝望黑暗洞穴</a></p></td>
+             <td width="20%" align="center"><p class="picon"><a href="zazhi/1427/8.html"><img src="zazhi/1427/img/i03.png" /></a></p><p class="pname"><a href="zazhi/1427/8.html">逃离巨像</a></p></td>
+             <td width="20%" align="center"><p class="picon"><a href="zazhi/1427/9.html"><img src="zazhi/1427/img/i04.png" /></a></p><p class="pname"><a href="zazhi/1427/9.html">王国保卫战起源</a></p></td>
+             <td width="20%" align="center"><p class="picon"><a href="zazhi/1427/10.html"><img src="zazhi/1427/img/i05.png" /></a></p><p class="pname"><a href="zazhi/1427/10.html">奔跑吧兄弟我是车神</a></p></td>
           </tr>
       </table>
    </div>
@@ -169,11 +169,11 @@
    <div class="ylist">
       <table border="0" cellpadding="0" cellspacing="0" width="100%">
           <tr>
-             <td width="20%" align="center"><p class="picon"><a href="zazhi/1425/11.html"><img src="zazhi/1425/img/i06.png" /></a></p><p class="pname"><a href="zazhi/1425/11.html">魔法钢琴</a></p></td>
-             <td width="20%" align="center"><p class="picon"><a href="zazhi/1425/12.html"><img src="zazhi/1425/img/i07.png" /></a></p><p class="pname"><a href="zazhi/1425/12.html">足球迷巴士司机3D</a></p></td>
-             <td width="20%" align="center"><p class="picon"><a href="zazhi/1425/13.html"><img src="zazhi/1425/img/i08.png" /></a></p><p class="pname"><a href="zazhi/1425/13.html">嗜血格斗</a></p></td>
-             <td width="20%" align="center"><p class="picon"><a href="zazhi/1425/14.html"><img src="zazhi/1425/img/i09.png" /></a></p><p class="pname"><a href="zazhi/1425/14.html">三国之刃</a></p></td>
-             <td width="20%" align="center"><p class="picon"><a href="zazhi/1425/15.html"><img src="zazhi/1425/img/i10.png" /></a></p><p class="pname"><a href="zazhi/1425/15.html">功夫传奇</a></p></td>
+             <td width="20%" align="center"><p class="picon"><a href="zazhi/1427/11.html"><img src="zazhi/1427/img/i06.png" /></a></p><p class="pname"><a href="zazhi/1427/11.html">节奏大锤</a></p></td>
+             <td width="20%" align="center"><p class="picon"><a href="zazhi/1427/12.html"><img src="zazhi/1427/img/i07.png" /></a></p><p class="pname"><a href="zazhi/1427/12.html">末日狂奔</a></p></td>
+             <td width="20%" align="center"><p class="picon"><a href="zazhi/1427/13.html"><img src="zazhi/1427/img/i08.png" /></a></p><p class="pname"><a href="zazhi/1427/13.html">滑板少年</a></p></td>
+             <td width="20%" align="center"><p class="picon"><a href="zazhi/1427/14.html"><img src="zazhi/1427/img/i09.png" /></a></p><p class="pname"><a href="zazhi/1427/14.html">超凡特工</a></p></td>
+             <td width="20%" align="center"><p class="picon"><a href="zazhi/1427/15.html"><img src="zazhi/1427/img/i10.png" /></a></p><p class="pname"><a href="zazhi/1427/15.html">急速冲击</a></p></td>
           </tr>
       </table>
    </div>
@@ -188,8 +188,8 @@
    <div class="ylist">
       <table border="0" cellpadding="0" cellspacing="0" width="100%">
           <tr>
-             <td width="50%" align="center"><p class="picon2"><a href="zazhi/1425/16.html"><img src="zazhi/1425/img/i12.jpg" /></a></p><p class="pname2"><a href="zazhi/1425/16.html">文明：变革2</a></p></td>
-             <td width="50%" align="center"><p class="picon2"><a href="zazhi/1425/17.html"><img src="zazhi/1425/img/i13.jpg" /></a></p><p class="pname2"><a href="zazhi/1425/17.html">乱斗西游</a></p></td>
+             <td width="50%" align="center"><p class="picon2"><a href="zazhi/1427/16.html"><img src="zazhi/1427/img/i12.jpg" /></a></p><p class="pname2"><a href="zazhi/1427/16.html">暗黑复仇者2</a></p></td>
+             <td width="50%" align="center"><p class="picon2"><a href="zazhi/1427/17.html"><img src="zazhi/1427/img/i13.jpg" /></a></p><p class="pname2"><a href="zazhi/1427/17.html">世界2</a></p></td>
           </tr>
       </table>
    </div>
@@ -202,11 +202,11 @@
    </div>
    <!--mtit-->
    <ul class="tingwenlist">
-      <li><a href="zazhi/1425/18.html">● 邪恶联盟开发商新作《百变英雄3》</a><span>11-12</span></li>
-      <li><a href="zazhi/1425/19.html">● 专注像素三十年 Nitrome街机新作《捕鸽人》本周来袭</a><span>11-12</span></li>
-      <li><a href="zazhi/1425/20.html">● 老牌益智游戏《涂鸦跳跃》新玩法 DC超级英雄齐齐来助阵</a><span>11-12</span></li>
-      <li><a href="zazhi/1425/21.html">● 火爆日漫《心理测量者》将改编手游 2015年初亮相</a><span>11-12</span></li>
-      <li><a href="zazhi/1425/22.html">● 《西游·神魔决》最新内容曝光：五大特色全面解析</a><span>11-12</span></li>
+      <li><a href="zazhi/1427/18.html">● G-star 2014：格斗新游《龙之谷：迷宫》首度曝光 明年正式亮相</a><span>11-26</span></li>
+      <li><a href="zazhi/1427/19.html">● 超大型次时代MMORPG《方舟领域》暌违两年后最新情报首曝</a><span>11-26</span></li>
+      <li><a href="zazhi/1427/20.html">● 《乱斗西游》全新英雄嫦娥视频曝光 美艳并强大着</a><span>11-26</span></li>
+      <li><a href="zazhi/1427/21.html">● 聚焦未来的人机大战 双摇杆射击新作《未来工厂》年底亮相</a><span>11-26</span></li>
+      <li><a href="zazhi/1427/22.html">● 第三人称射击COC新作《Hordemasters》曝光 精彩预告提前看</a><span>11-26</span></li>
    </ul>
    <!--jianjie-->
 </div>
@@ -219,8 +219,8 @@
    <div class="ylist">
       <table border="0" cellpadding="0" cellspacing="0" width="100%">
           <tr>
-             <td width="30%" align="center"><a href="zazhi/1425/23.html"><img src="zazhi/1425/img/i11.png" width="70" height="70" /></a></td>
-             <td width="70%"><p>应用名称：有妖气漫画</p><p>有妖气漫画（www.u17.com）-中国唯一且最大的纯原创漫画网站,数千名中国原创漫画作者汇聚于此,在线连载最热门的全新漫画作品,为中国原创漫画作者提供最肥沃的漫画创作土壤。</p></td>
+             <td width="30%" align="center"><a href="zazhi/1427/23.html"><img src="zazhi/1427/img/i11.png" width="70" height="70" /></a></td>
+             <td width="70%"><p>应用名称：百度贴吧</p><p>百度贴吧（tieba.baidu.com）-百度贴吧是以兴趣主题聚合志同道合者的互动平台。从2003年至今，百度贴吧拥有6亿注册用户，800万贴吧。在这里，每天都在诞生神贴，这里是当今网络新文化的发源地。每天都有数千万用户在贴吧找到自己的兴趣所在。 </p></td>
           </tr>
       </table>
    </div>
@@ -233,8 +233,8 @@
    </div>
    <!--mtit-->
    <ul class="xiaolist">
-      <li><a href="zazhi/1425/24.html"><img src="image/mulu_32.jpg" />有人加我微信！</a></li>
-      <li><a href="zazhi/1425/25.html"><img src="image/mulu_32.jpg" />无意中碰倒的！</a></li>
+      <li><a href="zazhi/1427/24.html"><img src="image/mulu_32.jpg" />熊孩子！</a></li>
+      <li><a href="zazhi/1427/25.html"><img src="image/mulu_32.jpg" />寝室哥们感冒了！</a></li>
    </ul>
    <!--jianjie-->
 </div>

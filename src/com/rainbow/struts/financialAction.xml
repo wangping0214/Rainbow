@@ -10,5 +10,6 @@
    		</action>
    		<action name="financialLogin"  class="financialAction" method="financialLogin"></action>
    		<action name="checkOutAppFinancial" class="financialAction" method="checkOutAppFinancial"></action>
+   		<action name="exportFinancial" class="financialAction" method="exportFinancial"></action>
    </package>
 </struts>

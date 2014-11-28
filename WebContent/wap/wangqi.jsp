@@ -214,18 +214,18 @@ a,a:hover{text-decoration: none;}
     <td width="108">&nbsp;</td>
     </tr>
     <tr>
-    	<td height="135" valign="top"><div align="center"><a href="zazhi/1425/mulu.html"><img src="image/z-27.jpg" width="99" height="130" border="0" /></a></div></td>
+    	<td height="135" valign="top"><div align="center"><a href="zazhi/1427/mulu.html"><img src="image/z-29.jpg" width="99" height="130" border="0" /></a></div></td>
   		<td>&nbsp;</td>
-  		<td valign="top"><div align="center"></div></td>
+  		<td valign="top"><div align="center"><a href="zazhi/1426/mulu.html"><img src="image/z-28.jpg" width="99" height="130" border="0" /></a></div></td>
   		<td>&nbsp;</td>
-  		<td valign="top"><div align="center"></div></td>
+  		<td valign="top"><div align="center"><a href="zazhi/1425/mulu.html"><img src="image/z-27.jpg" width="99" height="130" border="0" /></a></div></td>
     </tr>
     <tr>
-    	<td height="37" valign="top"><div align="center">第二十七期</div></td>
+    	<td height="37" valign="top"><div align="center">第二十九期</div></td>
     	<td></td>
-    	<td valign="top"><div align="center"></div></td>
+    	<td valign="top"><div align="center"><div align="center">第二十八期</div></div></td>
     	<td></td>
-    	<td valign="top"><div align="center"></div></td>
+    	<td valign="top"><div align="center"><div align="center">第二十七期</div></div></td>
     	<td></td>
     </tr>
     <tr>

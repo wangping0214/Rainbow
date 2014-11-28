@@ -342,6 +342,28 @@ public User findByEmailOrPhoneAndPassword(String emailOrPhone, String password)
 		return null;
 }
 
+@SuppressWarnings("unchecked")
+@Override
+public List<User> findFinancialVisitableUsersAll(int approved, int visitable)
+{
+	Query query = entityManager.createQuery("select u from User u,AppInfo s,AppAuthority w where u.approved = :approved and (u.userType = 'individualUsers' or u.userType = 'individualGroups' ) and u.cp_id = s.cp_id and s.joint = 1 and s.id = w.id and w.visitable = :visitable group by u.id");
+	query.setParameter("approved", approved);
+	query.setParameter("visitable", visitable);
+	return query.getResultList();
+}
+
+@SuppressWarnings("unchecked")
+@Override
+public List<User> findByUserCompanyOrNameVisitableAll(int approved,
+		String companyOrName, int visitable)
+{
+	Query query = entityManager.createQuery("select u from User u,AppInfo s,AppAuthority w where u.approved = :approved and (u.userType = 'individualUsers' or u.userType = 'individualGroups' ) and u.cp_id = s.cp_id and s.joint = 1 and s.id = w.id and w.visitable = :visitable and (u.corporatename like :companyOrName or u.username like :companyOrName) group by u.id");
+	query.setParameter("approved", approved);
+	query.setParameter("visitable", visitable);
+	query.setParameter("companyOrName", "%"+companyOrName+"%");
+	return query.getResultList();
+}
+
 
 
 	
