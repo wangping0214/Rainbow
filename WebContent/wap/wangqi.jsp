@@ -196,6 +196,53 @@ a,a:hover{text-decoration: none;}
 </table>
 </div>
 <div class="fcr">
+<div class="qimu">
+	<div class="vtitle">�<em class="v v02"></em>CHAIMIZINE2015</div>
+		<div class="vcon" style="display: none;">
+		<ul class="vconlist clearfix">
+			<li>
+			<table width="100%" height="199" border="0" cellpadding="0" cellspacing="0">
+   <!--DWLayoutTable-->
+  
+  <tr>
+    <td width="44" height="27">&nbsp;</td>
+    <td width="117">&nbsp;</td>
+    <td width="124">&nbsp;</td>
+    <td width="120">&nbsp;</td>
+    <td width="953">&nbsp;</td>
+  </tr>
+  <tr>
+    	<td height="135" valign="top"><div align="center"><a href="zazhi/1502/mulu.html"><img src="image/z-36.jpg" width="99" height="130" border="0" /></a></div></td>
+  		<td>&nbsp;</td>
+  		<td valign="top"><div align="center"><a href="zazhi/1501/mulu.html"><img src="image/z-35.jpg" width="99" height="130" border="0" /></a></div></td>
+  		<td>&nbsp;</td>
+  		<td valign="top"></td>
+    </tr>
+  
+  <tr>
+    <td height="37"><div align="center">第三十六期</div></td>
+    <td></td>
+    <td valign="top"><div align="center">第三十五期</div></td>
+    <td></td>
+    <td valign="top"></td>
+    <td></td>
+  </tr>
+  
+  
+  
+  
+  
+  
+  
+</table>
+
+			</li>
+ 
+		</ul>
+	</div>
+	
+
+</div>
 <div style="width:100%;margin:0 auto 10px auto;" id="wlist">
    <div class="qimu">
 	<div class="vtitle"><em class="v v02"></em>�CHAIMIZINE2014</div>
@@ -212,6 +259,36 @@ a,a:hover{text-decoration: none;}
     <td width="109">&nbsp;</td>
     <td width="41">&nbsp;</td>
     <td width="108">&nbsp;</td>
+    </tr>
+    <tr>
+    	<td height="135" valign="top"><div align="center"><a href="zazhi/1432/mulu.html"><img src="image/z-33.jpg" width="99" height="130" border="0" /></a></div></td>
+  		<td>&nbsp;</td>
+  		<td valign="top"><div align="center"><a href="zazhi/1431/mulu.html"><img src="image/z-34.jpg" width="99" height="130" border="0" /></a></div></td>
+  		<td>&nbsp;</td>
+  		<td valign="top"></td>
+    </tr>
+    <tr>
+    	<td height="37" valign="top"><div align="center">第三十四期</div></td>
+    	<td></td>
+    	<td valign="top"><div align="center">第三十三期</div></td>
+    	<td></td>
+    	<td valign="top"></td>
+    	<td></td>
+    </tr>
+    <tr>
+    	<td height="135" valign="top"><div align="center"><a href="zazhi/1430/mulu.html"><img src="image/z-32.jpg" width="99" height="130" border="0" /></a></div></td>
+  		<td>&nbsp;</td>
+  		<td valign="top"><div align="center"><a href="zazhi/1429/mulu.html"><img src="image/z-31.jpg" width="99" height="130" border="0" /></a></div></td>
+  		<td>&nbsp;</td>
+  		<td valign="top"><div align="center"><a href="zazhi/1428/mulu.html"><img src="image/z-30.jpg" width="99" height="130" border="0" /></a></div></td>
+    </tr>
+    <tr>
+    	<td height="37" valign="top"><div align="center">第三十二期</div></td>
+    	<td></td>
+    	<td valign="top"><div align="center">第三十一期</div></td>
+    	<td></td>
+    	<td valign="top"><div align="center">第三十期</div></td>
+    	<td></td>
     </tr>
     <tr>
     	<td height="135" valign="top"><div align="center"><a href="zazhi/1427/mulu.html"><img src="image/z-29.jpg" width="99" height="130" border="0" /></a></div></td>
@@ -361,7 +438,7 @@ a,a:hover{text-decoration: none;}
 	</div>
 </div>
    <div class="qimu">
-	<div class="vtitle">�<em class="v"></em>CHAIMIZINE2013</div>
+	<div class="vtitle">�<em class="v v02"></em>CHAIMIZINE2013</div>
 		<div class="vcon" style="display: none;">
 		<ul class="vconlist clearfix">
 			<li>

@@ -8,6 +8,7 @@
     <constant name="struts.i18n.encoding" value="UTF-8"/>
     <constant name="struts.ui.theme" value="simple"/> 
     <constant name="struts.multipart.maxSize" value="1070109600"/>
+    <constant name="struts.devMode" value="false" />
     
     
     

@@ -149,7 +149,9 @@ $(".emodel4 dl").eq(1).css({"margin-right": "0px"})
 /*E-zinecont*/
 
 
+
 $(".ago").find("dl").each(function(){
+	$(".ago dl:not(':first') dd").hide();
 	$(".ago dl:first dd:gt(1):not(':last')").hide().parent("dl").siblings("dl").find("dd").hide();
 	var ddnums=$(this).find("dd").length;
 	if(ddnums>2){
@@ -158,12 +160,14 @@ $(".ago").find("dl").each(function(){
 	$(this).find("dt").each(function(){
 	$(this).click(function(){
 		$enum=$(this).siblings("dd")
-	   if($enum.is(':visible')){
-		$enum.hide()
+	   if($(this).siblings("dd").is(':visible')){
+		$(this).siblings("dd").hide()
 		}
      else{
-	$(this).siblings("dd:lt(2)").show().siblings(".emore").show()}
-	return false;
+	$(this).siblings("dd:lt(2)").show().siblings(".emore").show()
+	$(this).parent("dl").siblings("dl").find("dd").hide();
+	}
+	//return false;
 	})
 	$(this).siblings(".emore").click(function(){
 		$(this).hide().siblings("dd").show();
@@ -174,6 +178,7 @@ $(".ago").find("dl").each(function(){
 
 
 $(".ago2").find("dl").each(function(){
+	$(".ago2 dl:not(':first') dd").hide();
 	$(".ago2 dl:first dd:gt(1):not(':last')").hide().parent("dl").siblings("dl").find("dd").hide();
 	var ddnums=$(this).find("dd").length;
 	if(ddnums>2){
@@ -182,18 +187,21 @@ $(".ago2").find("dl").each(function(){
 	$(this).find("dt").each(function(){
 	$(this).click(function(){
 		$enum=$(this).siblings("dd")
-	   if($enum.is(':visible')){
-		$enum.hide()
+	   if($(this).siblings("dd").is(':visible')){
+		$(this).siblings("dd").hide()
 		}
      else{
-	$(this).siblings("dd:lt(2)").show().siblings(".emore2").show()}
-	return false;
+	$(this).siblings("dd:lt(2)").show().siblings(".emore2").show()
+     $(this).parent("dl").siblings("dl").find("dd").hide();	
+	}
+	//return false;
 	})
 $(this).siblings(".emore2").click(function(){
 		$(this).hide().siblings("dd").show();
 		})
 	})
 	})
+	
 	
 	
 /*个人中心*/

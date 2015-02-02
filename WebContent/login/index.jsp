@@ -108,22 +108,22 @@ $(function()
             <div class="lunbo1">
                    <div class="picList">
                       <div class="big">
-                      	  <a href="Elist/ml14-25.jsp"><img src="images/zazhi/cover14-25.jpg" width="220" height="297" /></a>
-                          <a href="Elist/ml14-24.jsp"><img src="images/zazhi/cover14-24.jpg" width="220" height="297" /></a>
-                      	  <a href="Elist/ml14-23.jsp"><img src="images/zazhi/cover14-23.jpg" width="220" height="297" /></a>
-                          <a href="Elist/ml14-22.jsp"><img src="images/zazhi/cover14-22.jpg" width="220" height="297" /></a>
-                          <a href="Elist/ml14-21.jsp"><img src="images/zazhi/cover14-21.jpg" width="220" height="297" /></a>
-                          <a href="Elist/ml14-20.jsp"><img src="images/zazhi/cover14-20.jpg" width="220" height="297" /></a>
-                          <a href="Elist/ml14-19.jsp"><img src="images/zazhi/cover14-19.jpg" width="220" height="297" /></a>
+                      	  <a href="Elist/ml15-01.jsp"><img src="images/zazhi/cover15-01.jpg" width="220" height="297" /></a>
+                      	  <a href="Elist/ml14-32.jsp"><img src="images/zazhi/cover14-32.jpg" width="220" height="297" /></a>
+                      	  <a href="Elist/ml14-31.jsp"><img src="images/zazhi/cover14-31.jpg" width="220" height="297" /></a>
+                      	  <a href="Elist/ml14-30.jsp"><img src="images/zazhi/cover14-30.jpg" width="220" height="297" /></a>
+                      	  <a href="Elist/ml14-29.jsp"><img src="images/zazhi/cover14-29.jpg" width="220" height="297" /></a>
+                          <a href="Elist/ml14-28.jsp"><img src="images/zazhi/cover14-28.jpg" width="220" height="297" /></a>
+                      	  <a href="Elist/ml14-27.jsp"><img src="images/zazhi/cover14-27.jpg" width="220" height="297" /></a>
                       </div>
                      <ul class="smallList">
-                     	<li><img src="images/zazhi/cover14-25.jpg" width="52" height="72" /><div class="redLine"></div></li>
-                        <li><img src="images/zazhi/cover14-24.jpg" width="52" height="72" /></li>
-                        <li><img src="images/zazhi/cover14-23.jpg" width="52" height="72" /></li>
-                        <li><img src="images/zazhi/cover14-22.jpg" width="52" height="72" /></li>
-                        <li><img src="images/zazhi/cover14-21.jpg" width="52" height="72" /></li>
-                        <li><img src="images/zazhi/cover14-20.jpg" width="52" height="72" /></li>
-                        <li><img src="images/zazhi/cover14-19.jpg" width="52" height="72" /></li>
+                     	<li><img src="images/zazhi/cover15-01.jpg" width="52" height="72" /><div class="redLine"></div></li>
+                     	<li><img src="images/zazhi/cover14-32.jpg" width="52" height="72" /></li>
+                     	<li><img src="images/zazhi/cover14-31.jpg" width="52" height="72" /></li>
+                     	<li><img src="images/zazhi/cover14-30.jpg" width="52" height="72" /></li>
+                     	<li><img src="images/zazhi/cover14-29.jpg" width="52" height="72" /></li>
+                        <li><img src="images/zazhi/cover14-28.jpg" width="52" height="72" /></li>
+                        <li><img src="images/zazhi/cover14-27.jpg" width="52" height="72" /></li>
                      </ul> 
                      <div class="clear"></div>
                   </div>

@@ -72,16 +72,17 @@ $(document).ready(function(){
 		<a href="javascript:void(0);" class="prev" id="prev-04">&nbsp </a>
 		<div class="jCarouselLite" id="demo-04">
 			<ul>
-				<li><a href="Elist/ml14-23.jsp" ><img src="images/zazhi/cover14-25.jpg" width="189" height="250" /></a></li>
-				<li><a href="Elist/ml14-22.jsp" ><img src="images/zazhi/cover14-24.jpg" width="189" height="250" /></a></li>
-				<li><a href="Elist/ml14-23.jsp" ><img src="images/zazhi/cover14-23.jpg" width="189" height="250" /></a></li>
-				<li><a href="Elist/ml14-22.jsp" ><img src="images/zazhi/cover14-22.jpg" width="189" height="250" /></a></li>
-				<li><a href="Elist/ml14-21.jsp" ><img src="images/zazhi/cover14-21.jpg" width="189" height="250" /></a></li>
-                <li><a href="Elist/ml14-20.jsp" ><img src="images/zazhi/cover14-20.jpg" width="189" height="250" /></a></li>
-                <li><a href="Elist/ml14-19.jsp" ><img src="images/zazhi/cover14-19.jpg" width="189" height="250" /></a></li>
-                <li><a href="Elist/ml14-18.jsp" ><img src="images/zazhi/cover14-18.jpg" width="189" height="250" /></a></li>
-                <li><a href="Elist/ml14-17.jsp" ><img src="images/zazhi/cover14-17.jpg" width="189" height="250" /></a></li>
-                <li><a href="Elist/ml14-16.jsp" ><img src="images/zazhi/cover14-16.jpg" width="189" height="250" /></a></li>
+				<li><a href="Elist/ml15-01.jsp" ><img src="images/zazhi/cover15-01.jpg" width="189" height="250" /></a></li>
+				<li><a href="Elist/ml14-32.jsp" ><img src="images/zazhi/cover14-32.jpg" width="189" height="250" /></a></li>
+				<li><a href="Elist/ml14-31.jsp" ><img src="images/zazhi/cover14-31.jpg" width="189" height="250" /></a></li>
+				<li><a href="Elist/ml14-30.jsp" ><img src="images/zazhi/cover14-30.jpg" width="189" height="250" /></a></li>
+				<li><a href="Elist/ml14-29.jsp" ><img src="images/zazhi/cover14-29.jpg" width="189" height="250" /></a></li>
+				<li><a href="Elist/ml14-28.jsp" ><img src="images/zazhi/cover14-28.jpg" width="189" height="250" /></a></li>
+				<li><a href="Elist/ml14-27.jsp" ><img src="images/zazhi/cover14-27.jpg" width="189" height="250" /></a></li>
+				<li><a href="Elist/ml14-26.jsp" ><img src="images/zazhi/cover14-26.jpg" width="189" height="250" /></a></li>
+				<li><a href="Elist/ml14-25.jsp" ><img src="images/zazhi/cover14-25.jpg" width="189" height="250" /></a></li>
+                <li><a href="Elist/ml14-24.jsp" ><img src="images/zazhi/cover14-24.jpg" width="189" height="250" /></a></li>
+                <li><a href="Elist/ml14-23.jsp" ><img src="images/zazhi/cover14-23.jpg" width="189" height="250" /></a></li>
 			</ul>
 		</div>
 		<a href="javascript:void(0);" class="next" id="next-04">&nbsp; </a>
